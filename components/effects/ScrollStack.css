@@ -13,13 +13,13 @@
 
 @media (min-width: 768px) {
   .scroll-stack-inner {
-    padding: 2rem 2rem 35rem;
+    padding: 2rem 2rem 22rem;
   }
 }
 
 @media (min-width: 1024px) {
   .scroll-stack-inner {
-    padding: 2rem 4rem 40rem;
+    padding: 2rem 4rem 35rem;
   }
 }
 

@@ -22,9 +22,9 @@ export default function TopNav() {
 
     return (
         <nav className="sticky top-0 z-50 bg-navy-900/80 backdrop-blur-lg border-b border-navy-800">
-            <div className="px-8 py-4 flex items-center justify-between">
+            <div className="px-4 md:px-8 py-4 flex items-center justify-between">
                 {/* Left: Menu + Logo */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 md:gap-4">
                     <button
                         className="w-10 h-10 flex flex-col items-center justify-center gap-1.5 hover:opacity-70 transition-opacity"
                         aria-label="Menu"
@@ -34,8 +34,8 @@ export default function TopNav() {
                         <span className="w-6 h-0.5 bg-white" />
                     </button>
 
-                    <div className="text-xl font-bold text-white tracking-wide">
-                        <span className="text-orange-500">Fernando</span> Luna
+                    <div className="text-lg md:text-xl font-bold text-white tracking-wide leading-tight">
+                        <span className="text-orange-500">Fernando</span><br className="md:hidden" /> Luna
                     </div>
                 </div>
 
@@ -60,9 +60,9 @@ export default function TopNav() {
                 </div>
 
                 {/* Right: Icons */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 md:gap-4">
                     <button
-                        className="w-10 h-10 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
+                        className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
                         aria-label="Search"
                     >
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -71,14 +71,14 @@ export default function TopNav() {
                     </button>
 
                     <motion.button
-                        className="px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-lg hover:bg-orange-600 transition-colors flex items-center gap-2"
+                        className="px-3 py-2 md:px-4 md:py-2 bg-orange-500 text-white text-xs md:text-sm font-medium rounded-lg hover:bg-orange-600 transition-colors flex items-center gap-2"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        Download CV
+                        <span className="hidden sm:inline">Download </span>CV
                     </motion.button>
                 </div>
             </div>
