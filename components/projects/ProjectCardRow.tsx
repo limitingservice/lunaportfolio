@@ -65,7 +65,7 @@ export default function ProjectCardRow({ projects, className = '', onProjectClic
                                 {project.tags.slice(0, 2).map((tag) => (
                                     <span
                                         key={tag}
-                                        className="px-2 py-1 text-xs bg-navy-700 text-gray-400 rounded"
+                                        className="px-2 py-1 text-xs bg-orange-500/10 text-orange-400/80 rounded border border-orange-500/15"
                                     >
                                         {tag}
                                     </span>

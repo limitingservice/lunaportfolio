@@ -113,7 +113,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                     {project.tools.map((tool) => (
                                                         <span
                                                             key={tool}
-                                                            className="px-3 py-1 bg-navy-900/80 border border-navy-700 text-gray-300 rounded-lg text-sm"
+                                                            className="px-3 py-1 bg-orange-500/10 border border-orange-500/15 text-orange-400/80 rounded-lg text-sm"
                                                         >
                                                             {tool}
                                                         </span>
@@ -325,7 +325,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                         {project.details.skillsApplied.map((skill, idx) => (
                                                             <span
                                                                 key={idx}
-                                                                className="px-4 py-2 bg-navy-800 text-gray-300 rounded-lg border border-navy-700 hover:border-orange-500 transition-colors text-sm"
+                                                                className="px-4 py-2 bg-orange-500/10 text-orange-400/80 rounded-lg border border-orange-500/15 hover:border-orange-500/40 hover:bg-orange-500/15 transition-colors text-sm"
                                                             >
                                                                 {skill}
                                                             </span>

@@ -75,7 +75,7 @@ export default function AboutSection() {
                                 <motion.span
                                     key={skill}
                                     whileHover={{ scale: 1.05 }}
-                                    className="px-4 py-2 bg-navy-800 text-white rounded-lg border border-navy-700 hover:border-orange-500 transition-colors"
+                                    className="px-4 py-2 bg-orange-500/10 text-orange-400/80 rounded-lg border border-orange-500/15 hover:border-orange-500/40 hover:bg-orange-500/15 transition-colors"
                                 >
                                     {skill}
                                 </motion.span>

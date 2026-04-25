@@ -544,20 +544,23 @@ function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone',
     useFrame((state) => {
         if (groupRef.current) {
             if (!isDragging.current && !hovered && !prefersReducedMotion) {
-               const floatY = Math.sin(state.clock.elapsedTime * 0.8) * 0.05;
+               // Increase float amplitude and speed slightly for more noticeable floating
+               const floatY = Math.sin(state.clock.elapsedTime * 1.5) * 0.12;
                
                if (deviceType === 'phone' || deviceType === 'phone-watch') {
                    groupRef.current.position.y = floatY;
-                   targetRotationY.current = THREE.MathUtils.lerp(targetRotationY.current, Math.sin(state.clock.elapsedTime * 0.5) * 0.15, 0.02);
-                   targetRotationX.current = THREE.MathUtils.lerp(targetRotationX.current, 0, 0.02);
+                   // Increase rotation amplitude for more noticeable idle movement
+                   targetRotationY.current = THREE.MathUtils.lerp(targetRotationY.current, Math.sin(state.clock.elapsedTime * 0.8) * 0.25, 0.02);
+                   targetRotationX.current = THREE.MathUtils.lerp(targetRotationX.current, Math.sin(state.clock.elapsedTime * 0.6) * 0.05, 0.02);
                    
                    if (watchGroupRef.current) {
-                       watchGroupRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.9 + 1) * 0.03 - 0.2;
+                       // Make the watch float independently and more noticeably
+                       watchGroupRef.current.position.y = Math.sin(state.clock.elapsedTime * 1.8 + 1) * 0.08 - 0.2;
                    }
                } else {
-                   groupRef.current.position.y = floatY * 0.5;
-                   targetRotationY.current = THREE.MathUtils.lerp(targetRotationY.current, Math.sin(state.clock.elapsedTime * 0.3) * 0.1, 0.02);
-                   targetRotationX.current = THREE.MathUtils.lerp(targetRotationX.current, 0.1, 0.02); 
+                   groupRef.current.position.y = floatY * 0.6;
+                   targetRotationY.current = THREE.MathUtils.lerp(targetRotationY.current, Math.sin(state.clock.elapsedTime * 0.5) * 0.15, 0.02);
+                   targetRotationX.current = THREE.MathUtils.lerp(targetRotationX.current, 0.1 + Math.sin(state.clock.elapsedTime * 0.4) * 0.05, 0.02); 
                }
             }
 
@@ -608,7 +611,7 @@ export default function ThreeModelViewer({ className = '', screens, watchScreens
 
                 <SingleHeroDevice screenImage={screens?.[0]} watchScreenImage={watchScreens?.[0]} deviceType={deviceType} onScreenClick={onScreenClick} />
 
-                <ContactShadows position={[0, -1.2, 0]} opacity={0.6} scale={4} blur={2.5} far={2} />
+                <ContactShadows position={[0, -1.0, 0]} opacity={0.85} scale={7} blur={3} far={3} color="#000000" />
             </Canvas>
         </div>
     );

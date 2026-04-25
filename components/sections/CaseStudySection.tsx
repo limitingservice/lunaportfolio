@@ -63,7 +63,7 @@ export default function CaseStudySection() {
                                         {project.tools.map((tool) => (
                                             <span
                                                 key={tool}
-                                                className="px-3 py-1 bg-navy-700 text-gray-300 rounded-lg text-sm"
+                                                className="px-3 py-1 bg-orange-500/10 border border-orange-500/15 text-orange-400/80 rounded-lg text-sm"
                                             >
                                                 {tool}
                                             </span>

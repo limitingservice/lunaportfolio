@@ -50,7 +50,7 @@ export default function HighlightedProject({ project, onViewDetails }: Highlight
                         {project.tools.map((tool) => (
                             <span
                                 key={tool}
-                                className="px-3 py-1 bg-navy-900/80 border border-navy-700 text-gray-300 rounded-lg text-sm"
+                                className="px-3 py-1 bg-orange-500/10 border border-orange-500/15 text-orange-400/80 rounded-lg text-sm"
                             >
                                 {tool}
                             </span>
@@ -74,10 +74,10 @@ export default function HighlightedProject({ project, onViewDetails }: Highlight
 
                 {/* Right: 3D Viewer */}
                 <div className="order-1 lg:order-2 w-full">
-                    <FeaturedShoeViewer 
-                        projects={[project]} 
+                    <FeaturedShoeViewer
+                        projects={[project]}
                         showHUD={false}
-                        className="!mb-0" 
+                        className="!mb-0"
                     />
                 </div>
             </div>
