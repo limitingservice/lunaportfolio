@@ -8,48 +8,30 @@ import ScrollStack, { ScrollStackItem } from '@/components/effects/ScrollStack';
 const processSteps = [
     {
         number: '01',
-        icon: '📊',
-        label: 'User & Performance Data',
-        headline: 'Understanding the Problem Space',
+        icon: '🧠',
+        label: 'Understanding People & Context',
+        headline: 'Understanding People & Context',
         description:
-            'Every design begins with understanding. I conduct biomechanical testing, user interviews, and performance benchmarking to uncover the real needs behind the brief.',
-        highlights: ['User Interviews', 'Competitive Analysis', 'Data Synthesis'],
+            'Every meaningful design begins with people. I investigate user behaviors, lived experiences, and the systems surrounding them—grounding insights in both qualitative and quantitative data. At the same time, I map real-world constraints to ensure solutions are not just desirable, but viable and responsible.',
+        highlights: ['User Interviews', 'Behavioral Research', 'Data Synthesis', 'Constraint Mapping', 'Stakeholder Alignment', 'Feasibility Analysis'],
     },
     {
         number: '02',
-        icon: '⚖️',
-        label: 'Constraints & Requirements',
-        headline: 'Defining the Boundaries',
+        icon: '💡',
+        label: 'Framing & Exploring Solutions',
+        headline: 'Framing & Exploring Solutions',
         description:
-            'Great design works within constraints. I map weight limits, cost thresholds, manufacturing feasibility, and sustainability goals to define the solution space.',
-        highlights: ['Feasibility Mapping', 'Requirement Analysis', 'Stakeholder Alignment'],
+            'With a clear understanding of needs and constraints, I translate insights into opportunities. I explore interaction patterns, evaluate design directions, and test ideas against defined criteria—turning ambiguity into intentional, informed concepts.',
+        highlights: ['Design Exploration', 'Heuristic Evaluation', 'Criteria Scoring', 'Interaction Modeling', 'Concept Validation'],
     },
     {
         number: '03',
-        icon: '🔬',
-        label: 'Evaluation & Ideation',
-        headline: 'Exploring Possibilities',
+        icon: '🔄',
+        label: 'Prototyping, Testing & Iteration',
+        headline: 'Prototyping, Testing & Iteration',
         description:
-            'I evaluate material properties, interaction patterns, and design options against the established requirements — turning data into informed creative directions.',
-        highlights: ['Heuristic Evaluation', 'Design Exploration', 'Criteria Scoring'],
-    },
-    {
-        number: '04',
-        icon: '🛠️',
-        label: 'Prototyping & Iteration',
-        headline: 'Building to Learn',
-        description:
-            'Through rapid prototyping and iterative refinement, I test multiple approaches — each cycle informed by real feedback and measurable outcomes.',
-        highlights: ['Rapid Prototyping', 'A/B Testing', 'Iterative Refinement'],
-    },
-    {
-        number: '05',
-        icon: '✓',
-        label: 'Validation & Delivery',
-        headline: 'Proving the Solution',
-        description:
-            'The final stage validates every decision through user testing, feedback loops, and real-world performance — ensuring evidence backs every design choice.',
-        highlights: ['Usability Testing', 'User Feedback Loops', 'Impact Measurement'],
+            'I bring ideas to life through rapid prototyping and continuous testing. Each iteration is shaped by real user feedback and measurable outcomes—ensuring the final solution is not only usable, but meaningful and effective in context.',
+        highlights: ['Rapid Prototyping', 'Usability Testing', 'A/B Testing', 'Iterative Refinement', 'Impact Measurement'],
     },
 ];
 
@@ -142,18 +124,23 @@ export default function MaterialsSection() {
                                 Why This <span className="text-orange-500">Matters</span>
                             </h3>
                             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                                <strong className="text-white">Research-driven design</strong> transforms assumptions into evidence.
-                                Every design choice represents validated decisions — balancing user needs,
-                                performance requirements, and real-world constraints.
+                                <strong className="text-white">Great design isn&apos;t just about solving problems</strong>—it&apos;s about
+                                solving the right problems, for the people most affected.
                             </p>
                             <p className="text-base text-gray-400 leading-relaxed">
-                                This process demonstrates <strong className="text-orange-500">UX research methodology</strong> applied
-                                to product design: gathering data, identifying constraints, evaluating options,
-                                prototyping solutions, and validating outcomes through iterative testing.
+                                This approach ensures every decision is grounded in real human needs, shaped by constraints,
+                                and validated through evidence. By balancing empathy with rigor, I create solutions that are
+                                not only functional, but <strong className="text-orange-500">responsible, scalable, and impactful</strong> in the real world.
                             </p>
-                            <div className="pt-4">
+                            <div className="flex flex-wrap justify-center gap-3 pt-4">
                                 <span className="inline-block px-6 py-3 bg-orange-500/10 border border-orange-500/20 text-orange-400 rounded-full text-sm font-bold uppercase tracking-wider">
-                                    Evidence-Based Design Decisions
+                                    Human-Centered
+                                </span>
+                                <span className="inline-block px-6 py-3 bg-orange-500/10 border border-orange-500/20 text-orange-400 rounded-full text-sm font-bold uppercase tracking-wider">
+                                    Evidence-Driven
+                                </span>
+                                <span className="inline-block px-6 py-3 bg-orange-500/10 border border-orange-500/20 text-orange-400 rounded-full text-sm font-bold uppercase tracking-wider">
+                                    Outcome-Focused
                                 </span>
                             </div>
                         </div>
