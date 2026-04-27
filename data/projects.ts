@@ -10,6 +10,7 @@ export interface Project {
     featured: boolean;
     logo?: string; // Optional logo path for company/project branding
     caseStudyImage?: string; // Optional specific image for case study section
+    poster?: string; // Optional poster image for 3D tablet mockup in case studies
     images: {
         thumbnail: string;
         hero: string;
@@ -19,7 +20,7 @@ export interface Project {
         glbModelPath?: string;
         framesPath?: string;
         frameCount?: number;
-        deviceType?: 'phone' | 'laptop' | 'phone-watch';
+        deviceType?: 'phone' | 'laptop' | 'phone-watch' | 'tablet';
         screens?: string[];
         watchScreens?: string[];
     };
@@ -575,6 +576,7 @@ export const projects: Project[] = [
         featured: false,
         logo: '/images/iu-logo-opt.png',
         caseStudyImage: '/images/iu-infographic.jpg',
+        poster: '/images/iu-infographic.jpg',
         images: {
             thumbnail: '/images/iu-research-thumb.jpg',
             hero: '/images/iu-research-hero.jpg',
@@ -732,6 +734,7 @@ export const projects: Project[] = [
         featured: true,
         logo: '/images/threads-logo-opt.png',
         caseStudyImage: '/images/threads-infographic.jpg',
+        poster: '/posters/threads-poster.png',
         images: {
             thumbnail: '/images/threads-thumb.jpg',
             hero: '/images/threads-hero.jpg',

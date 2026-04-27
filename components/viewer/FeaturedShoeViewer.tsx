@@ -28,9 +28,10 @@ interface FeaturedShoeViewerProps {
     projects: Project[];
     className?: string;
     showHUD?: boolean;
+    showExploreButton?: boolean;
 }
 
-export default function FeaturedShoeViewer({ projects, className = '', showHUD = true }: FeaturedShoeViewerProps) {
+export default function FeaturedShoeViewer({ projects, className = '', showHUD = true, showExploreButton = true }: FeaturedShoeViewerProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
@@ -76,6 +77,7 @@ export default function FeaturedShoeViewer({ projects, className = '', showHUD =
                     </Suspense>
 
                     {/* Explore Mockups Button */}
+                    {showExploreButton && (
                     <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center opacity-90 hover:opacity-100 transition-opacity">
                         <motion.button
                             onClick={() => setIsGalleryOpen(true)}
@@ -95,6 +97,7 @@ export default function FeaturedShoeViewer({ projects, className = '', showHUD =
                             Drag device to rotate
                         </span>
                     </div>
+                    )}
 
                     {/* Project navigation arrows */}
                     {projects.length > 1 && (

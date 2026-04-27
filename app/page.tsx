@@ -89,7 +89,7 @@ export default function Home() {
                 </section>
 
                 {/* Case Studies */}
-                <CaseStudySection />
+                <CaseStudySection onViewDetails={(project) => handleProjectClick(project, 'full')} />
 
                 {/* Materials */}
                 <section id="process">

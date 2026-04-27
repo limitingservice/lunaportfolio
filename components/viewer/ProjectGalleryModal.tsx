@@ -30,9 +30,9 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
 
     if (!project) return null;
 
-    // Support mixed devices (phone + watch)
-    const galleryItems: { src: string | null; type: 'phone' | 'laptop' | 'watch' }[] = [];
-    const mainType = project.viewer?.deviceType === 'laptop' ? 'laptop' : 'phone';
+    // Support mixed devices (phone + watch + tablet)
+    const galleryItems: { src: string | null; type: 'phone' | 'laptop' | 'watch' | 'tablet' }[] = [];
+    const mainType = project.viewer?.deviceType === 'laptop' ? 'laptop' : project.viewer?.deviceType === 'tablet' ? 'tablet' : 'phone';
     
     const screens = Array.isArray(project.viewer?.screens) ? project.viewer.screens : [];
     screens.forEach(src => galleryItems.push({ src, type: mainType }));
@@ -239,6 +239,40 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                                                 <h3 className="text-zinc-500 font-medium tracking-wide text-[10px] md:text-xs text-center">WATCH SCREEN</h3>
                                             </div>
                                         )}
+                                    </div>
+                                ) : item.type === 'tablet' ? (
+                                    /* CSS Tablet Frame (iPad Pro style — landscape) */
+                                    <div className="relative w-[560px] h-[400px] md:w-[720px] md:h-[520px] bg-[#2c2c2e] rounded-[24px] md:rounded-[32px] border-[4px] md:border-[6px] border-[#3a3a3c] shadow-[0_20px_80px_rgba(0,0,0,0.7)] flex items-center justify-center overflow-hidden">
+                                        {/* Front camera (right side in landscape) */}
+                                        <div className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#111] border border-[#222] z-20">
+                                            <div className="w-1.5 h-1.5 bg-[#1a2b5e] rounded-full blur-[0.5px] mx-auto mt-[1px]"></div>
+                                        </div>
+                                        
+                                        {item.src ? (
+                                            <div 
+                                                className="w-[95%] h-[94%] rounded-[16px] md:rounded-[22px] overflow-y-auto overflow-x-hidden bg-black border-[2px] md:border-[3px] border-black overscroll-contain"
+                                                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                                            >
+                                                <img 
+                                                    src={item.src} 
+                                                    alt={`${project.name} Poster`} 
+                                                    className="w-full h-auto object-top pointer-events-auto"
+                                                />
+                                            </div>
+                                        ) : (
+                                            <div className="w-[95%] h-[94%] rounded-[16px] md:rounded-[22px] overflow-hidden bg-gradient-to-b from-zinc-800 to-zinc-900 flex flex-col items-center justify-center p-8 text-center border-[2px] md:border-[3px] border-black">
+                                                <div className="w-16 h-16 border-2 border-dashed border-zinc-600 rounded-2xl mb-4 flex items-center justify-center opacity-50">
+                                                    <svg className="w-8 h-8 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                    </svg>
+                                                </div>
+                                                <h3 className="text-zinc-400 font-medium tracking-wide">POSTER</h3>
+                                                <p className="text-zinc-500 text-sm mt-2 max-w-[200px]">Add your poster image here.</p>
+                                            </div>
+                                        )}
+
+                                        {/* Home bar */}
+                                        <div className="absolute bottom-2 md:bottom-3 left-1/2 -translate-x-1/2 w-[100px] md:w-[130px] h-[4px] md:h-[5px] bg-white/30 rounded-full z-20"></div>
                                     </div>
                                 ) : (
                                     /* CSS Phone Frame (iPhone Pro Max style) */

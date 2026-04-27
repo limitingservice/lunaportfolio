@@ -498,8 +498,98 @@ function AppleWatchModel({ position, rotation, scale, screenImage, groupRef, hov
     );
 }
 
+// Device: iPad-style Tablet (landscape, for poster display)
+function TabletModel({ position, rotation, scale, screenImage, groupRef, hovered, setHovered, onScreenClick }: any) {
+    useFrame(() => {
+        if (groupRef.current) {
+            const targetScale = hovered ? 1.02 : 1;
+            groupRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
+        }
+    });
+
+    // Landscape orientation: wider than tall
+    const bodyW = 2.6, bodyH = 1.75, bodyD = 0.055;
+    const bezelX = 0.07, bezelY = 0.06;
+    const texW = bodyW - bezelX * 2;
+    const texH = bodyH - bezelY * 2;
+
+    return (
+        <group
+            ref={groupRef} position={position} rotation={rotation} scale={scale}
+            onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)}
+        >
+            {/* Tablet Body (Aluminum) */}
+            <RoundedBox args={[bodyW, bodyH, bodyD]} radius={0.06} smoothness={5} castShadow receiveShadow>
+                <meshStandardMaterial color="#2c2c2e" roughness={0.3} metalness={0.85} />
+            </RoundedBox>
+
+            {/* Subtle edge highlight */}
+            <RoundedBox args={[bodyW + 0.01, bodyH + 0.01, bodyD - 0.005]} radius={0.06} smoothness={5}>
+                <meshStandardMaterial color="#48484a" roughness={0.3} metalness={0.9} transparent opacity={0.15} />
+            </RoundedBox>
+
+            {/* Screen bezel (black) */}
+            {(() => {
+                const bezelGeo = useMemo(() => {
+                    const shape = createRoundedRectShape(bodyW - 0.02, bodyH - 0.02, 0.05);
+                    return new THREE.ShapeGeometry(shape, 32);
+                }, []);
+                return (
+                    <mesh position={[0, 0, bodyD / 2 + 0.001]} geometry={bezelGeo}>
+                        <meshStandardMaterial color="#0a0a0a" roughness={0.4} metalness={0.3} />
+                    </mesh>
+                );
+            })()}
+
+            {/* Screen content */}
+            {screenImage && (
+                <ScreenTexture
+                    screenImage={screenImage}
+                    position={[0, 0, bodyD / 2 + 0.002]}
+                    width={texW}
+                    height={texH}
+                    cornerRadius={0.03}
+                    onScreenClick={onScreenClick}
+                />
+            )}
+
+            {/* Front camera (centered on right bezel in landscape) */}
+            <mesh position={[bodyW / 2 - 0.04, 0, bodyD / 2 + 0.001]} rotation={[0, 0, 0]}>
+                <circleGeometry args={[0.012, 16]} />
+                <meshStandardMaterial color="#111" roughness={0.1} metalness={0.9} />
+            </mesh>
+
+            {/* Home bar indicator (horizontal, centered bottom) */}
+            {(() => {
+                const homeBarGeo = useMemo(() => {
+                    const shape = createRoundedRectShape(0.3, 0.02, 0.01);
+                    return new THREE.ShapeGeometry(shape, 12);
+                }, []);
+                return (
+                    <mesh position={[0, -bodyH / 2 + 0.04, bodyD / 2 + 0.002]} geometry={homeBarGeo}>
+                        <meshStandardMaterial color="#ffffff" roughness={0.5} metalness={0.2} opacity={0.4} transparent />
+                    </mesh>
+                );
+            })()}
+
+            {/* Power button — top edge */}
+            <RoundedBox position={[bodyW / 4, bodyH / 2 + 0.008, 0]} args={[0.12, 0.012, 0.02]} radius={0.004} smoothness={2}>
+                <meshStandardMaterial color="#3a3a3c" roughness={0.25} metalness={0.9} />
+            </RoundedBox>
+
+            {/* Volume buttons — right side */}
+            <RoundedBox position={[bodyW / 2 + 0.008, bodyH / 4, 0]} args={[0.012, 0.08, 0.02]} radius={0.004} smoothness={2}>
+                <meshStandardMaterial color="#3a3a3c" roughness={0.25} metalness={0.9} />
+            </RoundedBox>
+            <RoundedBox position={[bodyW / 2 + 0.008, bodyH / 4 - 0.15, 0]} args={[0.012, 0.08, 0.02]} radius={0.004} smoothness={2}>
+                <meshStandardMaterial color="#3a3a3c" roughness={0.25} metalness={0.9} />
+            </RoundedBox>
+        </group>
+    );
+}
+
 // Main Interactive Hero Device
-function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone', onScreenClick }: { screenImage?: string; watchScreenImage?: string; deviceType?: 'phone' | 'laptop' | 'phone-watch'; onScreenClick?: () => void }) {
+function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone', onScreenClick }: { screenImage?: string; watchScreenImage?: string; deviceType?: 'phone' | 'laptop' | 'phone-watch' | 'tablet'; onScreenClick?: () => void }) {
     const groupRef = useRef<THREE.Group>(null);
     const watchGroupRef = useRef<THREE.Group>(null);
     const [hovered, setHovered] = useState(false);
@@ -557,6 +647,10 @@ function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone',
                        // Make the watch float independently and more noticeably
                        watchGroupRef.current.position.y = Math.sin(state.clock.elapsedTime * 1.8 + 1) * 0.08 - 0.2;
                    }
+               } else if (deviceType === 'tablet') {
+                   groupRef.current.position.y = floatY * 0.8;
+                   targetRotationY.current = THREE.MathUtils.lerp(targetRotationY.current, Math.sin(state.clock.elapsedTime * 0.6) * 0.18, 0.02);
+                   targetRotationX.current = THREE.MathUtils.lerp(targetRotationX.current, Math.sin(state.clock.elapsedTime * 0.4) * 0.04, 0.02);
                } else {
                    groupRef.current.position.y = floatY * 0.6;
                    targetRotationY.current = THREE.MathUtils.lerp(targetRotationY.current, Math.sin(state.clock.elapsedTime * 0.5) * 0.15, 0.02);
@@ -578,6 +672,8 @@ function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone',
         <group onPointerDown={handlePointerDown} position={[0, 0.4, 0]}>
             {deviceType === 'laptop' ? (
                 <LaptopModel screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={onScreenClick} />
+            ) : deviceType === 'tablet' ? (
+                <TabletModel screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={onScreenClick} />
             ) : deviceType === 'phone-watch' ? (
                 <>
                     <PhoneModel position={[-0.4, 0, 0]} screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={onScreenClick} />
@@ -594,7 +690,7 @@ export interface ThreeModelViewerProps {
     className?: string;
     screens?: string[];
     watchScreens?: string[];
-    deviceType?: 'phone' | 'laptop' | 'phone-watch';
+    deviceType?: 'phone' | 'laptop' | 'phone-watch' | 'tablet';
     onScreenClick?: () => void;
 }
 
