@@ -53,7 +53,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                     />
 
                     {/* Modal */}
-                    <div className="fixed inset-0 z-50 overflow-y-auto">
+                    <div className="fixed inset-0 z-50 overflow-y-auto" data-lenis-prevent="true">
                         <div className="min-h-screen px-4 py-8 flex items-center justify-center">
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -75,7 +75,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                 </button>
 
                                 {/* Scrollable content */}
-                                <div className="overflow-y-auto max-h-[90vh] p-8 lg:p-12">
+                                <div className="overflow-y-auto max-h-[90vh] p-8 lg:p-12" data-lenis-prevent="true">
                                     {!showFullDetails ? (
                                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                                             {/* Left: Project Info */}

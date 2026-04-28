@@ -139,6 +139,19 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
         if (!el) return;
 
         const onWheel = (e: WheelEvent) => {
+            const target = e.target as HTMLElement;
+            const isVerticalScroll = Math.abs(e.deltaY) > Math.abs(e.deltaX);
+            
+            // e.target might be a text node or not have closest method
+            const element = target.nodeType === Node.TEXT_NODE ? target.parentElement : target;
+            const scrollableContainer = element?.closest ? element.closest('.overflow-y-auto') : null;
+
+            // If the user is scrolling vertically inside a scrollable container,
+            // let the browser handle the scroll natively instead of translating it to horizontal scroll.
+            if (isVerticalScroll && scrollableContainer) {
+                return;
+            }
+
             // If the user is already scrolling horizontally (e.g., shift+wheel or trackpad swipe),
             // let the browser handle it natively.
             const horizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
@@ -237,11 +250,15 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                                             </div>
 
                                             {item.src ? (
-                                                <div className="w-full h-full bg-zinc-900 overflow-hidden">
+                                                <div 
+                                                    className="w-full h-full bg-zinc-900 overflow-y-auto overflow-x-hidden overscroll-contain"
+                                                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                                                    data-lenis-prevent="true"
+                                                >
                                                     <img 
                                                         src={item.src} 
                                                         alt={`${project.name} Screen ${index + 1}`} 
-                                                        className="w-full h-full object-cover"
+                                                        className="w-full h-auto object-top pointer-events-auto"
                                                     />
                                                 </div>
                                             ) : (
@@ -275,6 +292,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                                             <div 
                                                 className="w-[92%] h-[92%] rounded-[38px] md:rounded-[48px] overflow-y-auto overflow-x-hidden bg-black border-[4px] md:border-[6px] border-black overscroll-contain"
                                                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                                                data-lenis-prevent="true"
                                             >
                                                 <img 
                                                     src={item.src} 
@@ -300,6 +318,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                                             <div 
                                                 className="w-[95%] h-[94%] rounded-[16px] md:rounded-[22px] overflow-y-auto overflow-x-hidden bg-black border-[2px] md:border-[3px] border-black overscroll-contain"
                                                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                                                data-lenis-prevent="true"
                                             >
                                                 <img 
                                                     src={item.src} 
@@ -331,11 +350,15 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                                         </div>
                                         
                                         {item.src ? (
-                                            <div className="w-full h-full rounded-[38px] md:rounded-[48px] overflow-hidden bg-zinc-900 border-[3px] md:border-[5px] border-black">
+                                            <div 
+                                                className="w-full h-full rounded-[38px] md:rounded-[48px] bg-zinc-900 border-[3px] md:border-[5px] border-black overflow-y-auto overflow-x-hidden overscroll-contain"
+                                                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                                                data-lenis-prevent="true"
+                                            >
                                                 <img 
                                                     src={item.src} 
                                                     alt={`${project.name} Screen ${index + 1}`} 
-                                                    className="w-full h-full object-cover"
+                                                    className="w-full h-auto object-top pointer-events-auto"
                                                 />
                                             </div>
                                         ) : (
