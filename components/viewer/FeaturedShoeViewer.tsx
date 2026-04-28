@@ -29,9 +29,10 @@ interface FeaturedShoeViewerProps {
     className?: string;
     showHUD?: boolean;
     showExploreButton?: boolean;
+    showDragHint?: boolean;
 }
 
-export default function FeaturedShoeViewer({ projects, className = '', showHUD = true, showExploreButton = true }: FeaturedShoeViewerProps) {
+export default function FeaturedShoeViewer({ projects, className = '', showHUD = true, showExploreButton = true, showDragHint }: FeaturedShoeViewerProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
@@ -91,6 +92,18 @@ export default function FeaturedShoeViewer({ projects, className = '', showHUD =
                             <span className="whitespace-nowrap">Explore Mockups</span>
                         </motion.button>
                         <span className="text-[10px] text-gray-300 mt-4 uppercase tracking-[0.2em] font-medium flex items-center gap-2 drop-shadow-md">
+                            <svg className="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" />
+                            </svg>
+                            Drag device to rotate
+                        </span>
+                    </div>
+                    )}
+
+                    {/* Standalone drag hint (no explore button) */}
+                    {!showExploreButton && showDragHint && (
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center">
+                        <span className="text-[10px] text-gray-300 uppercase tracking-[0.2em] font-medium flex items-center gap-2 drop-shadow-md">
                             <svg className="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" />
                             </svg>

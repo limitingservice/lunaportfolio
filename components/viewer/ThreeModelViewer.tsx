@@ -6,6 +6,237 @@ import { OrbitControls, Environment, ContactShadows, PerspectiveCamera, RoundedB
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import * as THREE from 'three';
 
+// Generates a canvas texture from a loaded HTML/image URL.
+// For .html files: fetches the HTML, renders it via SVG foreignObject into a canvas.
+// Falls back to a styled placeholder if fetch or rendering fails.
+function useHtmlCanvasTexture(htmlUrl: string | undefined): THREE.CanvasTexture | null {
+    const [texture, setTexture] = useState<THREE.CanvasTexture | null>(null);
+
+    useEffect(() => {
+        if (!htmlUrl || !htmlUrl.endsWith('.html')) return;
+
+        let cancelled = false;
+
+        async function build() {
+            try {
+                const res = await fetch(htmlUrl!);
+                const html = await res.text();
+
+                // Strip <script> tags so SVG foreignObject renders without errors
+                const cleaned = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+
+                const W = 1024, H = 768;
+                const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
+  <foreignObject width="${W}" height="${H}">
+    ${cleaned}
+  </foreignObject>
+</svg>`;
+                const blob = new Blob([svg], { type: 'image/svg+xml' });
+                const url = URL.createObjectURL(blob);
+
+                const img = new Image();
+                img.onload = () => {
+                    if (cancelled) { URL.revokeObjectURL(url); return; }
+                    const canvas = document.createElement('canvas');
+                    canvas.width = W * 2;
+                    canvas.height = H * 2;
+                    const ctx = canvas.getContext('2d')!;
+                    ctx.scale(2, 2);
+                    ctx.drawImage(img, 0, 0, W, H);
+                    URL.revokeObjectURL(url);
+                    const tex = new THREE.CanvasTexture(canvas);
+                    tex.anisotropy = 16;
+                    setTexture(tex);
+                };
+                img.onerror = () => {
+                    URL.revokeObjectURL(url);
+                    setTexture(buildFallbackTexture());
+                };
+                img.src = url;
+            } catch {
+                if (!cancelled) setTexture(buildFallbackTexture());
+            }
+        }
+
+        build();
+        return () => { cancelled = true; };
+    }, [htmlUrl]);
+
+    return texture;
+}
+
+function buildFallbackTexture(): THREE.CanvasTexture {
+    const W = 1024, H = 768;
+    const canvas = document.createElement('canvas');
+    canvas.width = W * 2; canvas.height = H * 2;
+    const ctx = canvas.getContext('2d')!;
+    const s = 2;
+
+    function rr(x: number, y: number, w: number, h: number, r: number) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
+    }
+
+    // Body
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, W * s, H * s);
+
+    // Chrome bar
+    ctx.fillStyle = '#f5f5f7';
+    ctx.fillRect(0, 0, W * s, 40 * s);
+    ctx.fillStyle = '#d1d5db';
+    ctx.fillRect(0, 40 * s, W * s, 1 * s);
+    // URL pill
+    ctx.fillStyle = '#e3e3e8';
+    rr((W / 2 - 160) * s, 8 * s, 320 * s, 24 * s, 8 * s);
+    ctx.fill();
+    ctx.fillStyle = '#6b7280';
+    ctx.font = `${13 * s}px -apple-system, BlinkMacSystemFont, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('iu.edu/research/hci-portfolio', W / 2 * s, 20 * s);
+
+    // IU crimson header
+    const hY = 41, hH = 68;
+    ctx.fillStyle = '#990000';
+    ctx.fillRect(0, hY * s, W * s, hH * s);
+    ctx.fillStyle = '#ffffff';
+    ctx.font = `bold ${26 * s}px Georgia, 'Times New Roman', serif`;
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('Ψ', 28 * s, (hY + hH / 2) * s);
+    ctx.font = `bold ${17 * s}px -apple-system, sans-serif`;
+    ctx.fillText('INDIANA UNIVERSITY', 72 * s, (hY + hH / 2 - 9) * s);
+    ctx.font = `${11 * s}px -apple-system, sans-serif`;
+    ctx.fillStyle = 'rgba(255,255,255,0.88)';
+    ctx.fillText('Indianapolis', 72 * s, (hY + hH / 2 + 11) * s);
+    ctx.textAlign = 'right';
+    ctx.font = `bold ${14 * s}px -apple-system, sans-serif`;
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText('Bring On Tomorrow', (W - 28) * s, (hY + hH / 2 - 8) * s);
+    ctx.font = `${10 * s}px -apple-system, sans-serif`;
+    ctx.fillStyle = 'rgba(255,255,255,0.75)';
+    ctx.fillText("Solving tomorrow's problems today.", (W - 28) * s, (hY + hH / 2 + 10) * s);
+
+    // Main content area
+    const mY = hY + hH + 16, mX = 28, mW = W - 56;
+    // Left border + title
+    ctx.fillStyle = '#990000';
+    ctx.fillRect(mX * s, mY * s, 4 * s, 90 * s);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.font = `bold ${10 * s}px -apple-system, sans-serif`;
+    ctx.fillStyle = '#6b7280';
+    ctx.fillText("HCI Master's Program  •  2024", (mX + 14) * s, mY * s + 2 * s);
+    ctx.font = `bold ${26 * s}px -apple-system, sans-serif`;
+    ctx.fillStyle = '#111827';
+    ctx.fillText('Research Assistant', (mX + 14) * s, (mY + 16) * s);
+    ctx.font = `${12 * s}px -apple-system, sans-serif`;
+    ctx.fillStyle = '#374151';
+    ctx.fillText('Worked across two research labs focusing on interactive data visualization,', (mX + 14) * s, (mY + 52) * s);
+    ctx.fillText('AI-assisted qualitative analysis, and human-centered AI research with older adults.', (mX + 14) * s, (mY + 68) * s);
+
+    // Three columns
+    const cY = mY + 102, cH = 210, cGap = 10;
+    const cW = (mW - cGap * 2) / 3;
+    const cols = [
+        { title: 'Lab 1: Data Viz & Museums', items: ['Goal: Evaluate interactive museum visual deployment.', 'Methods: Field studies at Indiana State Museum with Kinect.', 'Findings: Metaphors supported learning effectively.'] },
+        { title: 'Lab 1: AI & CMT', items: ['Goal: Investigate LLMs for qualitative analysis via CMT.', 'Methods: Scraped 5K+ Reddit posts. Refined via Gemini.', 'Findings: High-confidence outputs aligned with experts.'] },
+        { title: 'Lab 2: AI for Older Adults', items: ['Goal: Examine AI perceptions for health info seeking.', 'Methods: 20 usability testing sessions on trust/utility.', 'Findings: Transparency about limits increased trust.'] },
+    ];
+    cols.forEach((col, i) => {
+        const x = mX + i * (cW + cGap);
+        ctx.fillStyle = '#f9fafb';
+        ctx.fillRect(x * s, cY * s, cW * s, cH * s);
+        ctx.fillStyle = '#990000';
+        ctx.fillRect(x * s, cY * s, cW * s, 4 * s);
+        ctx.fillStyle = '#111827';
+        ctx.font = `bold ${11 * s}px -apple-system, sans-serif`;
+        ctx.textBaseline = 'top';
+        ctx.fillText(col.title, (x + 10) * s, (cY + 12) * s);
+        col.items.forEach((item, j) => {
+            ctx.fillStyle = '#990000';
+            ctx.font = `bold ${11 * s}px -apple-system, sans-serif`;
+            ctx.fillText('→', (x + 10) * s, (cY + 36 + j * 56) * s);
+            ctx.fillStyle = '#374151';
+            ctx.font = `${10 * s}px -apple-system, sans-serif`;
+            const words = item.split(' ');
+            let line = '', lineY = (cY + 36 + j * 56);
+            words.forEach(w => {
+                const test = line + w + ' ';
+                if (ctx.measureText(test).width > (cW - 30) * s && line) {
+                    ctx.fillText(line.trim(), (x + 22) * s, lineY * s);
+                    line = w + ' '; lineY += 14;
+                } else { line = test; }
+            });
+            ctx.fillText(line.trim(), (x + 22) * s, lineY * s);
+        });
+    });
+
+    // Dark bottom section
+    const bY = cY + cH + 10, bH = H - bY - 16;
+    ctx.fillStyle = '#1a1a1a';
+    ctx.fillRect(mX * s, bY * s, mW * s, bH * s);
+    ctx.strokeStyle = '#990000';
+    ctx.lineWidth = 2 * s;
+    ctx.strokeRect((mX - 5) * s, (bY - 5) * s, (mW - 10) * s, (bH - 10) * s);
+    const bCols = [
+        { title: 'Impact & Synthesis', items: ['Supported real-world deployment of interactive installations.', 'Demonstrated AI augments—not replaces—human research.', 'Embodied cognition principles apply physically and digitally.'] },
+        { title: 'Skills & Methods Applied', pills: ['Qualitative Research', 'Field Studies', 'Usability Testing', 'Thematic Analysis', 'CMT', 'AI-Assisted Analysis', 'Prompt Engineering'] },
+    ];
+    const bHalfW = mW / 2 - 8;
+    bCols.forEach((col, i) => {
+        const x = mX + i * (bHalfW + 16);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = `bold ${13 * s}px -apple-system, sans-serif`;
+        ctx.textBaseline = 'top';
+        ctx.fillText(col.title, (x + 12) * s, (bY + 12) * s);
+        ctx.fillStyle = '#4b5563';
+        ctx.fillRect((x + 12) * s, (bY + 30) * s, (bHalfW - 24) * s, 1 * s);
+        if (col.items) {
+            col.items.forEach((item, j) => {
+                ctx.fillStyle = '#990000';
+                ctx.font = `${11 * s}px -apple-system, sans-serif`;
+                ctx.fillText('★', (x + 12) * s, (bY + 38 + j * 20) * s);
+                ctx.fillStyle = '#d1d5db';
+                ctx.fillText(item, (x + 26) * s, (bY + 38 + j * 20) * s);
+            });
+        }
+        if (col.pills) {
+            let px = x + 12, py = bY + 38;
+            ctx.font = `${10 * s}px -apple-system, sans-serif`;
+            col.pills.forEach(pill => {
+                const pw = ctx.measureText(pill).width / s + 20;
+                if ((px + pw) > (x + bHalfW - 12)) { px = x + 12; py += 22; }
+                ctx.fillStyle = '#2d2d2d';
+                rr(px * s, (py - 2) * s, pw * s, 20 * s, 10 * s);
+                ctx.fill();
+                ctx.strokeStyle = '#4b5563';
+                ctx.lineWidth = 1 * s;
+                ctx.stroke();
+                ctx.fillStyle = '#d1d5db';
+                ctx.textBaseline = 'middle';
+                ctx.textAlign = 'left';
+                ctx.fillText(pill, (px + 10) * s, (py + 8) * s);
+                px += pw + 6;
+            });
+        }
+    });
+
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.anisotropy = 16;
+    return tex;
+}
+
 // Helper to create a rounded rectangle THREE.Shape (for the phone screen glass & texture)
 function createRoundedRectShape(width: number, height: number, radius: number): THREE.Shape {
     const shape = new THREE.Shape();
@@ -498,6 +729,37 @@ function AppleWatchModel({ position, rotation, scale, screenImage, groupRef, hov
     );
 }
 
+// Renders an HTML poster URL as a canvas texture on the tablet screen
+function TabletHtmlScreen({ htmlUrl, position, width, height }: { htmlUrl: string; position: [number, number, number]; width: number; height: number }) {
+    const texture = useHtmlCanvasTexture(htmlUrl);
+    const { geometry } = useMemo(() => {
+        const shape = createRoundedRectShape(width, height, 0.03);
+        const geo = new THREE.ShapeGeometry(shape, 32);
+        const pos = geo.attributes.position;
+        const uvs = new Float32Array(pos.count * 2);
+        for (let i = 0; i < pos.count; i++) {
+            uvs[i * 2] = (pos.getX(i) + width / 2) / width;
+            uvs[i * 2 + 1] = (pos.getY(i) + height / 2) / height;
+        }
+        geo.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
+        return { geometry: geo };
+    }, [width, height]);
+
+    if (!texture) {
+        return (
+            <mesh position={position} geometry={geometry}>
+                <meshStandardMaterial color="#111111" roughness={0.4} />
+            </mesh>
+        );
+    }
+
+    return (
+        <mesh position={position} geometry={geometry}>
+            <meshBasicMaterial map={texture} toneMapped={false} />
+        </mesh>
+    );
+}
+
 // Device: iPad-style Tablet (landscape, for poster display)
 function TabletModel({ position, rotation, scale, screenImage, groupRef, hovered, setHovered, onScreenClick }: any) {
     useFrame(() => {
@@ -543,14 +805,23 @@ function TabletModel({ position, rotation, scale, screenImage, groupRef, hovered
 
             {/* Screen content */}
             {screenImage && (
-                <ScreenTexture
-                    screenImage={screenImage}
-                    position={[0, 0, bodyD / 2 + 0.002]}
-                    width={texW}
-                    height={texH}
-                    cornerRadius={0.03}
-                    onScreenClick={onScreenClick}
-                />
+                screenImage.endsWith('.html') ? (
+                    <TabletHtmlScreen
+                        htmlUrl={screenImage}
+                        position={[0, 0, bodyD / 2 + 0.002]}
+                        width={texW}
+                        height={texH}
+                    />
+                ) : (
+                    <ScreenTexture
+                        screenImage={screenImage}
+                        position={[0, 0, bodyD / 2 + 0.002]}
+                        width={texW}
+                        height={texH}
+                        cornerRadius={0.03}
+                        onScreenClick={onScreenClick}
+                    />
+                )
             )}
 
             {/* Front camera (centered on right bezel in landscape) */}

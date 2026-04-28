@@ -41,9 +41,12 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
         project.viewer.watchScreens.forEach(src => galleryItems.push({ src, type: 'watch' }));
     }
     
-    // Ensure we have at least 3 slots to show the layout even if empty
-    while (galleryItems.length < 3) {
-        galleryItems.push({ src: null, type: mainType });
+    // Show 3 placeholder slots only when there are no real screens to display.
+    // Otherwise honor the actual screen count (e.g., a single poster shows one device).
+    if (galleryItems.length === 0) {
+        for (let i = 0; i < 3; i++) {
+            galleryItems.push({ src: null, type: mainType });
+        }
     }
 
     // Custom Scrollbar Logic
@@ -128,6 +131,51 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
         };
     }, []);
 
+    // Translate vertical wheel/trackpad scrolling into horizontal scroll on the gallery.
+    // Attach as a non-passive listener so we can preventDefault — React's onWheel is passive in some browsers.
+    useEffect(() => {
+        if (!isOpen) return;
+        const el = scrollContainerRef.current;
+        if (!el) return;
+
+        const onWheel = (e: WheelEvent) => {
+            // If the user is already scrolling horizontally (e.g., shift+wheel or trackpad swipe),
+            // let the browser handle it natively.
+            const horizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+            if (horizontal === 0) return;
+            e.preventDefault();
+            // Disable snap during a wheel gesture so motion is smooth, not stepped.
+            el.style.scrollSnapType = 'none';
+            el.scrollLeft += horizontal;
+        };
+
+        el.addEventListener('wheel', onWheel, { passive: false });
+        return () => el.removeEventListener('wheel', onWheel);
+    }, [isOpen, galleryItems.length]);
+
+    // Re-enable snap shortly after the user stops scrolling so the gallery settles on a screen.
+    useEffect(() => {
+        if (!isOpen) return;
+        const el = scrollContainerRef.current;
+        if (!el) return;
+
+        let timeout: ReturnType<typeof setTimeout> | null = null;
+        const onScrollEnd = () => {
+            if (timeout) clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                if (!isDraggingRef.current) {
+                    el.style.scrollSnapType = 'x mandatory';
+                }
+            }, 150);
+        };
+
+        el.addEventListener('scroll', onScrollEnd);
+        return () => {
+            el.removeEventListener('scroll', onScrollEnd);
+            if (timeout) clearTimeout(timeout);
+        };
+    }, [isOpen]);
+
     const thumbWidthPct = Math.max(10, 100 / galleryItems.length);
     const thumbLeftPct = scrollProgress * (100 - thumbWidthPct);
 
@@ -157,10 +205,10 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                     </div>
 
                     {/* Horizontal Scroll Gallery */}
-                    <div 
+                    <div
                         ref={scrollContainerRef}
                         onScroll={handleScroll}
-                        className="flex-1 overflow-x-auto overflow-y-hidden px-10 md:px-64 pb-24 pt-10 flex items-center gap-16 md:gap-32 snap-x snap-mandatory"
+                        className={`flex-1 overflow-x-auto overflow-y-hidden px-10 md:px-64 pb-24 pt-10 flex items-center gap-16 md:gap-32 snap-x snap-mandatory ${galleryItems.length === 1 ? 'justify-center' : ''}`}
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
                     >
                         
@@ -308,6 +356,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                     </div>
 
                     {/* Interactive Custom Progress Control Bar — Fully Draggable */}
+                    {galleryItems.length > 1 && (
                     <div className="absolute flex flex-col items-center bottom-6 left-1/2 -translate-x-1/2 w-[80%] max-w-lg z-50">
                         <div className="flex justify-between w-full text-zinc-400 text-xs font-mono mb-2 uppercase px-1">
                             <span>Start</span>
@@ -323,15 +372,16 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                             onPointerCancel={handlePointerUp}
                         >
                             {/* Thumb — no CSS transition so it tracks the pointer 1:1 */}
-                            <div 
+                            <div
                                 className={`absolute top-0.5 bottom-0.5 bg-gradient-to-r from-[#ff4d2e] to-[#ff2a00] rounded-full pointer-events-none ${isDragging ? 'brightness-125 shadow-[0_0_12px_rgba(255,77,46,0.6)]' : 'group-hover:brightness-110'}`}
-                                style={{ 
-                                    width: `${thumbWidthPct}%`, 
+                                style={{
+                                    width: `${thumbWidthPct}%`,
                                     left: `${thumbLeftPct}%`,
                                 }}
                             />
                         </div>
                     </div>
+                    )}
                 </motion.div>
             )}
         </AnimatePresence>

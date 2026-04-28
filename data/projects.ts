@@ -575,8 +575,8 @@ export const projects: Project[] = [
         tags: ['HCI Research', 'AI-Assisted Analysis', 'Museum Studies', 'Older Adults', 'Data Visualization'],
         featured: false,
         logo: '/images/iu-logo-opt.png',
-        caseStudyImage: '/images/iu-infographic.jpg',
-        poster: '/images/iu-infographic.jpg',
+        caseStudyImage: '/posters/iu-research-poster.png',
+        poster: '/posters/new_iuposter.png',
         images: {
             thumbnail: '/images/iu-research-thumb.jpg',
             hero: '/images/iu-research-hero.jpg',
@@ -584,8 +584,8 @@ export const projects: Project[] = [
         viewer: {
             type: '3d',
             glbModelPath: '/models/iu-research.glb',
-            deviceType: 'phone',
-            screens: [],
+            deviceType: 'tablet',
+            screens: ['/posters/new_iuposter.png'],
         },
         details: {
             role: 'Research Assistant',

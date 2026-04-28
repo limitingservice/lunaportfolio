@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(python3 -c \"from PIL import Image; im=Image.open\\(r'c:/Users/lunaf/Documents/Side Projects/Immersive/public/posters/iu-research-poster.png'\\); print\\('size:', im.size, 'aspect:', im.size[0]/im.size[1]\\)\")",
+      "Bash(identify \"c:/Users/lunaf/Documents/Side Projects/Immersive/public/posters/iu-research-poster.png\")",
+      "Bash(python3 -c \"from PIL import Image; im=Image.open\\(r'c:/Users/lunaf/Documents/Side Projects/Immersive/posters/iuposter.png'\\); print\\('size:', im.size, 'aspect:', im.size[0]/im.size[1]\\)\")",
+      "Bash(python3 -c \"from PIL import Image; im=Image.open\\(r'c:/Users/lunaf/Documents/Side Projects/Immersive/posters/new_iuposter.png'\\); print\\('size:', im.size, 'aspect:', im.size[0]/im.size[1]\\)\")"
+    ]
+  }
+}

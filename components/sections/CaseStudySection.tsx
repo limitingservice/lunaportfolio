@@ -101,6 +101,7 @@ export default function CaseStudySection({ onViewDetails }: CaseStudySectionProp
                                             projects={[tabletProject]}
                                             showHUD={false}
                                             showExploreButton={false}
+                                            showDragHint={true}
                                             className="!mb-0"
                                         />
                                     </div>

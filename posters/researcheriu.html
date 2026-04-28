@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IU Research Assistant Poster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* IU Brand Colors and Custom Styles */
+        :root {
+            --iu-crimson: #990000;
+            --iu-creme: #F3EFE9;
+            --iu-dark-gray: #4A4A4A;
+        }
+
+        .bg-iu-crimson {
+            background-color: var(--iu-crimson);
+        }
+
+        .text-iu-crimson {
+            color: var(--iu-crimson);
+        }
+
+        .border-iu-crimson {
+            border-color: var(--iu-crimson);
+        }
+
+        /* Red outline accent inspired by "Bring On Tomorrow" PDF graphics */
+        .iu-image-frame {
+            position: relative;
+        }
+
+        .iu-image-frame::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: 20px;
+            bottom: 20px;
+            border: 4px solid var(--iu-crimson);
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-200 p-4 md:p-8 font-sans text-gray-900 antialiased flex justify-center min-h-screen items-center">
+
+    <div class="bg-white rounded-xl shadow-2xl overflow-hidden w-full max-w-7xl border border-gray-300 relative">
+
+        <div class="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b border-gray-300">
+            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+            <div
+                class="ml-4 bg-white border border-gray-300 rounded text-xs px-3 py-1 text-gray-500 w-64 flex items-center shadow-inner">
+                <svg class="w-3 h-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4">
+                    </path>
+                </svg>
+                iu.edu/research/hci-portfolio
+            </div>
+        </div>
+
+        <header
+            class="bg-iu-crimson text-white px-8 py-6 flex flex-col md:flex-row justify-between items-start md:items-center">
+            <div class="flex items-center gap-4">
+                <div class="text-3xl font-serif font-bold tracking-widest border-r-2 border-white/30 pr-4">Ψ</div>
+                <div>
+                    <h1 class="text-2xl font-bold tracking-tight">INDIANA UNIVERSITY</h1>
+                    <p class="text-sm font-semibold tracking-wider opacity-90 uppercase">Indianapolis</p>
+                </div>
+            </div>
+            <div class="mt-4 md:mt-0 text-right">
+                <p class="text-lg font-bold tracking-wide uppercase">Bring On Tomorrow</p>
+                <p class="text-xs opacity-80">Solving tomorrow's problems today.</p>
+            </div>
+        </header>
+
+        <main class="p-8 md:p-12">
+
+            <div class="mb-12 border-l-8 border-iu-crimson pl-6">
+                <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2">HCI Master's Program &bull;
+                    2024</h2>
+                <h3 class="text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">Research Assistant</h3>
+                <p class="text-xl text-gray-700 max-w-4xl leading-relaxed">
+                    Worked across two research labs focusing on <span class="font-bold text-iu-crimson">interactive data
+                        visualization</span> with museum field studies, <span
+                        class="font-bold text-iu-crimson">AI-assisted qualitative analysis</span> using Conceptual
+                    Metaphor Theory, and <span class="font-bold text-iu-crimson">human-centered AI research</span> with
+                    older adults.
+                </p>
+                <p class="text-sm text-gray-500 mt-4 font-semibold uppercase">Primary Investigators: Francesco Cafaro,
+                    Aquesha Martin-Hammond</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+
+                <div
+                    class="bg-gray-50 p-8 rounded-sm shadow-sm border-t-4 border-iu-crimson hover:shadow-md transition-shadow relative z-10">
+                    <div
+                        class="w-12 h-12 bg-iu-crimson text-white flex items-center justify-center rounded-full mb-6 shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-900">Lab 1: Data Viz & Museum Field Studies</h4>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex items-start"><span class="text-iu-crimson mr-2 font-bold">→</span>
+                            <strong>Goal:</strong> Evaluate interactive data visualizations for museum deployment.</li>
+                        <li class="flex items-start"><span class="text-iu-crimson mr-2 font-bold">→</span>
+                            <strong>Methods:</strong> Deployed at Indiana State Museum; conducted field studies
+                            utilizing Kinect sensors to capture children's movement. Designed artifacts using Figma &
+                            Premiere Pro.</li>
+                        <li class="flex items-start"><span class="text-iu-crimson mr-2 font-bold">→</span>
+                            <strong>Findings:</strong> Movement-based metaphors supported learning. Kinect effectively
+                            captured reflections during interactions.</li>
+                    </ul>
+                </div>
+
+                <div
+                    class="bg-gray-50 p-8 rounded-sm shadow-sm border-t-4 border-iu-crimson hover:shadow-md transition-shadow relative z-10">
+                    <div
+                        class="w-12 h-12 bg-iu-crimson text-white flex items-center justify-center rounded-full mb-6 shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-900">Lab 1: AI & Conceptual Metaphor Theory (CMT)</h4>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex items-start"><span class="text-iu-crimson mr-2 font-bold">→</span>
+                            <strong>Goal:</strong> Investigate if LLMs can reliably assist in qualitative analysis using
+                            CMT.</li>
+                        <li class="flex items-start"><span class="text-iu-crimson mr-2 font-bold">→</span>
+                            <strong>Methods:</strong> Collected 5,000+ Reddit posts via Python/API. Iteratively refined
+                            prompts using Gemini and NotebookLM with curated schemas.</li>
+                        <li class="flex items-start"><span class="text-iu-crimson mr-2 font-bold">→</span>
+                            <strong>Findings:</strong> High-confidence outputs aligned with experts; medium aligned with
+                            students. Full consistency elusive due to LLM variability.</li>
+                    </ul>
+                </div>
+
+                <div
+                    class="bg-gray-50 p-8 rounded-sm shadow-sm border-t-4 border-iu-crimson hover:shadow-md transition-shadow relative z-10">
+                    <div
+                        class="w-12 h-12 bg-iu-crimson text-white flex items-center justify-center rounded-full mb-6 shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-900">Lab 2: Human-Centered AI for Older Adults</h4>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex items-start"><span class="text-iu-crimson mr-2 font-bold">→</span>
+                            <strong>Goal:</strong> Examine older adults' perceptions of AI systems for health
+                            information seeking.</li>
+                        <li class="flex items-start"><span class="text-iu-crimson mr-2 font-bold">→</span>
+                            <strong>Methods:</strong> Prototyped AI artifacts. Conducted 20 usability testing sessions
+                            and scenario-based task surveys focusing on trust.</li>
+                        <li class="flex items-start"><span class="text-iu-crimson mr-2 font-bold">→</span>
+                            <strong>Findings:</strong> Privacy and data safety were primary concerns. Transparency about
+                            AI limitations significantly increased trust.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-[#1A1A1A] text-white p-10 rounded-sm iu-image-frame relative">
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-2xl font-bold mb-6 border-b border-gray-700 pb-2 text-white">Impact & Cross-Lab
+                            Synthesis</h4>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-start"><span class="text-iu-crimson text-lg mr-3">★</span> Supported
+                                real-world deployment and evaluation of interactive museum installations.</li>
+                            <li class="flex items-start"><span class="text-iu-crimson text-lg mr-3">★</span>
+                                Demonstrated how AI tools can augment—but not replace—human qualitative research.</li>
+                            <li class="flex items-start"><span class="text-iu-crimson text-lg mr-3">★</span> Concluded
+                                that embodied cognition principles apply across both physical (museum) and digital (AI)
+                                interactions.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-6 border-b border-gray-700 pb-2 text-white">Skills & Methods
+                            Applied</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="bg-gray-800 border border-gray-600 px-3 py-1 text-sm rounded-full text-gray-300 hover:bg-iu-crimson hover:text-white transition-colors cursor-default">Qualitative
+                                Research</span>
+                            <span
+                                class="bg-gray-800 border border-gray-600 px-3 py-1 text-sm rounded-full text-gray-300 hover:bg-iu-crimson hover:text-white transition-colors cursor-default">Field
+                                Studies</span>
+                            <span
+                                class="bg-gray-800 border border-gray-600 px-3 py-1 text-sm rounded-full text-gray-300 hover:bg-iu-crimson hover:text-white transition-colors cursor-default">Usability
+                                Testing</span>
+                            <span
+                                class="bg-gray-800 border border-gray-600 px-3 py-1 text-sm rounded-full text-gray-300 hover:bg-iu-crimson hover:text-white transition-colors cursor-default">Thematic
+                                Analysis</span>
+                            <span
+                                class="bg-gray-800 border border-gray-600 px-3 py-1 text-sm rounded-full text-gray-300 hover:bg-iu-crimson hover:text-white transition-colors cursor-default">Conceptual
+                                Metaphor Theory</span>
+                            <span
+                                class="bg-gray-800 border border-gray-600 px-3 py-1 text-sm rounded-full text-gray-300 hover:bg-iu-crimson hover:text-white transition-colors cursor-default">AI-Assisted
+                                Analysis</span>
+                            <span
+                                class="bg-gray-800 border border-gray-600 px-3 py-1 text-sm rounded-full text-gray-300 hover:bg-iu-crimson hover:text-white transition-colors cursor-default">Prompt
+                                Engineering</span>
+                            <span
+                                class="bg-gray-800 border border-gray-600 px-3 py-1 text-sm rounded-full text-gray-300 hover:bg-iu-crimson hover:text-white transition-colors cursor-default">Python
+                                & API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="bg-gray-100 p-6 border-t border-gray-200 text-center text-xs text-gray-500">
+            <p>Designed according to Indiana University web brand guidelines. Content reflects 2024 HCI Research
+                Assistant role.</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
