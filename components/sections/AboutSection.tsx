@@ -28,7 +28,7 @@ export default function AboutSection() {
             >
                 {/* Left: Portrait */}
                 <motion.div variants={fadeInUp} className="relative">
-                    <div className="aspect-square bg-navy-800 rounded-2xl overflow-hidden border border-navy-700 relative">
+                    <div className="aspect-square bg-obsidian-800 rounded-2xl overflow-hidden border border-obsidian-700 relative">
                         <Image
                             src="/images/profile.jpg"
                             alt="Fernando Luna"
@@ -39,13 +39,13 @@ export default function AboutSection() {
                     </div>
 
                     {/* Decorative element */}
-                    <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl" />
+                    <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-iridium-500/20 rounded-full blur-2xl" />
                 </motion.div>
 
                 {/* Right: Bio */}
                 <motion.div variants={fadeInUp} className="space-y-6">
                     <h2 className="text-display font-bold text-white">
-                        About <span className="text-orange-500">Me</span>
+                        About <span className="text-iridium-500">Me</span>
                     </h2>
 
                     <div className="space-y-4 text-gray-300">
@@ -75,7 +75,7 @@ export default function AboutSection() {
                                 <motion.span
                                     key={skill}
                                     whileHover={{ scale: 1.05 }}
-                                    className="px-4 py-2 bg-orange-500/10 text-orange-400/80 rounded-lg border border-orange-500/15 hover:border-orange-500/40 hover:bg-orange-500/15 transition-colors"
+                                    className="px-4 py-2 bg-iridium-500/10 text-iridium-400/80 rounded-lg border border-iridium-500/15 hover:border-iridium-500/40 hover:bg-iridium-500/15 transition-colors"
                                 >
                                     {skill}
                                 </motion.span>
@@ -91,7 +91,7 @@ export default function AboutSection() {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-10 h-10 bg-navy-800 rounded-full flex items-center justify-center text-gray-400 hover:text-orange-500 hover:bg-navy-700 transition-colors"
+                            className="w-10 h-10 bg-obsidian-800 rounded-full flex items-center justify-center text-gray-400 hover:text-iridium-500 hover:bg-obsidian-700 transition-colors"
                         >
                             <span className="text-xs font-bold">L</span>
                         </motion.a>
@@ -101,7 +101,7 @@ export default function AboutSection() {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-10 h-10 bg-navy-800 rounded-full flex items-center justify-center text-gray-400 hover:text-orange-500 hover:bg-navy-700 transition-colors"
+                            className="w-10 h-10 bg-obsidian-800 rounded-full flex items-center justify-center text-gray-400 hover:text-iridium-500 hover:bg-obsidian-700 transition-colors"
                         >
                             <span className="text-xs font-bold">P</span>
                         </motion.a>
@@ -109,7 +109,7 @@ export default function AboutSection() {
                             href="mailto:lunafernando@gmail.com"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-10 h-10 bg-navy-800 rounded-full flex items-center justify-center text-gray-400 hover:text-orange-500 hover:bg-navy-700 transition-colors"
+                            className="w-10 h-10 bg-obsidian-800 rounded-full flex items-center justify-center text-gray-400 hover:text-iridium-500 hover:bg-obsidian-700 transition-colors"
                         >
                             <span className="text-xs font-bold">E</span>
                         </motion.a>

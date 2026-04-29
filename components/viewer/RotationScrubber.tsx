@@ -87,7 +87,7 @@ export default function RotationScrubber({
                 {/* Scrub track */}
                 <div
                     ref={trackRef}
-                    className="relative flex-1 min-w-0 h-2 bg-navy-700 rounded-full cursor-pointer group"
+                    className="relative flex-1 min-w-0 h-2 bg-obsidian-700 rounded-full cursor-pointer group"
                     onPointerDown={handlePointerDown}
                     role="slider"
                     aria-valuemin={0}
@@ -99,7 +99,7 @@ export default function RotationScrubber({
                 >
                     {/* Progress fill */}
                     <div
-                        className="absolute inset-y-0 left-0 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full transition-all"
+                        className="absolute inset-y-0 left-0 bg-gradient-to-r from-iridium-500 to-iridium-400 rounded-full transition-all"
                         style={{ width: `${percentage}%` }}
                     />
 
@@ -108,7 +108,7 @@ export default function RotationScrubber({
                         {[0, 90, 180, 270, 360].map((tick) => (
                             <div
                                 key={tick}
-                                className="w-px h-3 bg-navy-500 opacity-50"
+                                className="w-px h-3 bg-obsidian-500 opacity-50"
                                 style={{ marginLeft: tick === 0 ? 0 : -1 }}
                             />
                         ))}
@@ -116,20 +116,20 @@ export default function RotationScrubber({
 
                     {/* Thumb */}
                     <motion.div
-                        className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white rounded-full shadow-lg border-2 border-orange-500 cursor-grab active:cursor-grabbing touch-none"
+                        className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white rounded-full shadow-lg border-2 border-iridium-500 cursor-grab active:cursor-grabbing touch-none"
                         style={{ left: `${percentage}%`, marginLeft: '-10px' }}
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 1.1 }}
                         animate={{ scale: isDragging ? 1.15 : 1 }}
                     >
-                        <div className="absolute inset-1 bg-orange-500 rounded-full" />
+                        <div className="absolute inset-1 bg-iridium-500 rounded-full" />
                     </motion.div>
                 </div>
 
                 {/* Rotation readout */}
                 {showReadout && (
                     <div className="text-sm font-mono text-gray-300 w-12 md:min-w-[80px] text-right shrink-0">
-                        <span className="text-orange-500">{rotation}°</span>
+                        <span className="text-iridium-500">{rotation}°</span>
                     </div>
                 )}
             </div>

@@ -8,19 +8,52 @@ interface ProjectGalleryModalProps {
     isOpen: boolean;
     onClose: () => void;
     project: Project | null;
+    initialDevice?: 'phone' | 'watch' | 'laptop' | 'tablet' | null;
 }
 
-export default function ProjectGalleryModal({ isOpen, onClose, project }: ProjectGalleryModalProps) {
+export default function ProjectGalleryModal({ isOpen, onClose, project, initialDevice }: ProjectGalleryModalProps) {
     useEffect(() => {
-        if (isOpen) {
+        if (isOpen && project) {
             document.body.style.overflow = 'hidden';
-            // Reset scroll position and progress bar to the start
-            setScrollProgress(0);
-            // Use a short timeout so the DOM has rendered before resetting scrollLeft
+            
+            // Build the virtual gallery items strictly to find target index
+            const items: { type: string }[] = [];
+            const mainType = project.viewer?.deviceType === 'laptop' ? 'laptop' : project.viewer?.deviceType === 'tablet' ? 'tablet' : 'phone';
+            const numScreens = Array.isArray(project.viewer?.screens) ? project.viewer.screens.length : 0;
+            for(let i=0; i < numScreens; i++) items.push({ type: mainType });
+            
+            if (project.viewer?.deviceType === 'phone-watch' && Array.isArray(project.viewer?.watchScreens)) {
+                for(let i=0; i < project.viewer.watchScreens.length; i++) items.push({ type: 'watch' });
+            }
+            
+            let targetIndex = 0;
+            if (initialDevice) {
+                const found = items.findIndex(item => item.type === initialDevice);
+                if (found !== -1) targetIndex = found;
+            }
+
+            // Use a short timeout so the DOM has rendered the gallery items
             requestAnimationFrame(() => {
-                if (scrollContainerRef.current) {
-                    scrollContainerRef.current.scrollLeft = 0;
-                }
+                setTimeout(() => {
+                    if (scrollContainerRef.current) {
+                        const container = scrollContainerRef.current;
+                        // Get only the snap-center elements (the slides)
+                        const children = Array.from(container.children).filter(child => child.classList.contains('snap-center')) as HTMLElement[];
+                        
+                        if (children.length > targetIndex && targetIndex > 0) {
+                            const targetChild = children[targetIndex];
+                            // Center the item
+                            const scrollPos = targetChild.offsetLeft - (container.clientWidth / 2) + (targetChild.clientWidth / 2);
+                            container.scrollTo({ left: scrollPos, behavior: 'instant' });
+                            
+                            const maxScroll = container.scrollWidth - container.clientWidth;
+                            setScrollProgress(maxScroll > 0 ? scrollPos / maxScroll : 0);
+                        } else {
+                            container.scrollTo({ left: 0, behavior: 'instant' });
+                            setScrollProgress(0);
+                        }
+                    }
+                }, 50); // slight delay to ensure flex layout finishes calculating widths
             });
         } else {
             document.body.style.overflow = 'unset';
@@ -239,7 +272,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                             >
                                 {item.type === 'laptop' ? (
                                     /* CSS Laptop Frame (Macbook style) */
-                                    <div className="relative w-[320px] h-[210px] sm:w-[600px] sm:h-[380px] md:w-[800px] md:h-[520px] bg-[#d0d0d0] rounded-t-[10px] md:rounded-t-[20px] rounded-b-md border-[2px] md:border-[4px] border-[#999] shadow-[0_20px_80px_rgba(0,0,0,0.8)] flex flex-col items-center overflow-hidden">
+                                    <div className="relative w-[320px] h-[210px] sm:w-[500px] sm:h-[320px] md:w-[640px] md:h-[420px] lg:w-[800px] lg:h-[520px] bg-[#d0d0d0] rounded-t-[10px] md:rounded-t-[20px] rounded-b-md border-[2px] md:border-[4px] border-[#999] shadow-[0_20px_80px_rgba(0,0,0,0.8)] flex flex-col items-center overflow-hidden">
                                         
                                         {/* Screen Bezel */}
                                         <div className="w-full h-[calc(100%-12px)] md:h-[calc(100%-18px)] bg-[#0a0a0a] flex flex-col items-center justify-center p-2 relative shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]">
@@ -281,34 +314,36 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                                         </div>
                                     </div>
                                 ) : item.type === 'watch' ? (
-                                    /* CSS Watch Frame */
-                                    <div className="relative w-[220px] h-[260px] md:w-[280px] md:h-[340px] bg-[#222] rounded-[48px] md:rounded-[60px] border-[6px] md:border-[8px] border-[#333] shadow-[0_0_60px_rgba(0,0,0,0.4)] flex items-center justify-center overflow-visible">
+                                    /* CSS Watch Frame (Dynamic sizing) */
+                                    <div className="relative shrink-0 h-[30vh] min-h-[220px] max-h-[400px] aspect-[4/5] bg-[#222] rounded-[2rem] md:rounded-[3rem] border-[4px] md:border-[8px] border-[#333] shadow-[0_0_40px_rgba(0,0,0,0.5)] flex items-center justify-center overflow-visible">
                                         {/* Digital Crown */}
-                                        <div className="absolute right-[-12px] md:right-[-16px] top-[22%] w-[8px] md:w-[10px] h-[36px] md:h-[44px] bg-[#444] rounded-r-md shadow-[inset_-2px_0_4px_rgba(0,0,0,0.5)] z-[-1]"></div>
+                                        <div className="absolute right-[-8px] md:right-[-16px] top-[22%] w-[6px] md:w-[8px] h-[20%] bg-[#444] rounded-r-md shadow-[inset_-2px_0_4px_rgba(0,0,0,0.5)] z-[-1]"></div>
                                         {/* Side Button */}
-                                        <div className="absolute right-[-8px] md:right-[-10px] top-[55%] w-[4px] md:w-[6px] h-[40px] md:h-[50px] bg-[#333] rounded-r-sm shadow-[inset_-1px_0_2px_rgba(0,0,0,0.5)] z-[-1]"></div>
+                                        <div className="absolute right-[-6px] md:right-[-10px] top-[55%] w-[4px] md:w-[5px] h-[25%] bg-[#333] rounded-r-sm shadow-[inset_-1px_0_2px_rgba(0,0,0,0.5)] z-[-1]"></div>
                                         
-                                        {item.src ? (
-                                            <div 
-                                                className="w-[92%] h-[92%] rounded-[38px] md:rounded-[48px] overflow-y-auto overflow-x-hidden bg-black border-[4px] md:border-[6px] border-black overscroll-contain"
-                                                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                                                data-lenis-prevent="true"
-                                            >
-                                                <img 
-                                                    src={item.src} 
-                                                    alt={`${project.name} Watch Screen ${index + 1}`} 
-                                                    className="w-full h-auto object-top pointer-events-auto"
-                                                />
-                                            </div>
-                                        ) : (
-                                            <div className="w-[92%] h-[92%] rounded-[38px] md:rounded-[48px] overflow-hidden bg-zinc-900 border-[4px] md:border-[6px] border-black flex flex-col items-center justify-center">
-                                                <h3 className="text-zinc-500 font-medium tracking-wide text-[10px] md:text-xs text-center">WATCH SCREEN</h3>
-                                            </div>
-                                        )}
+                                        <div className="w-[92%] h-[92%] rounded-[1.5rem] md:rounded-[2.4rem] bg-black border-[3px] md:border-[6px] border-black overflow-hidden relative">
+                                            {item.src ? (
+                                                <div 
+                                                    className="w-full h-full overflow-y-auto overflow-x-hidden overscroll-contain"
+                                                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                                                    data-lenis-prevent="true"
+                                                >
+                                                    <img 
+                                                        src={item.src} 
+                                                        alt={`${project.name} Watch Screen ${index + 1}`} 
+                                                        className="w-full h-auto pointer-events-auto object-top"
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <div className="w-full h-full bg-zinc-900 flex items-center justify-center text-center">
+                                                    <span className="text-[10px] text-zinc-500 font-medium">WATCH</span>
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
                                 ) : item.type === 'tablet' ? (
                                     /* CSS Tablet Frame (iPad Pro style — landscape) */
-                                    <div className="relative w-[560px] h-[400px] md:w-[720px] md:h-[520px] bg-[#2c2c2e] rounded-[24px] md:rounded-[32px] border-[4px] md:border-[6px] border-[#3a3a3c] shadow-[0_20px_80px_rgba(0,0,0,0.7)] flex items-center justify-center overflow-hidden">
+                                    <div className="relative w-[480px] h-[340px] md:w-[640px] md:h-[460px] lg:w-[760px] lg:h-[540px] bg-[#2c2c2e] rounded-[24px] md:rounded-[32px] border-[4px] md:border-[6px] border-[#3a3a3c] shadow-[0_20px_80px_rgba(0,0,0,0.7)] flex items-center justify-center overflow-hidden">
                                         {/* Front camera (right side in landscape) */}
                                         <div className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#111] border border-[#222] z-20">
                                             <div className="w-1.5 h-1.5 bg-[#1a2b5e] rounded-full blur-[0.5px] mx-auto mt-[1px]"></div>
@@ -342,36 +377,52 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                                         <div className="absolute bottom-2 md:bottom-3 left-1/2 -translate-x-1/2 w-[100px] md:w-[130px] h-[4px] md:h-[5px] bg-white/30 rounded-full z-20"></div>
                                     </div>
                                 ) : (
-                                    /* CSS Phone Frame (iPhone Pro Max style) */
-                                    <div className="relative w-[320px] h-[680px] md:w-[410px] md:h-[880px] bg-black rounded-[45px] md:rounded-[60px] border-[6px] md:border-[10px] border-[#222] shadow-[0_0_80px_rgba(0,0,0,0.5)] flex items-center justify-center overflow-hidden">
-                                        {/* Dynamic Island / Pill */}
-                                        <div className="absolute top-3 md:top-4 left-1/2 -translate-x-1/2 w-24 md:w-32 h-7 md:h-9 bg-black rounded-full z-20 flex justify-end items-center pr-4">
-                                            <div className="w-2.5 h-2.5 rounded-full bg-[#0a0a0a] shadow-[inset_0_0_2px_rgba(255,255,255,0.1)]"></div>
-                                        </div>
-                                        
-                                        {item.src ? (
-                                            <div 
-                                                className="w-full h-full rounded-[38px] md:rounded-[48px] bg-zinc-900 border-[3px] md:border-[5px] border-black overflow-y-auto overflow-x-hidden overscroll-contain"
-                                                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                                                data-lenis-prevent="true"
-                                            >
-                                                <img 
-                                                    src={item.src} 
-                                                    alt={`${project.name} Screen ${index + 1}`} 
-                                                    className="w-full h-auto object-top pointer-events-auto"
-                                                />
+                                    /* CSS Phone Frame (iPhone Pro style with dynamic sizing) */
+                                    <div className="relative shrink-0 h-[65vh] min-h-[450px] max-h-[820px] aspect-[393/852] bg-black rounded-[2.5rem] md:rounded-[3.2rem] border-[3px] md:border-[4px] border-[#444] shadow-[0_0_50px_rgba(0,0,0,0.6)] flex items-center justify-center">
+                                        {/* Outer aluminum band effect */}
+                                        <div className="absolute inset-[-4px] md:inset-[-6px] rounded-[2.6rem] md:rounded-[3.4rem] bg-gradient-to-br from-[#666] via-[#222] to-[#444] -z-10 shadow-[0_20px_40px_rgba(0,0,0,0.8)]"></div>
+
+                                        {/* Hardware Buttons */}
+                                        <div className="absolute left-[-7px] md:left-[-10px] top-[15%] w-[3px] md:w-[4px] h-[4%] bg-[#555] rounded-l-md shadow-[-1px_0_2px_rgba(0,0,0,0.5)]"></div> {/* Mute */}
+                                        <div className="absolute left-[-7px] md:left-[-10px] top-[22%] w-[3px] md:w-[4px] h-[7%] bg-[#555] rounded-l-md shadow-[-1px_0_2px_rgba(0,0,0,0.5)]"></div> {/* Vol Up */}
+                                        <div className="absolute left-[-7px] md:left-[-10px] top-[31%] w-[3px] md:w-[4px] h-[7%] bg-[#555] rounded-l-md shadow-[-1px_0_2px_rgba(0,0,0,0.5)]"></div> {/* Vol Down */}
+                                        <div className="absolute right-[-7px] md:right-[-10px] top-[26%] w-[3px] md:w-[4px] h-[10%] bg-[#555] rounded-r-md shadow-[1px_0_2px_rgba(0,0,0,0.5)]"></div> {/* Power */}
+
+                                        {/* Screen Bezel Area */}
+                                        <div className="w-[calc(100%-12px)] h-[calc(100%-12px)] md:w-[calc(100%-16px)] md:h-[calc(100%-16px)] bg-black rounded-[2rem] md:rounded-[2.8rem] relative overflow-hidden flex flex-col items-center">
+                                            
+                                            {/* Dynamic Island */}
+                                            <div className="absolute top-2 md:top-3 left-1/2 -translate-x-1/2 w-[32%] h-[3.5%] min-h-[22px] bg-black rounded-full z-20 flex justify-end items-center pr-2 md:pr-3 shadow-[0_0_2px_rgba(255,255,255,0.15)]">
+                                                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#0a0a0a] shadow-[inset_0_0_2px_rgba(255,255,255,0.2)]"></div>
                                             </div>
-                                        ) : (
-                                            <div className="w-full h-full rounded-[38px] md:rounded-[48px] bg-gradient-to-b from-zinc-800 to-zinc-900 flex flex-col items-center justify-center p-8 text-center border-[3px] md:border-[5px] border-black">
-                                                <div className="w-16 h-16 border-2 border-dashed border-zinc-600 rounded-2xl mb-4 flex items-center justify-center opacity-50">
-                                                    <svg className="w-8 h-8 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                                    </svg>
+
+                                            {/* Scrollable Content */}
+                                            {item.src ? (
+                                                <div 
+                                                    className="w-full h-full overflow-y-auto overflow-x-hidden overscroll-contain bg-zinc-900"
+                                                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                                                    data-lenis-prevent="true"
+                                                >
+                                                    <img 
+                                                        src={item.src} 
+                                                        alt={`${project.name} Screen ${index + 1}`} 
+                                                        className="w-full h-auto pointer-events-auto block"
+                                                    />
                                                 </div>
-                                                <h3 className="text-zinc-400 font-medium tracking-wide">SCREEN {index + 1}</h3>
-                                                <p className="text-zinc-500 text-sm mt-2 max-w-[200px]">Add your mockup images here later.</p>
-                                            </div>
-                                        )}
+                                            ) : (
+                                                <div className="w-full h-full bg-zinc-900 flex flex-col items-center justify-center text-center p-8">
+                                                    <div className="w-12 h-12 border-2 border-dashed border-zinc-600 rounded-xl mb-3 flex items-center justify-center opacity-50">
+                                                        <svg className="w-6 h-6 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                        </svg>
+                                                    </div>
+                                                    <h3 className="text-zinc-500 font-medium text-xs md:text-sm">SCREEN {index + 1}</h3>
+                                                </div>
+                                            )}
+
+                                            {/* Home Bar */}
+                                            <div className="absolute bottom-1.5 md:bottom-2 left-1/2 -translate-x-1/2 w-[35%] h-[4px] md:h-[5px] bg-white/40 rounded-full z-20 mix-blend-difference"></div>
+                                        </div>
                                     </div>
                                 )}
                             </motion.div>

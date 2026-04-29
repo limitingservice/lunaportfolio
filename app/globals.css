@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-beige-100 text-gray-900;
+    @apply bg-silver-100 text-gray-900;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
@@ -17,6 +17,28 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .metallic-bg {
+    background: linear-gradient(135deg, #fde0a8 0%, #FABC05 30%, #E09B00 50%, #FABC05 70%, #bb4b02 100%);
+    background-size: 200% 200%;
+    animation: metallicShine 6s ease-in-out infinite;
+  }
+
+  .metallic-text {
+    background: linear-gradient(135deg, #fde0a8 0%, #FABC05 30%, #E09B00 50%, #FABC05 70%, #bb4b02 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: metallicShine 6s ease-in-out infinite;
+  }
+
+  @keyframes metallicShine {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 }
 
 /* Custom scrollbar */
@@ -25,21 +47,21 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b1220;
+  background: #050505;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2e3c62;
+  background: #333333;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff4d2e;
+  background: #FABC05;
 }
 
 /* Focus visible styles */
 :focus-visible {
-  outline: 2px solid #ff4d2e;
+  outline: 2px solid #FABC05;
   outline-offset: 2px;
 }
 

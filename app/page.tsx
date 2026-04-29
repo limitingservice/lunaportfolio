@@ -45,7 +45,7 @@ export default function Home() {
                 <section id="about" className="relative min-h-screen px-4 md:px-8 lg:px-16 py-12 md:py-20 flex items-center overflow-x-hidden">
                     <div className="absolute inset-0 z-0 opacity-40">
                         <LiquidEther
-                            colors={['#FF4D2E', '#FF8C42', '#1a1a3e']}
+                            colors={['#FABC05', '#fbaa3a', '#1a1a1a']}
                             mouseForce={15}
                             cursorSize={80}
                             resolution={0.4}
@@ -70,9 +70,9 @@ export default function Home() {
                 </section>
 
                 {/* Featured Projects */}
-                <section id="work" className="px-4 md:px-8 lg:px-16 py-12 md:py-20 bg-navy-950 overflow-x-hidden">
+                <section id="work" className="px-4 md:px-8 lg:px-16 py-12 md:py-20 bg-obsidian-950 overflow-x-hidden">
                     <h2 className="text-3xl font-bold text-white mb-10 text-center">
-                        Featured <span className="text-orange-500">Projects</span>
+                        Featured <span className="metallic-text">Projects</span>
                     </h2>
                     
                     {potsProject && (
@@ -82,7 +82,7 @@ export default function Home() {
                         />
                     )}
 
-                    <div className="pt-8 border-t border-navy-800">
+                    <div className="pt-8 border-t border-obsidian-800">
                         <h3 className="text-xl font-bold text-gray-300 mb-6">More Projects</h3>
                         <ProjectCardRow projects={otherFeaturedProjects} onProjectClick={handleProjectClick} />
                     </div>
@@ -101,15 +101,15 @@ export default function Home() {
                 <ContactSection />
 
                 {/* Footer */}
-                <footer className="py-8 px-4 md:px-8 lg:px-16 border-t border-navy-800">
+                <footer className="py-8 px-4 md:px-8 lg:px-16 border-t border-obsidian-800">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
                         <div>
                             © 2026 Fernando Luna. All rights reserved.
                         </div>
                         <div className="flex gap-6">
-                            <a href="#" className="hover:text-orange-500 transition-colors">Privacy</a>
-                            <a href="#" className="hover:text-orange-500 transition-colors">Terms</a>
-                            <a href="#" className="hover:text-orange-500 transition-colors">Sitemap</a>
+                            <a href="#" className="hover:text-iridium-500 transition-colors">Privacy</a>
+                            <a href="#" className="hover:text-iridium-500 transition-colors">Terms</a>
+                            <a href="#" className="hover:text-iridium-500 transition-colors">Sitemap</a>
                         </div>
                     </div>
                 </footer>

@@ -23,11 +23,11 @@ export default function ProjectCardRow({ projects, className = '', onProjectClic
                         transition={{ delay: index * 0.1 }}
                         whileHover={{ y: -8, scale: 1.02 }}
                         onClick={() => onProjectClick?.(project)}
-                        className="group relative bg-navy-800 rounded-2xl overflow-hidden cursor-pointer border border-navy-700 hover:border-orange-500/50 transition-all"
+                        className="group relative bg-obsidian-800 rounded-2xl overflow-hidden cursor-pointer border border-obsidian-700 hover:border-iridium-500/50 transition-all"
                     >
                         {/* Thumbnail */}
-                        <div className="aspect-square bg-navy-700 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="aspect-square bg-obsidian-700 relative overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-iridium-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
                             {/* Logo or placeholder */}
                             {project.logo ? (
@@ -41,7 +41,7 @@ export default function ProjectCardRow({ projects, className = '', onProjectClic
                                 </div>
                             ) : (
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <svg className="w-16 h-16 text-navy-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-16 h-16 text-obsidian-600" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 2.18l8 3.6v8.72c0 4.35-3 8.38-7 9.67V4.18z" />
                                     </svg>
                                 </div>
@@ -52,7 +52,7 @@ export default function ProjectCardRow({ projects, className = '', onProjectClic
 
                         {/* Content */}
                         <div className="p-4 space-y-2">
-                            <h3 className="font-bold text-white group-hover:text-orange-500 transition-colors">
+                            <h3 className="font-bold text-white group-hover:text-iridium-500 transition-colors">
                                 {project.name}
                             </h3>
 
@@ -65,7 +65,7 @@ export default function ProjectCardRow({ projects, className = '', onProjectClic
                                 {project.tags.slice(0, 2).map((tag) => (
                                     <span
                                         key={tag}
-                                        className="px-2 py-1 text-xs bg-orange-500/10 text-orange-400/80 rounded border border-orange-500/15"
+                                        className="px-2 py-1 text-xs bg-iridium-500/10 text-iridium-400/80 rounded border border-iridium-500/15"
                                     >
                                         {tag}
                                     </span>
@@ -74,8 +74,8 @@ export default function ProjectCardRow({ projects, className = '', onProjectClic
                         </div>
 
                         {/* Hover overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
-                            <span className="text-orange-500 font-medium text-sm">View Details →</span>
+                        <div className="absolute inset-0 bg-gradient-to-t from-obsidian-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
+                            <span className="metallic-text font-medium text-sm">View Details →</span>
                         </div>
                     </motion.div>
                 ))}

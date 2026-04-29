@@ -22,7 +22,7 @@ export default function CaseStudySection({ onViewDetails }: CaseStudySectionProp
                 variants={fadeInUp}
             >
                 <h2 className="text-4xl md:text-display font-bold text-white mb-4">
-                    Case <span className="text-orange-500">Studies</span>
+                    Case <span className="metallic-text">Studies</span>
                 </h2>
                 <p className="text-gray-400 mb-12 max-w-2xl text-base md:text-lg">
                     Deep dives into my research process. Click the poster to explore, or view the full case study.
@@ -47,14 +47,14 @@ export default function CaseStudySection({ onViewDetails }: CaseStudySectionProp
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.15 }}
-                                className="bg-navy-800/50 rounded-3xl p-6 md:p-8 lg:p-12 border border-navy-700 shadow-2xl overflow-hidden"
+                                className="bg-obsidian-800/50 rounded-3xl p-6 md:p-8 lg:p-12 border border-obsidian-700 shadow-2xl overflow-hidden"
                             >
                                 <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-center">
                                     {/* Left: Project Info */}
                                     <div className="space-y-6 order-2 lg:order-1">
                                         <div>
                                             <div className="flex items-center gap-3 mb-3">
-                                                <span className="px-3 py-1 bg-orange-500/20 text-orange-500 text-sm font-bold rounded-full uppercase tracking-wider">
+                                                <span className="px-3 py-1 bg-iridium-500/20 text-iridium-500 text-sm font-bold rounded-full uppercase tracking-wider">
                                                     {project.category}
                                                 </span>
                                                 <span className="text-gray-400 font-medium">{project.year}</span>
@@ -72,7 +72,7 @@ export default function CaseStudySection({ onViewDetails }: CaseStudySectionProp
                                             {project.tools.slice(0, 5).map((tool) => (
                                                 <span
                                                     key={tool}
-                                                    className="px-3 py-1 bg-orange-500/10 border border-orange-500/15 text-orange-400/80 rounded-lg text-sm"
+                                                    className="px-3 py-1 bg-iridium-500/10 border border-iridium-500/15 text-iridium-400/80 rounded-lg text-sm"
                                                 >
                                                     {tool}
                                                 </span>
@@ -83,7 +83,7 @@ export default function CaseStudySection({ onViewDetails }: CaseStudySectionProp
                                         <div className="pt-2">
                                             <motion.button
                                                 onClick={() => onViewDetails?.(project)}
-                                                className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-orange-500/25 flex items-center gap-3"
+                                                className="px-8 py-4 metallic-bg text-obsidian-950 rounded-full font-black transition-all shadow-lg hover:brightness-110 flex items-center gap-3"
                                                 whileHover={{ scale: 1.02 }}
                                                 whileTap={{ scale: 0.98 }}
                                             >

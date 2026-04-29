@@ -37,7 +37,7 @@ const processSteps = [
 
 export default function MaterialsSection() {
     return (
-        <section id="materials" className="bg-navy-900/30">
+        <section id="materials" className="bg-obsidian-900/30">
             {/* Section Header - outside the scroll stack */}
             <motion.div
                 variants={staggerContainer}
@@ -48,7 +48,7 @@ export default function MaterialsSection() {
             >
                 <motion.div variants={fadeInUp} className="mb-4">
                     <h2 className="text-4xl md:text-display font-bold text-white mb-4">
-                        Research & Design <span className="text-orange-500">Process</span>
+                        Research & Design <span className="text-iridium-500">Process</span>
                     </h2>
                     <p className="text-gray-400 max-w-3xl text-base md:text-lg">
                         How research insights, testing data, and performance constraints inform design decisions.
@@ -72,14 +72,14 @@ export default function MaterialsSection() {
             >
                 {processSteps.map((step, index) => (
                     <ScrollStackItem key={step.number}>
-                        <div className="bg-navy-800 border border-navy-700 rounded-3xl lg:rounded-[40px] h-full w-full p-8 md:p-12 flex flex-col justify-center">
+                        <div className="bg-obsidian-800 border border-obsidian-700 rounded-3xl lg:rounded-[40px] h-full w-full p-8 md:p-12 flex flex-col justify-center">
                             <div className="grid md:grid-cols-[auto_1fr] gap-8 items-center">
                                 {/* Left: Number + Icon */}
                                 <div className="flex md:flex-col items-center gap-4">
-                                    <div className="text-6xl md:text-7xl font-black text-orange-500/20 leading-none">
+                                    <div className="text-6xl md:text-7xl font-black text-iridium-500/20 leading-none">
                                         {step.number}
                                     </div>
-                                    <div className="w-14 h-14 bg-orange-500/10 border border-orange-500/20 rounded-2xl flex items-center justify-center text-2xl">
+                                    <div className="w-14 h-14 bg-iridium-500/10 border border-iridium-500/20 rounded-2xl flex items-center justify-center text-2xl">
                                         {step.icon}
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@ export default function MaterialsSection() {
                                 {/* Right: Content */}
                                 <div className="space-y-4">
                                     <div>
-                                        <span className="text-orange-400/80 text-sm font-bold uppercase tracking-wider">
+                                        <span className="text-iridium-400/80 text-sm font-bold uppercase tracking-wider">
                                             {step.label}
                                         </span>
                                         <h3 className="text-2xl md:text-3xl font-bold text-white mt-1">
@@ -104,7 +104,7 @@ export default function MaterialsSection() {
                                         {step.highlights.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="px-3 py-1 bg-orange-500/10 border border-orange-500/15 text-orange-400/80 rounded-lg text-sm"
+                                                className="px-3 py-1 bg-iridium-500/10 border border-iridium-500/15 text-iridium-400/80 rounded-lg text-sm"
                                             >
                                                 {tag}
                                             </span>
@@ -118,10 +118,10 @@ export default function MaterialsSection() {
 
                 {/* Final "Why This Matters" card */}
                 <ScrollStackItem>
-                    <div className="bg-navy-800 border border-orange-500/20 rounded-3xl lg:rounded-[40px] h-full w-full p-8 md:p-12 flex flex-col justify-center">
+                    <div className="bg-obsidian-800 border border-iridium-500/20 rounded-3xl lg:rounded-[40px] h-full w-full p-8 md:p-12 flex flex-col justify-center">
                         <div className="max-w-3xl mx-auto text-center space-y-6">
                             <h3 className="text-3xl md:text-4xl font-bold text-white">
-                                Why This <span className="text-orange-500">Matters</span>
+                                Why This <span className="text-iridium-500">Matters</span>
                             </h3>
                             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
                                 <strong className="text-white">Great design isn&apos;t just about solving problems</strong>—it&apos;s about
@@ -130,16 +130,16 @@ export default function MaterialsSection() {
                             <p className="text-base text-gray-400 leading-relaxed">
                                 This approach ensures every decision is grounded in real human needs, shaped by constraints,
                                 and validated through evidence. By balancing empathy with rigor, I create solutions that are
-                                not only functional, but <strong className="text-orange-500">responsible, scalable, and impactful</strong> in the real world.
+                                not only functional, but <strong className="text-iridium-500">responsible, scalable, and impactful</strong> in the real world.
                             </p>
                             <div className="flex flex-wrap justify-center gap-3 pt-4">
-                                <span className="inline-block px-6 py-3 bg-orange-500/10 border border-orange-500/20 text-orange-400 rounded-full text-sm font-bold uppercase tracking-wider">
+                                <span className="inline-block px-6 py-3 bg-iridium-500/10 border border-iridium-500/20 text-iridium-400 rounded-full text-sm font-bold uppercase tracking-wider">
                                     Human-Centered
                                 </span>
-                                <span className="inline-block px-6 py-3 bg-orange-500/10 border border-orange-500/20 text-orange-400 rounded-full text-sm font-bold uppercase tracking-wider">
+                                <span className="inline-block px-6 py-3 bg-iridium-500/10 border border-iridium-500/20 text-iridium-400 rounded-full text-sm font-bold uppercase tracking-wider">
                                     Evidence-Driven
                                 </span>
-                                <span className="inline-block px-6 py-3 bg-orange-500/10 border border-orange-500/20 text-orange-400 rounded-full text-sm font-bold uppercase tracking-wider">
+                                <span className="inline-block px-6 py-3 bg-iridium-500/10 border border-iridium-500/20 text-iridium-400 rounded-full text-sm font-bold uppercase tracking-wider">
                                     Outcome-Focused
                                 </span>
                             </div>

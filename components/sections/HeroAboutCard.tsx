@@ -21,16 +21,16 @@ export default function HeroAboutCard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-full bg-navy-900/60 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative"
+            className="w-full bg-obsidian-900/60 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative"
         >
             {/* Top decorative gradient glow */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500/0 via-orange-500 to-orange-500/0 opacity-50" />
-            <div className="absolute -top-32 -right-32 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-iridium-500/0 via-iridium-500 to-iridium-500/0 opacity-50" />
+            <div className="absolute -top-32 -right-32 w-64 h-64 bg-iridium-500/10 rounded-full blur-3xl pointer-events-none" />
 
             <div className="p-6 md:p-8 relative z-10 flex flex-col h-full">
                 {/* Header: Photo + Title */}
                 <div className="flex items-center gap-6 mb-6 md:mb-8">
-                    <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl md:rounded-3xl overflow-hidden border-2 border-orange-500/30 flex-shrink-0 shadow-[0_0_20px_rgba(255,77,46,0.2)]">
+                    <div className="relative w-36 h-36 md:w-56 md:h-56 rounded-2xl md:rounded-3xl overflow-hidden border-4 border-iridium-500/30 flex-shrink-0 shadow-[0_0_30px_rgba(250,188,5,0.2)]">
                         <Image
                             src="/images/profile.jpg"
                             alt="Fernando Luna"
@@ -41,24 +41,16 @@ export default function HeroAboutCard() {
                     </div>
                     <div className="flex flex-col justify-center">
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-1.5">
-                            Fernando <span className="text-orange-500">Luna</span>
+                            Fernando <span className="text-iridium-500">Luna</span>
                         </h2>
                         <p className="text-gray-400 text-sm md:text-base font-semibold tracking-wider uppercase">UX Researcher & Designer</p>
                     </div>
                 </div>
 
                 {/* Bio text */}
-                <div className="space-y-3 text-gray-300 text-sm md:text-base leading-relaxed mb-8 flex-grow">
+                <div className="space-y-4 text-gray-300 text-base md:text-lg leading-relaxed mb-8 flex-grow">
                     <p>
-                        I'm a UX researcher and designer holding a Master's in Human-Computer Interaction
-                        from Indiana University. My work focuses on accessible design, user research, and creating
-                        inclusive digital experiences that address real user needs.
-                    </p>
-                    <p>
-                        With experience as a Product Researcher at Darzy.ai and Research Assistant at Indiana University,
-                        I specialize in conducting user interviews, usability testing, and data analysis to inform
-                        design decisions. I've worked on projects ranging from voice assistants for older adults to
-                        museum interactive systems.
+                        Designing human-centered experiences through research, blending tech, culture, and history—pulling from HCI, AI, and fashion to create accessible, thoughtful, and real-world impact.
                     </p>
                 </div>
 
@@ -69,7 +61,7 @@ export default function HeroAboutCard() {
                         {expertise.map((skill) => (
                             <span
                                 key={skill}
-                                className="px-3 py-1.5 bg-navy-800 text-gray-300 text-xs rounded-lg border border-navy-700 hover:border-orange-500 hover:text-white transition-colors"
+                                className="px-3 py-1.5 bg-obsidian-800 text-gray-300 text-xs rounded-lg border border-obsidian-700 hover:border-iridium-500 hover:text-white transition-colors"
                             >
                                 {skill}
                             </span>
@@ -87,7 +79,7 @@ export default function HeroAboutCard() {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.1, y: -2 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-10 h-10 bg-navy-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-orange-500 transition-colors shadow-sm"
+                            className="w-10 h-10 bg-obsidian-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-iridium-500 transition-colors shadow-sm"
                             title="LinkedIn"
                         >
                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -100,7 +92,7 @@ export default function HeroAboutCard() {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.1, y: -2 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-10 h-10 bg-navy-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-orange-500 transition-colors shadow-sm"
+                            className="w-10 h-10 bg-obsidian-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-iridium-500 transition-colors shadow-sm"
                             title="Instagram"
                         >
                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -111,7 +103,7 @@ export default function HeroAboutCard() {
                             href="mailto:lunajfernando@gmail.com"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-4 py-2 bg-orange-500 text-white text-sm font-bold rounded-full hover:bg-orange-600 transition-colors flex items-center gap-2 shadow-[0_0_15px_rgba(255,77,46,0.3)]"
+                            className="px-5 py-2.5 metallic-bg text-obsidian-950 text-sm font-black rounded-full hover:brightness-110 transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(250,188,5,0.3)]"
                         >
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

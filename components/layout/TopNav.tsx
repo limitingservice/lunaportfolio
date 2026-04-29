@@ -21,7 +21,7 @@ export default function TopNav() {
     };
 
     return (
-        <nav className="sticky top-0 z-50 bg-navy-900/80 backdrop-blur-lg border-b border-navy-800">
+        <nav className="sticky top-0 z-50 bg-obsidian-900/80 backdrop-blur-lg border-b border-obsidian-800">
             <div className="px-4 md:px-8 py-4 flex items-center justify-between">
                 {/* Left: Menu + Logo */}
                 <div className="flex items-center gap-3 md:gap-4">
@@ -35,7 +35,7 @@ export default function TopNav() {
                     </button>
 
                     <div className="text-lg md:text-xl font-bold text-white tracking-wide leading-tight">
-                        <span className="text-orange-500">Fernando</span><br className="md:hidden" /> Luna
+                        <span className="text-iridium-500">Fernando</span><br className="md:hidden" /> Luna
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@ export default function TopNav() {
                             {activeSection === item.id && (
                                 <motion.div
                                     layoutId="activeNav"
-                                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-orange-500"
+                                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-iridium-500"
                                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                                 />
                             )}
@@ -71,7 +71,7 @@ export default function TopNav() {
                     </button>
 
                     <motion.button
-                        className="px-3 py-2 md:px-4 md:py-2 bg-orange-500 text-white text-xs md:text-sm font-medium rounded-lg hover:bg-orange-600 transition-colors flex items-center gap-2"
+                        className="px-3 py-2 md:px-4 md:py-2 bg-iridium-500 text-white text-xs md:text-sm font-medium rounded-lg hover:bg-iridium-600 transition-colors flex items-center gap-2"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >

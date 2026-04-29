@@ -60,13 +60,13 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                                 transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                                className="relative w-full max-w-5xl bg-navy-900 rounded-2xl shadow-2xl border border-navy-700 max-h-[90vh] overflow-hidden"
+                                className="relative w-full max-w-5xl bg-obsidian-900 rounded-2xl shadow-2xl border border-obsidian-700 max-h-[90vh] overflow-hidden"
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 {/* Close button */}
                                 <button
                                     onClick={onClose}
-                                    className="absolute top-6 right-6 w-10 h-10 bg-navy-800 hover:bg-orange-500 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-colors z-10"
+                                    className="absolute top-6 right-6 w-10 h-10 bg-obsidian-800 hover:bg-iridium-500 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-colors z-10"
                                     aria-label="Close modal"
                                 >
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -82,7 +82,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                             <div className="space-y-8 order-2 lg:order-1">
                                                 <div>
                                                     <div className="flex items-center gap-3 mb-3">
-                                                        <span className="px-3 py-1 bg-orange-500/20 text-orange-500 text-sm font-bold rounded-full uppercase tracking-wider">
+                                                        <span className="px-3 py-1 bg-iridium-500/20 text-iridium-500 text-sm font-bold rounded-full uppercase tracking-wider">
                                                             {project.category}
                                                         </span>
                                                         <span className="text-gray-400 font-medium">{project.year}</span>
@@ -99,7 +99,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                         <ul className="space-y-3">
                                                             {project.details.keyFindings.slice(0, 3).map((finding, idx) => (
                                                                 <li key={idx} className="flex items-start gap-3 text-gray-300">
-                                                                    <svg className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <svg className="w-5 h-5 text-iridium-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                                                     </svg>
                                                                     <span><strong className="text-white">{finding.category}:</strong> {finding.insights[0]}</span>
@@ -113,7 +113,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                     {project.tools.map((tool) => (
                                                         <span
                                                             key={tool}
-                                                            className="px-3 py-1 bg-orange-500/10 border border-orange-500/15 text-orange-400/80 rounded-lg text-sm"
+                                                            className="px-3 py-1 bg-iridium-500/10 border border-iridium-500/15 text-iridium-400/80 rounded-lg text-sm"
                                                         >
                                                             {tool}
                                                         </span>
@@ -123,7 +123,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                 <div className="pt-4">
                                                     <motion.button
                                                         onClick={() => setShowFullDetails(true)}
-                                                        className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-orange-500/25 flex items-center gap-3"
+                                                        className="px-8 py-4 metallic-bg text-obsidian-950 rounded-full font-black transition-all shadow-lg hover:brightness-110 flex items-center gap-3"
                                                         whileHover={{ scale: 1.02 }}
                                                         whileTap={{ scale: 0.98 }}
                                                     >
@@ -148,7 +148,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                         <div className="space-y-10">
                                             <motion.button
                                                 onClick={() => setShowFullDetails(false)}
-                                                className="flex items-center gap-2 text-gray-400 hover:text-orange-500 transition-colors mb-6 group"
+                                                className="flex items-center gap-2 text-gray-400 hover:text-iridium-500 transition-colors mb-6 group"
                                                 whileHover={{ x: -4 }}
                                             >
                                                 <svg className="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -160,7 +160,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                             {/* Header */}
                                             <div className="mb-8">
                                                 <div className="flex items-center gap-3 mb-4">
-                                                    <span className="px-3 py-1 bg-orange-500/20 text-orange-500 rounded-lg text-sm font-bold">
+                                                    <span className="px-3 py-1 bg-iridium-500/20 text-iridium-500 rounded-lg text-sm font-bold">
                                                         {project.category}
                                                     </span>
                                                     <span className="text-gray-400">{project.year}</span>
@@ -168,7 +168,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                 <h2 className="text-4xl font-bold text-white mb-4">{project.name}</h2>
                                                 {project.details?.role && (
                                                     <p className="text-xl text-gray-300 mb-2">
-                                                        <span className="text-orange-500 font-semibold">Role:</span> {project.details.role}
+                                                        <span className="text-iridium-500 font-semibold">Role:</span> {project.details.role}
                                                     </p>
                                                 )}
                                                 {project.details?.team && (
@@ -189,7 +189,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                             {project.details?.problemStatement && (
                                                 <section className="mb-10">
                                                     <h3 className="text-2xl font-bold text-white mb-4">Problem Statement</h3>
-                                                    <div className="bg-navy-800/50 border border-navy-700 rounded-xl p-6">
+                                                    <div className="bg-obsidian-800/50 border border-obsidian-700 rounded-xl p-6">
                                                         <p className="text-gray-300 leading-relaxed">{project.details.problemStatement}</p>
                                                     </div>
                                                 </section>
@@ -202,7 +202,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                     <ul className="space-y-3">
                                                         {project.details.researchGoals.map((goal, idx) => (
                                                             <li key={idx} className="flex items-start gap-3">
-                                                                <span className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-0.5">
+                                                                <span className="w-6 h-6 bg-iridium-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-0.5">
                                                                     {idx + 1}
                                                                 </span>
                                                                 <span className="text-gray-300">{goal}</span>
@@ -218,8 +218,8 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                     <h3 className="text-2xl font-bold text-white mb-4">Research Methods</h3>
                                                     <div className="grid gap-4">
                                                         {project.details.researchMethods.map((method, idx) => (
-                                                            <div key={idx} className="bg-navy-800/50 border border-navy-700 rounded-xl p-6">
-                                                                <h4 className="text-lg font-bold text-orange-500 mb-2">{method.name}</h4>
+                                                            <div key={idx} className="bg-obsidian-800/50 border border-obsidian-700 rounded-xl p-6">
+                                                                <h4 className="text-lg font-bold metallic-text mb-2">{method.name}</h4>
                                                                 <p className="text-gray-300">{method.description}</p>
                                                             </div>
                                                         ))}
@@ -233,7 +233,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                     <h3 className="text-2xl font-bold text-white mb-4">Participants</h3>
                                                     <div className="grid md:grid-cols-3 gap-4">
                                                         {project.details.participants.map((participant, idx) => (
-                                                            <div key={idx} className="bg-navy-800/50 border border-navy-700 rounded-xl p-5">
+                                                            <div key={idx} className="bg-obsidian-800/50 border border-obsidian-700 rounded-xl p-5">
                                                                 <h4 className="font-bold text-white mb-2">{participant.role}</h4>
                                                                 <p className="text-sm text-gray-400">{participant.description}</p>
                                                             </div>
@@ -248,12 +248,12 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                     <h3 className="text-2xl font-bold text-white mb-4">Key Findings</h3>
                                                     <div className="space-y-6">
                                                         {project.details.keyFindings.map((finding, idx) => (
-                                                            <div key={idx} className="bg-navy-800/50 border border-navy-700 rounded-xl p-6">
-                                                                <h4 className="text-lg font-bold text-orange-500 mb-3">{finding.category}</h4>
+                                                            <div key={idx} className="bg-obsidian-800/50 border border-obsidian-700 rounded-xl p-6">
+                                                                <h4 className="text-lg font-bold metallic-text mb-3">{finding.category}</h4>
                                                                 <ul className="space-y-2">
                                                                     {finding.insights.map((insight, insightIdx) => (
                                                                         <li key={insightIdx} className="flex items-start gap-2">
-                                                                            <span className="text-orange-500 mt-1.5">•</span>
+                                                                            <span className="text-iridium-500 mt-1.5">•</span>
                                                                             <span className="text-gray-300">{insight}</span>
                                                                         </li>
                                                                     ))}
@@ -270,12 +270,12 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                     <h3 className="text-2xl font-bold text-white mb-4">Design Iterations</h3>
                                                     <div className="grid md:grid-cols-2 gap-4">
                                                         {project.details.designIterations.map((iteration, idx) => (
-                                                            <div key={idx} className="bg-navy-800/50 border border-navy-700 rounded-xl p-6">
+                                                            <div key={idx} className="bg-obsidian-800/50 border border-obsidian-700 rounded-xl p-6">
                                                                 <h4 className="text-lg font-bold text-white mb-3">{iteration.area}</h4>
                                                                 <ul className="space-y-2">
                                                                     {iteration.improvements.map((improvement, impIdx) => (
                                                                         <li key={impIdx} className="flex items-start gap-2">
-                                                                            <span className="text-orange-500 mt-1">✓</span>
+                                                                            <span className="text-iridium-500 mt-1">✓</span>
                                                                             <span className="text-gray-300 text-sm">{improvement}</span>
                                                                         </li>
                                                                     ))}
@@ -290,11 +290,11 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                             {project.details?.impact && project.details.impact.length > 0 && (
                                                 <section className="mb-10">
                                                     <h3 className="text-2xl font-bold text-white mb-4">Impact & Learnings</h3>
-                                                    <div className="bg-gradient-to-br from-orange-500/10 to-orange-500/5 border border-orange-500/30 rounded-xl p-6">
+                                                    <div className="bg-gradient-to-br from-iridium-500/10 to-iridium-500/5 border border-iridium-500/30 rounded-xl p-6">
                                                         <ul className="space-y-3">
                                                             {project.details.impact.map((item, idx) => (
                                                                 <li key={idx} className="flex items-start gap-3">
-                                                                    <span className="text-orange-500 text-xl">★</span>
+                                                                    <span className="text-iridium-500 text-xl">★</span>
                                                                     <span className="text-gray-200">{item}</span>
                                                                 </li>
                                                             ))}
@@ -309,7 +309,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                     <h3 className="text-2xl font-bold text-white mb-4">Future Opportunities</h3>
                                                     <div className="grid md:grid-cols-2 gap-3">
                                                         {project.details.futureOpportunities.map((opportunity, idx) => (
-                                                            <div key={idx} className="bg-navy-800/30 border border-navy-700 rounded-lg p-4">
+                                                            <div key={idx} className="bg-obsidian-800/30 border border-obsidian-700 rounded-lg p-4">
                                                                 <p className="text-gray-300 text-sm">{opportunity}</p>
                                                             </div>
                                                         ))}
@@ -325,7 +325,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                         {project.details.skillsApplied.map((skill, idx) => (
                                                             <span
                                                                 key={idx}
-                                                                className="px-4 py-2 bg-orange-500/10 text-orange-400/80 rounded-lg border border-orange-500/15 hover:border-orange-500/40 hover:bg-orange-500/15 transition-colors text-sm"
+                                                                className="px-4 py-2 bg-iridium-500/10 text-iridium-400/80 rounded-lg border border-iridium-500/15 hover:border-iridium-500/40 hover:bg-iridium-500/15 transition-colors text-sm"
                                                             >
                                                                 {skill}
                                                             </span>

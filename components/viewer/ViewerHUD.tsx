@@ -23,7 +23,7 @@ export default function ViewerHUD({ project, className = '' }: ViewerHUDProps) {
 
                 {/* Metadata row */}
                 <div className="flex items-center gap-4 text-sm text-gray-400">
-                    <span className="px-2 py-1 bg-navy-800 rounded text-orange-500 font-medium">
+                    <span className="px-2 py-1 bg-obsidian-800 rounded text-iridium-500 font-medium">
                         {project.category}
                     </span>
                     <span>{project.year}</span>
@@ -34,7 +34,7 @@ export default function ViewerHUD({ project, className = '' }: ViewerHUDProps) {
                     {project.tools.map((tool) => (
                         <span
                             key={tool}
-                            className="px-2 py-1 text-xs bg-navy-700/50 text-gray-300 rounded border border-navy-600"
+                            className="px-2 py-1 text-xs bg-obsidian-700/50 text-gray-300 rounded border border-obsidian-600"
                         >
                             {tool}
                         </span>

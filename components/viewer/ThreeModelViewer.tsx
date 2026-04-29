@@ -511,7 +511,7 @@ function PhoneModel({ position, rotation, scale, screenImage, groupRef, hovered,
 
             {/* Screen content */}
             {screenImage ? (
-                <ScreenTexture screenImage={screenImage} position={[0, 0, 0.042]} width={0.98} height={2.08} cornerRadius={0.11} onScreenClick={onScreenClick} />
+                <ScreenTexture screenImage={screenImage} position={[0, 0, 0.042]} width={0.98} height={2.08} cornerRadius={0.11} onScreenClick={() => onScreenClick?.('phone')} />
             ) : (
                 <group position={[0, 0, 0.042]}>
                     <mesh position={[0, 0.9, 0]}><planeGeometry args={[1.0, 0.15]} /><meshStandardMaterial color="#2e3c62" /></mesh>
@@ -655,7 +655,7 @@ function LaptopModel({ position, rotation, scale, screenImage, groupRef, hovered
                     </mesh>
 
                     {screenImage && (
-                        <ScreenTexture screenImage={screenImage} position={[0, screenH / 2, 0.017]} width={texW} height={texH} cornerRadius={0.01} onScreenClick={onScreenClick} />
+                        <ScreenTexture screenImage={screenImage} position={[0, screenH / 2, 0.017]} width={texW} height={texH} cornerRadius={0.01} onScreenClick={() => onScreenClick?.('laptop')} />
                     )}
                 </group>
             </group>
@@ -697,7 +697,7 @@ function AppleWatchModel({ position, rotation, scale, screenImage, groupRef, hov
 
             {/* Screen Content */}
             {screenImage && (
-                <ScreenTexture screenImage={screenImage} position={[0, 0, 0.052]} width={0.28} height={0.34} cornerRadius={0.04} onScreenClick={onScreenClick} />
+                <ScreenTexture screenImage={screenImage} position={[0, 0, 0.052]} width={0.28} height={0.34} cornerRadius={0.04} onScreenClick={() => onScreenClick?.('watch')} />
             )}
 
             {/* Digital Crown */}
@@ -819,7 +819,7 @@ function TabletModel({ position, rotation, scale, screenImage, groupRef, hovered
                         width={texW}
                         height={texH}
                         cornerRadius={0.03}
-                        onScreenClick={onScreenClick}
+                        onScreenClick={() => onScreenClick?.('tablet')}
                     />
                 )
             )}
@@ -947,11 +947,11 @@ function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone',
                 <TabletModel screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={onScreenClick} />
             ) : deviceType === 'phone-watch' ? (
                 <>
-                    <PhoneModel position={[-0.4, 0, 0]} screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={onScreenClick} />
-                    <AppleWatchModel position={[0.6, -0.2, 0.2]} rotation={[0, -0.2, 0]} scale={1.2} screenImage={watchScreenImage} groupRef={watchGroupRef} hovered={hovered} setHovered={setHovered} onScreenClick={onScreenClick} />
+                    <PhoneModel position={[-0.4, 0, 0]} screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={() => onScreenClick?.('phone')} />
+                    <AppleWatchModel position={[0.6, -0.2, 0.2]} rotation={[0, -0.2, 0]} scale={1.2} screenImage={watchScreenImage} groupRef={watchGroupRef} hovered={hovered} setHovered={setHovered} onScreenClick={() => onScreenClick?.('watch')} />
                 </>
             ) : (
-                <PhoneModel screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={onScreenClick} />
+                <PhoneModel screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={() => onScreenClick?.('phone')} />
             )}
         </group>
     );
@@ -962,7 +962,7 @@ export interface ThreeModelViewerProps {
     screens?: string[];
     watchScreens?: string[];
     deviceType?: 'phone' | 'laptop' | 'phone-watch' | 'tablet';
-    onScreenClick?: () => void;
+    onScreenClick?: (deviceType?: string) => void;
 }
 
 export default function ThreeModelViewer({ className = '', screens, watchScreens, deviceType = 'phone', onScreenClick }: ThreeModelViewerProps) {

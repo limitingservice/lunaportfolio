@@ -84,9 +84,9 @@ export default function PhoneScreenOverlay({ isVisible, onClose }: PhoneScreenOv
                             </div>
                         </div>
 
-                        {/* Course Card 2 - Orange/Red Gradient */}
+                        {/* Course Card 2 - Iridium/Red Gradient */}
                         <div className="mb-3 rounded-lg overflow-hidden bg-white shadow-sm border border-gray-200">
-                            <div className="h-20 bg-gradient-to-r from-red-500 to-orange-500 relative">
+                            <div className="h-20 bg-gradient-to-r from-red-500 to-iridium-500 relative">
                                 <button className="absolute top-2 right-2 text-white">⋮</button>
                             </div>
                             <div className="p-3">

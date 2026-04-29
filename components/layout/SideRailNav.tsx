@@ -33,7 +33,7 @@ export default function SideRailNav() {
                         transition={{ delay: index * 0.1 }}
                     >
                         <div
-                            className="text-xs font-medium tracking-wider text-gray-500 hover:text-orange-500 transition-colors"
+                            className="text-xs font-medium tracking-wider text-gray-500 hover:text-iridium-500 transition-colors"
                             style={{
                                 writingMode: 'vertical-rl',
                                 textOrientation: 'mixed',
@@ -45,7 +45,7 @@ export default function SideRailNav() {
                         {activeSection === item.id && (
                             <motion.div
                                 layoutId="activeSideNav"
-                                className="absolute -right-2 top-0 bottom-0 w-0.5 bg-orange-500"
+                                className="absolute -right-2 top-0 bottom-0 w-0.5 bg-iridium-500"
                                 transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                             />
                         )}

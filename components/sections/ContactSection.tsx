@@ -32,7 +32,7 @@ export default function ContactSection() {
     };
 
     return (
-        <section id="contact" className="py-20 px-8 lg:px-16 bg-navy-900/30">
+        <section id="contact" className="py-20 px-8 lg:px-16 bg-obsidian-900/30">
             <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -41,7 +41,7 @@ export default function ContactSection() {
                 className="max-w-4xl mx-auto"
             >
                 <h2 className="text-display font-bold text-white mb-4 text-center">
-                    Let's <span className="text-orange-500">Connect</span>
+                    Let's <span className="metallic-text pb-1">Connect</span>
                 </h2>
                 <p className="text-gray-400 mb-12 text-center max-w-2xl mx-auto">
                     Interested in collaborating on UX research or design projects? Let's discuss how we can create user-centered solutions together.
@@ -61,7 +61,7 @@ export default function ContactSection() {
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
-                                className="w-full px-4 py-3 bg-navy-800 border border-navy-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors"
+                                className="w-full px-4 py-3 bg-obsidian-800 border border-obsidian-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-iridium-500 transition-colors"
                                 placeholder="Your name"
                             />
                         </div>
@@ -77,7 +77,7 @@ export default function ContactSection() {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                className="w-full px-4 py-3 bg-navy-800 border border-navy-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors"
+                                className="w-full px-4 py-3 bg-obsidian-800 border border-obsidian-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-iridium-500 transition-colors"
                                 placeholder="your@email.com"
                             />
                         </div>
@@ -93,7 +93,7 @@ export default function ContactSection() {
                                 onChange={handleChange}
                                 required
                                 rows={5}
-                                className="w-full px-4 py-3 bg-navy-800 border border-navy-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors resize-none"
+                                className="w-full px-4 py-3 bg-obsidian-800 border border-obsidian-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-iridium-500 transition-colors resize-none"
                                 placeholder="Tell me about your project..."
                             />
                         </div>
@@ -103,7 +103,7 @@ export default function ContactSection() {
                             disabled={isSubmitting}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="w-full px-8 py-4 bg-orange-500 text-white font-bold rounded-xl hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full px-8 py-4 metallic-bg text-obsidian-950 font-black rounded-xl hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {isSubmitting ? 'Sending...' : 'Send Message'}
                         </motion.button>
@@ -115,8 +115,8 @@ export default function ContactSection() {
                             <h3 className="text-xl font-bold text-white mb-4">Get in Touch</h3>
                             <div className="space-y-4">
                                 <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 bg-navy-800 rounded-lg flex items-center justify-center flex-shrink-0">
-                                        <svg className="w-5 h-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <div className="w-10 h-10 bg-obsidian-800 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg className="w-5 h-5 text-iridium-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
                                     </div>
@@ -127,8 +127,8 @@ export default function ContactSection() {
                                 </div>
 
                                 <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 bg-navy-800 rounded-lg flex items-center justify-center flex-shrink-0">
-                                        <svg className="w-5 h-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <div className="w-10 h-10 bg-obsidian-800 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg className="w-5 h-5 text-iridium-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                         </svg>
@@ -150,7 +150,7 @@ export default function ContactSection() {
                                     rel="noopener noreferrer"
                                     whileHover={{ scale: 1.1, y: -2 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="w-12 h-12 bg-navy-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-orange-500 transition-colors"
+                                    className="w-12 h-12 bg-obsidian-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-iridium-500 transition-colors"
                                     title="LinkedIn"
                                 >
                                     <span className="font-bold">L</span>
@@ -161,7 +161,7 @@ export default function ContactSection() {
                                     rel="noopener noreferrer"
                                     whileHover={{ scale: 1.1, y: -2 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="w-12 h-12 bg-navy-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-orange-500 transition-colors"
+                                    className="w-12 h-12 bg-obsidian-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-iridium-500 transition-colors"
                                     title="Portfolio"
                                 >
                                     <span className="font-bold">P</span>
@@ -170,7 +170,7 @@ export default function ContactSection() {
                                     href="mailto:lunajfernando@gmail.com"
                                     whileHover={{ scale: 1.1, y: -2 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="w-12 h-12 bg-navy-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-orange-500 transition-colors"
+                                    className="w-12 h-12 bg-obsidian-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-iridium-500 transition-colors"
                                     title="Email"
                                 >
                                     <span className="font-bold">E</span>
