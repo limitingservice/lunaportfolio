@@ -85,7 +85,7 @@ export const projects: Project[] = [
         viewer: {
             type: '3d',
             glbModelPath: '/models/esn-dashboard.glb',
-            deviceType: 'laptop',
+            deviceType: 'tablet',
             screens: [
                 '/images/esn/Home Dashboard - Onboarding Flow - 1.png',
                 '/images/esn/Home Dashboard - Onboarding Flow - 2.png',
