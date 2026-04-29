@@ -860,11 +860,26 @@ function TabletModel({ position, rotation, scale, screenImage, groupRef, hovered
 }
 
 // Main Interactive Hero Device
-function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone', onScreenClick }: { screenImage?: string; watchScreenImage?: string; deviceType?: 'phone' | 'laptop' | 'phone-watch' | 'tablet'; onScreenClick?: () => void }) {
+function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone', onScreenClick }: { screenImage?: string; watchScreenImage?: string; deviceType?: 'phone' | 'laptop' | 'phone-watch' | 'tablet'; onScreenClick?: (deviceType?: string) => void }) {
     const groupRef = useRef<THREE.Group>(null);
     const watchGroupRef = useRef<THREE.Group>(null);
     const [hovered, setHovered] = useState(false);
     const prefersReducedMotion = useReducedMotion();
+    const { size } = useThree();
+    // Narrow viewports cannot fit the wide phone+watch layout or a full-size laptop/tablet.
+    // Scale the whole device group down and tighten phone+watch spacing so the scene stays inside the card.
+    const isNarrow = size.width < 640;
+    const groupScale = isNarrow
+        ? deviceType === 'phone-watch'
+            ? 0.7
+            : deviceType === 'laptop' || deviceType === 'tablet'
+                ? 0.75
+                : 0.85
+        : 1;
+    const phonePos: [number, number, number] = deviceType === 'phone-watch'
+        ? (isNarrow ? [-0.45, 0.15, 0] : [-0.4, 0, 0])
+        : [0, 0, 0];
+    const watchPos: [number, number, number] = isNarrow ? [0.65, -0.35, 0.2] : [0.6, -0.2, 0.2];
 
     const isDragging = useRef(false);
     const targetRotationY = useRef(0);
@@ -940,15 +955,15 @@ function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone',
     });
 
     return (
-        <group onPointerDown={handlePointerDown} position={[0, 0.4, 0]}>
+        <group onPointerDown={handlePointerDown} position={[0, 0.4, 0]} scale={groupScale}>
             {deviceType === 'laptop' ? (
                 <LaptopModel screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={onScreenClick} />
             ) : deviceType === 'tablet' ? (
                 <TabletModel screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={onScreenClick} />
             ) : deviceType === 'phone-watch' ? (
                 <>
-                    <PhoneModel position={[-0.4, 0, 0]} screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={() => onScreenClick?.('phone')} />
-                    <AppleWatchModel position={[0.6, -0.2, 0.2]} rotation={[0, -0.2, 0]} scale={1.2} screenImage={watchScreenImage} groupRef={watchGroupRef} hovered={hovered} setHovered={setHovered} onScreenClick={() => onScreenClick?.('watch')} />
+                    <PhoneModel position={phonePos} screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={() => onScreenClick?.('phone')} />
+                    <AppleWatchModel position={watchPos} rotation={[0, -0.2, 0]} scale={1.2} screenImage={watchScreenImage} groupRef={watchGroupRef} hovered={hovered} setHovered={setHovered} onScreenClick={() => onScreenClick?.('watch')} />
                 </>
             ) : (
                 <PhoneModel screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={() => onScreenClick?.('phone')} />

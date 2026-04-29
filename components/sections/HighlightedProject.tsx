@@ -14,7 +14,7 @@ export default function HighlightedProject({ project, onViewDetails }: Highlight
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-obsidian-800/50 rounded-3xl p-6 md:p-8 lg:p-12 border border-obsidian-700 shadow-2xl mb-16 overflow-hidden"
+            className="bg-obsidian-800/50 rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 border border-obsidian-700 shadow-2xl mb-16 overflow-hidden"
         >
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* Left: Project Info */}

@@ -57,7 +57,7 @@ export default function FeaturedShoeViewer({ projects, className = '', showHUD =
             {/* Main viewer area */}
             <div className="relative">
                 {/* 3D Viewer Container */}
-                <div className="relative h-[480px] md:h-[650px] mb-6 group cursor-grab active:cursor-grabbing rounded-[40px] overflow-hidden bg-gradient-to-b from-[#0a0a0a] to-[#121212] border border-white/5 shadow-2xl">
+                <div className="relative h-[420px] sm:h-[480px] md:h-[650px] mb-6 group cursor-grab active:cursor-grabbing rounded-[28px] md:rounded-[40px] overflow-hidden bg-gradient-to-b from-[#0a0a0a] to-[#121212] border border-white/5 shadow-2xl">
                     <Suspense fallback={<ViewerSkeleton />}>
                         {currentProject.viewer.type === '3d' ? (
                             <ThreeModelViewer
@@ -82,23 +82,23 @@ export default function FeaturedShoeViewer({ projects, className = '', showHUD =
 
                     {/* Explore Mockups Button */}
                     {showExploreButton && (
-                    <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center opacity-90 hover:opacity-100 transition-opacity">
+                    <div className="absolute bottom-14 md:bottom-20 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center opacity-90 hover:opacity-100 transition-opacity max-w-[calc(100%-1.5rem)]">
                         <motion.button
                             onClick={() => {
                                 setInitialGalleryDevice(null);
                                 setIsGalleryOpen(true);
                             }}
-                            className="px-8 py-4 metallic-bg text-obsidian-950 rounded-full font-black transition-all shadow-glow flex items-center gap-2 hover:brightness-110"
+                            className="px-5 py-3 md:px-8 md:py-4 metallic-bg text-obsidian-950 rounded-full font-black transition-all shadow-glow flex items-center gap-2 hover:brightness-110"
                             whileHover={{ scale: 1.05, boxShadow: '0 0 32px rgba(250, 188, 5, 0.4)' }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                             </svg>
-                            <span className="whitespace-nowrap uppercase tracking-widest text-[13px]">EXPLORE MOCKUPS</span>
+                            <span className="whitespace-nowrap uppercase tracking-widest text-[11px] md:text-[13px]">EXPLORE MOCKUPS</span>
                         </motion.button>
-                        <span className="text-[10px] text-gray-300 mt-4 uppercase tracking-[0.2em] font-medium flex items-center gap-2 drop-shadow-md">
-                            <svg className="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <span className="text-[10px] text-gray-300 mt-3 md:mt-4 uppercase tracking-[0.2em] font-medium flex items-center gap-2 drop-shadow-md text-center">
+                            <svg className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" />
                             </svg>
                             Drag device to rotate
