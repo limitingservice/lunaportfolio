@@ -29,8 +29,8 @@ export default function HeroAboutCard() {
 
             <div className="p-6 md:p-8 relative z-10 flex flex-col h-full">
                 {/* Header: Photo + Title */}
-                <div className="flex items-center gap-6 mb-6 md:mb-8">
-                    <div className="relative w-36 h-36 md:w-56 md:h-56 rounded-2xl md:rounded-3xl overflow-hidden border-4 border-iridium-500/30 flex-shrink-0 shadow-[0_0_30px_rgba(250,188,5,0.2)]">
+                <div className="flex items-center gap-4 sm:gap-6 mb-6 md:mb-8">
+                    <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-56 md:h-56 rounded-2xl md:rounded-3xl overflow-hidden border-4 border-iridium-500/30 flex-shrink-0 shadow-[0_0_30px_rgba(250,188,5,0.2)]">
                         <Image
                             src="/images/profile.jpg"
                             alt="Fernando Luna"
@@ -39,11 +39,11 @@ export default function HeroAboutCard() {
                             priority
                         />
                     </div>
-                    <div className="flex flex-col justify-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-1.5">
+                    <div className="flex flex-col justify-center min-w-0 flex-1">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1.5 leading-tight break-words">
                             Fernando <span className="text-iridium-500">Luna</span>
                         </h2>
-                        <p className="text-gray-400 text-sm md:text-base font-semibold tracking-wider uppercase">UX Researcher & Designer</p>
+                        <p className="text-gray-400 text-xs sm:text-sm md:text-base font-semibold tracking-wider uppercase">UX Researcher & Designer</p>
                     </div>
                 </div>
 
