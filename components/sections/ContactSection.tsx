@@ -41,10 +41,10 @@ export default function ContactSection() {
                 className="max-w-4xl mx-auto"
             >
                 <h2 className="text-display font-bold text-white mb-4 text-center">
-                    Let's <span className="metallic-text pb-1">Connect</span>
+                    Let&apos;s <span className="metallic-text pb-1">Connect</span>
                 </h2>
                 <p className="text-gray-400 mb-12 text-center max-w-2xl mx-auto">
-                    Interested in collaborating on UX research or design projects? Let's discuss how we can create user-centered solutions together.
+                    Interested in collaborating on UX research or design projects? Let&apos;s discuss how we can create user-centered solutions together.
                 </p>
 
                 <div className="grid lg:grid-cols-2 gap-12">

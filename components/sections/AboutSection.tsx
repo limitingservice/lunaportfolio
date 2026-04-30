@@ -50,14 +50,14 @@ export default function AboutSection() {
 
                     <div className="space-y-4 text-gray-300">
                         <p>
-                            I'm a UX researcher and designer currently pursuing a Master's in Human-Computer Interaction
+                            I&apos;m a UX researcher and designer currently pursuing a Master&apos;s in Human-Computer Interaction
                             at Indiana University. My work focuses on accessible design, user research, and creating
                             inclusive digital experiences that address real user needs.
                         </p>
                         <p>
                             With experience as a Product Researcher at Darzy.ai and Research Assistant at Indiana University,
                             I specialize in conducting user interviews, usability testing, and data analysis to inform
-                            design decisions. I've worked on projects ranging from voice assistants for older adults to
+                            design decisions. I&apos;ve worked on projects ranging from voice assistants for older adults to
                             museum interactive systems.
                         </p>
                         <p>

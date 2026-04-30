@@ -56,7 +56,7 @@ export default function HeroCopy() {
                 </div>
                 <div>
                     <div className="text-3xl font-bold metallic-text">HCI</div>
-                    <div className="text-sm text-gray-400">Master's Degree</div>
+                    <div className="text-sm text-gray-400">Master&apos;s Degree</div>
                 </div>
             </motion.div>
         </motion.div>
