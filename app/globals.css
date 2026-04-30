@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-silver-100 text-gray-900;
+    @apply bg-obsidian-950 text-gray-300;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
