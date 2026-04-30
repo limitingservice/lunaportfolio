@@ -471,6 +471,16 @@ function ScreenTexture({ screenImage, position, width, height, cornerRadius, onS
 
 // Device: iPhone 16 Pro
 function PhoneModel({ position, rotation, scale, screenImage, groupRef, hovered, setHovered, onScreenClick }: any) {
+    const backGlassGeo = useMemo(() => {
+        const shape = createRoundedRectShape(0.96, 2.06, 0.10);
+        return new THREE.ShapeGeometry(shape, 32);
+    }, []);
+
+    const homeBarGeo = useMemo(() => {
+        const shape = createRoundedRectShape(0.28, 0.025, 0.012);
+        return new THREE.ShapeGeometry(shape, 12);
+    }, []);
+
     useFrame(() => {
         if (groupRef.current) {
             const targetScale = hovered ? 1.02 : 1;
@@ -494,17 +504,9 @@ function PhoneModel({ position, rotation, scale, screenImage, groupRef, hovered,
             </RoundedBox>
 
             {/* Back glass panel */}
-            {(() => {
-                const backGlassGeo = useMemo(() => {
-                    const shape = createRoundedRectShape(0.96, 2.06, 0.10);
-                    return new THREE.ShapeGeometry(shape, 32);
-                }, []);
-                return (
-                    <mesh position={[0, 0, -0.041]} rotation={[0, Math.PI, 0]} geometry={backGlassGeo}>
-                        <meshStandardMaterial color="#1a1a1c" roughness={0.6} metalness={0.4} />
-                    </mesh>
-                );
-            })()}
+            <mesh position={[0, 0, -0.041]} rotation={[0, Math.PI, 0]} geometry={backGlassGeo}>
+                <meshStandardMaterial color="#1a1a1c" roughness={0.6} metalness={0.4} />
+            </mesh>
 
             {/* Screen glass overlay */}
             <ScreenGlass color="#ffffff" opacity={0} />
@@ -523,17 +525,9 @@ function PhoneModel({ position, rotation, scale, screenImage, groupRef, hovered,
             <DynamicIsland />
 
             {/* Home indicator bar */}
-            {(() => {
-                const homeBarGeo = useMemo(() => {
-                    const shape = createRoundedRectShape(0.28, 0.025, 0.012);
-                    return new THREE.ShapeGeometry(shape, 12);
-                }, []);
-                return (
-                    <mesh position={[0, -0.98, 0.043]} geometry={homeBarGeo}>
-                        <meshStandardMaterial color="#ffffff" roughness={0.5} metalness={0.2} opacity={0.5} transparent />
-                    </mesh>
-                );
-            })()}
+            <mesh position={[0, -0.98, 0.043]} geometry={homeBarGeo}>
+                <meshStandardMaterial color="#ffffff" roughness={0.5} metalness={0.2} opacity={0.5} transparent />
+            </mesh>
 
             {/* Triple camera system (back) */}
             <CameraModule />
@@ -665,6 +659,11 @@ function LaptopModel({ position, rotation, scale, screenImage, groupRef, hovered
 
 // Device: Apple Watch
 function AppleWatchModel({ position, rotation, scale, screenImage, groupRef, hovered, setHovered, onScreenClick }: any) {
+    const watchGlassGeo = useMemo(() => {
+        const shape = createRoundedRectShape(0.3, 0.36, 0.05);
+        return new THREE.ShapeGeometry(shape, 24);
+    }, []);
+
     useFrame(() => {
         if (groupRef.current) {
             const targetScale = hovered ? 1.05 : 1;
@@ -683,17 +682,9 @@ function AppleWatchModel({ position, rotation, scale, screenImage, groupRef, hov
             </RoundedBox>
 
             {/* Watch Screen Glass */}
-            {(() => {
-                const watchGlassGeo = useMemo(() => {
-                    const shape = createRoundedRectShape(0.3, 0.36, 0.05);
-                    return new THREE.ShapeGeometry(shape, 24);
-                }, []);
-                return (
-                    <mesh position={[0, 0, 0.051]} geometry={watchGlassGeo}>
-                        <meshStandardMaterial color="#050505" roughness={0.1} metalness={0.9} />
-                    </mesh>
-                );
-            })()}
+            <mesh position={[0, 0, 0.051]} geometry={watchGlassGeo}>
+                <meshStandardMaterial color="#050505" roughness={0.1} metalness={0.9} />
+            </mesh>
 
             {/* Screen Content */}
             {screenImage && (
@@ -762,18 +753,28 @@ function TabletHtmlScreen({ htmlUrl, position, width, height }: { htmlUrl: strin
 
 // Device: iPad-style Tablet (landscape, for poster display)
 function TabletModel({ position, rotation, scale, screenImage, groupRef, hovered, setHovered, onScreenClick }: any) {
+    // Landscape orientation: wider than tall
+    const bodyW = 2.6, bodyH = 1.75, bodyD = 0.055;
+    const bezelX = 0.07, bezelY = 0.06;
+    const texW = bodyW - bezelX * 2;
+    const texH = bodyH - bezelY * 2;
+
+    const bezelGeo = useMemo(() => {
+        const shape = createRoundedRectShape(bodyW - 0.02, bodyH - 0.02, 0.05);
+        return new THREE.ShapeGeometry(shape, 32);
+    }, [bodyW, bodyH]);
+
+    const homeBarGeo = useMemo(() => {
+        const shape = createRoundedRectShape(0.3, 0.02, 0.01);
+        return new THREE.ShapeGeometry(shape, 12);
+    }, []);
+
     useFrame(() => {
         if (groupRef.current) {
             const targetScale = hovered ? 1.02 : 1;
             groupRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
         }
     });
-
-    // Landscape orientation: wider than tall
-    const bodyW = 2.6, bodyH = 1.75, bodyD = 0.055;
-    const bezelX = 0.07, bezelY = 0.06;
-    const texW = bodyW - bezelX * 2;
-    const texH = bodyH - bezelY * 2;
 
     return (
         <group
@@ -791,17 +792,9 @@ function TabletModel({ position, rotation, scale, screenImage, groupRef, hovered
             </RoundedBox>
 
             {/* Screen bezel (black) */}
-            {(() => {
-                const bezelGeo = useMemo(() => {
-                    const shape = createRoundedRectShape(bodyW - 0.02, bodyH - 0.02, 0.05);
-                    return new THREE.ShapeGeometry(shape, 32);
-                }, []);
-                return (
-                    <mesh position={[0, 0, bodyD / 2 + 0.001]} geometry={bezelGeo}>
-                        <meshStandardMaterial color="#0a0a0a" roughness={0.4} metalness={0.3} />
-                    </mesh>
-                );
-            })()}
+            <mesh position={[0, 0, bodyD / 2 + 0.001]} geometry={bezelGeo}>
+                <meshStandardMaterial color="#0a0a0a" roughness={0.4} metalness={0.3} />
+            </mesh>
 
             {/* Screen content */}
             {screenImage && (
@@ -831,17 +824,9 @@ function TabletModel({ position, rotation, scale, screenImage, groupRef, hovered
             </mesh>
 
             {/* Home bar indicator (horizontal, centered bottom) */}
-            {(() => {
-                const homeBarGeo = useMemo(() => {
-                    const shape = createRoundedRectShape(0.3, 0.02, 0.01);
-                    return new THREE.ShapeGeometry(shape, 12);
-                }, []);
-                return (
-                    <mesh position={[0, -bodyH / 2 + 0.04, bodyD / 2 + 0.002]} geometry={homeBarGeo}>
-                        <meshStandardMaterial color="#ffffff" roughness={0.5} metalness={0.2} opacity={0.4} transparent />
-                    </mesh>
-                );
-            })()}
+            <mesh position={[0, -bodyH / 2 + 0.04, bodyD / 2 + 0.002]} geometry={homeBarGeo}>
+                <meshStandardMaterial color="#ffffff" roughness={0.5} metalness={0.2} opacity={0.4} transparent />
+            </mesh>
 
             {/* Power button — top edge */}
             <RoundedBox position={[bodyW / 4, bodyH / 2 + 0.008, 0]} args={[0.12, 0.012, 0.02]} radius={0.004} smoothness={2}>

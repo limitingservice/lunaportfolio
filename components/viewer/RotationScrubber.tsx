@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 interface RotationScrubberProps {
@@ -19,22 +19,7 @@ export default function RotationScrubber({
     const [isDragging, setIsDragging] = useState(false);
     const trackRef = useRef<HTMLDivElement>(null);
 
-    const handlePointerDown = (e: React.PointerEvent) => {
-        setIsDragging(true);
-        updateRotation(e);
-    };
-
-    const handlePointerMove = (e: PointerEvent) => {
-        if (isDragging) {
-            updateRotation(e);
-        }
-    };
-
-    const handlePointerUp = () => {
-        setIsDragging(false);
-    };
-
-    const updateRotation = (e: PointerEvent | React.PointerEvent) => {
+    const updateRotation = useCallback((e: PointerEvent | React.PointerEvent) => {
         if (!trackRef.current) return;
 
         const rect = trackRef.current.getBoundingClientRect();
@@ -43,7 +28,22 @@ export default function RotationScrubber({
         const newRotation = Math.round(percentage * 360);
 
         onChange(newRotation);
+    }, [onChange]);
+
+    const handlePointerDown = (e: React.PointerEvent) => {
+        setIsDragging(true);
+        updateRotation(e);
     };
+
+    const handlePointerMove = useCallback((e: PointerEvent) => {
+        if (isDragging) {
+            updateRotation(e);
+        }
+    }, [isDragging, updateRotation]);
+
+    const handlePointerUp = useCallback(() => {
+        setIsDragging(false);
+    }, []);
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
         let newRotation = rotation;
@@ -77,7 +77,7 @@ export default function RotationScrubber({
                 window.removeEventListener('pointerup', handlePointerUp);
             };
         }
-    }, [isDragging]);
+    }, [isDragging, handlePointerMove, handlePointerUp]);
 
     const percentage = (rotation / 360) * 100;
 

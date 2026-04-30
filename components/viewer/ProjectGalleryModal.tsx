@@ -59,18 +59,18 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
             document.body.style.overflow = 'unset';
         }
         return () => { document.body.style.overflow = 'unset'; };
-    }, [isOpen]);
+    }, [isOpen, initialDevice, project]);
 
-    if (!project) return null;
+    // Ensure hooks are called unconditionally
 
     // Support mixed devices (phone + watch + tablet)
     const galleryItems: { src: string | null; type: 'phone' | 'laptop' | 'watch' | 'tablet' }[] = [];
-    const mainType = project.viewer?.deviceType === 'laptop' ? 'laptop' : project.viewer?.deviceType === 'tablet' ? 'tablet' : 'phone';
+    const mainType = project?.viewer?.deviceType === 'laptop' ? 'laptop' : project?.viewer?.deviceType === 'tablet' ? 'tablet' : 'phone';
     
-    const screens = Array.isArray(project.viewer?.screens) ? project.viewer.screens : [];
+    const screens = Array.isArray(project?.viewer?.screens) ? project.viewer.screens : [];
     screens.forEach(src => galleryItems.push({ src, type: mainType }));
     
-    if (project.viewer?.deviceType === 'phone-watch' && Array.isArray(project.viewer?.watchScreens)) {
+    if (project?.viewer?.deviceType === 'phone-watch' && Array.isArray(project.viewer?.watchScreens)) {
         project.viewer.watchScreens.forEach(src => galleryItems.push({ src, type: 'watch' }));
     }
     
@@ -227,7 +227,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
 
     return (
         <AnimatePresence>
-            {isOpen && (
+            {isOpen && project && (
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -237,8 +237,8 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
                     {/* Header */}
                     <div className="flex items-center justify-between p-6 md:p-10 shrink-0">
                         <div>
-                            <h2 className="text-2xl md:text-3xl font-light text-white mb-2">{project.name}</h2>
-                            <p className="text-gray-400 text-sm md:text-base max-w-2xl">{project.shortDescription}</p>
+                            <h2 className="text-2xl md:text-3xl font-light text-white mb-2">{project?.name}</h2>
+                            <p className="text-gray-400 text-sm md:text-base max-w-2xl">{project?.shortDescription}</p>
                         </div>
                         <button
                             onClick={onClose}
@@ -290,7 +290,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
                                                 >
                                                     <img 
                                                         src={item.src} 
-                                                        alt={`${project.name} Screen ${index + 1}`} 
+                                                        alt={`${project?.name} Screen ${index + 1}`} 
                                                         className="w-full h-auto object-top pointer-events-auto"
                                                     />
                                                 </div>
@@ -330,7 +330,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
                                                 >
                                                     <img 
                                                         src={item.src} 
-                                                        alt={`${project.name} Watch Screen ${index + 1}`} 
+                                                        alt={`${project?.name} Watch Screen ${index + 1}`} 
                                                         className="w-full h-auto pointer-events-auto object-top"
                                                     />
                                                 </div>
@@ -357,7 +357,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
                                             >
                                                 <img 
                                                     src={item.src} 
-                                                    alt={`${project.name} Poster`} 
+                                                    alt={`${project?.name} Poster`} 
                                                     className="w-full h-auto object-top pointer-events-auto"
                                                 />
                                             </div>
@@ -405,7 +405,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
                                                 >
                                                     <img 
                                                         src={item.src} 
-                                                        alt={`${project.name} Screen ${index + 1}`} 
+                                                        alt={`${project?.name} Screen ${index + 1}`} 
                                                         className="w-full h-auto pointer-events-auto block"
                                                     />
                                                 </div>
