@@ -9,13 +9,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: 'Shoe Designer Portfolio | Innovative Footwear Design',
-    description: 'Explore cutting-edge footwear designs spanning performance, lifestyle, and orthopedic solutions. 8+ years of experience in shoe design and prototyping.',
-    keywords: 'shoe designer, footwear design, sneaker design, performance footwear, orthopedic shoes',
-    authors: [{ name: 'Shoe Designer' }],
+    title: 'Fernando Luna - Design & Research',
+    description: 'Portfolio of Fernando Luna — design and research work.',
+    authors: [{ name: 'Fernando Luna' }],
     openGraph: {
-        title: 'Shoe Designer Portfolio',
-        description: 'Innovative footwear design portfolio',
+        title: 'Fernando Luna - Design & Research',
+        description: 'Portfolio of Fernando Luna — design and research work.',
         type: 'website',
     },
 };
