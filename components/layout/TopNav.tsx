@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 
 export default function TopNav() {
     const [activeSection, setActiveSection] = useState('about');
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { scrollToSection } = useSmoothScroll();
 
     const navItems = [
@@ -18,20 +19,22 @@ export default function TopNav() {
     const handleNavClick = (id: string) => {
         setActiveSection(id);
         scrollToSection(id);
+        setIsMobileMenuOpen(false);
     };
 
     return (
         <nav className="sticky top-0 z-50 bg-obsidian-900/80 backdrop-blur-lg border-b border-obsidian-800">
-            <div className="px-4 md:px-8 py-4 flex items-center justify-between">
+            <div className="px-4 md:px-8 py-4 flex items-center justify-between relative z-10">
                 {/* Left: Menu + Logo */}
                 <div className="flex items-center gap-3 md:gap-4">
                     <button
-                        className="w-10 h-10 flex flex-col items-center justify-center gap-1.5 hover:opacity-70 transition-opacity"
+                        className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 hover:opacity-70 transition-opacity"
                         aria-label="Menu"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
-                        <span className="w-6 h-0.5 bg-white" />
-                        <span className="w-6 h-0.5 bg-white" />
-                        <span className="w-6 h-0.5 bg-white" />
+                        <span className={`w-6 h-0.5 bg-white transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                        <span className={`w-6 h-0.5 bg-white transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+                        <span className={`w-6 h-0.5 bg-white transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
                     </button>
 
                     <div className="text-lg md:text-xl font-bold text-white tracking-wide leading-tight">
@@ -82,6 +85,32 @@ export default function TopNav() {
                     </motion.button>
                 </div>
             </div>
+
+            {/* Mobile Menu Dropdown */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="lg:hidden absolute top-full left-0 w-full bg-obsidian-900 border-b border-obsidian-800 shadow-xl"
+                    >
+                        <div className="flex flex-col py-4 px-4 gap-4">
+                            {navItems.map((item) => (
+                                <button
+                                    key={item.id}
+                                    onClick={() => handleNavClick(item.id)}
+                                    className={`text-left text-sm font-medium transition-colors ${
+                                        activeSection === item.id ? 'text-iridium-500' : 'text-gray-300 hover:text-white'
+                                    }`}
+                                >
+                                    {item.label}
+                                </button>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 }
