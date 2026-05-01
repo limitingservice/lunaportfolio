@@ -74,7 +74,11 @@ export default function TopNav() {
                         </svg>
                     </button>
 
-                    <motion.button
+                    <motion.a
+                        href="/Fernando-Luna-Resume.pdf"
+                        download="Fernando-Luna-Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="px-3 py-2 md:px-4 md:py-2 bg-iridium-500 text-white text-xs md:text-sm font-medium rounded-lg hover:bg-iridium-600 transition-colors flex items-center gap-2"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -83,7 +87,7 @@ export default function TopNav() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                         <span className="hidden sm:inline">Download </span>CV
-                    </motion.button>
+                    </motion.a>
                 </div>
             </div>
 
