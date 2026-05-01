@@ -56,12 +56,12 @@ export default function LayoutShell({ children }: LayoutShellProps) {
             </div>
 
             {/* Main container */}
-            <div className="relative z-10 container mx-auto px-4 py-8">
+            <div className="relative z-10 container mx-auto px-0 py-0 sm:px-4 sm:py-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="bg-gradient-to-br from-obsidian-900 to-obsidian-950 rounded-3xl shadow-2xl overflow-hidden"
+                    className="bg-gradient-to-br from-obsidian-900 to-obsidian-950 rounded-none sm:rounded-3xl shadow-2xl overflow-hidden min-h-screen sm:min-h-0"
                 >
                     {children}
                 </motion.div>

@@ -184,17 +184,32 @@ const ScrollStack = ({
   }, [updateCardTransforms]);
 
   const setupLenis = useCallback(() => {
+    const isTouchDevice =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(pointer: coarse)').matches;
+
+    if (isTouchDevice) {
+      // On touch devices, defer to native scroll so iOS/Android keep their
+      // momentum + rubber-band behavior. Lenis's syncTouch makes mobile feel laggy.
+      const target = useWindowScroll ? window : scrollerRef.current;
+      if (!target) return;
+
+      target.addEventListener('scroll', handleScroll, { passive: true });
+
+      lenisRef.current = {
+        destroy: () => target.removeEventListener('scroll', handleScroll),
+      };
+      return lenisRef.current;
+    }
+
     if (useWindowScroll) {
       const lenis = new Lenis({
         duration: 1.2,
         easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
-        touchMultiplier: 2,
         infinite: false,
         wheelMultiplier: 1,
         lerp: 0.1,
-        syncTouch: true,
-        syncTouchLerp: 0.075
       });
 
       lenis.on('scroll', handleScroll);
@@ -217,16 +232,11 @@ const ScrollStack = ({
         duration: 1.2,
         easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
-        touchMultiplier: 2,
         infinite: false,
         gestureOrientationHandler: true,
         normalizeWheel: true,
         wheelMultiplier: 1,
-        touchInertiaMultiplier: 35,
         lerp: 0.1,
-        syncTouch: true,
-        syncTouchLerp: 0.075,
-        touchInertia: 0.6
       });
 
       lenis.on('scroll', handleScroll);
