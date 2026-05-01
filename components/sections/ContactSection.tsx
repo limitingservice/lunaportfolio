@@ -32,7 +32,7 @@ export default function ContactSection() {
     };
 
     return (
-        <section id="contact" className="py-20 px-8 lg:px-16 bg-obsidian-900/30">
+        <section id="contact" className="pt-40 md:pt-44 pb-20 px-8 lg:px-16 bg-obsidian-900/30">
             <motion.div
                 initial="hidden"
                 whileInView="visible"

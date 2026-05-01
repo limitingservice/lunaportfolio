@@ -6,20 +6,20 @@
 }
 
 .scroll-stack-inner {
-  padding: 2rem 1rem 30rem;
+  padding: 2rem 1rem 65vh;
   max-width: 1000px;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .scroll-stack-inner {
-    padding: 2rem 2rem 22rem;
+    padding: 2rem 2rem 55vh;
   }
 }
 
 @media (min-width: 1024px) {
   .scroll-stack-inner {
-    padding: 2rem 4rem 35rem;
+    padding: 2rem 4rem 50vh;
   }
 }
 
