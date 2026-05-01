@@ -1,23 +1,24 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+import { useActiveSection } from '@/hooks/useActiveSection';
+
+const navItems = [
+    { id: 'about', label: 'ABOUT' },
+    { id: 'work', label: 'WORK' },
+    { id: 'process', label: 'PROCESS' },
+    { id: 'contact', label: 'CONTACT' },
+];
 
 export default function TopNav() {
-    const [activeSection, setActiveSection] = useState('about');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { scrollToSection } = useSmoothScroll();
-
-    const navItems = [
-        { id: 'about', label: 'ABOUT' },
-        { id: 'work', label: 'WORK' },
-        { id: 'process', label: 'PROCESS' },
-        { id: 'contact', label: 'CONTACT' },
-    ];
+    const ids = useMemo(() => navItems.map((i) => i.id), []);
+    const activeSection = useActiveSection(ids);
 
     const handleNavClick = (id: string) => {
-        setActiveSection(id);
         scrollToSection(id);
         setIsMobileMenuOpen(false);
     };

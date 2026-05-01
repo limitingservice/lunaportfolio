@@ -1,67 +1,21 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+import { useActiveSection } from '@/hooks/useActiveSection';
 
 const navItems = [
-    { id: 'case-studies', label: 'CASE STUDIES' },
-    { id: 'materials', label: 'MATERIALS' },
-    { id: 'prototyping', label: 'PROTOTYPING' },
-    { id: 'faq', label: 'FAQ' },
+    { id: 'about', label: 'ABOUT' },
+    { id: 'work', label: 'WORK' },
+    { id: 'process', label: 'PROCESS' },
+    { id: 'contact', label: 'CONTACT' },
 ];
 
 export default function SideRailNav() {
-    const [activeSection, setActiveSection] = useState<string | null>(null);
     const { scrollToSection } = useSmoothScroll();
-
-    useEffect(() => {
-        const sections = navItems
-            .map(({ id }) => document.getElementById(id))
-            .filter((el): el is HTMLElement => el !== null);
-
-        if (sections.length === 0) return;
-
-        const updateActive = () => {
-            const viewportMid = window.scrollY + window.innerHeight / 2;
-            let bestId: string | null = null;
-            let bestDistance = Infinity;
-
-            for (const el of sections) {
-                const rect = el.getBoundingClientRect();
-                const top = rect.top + window.scrollY;
-                const bottom = top + rect.height;
-                if (viewportMid >= top && viewportMid <= bottom) {
-                    bestId = el.id;
-                    bestDistance = 0;
-                    break;
-                }
-                const distance = Math.min(
-                    Math.abs(viewportMid - top),
-                    Math.abs(viewportMid - bottom)
-                );
-                if (distance < bestDistance) {
-                    bestDistance = distance;
-                    bestId = el.id;
-                }
-            }
-
-            setActiveSection(bestId);
-        };
-
-        updateActive();
-        window.addEventListener('scroll', updateActive, { passive: true });
-        window.addEventListener('resize', updateActive);
-
-        return () => {
-            window.removeEventListener('scroll', updateActive);
-            window.removeEventListener('resize', updateActive);
-        };
-    }, []);
-
-    const handleNavClick = (id: string) => {
-        scrollToSection(id);
-    };
+    const ids = useMemo(() => navItems.map((i) => i.id), []);
+    const activeSection = useActiveSection(ids);
 
     return (
         <div className="fixed left-4 top-1/2 -translate-y-1/2 z-40 hidden lg:block">
@@ -71,7 +25,7 @@ export default function SideRailNav() {
                     return (
                         <motion.button
                             key={item.id}
-                            onClick={() => handleNavClick(item.id)}
+                            onClick={() => scrollToSection(item.id)}
                             className="group relative"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
