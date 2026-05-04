@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"http://localhost:3000/_next/static/chunks/app/page.js\")",
+      "Bash(xargs grep *)"
+    ]
+  }
+}

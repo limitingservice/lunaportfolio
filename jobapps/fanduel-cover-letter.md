@@ -1,0 +1,16 @@
+Dear FanDuel Team,
+
+A line in the JD that stuck with me: "Promote user-centered and responsible gaming design best practices." That's the part of the role I find most interesting — designing for engagement and craft while taking the player's actual wellbeing seriously, not just optimizing for time-in-product. It's a tension without an easy answer, and the Product Designer role on the Casino UX&D team sounds like a place where that tension actually gets argued and resolved at the pixel level.
+
+Most of my recent design work has been cross-platform and end-to-end. I designed and built a browser-based AR virtual try-on for eyewear that ships across desktop and mobile web — a 9-screen user journey, a 5-state interaction pattern (camera permission → face acquisition → tracking lock → live try-on → recovery on lost tracking) so users never see broken AR content, and a privacy-first consent flow tuned to push permission acceptance. I shipped the visuals in Figma and then built the production version in React, Three.js, and MediaPipe, which kept me honest about which interactions felt great in a static frame but actually broke at 30 FPS on a mid-range phone. The full case study lives at fernandojluna.com.
+
+On the native side, I designed and prototyped a smart cane and companion app for managing POTS — a chronic condition causing sudden heart rate spikes — balancing interaction design, accessibility, and visual design across a watch, a phone, and physical hardware in one connected experience. The episode-warning screen was the hardest design problem in the project: the user might be dizzy, brain-fogged, or close to fainting, so I had to design for legibility, large touch targets, and emotionally calming tone all at once. Different surface, but the same instinct as responsible gaming design — the system has to be honest about what's happening to the user, not just attention-maximizing.
+
+AI in the design process is something I've been actively folding into my workflow, both as a research aid (I've used NotebookLM and Gemini to apply theoretical frameworks to large qualitative datasets — 5,000+ Reddit posts in one study) and as a creative accelerator in Figma and code. The MediaPipe-powered AR project is a small example of designing around an AI capability rather than retrofitting one in. I'm familiar with Cursor and have been experimenting with Figma Make for early concepting.
+
+I'm finishing my Master's in Human-Computer Interaction at IU Indianapolis, focused on accessibility in UX research, and most recently served as Lead Product Researcher at Darzy.ai, a remote-first startup, working directly alongside the founder and product designer to keep research close enough to design that the team could move on it without translation overhead. The honest gap: I don't have direct gaming or sportsbook design experience. What I bring instead is the cross-platform craft, the research-into-design muscle, and a strong instinct that the best design choices in a high-stakes consumer product are the ones that respect the user's time and judgment — which is the design culture the JD points to.
+
+I'd love to talk through any of this in more detail. Thanks for considering me.
+
+Best,
+Fernando Luna

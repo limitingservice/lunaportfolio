@@ -12,7 +12,11 @@ const navItems = [
     { id: 'contact', label: 'CONTACT' },
 ];
 
-export default function TopNav() {
+interface TopNavProps {
+    onSwitchToPhoto?: () => void;
+}
+
+export default function TopNav({ onSwitchToPhoto }: TopNavProps = {}) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { scrollToSection } = useSmoothScroll();
     const ids = useMemo(() => navItems.map((i) => i.id), []);
@@ -65,14 +69,22 @@ export default function TopNav() {
 
                 {/* Right: Icons */}
                 <div className="flex items-center gap-2 md:gap-4">
-                    <button
-                        className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
-                        aria-label="Search"
-                    >
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </button>
+                    {onSwitchToPhoto && (
+                        <motion.button
+                            onClick={onSwitchToPhoto}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-iridium-500/40 text-iridium-500 hover:text-white hover:bg-iridium-500/15 hover:border-iridium-500 transition-colors text-[10px] md:text-xs font-medium tracking-widest uppercase"
+                            aria-label="Switch to creative portfolio"
+                            title="Creative portfolio"
+                        >
+                            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l1.8 5.4 5.4 1.8-5.4 1.8L12 17.4l-1.8-5.4-5.4-1.8 5.4-1.8L12 3z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 16l.7 2.3 2.3.7-2.3.7L19 22l-.7-2.3-2.3-.7 2.3-.7L19 16z" />
+                            </svg>
+                            <span className="hidden sm:inline">Creative</span>
+                        </motion.button>
+                    )}
 
                     <motion.a
                         href="/Fernando-Luna-Resume.pdf"

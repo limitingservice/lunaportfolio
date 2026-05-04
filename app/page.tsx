@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import LayoutShell from '@/components/layout/LayoutShell';
 import TopNav from '@/components/layout/TopNav';
 import SideRailNav from '@/components/layout/SideRailNav';
@@ -12,8 +13,11 @@ import CaseStudySection from '@/components/sections/CaseStudySection';
 import MaterialsSection from '@/components/sections/MaterialsSection';
 import ContactSection from '@/components/sections/ContactSection';
 import HighlightedProject from '@/components/sections/HighlightedProject';
+import PhotoPortfolio from '@/components/photography/PhotoPortfolio';
 import { getFeaturedProjects, projects, Project } from '@/data/projects';
 import LiquidEther from '@/components/effects/ether';
+
+type PortfolioMode = 'ux' | 'photo';
 
 export default function Home() {
     const featuredProjects = getFeaturedProjects();
@@ -22,6 +26,7 @@ export default function Home() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [initialModalView, setInitialModalView] = useState<'brief' | 'full'>('brief');
+    const [mode, setMode] = useState<PortfolioMode>('ux');
 
     const handleProjectClick = (project: Project, view: 'brief' | 'full' = 'brief') => {
         setSelectedProject(project);
@@ -31,13 +36,28 @@ export default function Home() {
 
     const handleCloseModal = () => {
         setIsModalOpen(false);
-        // Delay clearing the project to allow exit animation
         setTimeout(() => setSelectedProject(null), 300);
     };
 
+    if (mode === 'photo') {
+        return (
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key="photo"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4, ease: 'easeOut' }}
+                >
+                    <PhotoPortfolio onSwitchToUX={() => setMode('ux')} />
+                </motion.div>
+            </AnimatePresence>
+        );
+    }
+
     return (
         <LayoutShell>
-            <TopNav />
+            <TopNav onSwitchToPhoto={() => setMode('photo')} />
             <SideRailNav />
 
             <main className="relative">

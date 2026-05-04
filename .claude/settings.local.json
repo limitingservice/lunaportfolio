@@ -11,7 +11,11 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000 --max-time 5)",
       "Bash(netstat -ano)",
       "Bash(taskkill //F //PID 27092)",
-      "Bash(start http://localhost:3002)"
+      "Bash(start http://localhost:3002)",
+      "Read(//c/Users/lunaf/AppData/Local/Temp/fulcrum_pages/**)",
+      "Bash(mkdir -p \"c:/Users/lunaf/Documents/Side Projects/Immersive/public/photos/film\" \"c:/Users/lunaf/Documents/Side Projects/Immersive/public/photos/digital\")",
+      "Bash(cp \"c:/Users/lunaf/Documents/Side Projects/Immersive/photos/film/\"* \"c:/Users/lunaf/Documents/Side Projects/Immersive/public/photos/film/\")",
+      "Bash(cp \"c:/Users/lunaf/Documents/Side Projects/Immersive/photos/digital/\"* \"c:/Users/lunaf/Documents/Side Projects/Immersive/public/photos/digital/\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\.next"
