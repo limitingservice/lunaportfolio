@@ -37,51 +37,57 @@ export default function PhotoPortfolio({ onSwitchToUX }: PhotoPortfolioProps) {
         <div className="min-h-screen bg-white text-neutral-900 font-mono">
             {/* Top nav */}
             <header className="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-neutral-200/60">
-                <div className="px-6 md:px-12 py-6 flex items-center justify-between">
-                    <h1 className="text-base md:text-xl tracking-[0.25em] uppercase">
-                        Fernando&nbsp;Luna
+                <div className="px-4 md:px-12 py-5 md:py-6 flex items-center gap-4 md:gap-6">
+                    <h1 className="shrink-0 text-base md:text-xl tracking-[0.25em] uppercase">
+                        <span className="md:hidden">F.L.</span>
+                        <span className="hidden md:inline">Fernando&nbsp;Luna</span>
                     </h1>
 
-                    <nav className="flex items-center gap-6 md:gap-10 text-xs md:text-sm tracking-widest lowercase">
-                        {filters.map((f) => (
-                            <button
-                                key={f.id}
-                                onClick={() => setFilter(f.id)}
-                                className={`relative transition-colors ${
-                                    filter === f.id ? 'text-neutral-900' : 'text-neutral-400 hover:text-neutral-700'
-                                }`}
+                    <nav
+                        className="flex-1 min-w-0 overflow-x-auto overscroll-x-contain [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                        style={{ WebkitOverflowScrolling: 'touch' }}
+                    >
+                        <div className="flex items-center justify-end gap-5 md:gap-10 text-xs md:text-sm tracking-widest lowercase whitespace-nowrap pl-2 pr-1 w-max ml-auto">
+                            {filters.map((f) => (
+                                <button
+                                    key={f.id}
+                                    onClick={() => setFilter(f.id)}
+                                    className={`shrink-0 relative transition-colors ${
+                                        filter === f.id ? 'text-neutral-900' : 'text-neutral-400 hover:text-neutral-700'
+                                    }`}
+                                >
+                                    {f.label}
+                                    {filter === f.id && (
+                                        <motion.span
+                                            layoutId="photoFilterUnderline"
+                                            className="absolute -bottom-1 left-0 right-0 h-px bg-neutral-900"
+                                        />
+                                    )}
+                                </button>
+                            ))}
+
+                            <a
+                                href="https://www.instagram.com/el.luna"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="shrink-0 text-neutral-400 hover:text-neutral-900 transition-colors"
+                                aria-label="Instagram — @el.luna"
                             >
-                                {f.label}
-                                {filter === f.id && (
-                                    <motion.span
-                                        layoutId="photoFilterUnderline"
-                                        className="absolute -bottom-1 left-0 right-0 h-px bg-neutral-900"
-                                    />
-                                )}
+                                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                                    <rect x="3" y="3" width="18" height="18" rx="4" />
+                                    <circle cx="12" cy="12" r="4" />
+                                    <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
+                                </svg>
+                            </a>
+
+                            <button
+                                onClick={onSwitchToUX}
+                                className="shrink-0 ml-1 md:ml-2 px-3 py-1.5 border border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-white transition-colors text-[10px] md:text-xs tracking-[0.2em] uppercase"
+                                aria-label="Switch to UX portfolio"
+                            >
+                                ux ↗
                             </button>
-                        ))}
-
-                        <a
-                            href="https://www.instagram.com/el.luna"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-neutral-400 hover:text-neutral-900 transition-colors"
-                            aria-label="Instagram — @el.luna"
-                        >
-                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                                <rect x="3" y="3" width="18" height="18" rx="4" />
-                                <circle cx="12" cy="12" r="4" />
-                                <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
-                            </svg>
-                        </a>
-
-                        <button
-                            onClick={onSwitchToUX}
-                            className="ml-2 md:ml-4 px-3 py-1.5 border border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-white transition-colors text-[10px] md:text-xs tracking-[0.2em] uppercase"
-                            aria-label="Switch to UX portfolio"
-                        >
-                            ux ↗
-                        </button>
+                        </div>
                     </nav>
                 </div>
             </header>
