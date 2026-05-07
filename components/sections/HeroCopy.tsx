@@ -13,7 +13,7 @@ export default function HeroCopy() {
             className="space-y-6"
         >
             {/* Main headline */}
-            <motion.h1 variants={fadeInUp} className="text-2xl sm:text-4xl md:text-hero font-black leading-none break-words">
+            <motion.h1 variants={fadeInUp} className="text-2xl sm:text-4xl md:text-hero font-black leading-none sm:leading-none md:leading-none break-words">
                 <span className="text-white">DATA-</span>
                 <br />
                 <span className="text-white">DRIVEN</span>
