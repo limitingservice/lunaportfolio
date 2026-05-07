@@ -18,7 +18,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
             
             // Build the virtual gallery items strictly to find target index
             const items: { type: string }[] = [];
-            const mainType = project.viewer?.deviceType === 'laptop' ? 'laptop' : project.viewer?.deviceType === 'tablet' ? 'tablet' : 'phone';
+            const mainType = project.viewer?.deviceType === 'laptop' ? 'laptop' : project.viewer?.deviceType === 'tablet' ? 'tablet' : project.viewer?.deviceType === 'watch' ? 'watch' : 'phone';
             const numScreens = Array.isArray(project.viewer?.screens) ? project.viewer.screens.length : 0;
             for(let i=0; i < numScreens; i++) items.push({ type: mainType });
             
@@ -65,7 +65,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
 
     // Support mixed devices (phone + watch + tablet)
     const galleryItems: { src: string | null; type: 'phone' | 'laptop' | 'watch' | 'tablet' }[] = [];
-    const mainType = project?.viewer?.deviceType === 'laptop' ? 'laptop' : project?.viewer?.deviceType === 'tablet' ? 'tablet' : 'phone';
+    const mainType = project?.viewer?.deviceType === 'laptop' ? 'laptop' : project?.viewer?.deviceType === 'tablet' ? 'tablet' : project?.viewer?.deviceType === 'watch' ? 'watch' : 'phone';
     
     const screens = Array.isArray(project?.viewer?.screens) ? project.viewer.screens : [];
     screens.forEach(src => galleryItems.push({ src, type: mainType }));

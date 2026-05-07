@@ -845,7 +845,7 @@ function TabletModel({ position, rotation, scale, screenImage, groupRef, hovered
 }
 
 // Main Interactive Hero Device
-function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone', onScreenClick }: { screenImage?: string; watchScreenImage?: string; deviceType?: 'phone' | 'laptop' | 'phone-watch' | 'tablet'; onScreenClick?: (deviceType?: string) => void }) {
+function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone', onScreenClick }: { screenImage?: string; watchScreenImage?: string; deviceType?: 'phone' | 'laptop' | 'phone-watch' | 'tablet' | 'watch'; onScreenClick?: (deviceType?: string) => void }) {
     const groupRef = useRef<THREE.Group>(null);
     const watchGroupRef = useRef<THREE.Group>(null);
     const [hovered, setHovered] = useState(false);
@@ -859,8 +859,12 @@ function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone',
             ? 0.7
             : deviceType === 'laptop' || deviceType === 'tablet'
                 ? 0.75
-                : 0.85
-        : 1;
+                : deviceType === 'watch'
+                    ? 1.6
+                    : 0.85
+        : deviceType === 'watch'
+            ? 2
+            : 1;
     const phonePos: [number, number, number] = deviceType === 'phone-watch'
         ? (isNarrow ? [-0.45, 0.15, 0] : [-0.4, 0, 0])
         : [0, 0, 0];
@@ -913,11 +917,15 @@ function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone',
                    // Increase rotation amplitude for more noticeable idle movement
                    targetRotationY.current = THREE.MathUtils.lerp(targetRotationY.current, Math.sin(state.clock.elapsedTime * 0.8) * 0.25, 0.02);
                    targetRotationX.current = THREE.MathUtils.lerp(targetRotationX.current, Math.sin(state.clock.elapsedTime * 0.6) * 0.05, 0.02);
-                   
+
                    if (watchGroupRef.current) {
                        // Make the watch float independently and more noticeably
                        watchGroupRef.current.position.y = Math.sin(state.clock.elapsedTime * 1.8 + 1) * 0.08 - 0.2;
                    }
+               } else if (deviceType === 'watch') {
+                   groupRef.current.position.y = floatY * 0.9;
+                   targetRotationY.current = THREE.MathUtils.lerp(targetRotationY.current, Math.sin(state.clock.elapsedTime * 0.7) * 0.22, 0.02);
+                   targetRotationX.current = THREE.MathUtils.lerp(targetRotationX.current, Math.sin(state.clock.elapsedTime * 0.5) * 0.06, 0.02);
                } else if (deviceType === 'tablet') {
                    groupRef.current.position.y = floatY * 0.8;
                    targetRotationY.current = THREE.MathUtils.lerp(targetRotationY.current, Math.sin(state.clock.elapsedTime * 0.6) * 0.18, 0.02);
@@ -950,6 +958,8 @@ function SingleHeroDevice({ screenImage, watchScreenImage, deviceType = 'phone',
                     <PhoneModel position={phonePos} screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={() => onScreenClick?.('phone')} />
                     <AppleWatchModel position={watchPos} rotation={[0, -0.2, 0]} scale={1.2} screenImage={watchScreenImage} groupRef={watchGroupRef} hovered={hovered} setHovered={setHovered} onScreenClick={() => onScreenClick?.('watch')} />
                 </>
+            ) : deviceType === 'watch' ? (
+                <AppleWatchModel position={[0, 0, 0]} rotation={[0, 0, 0]} scale={1} screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={() => onScreenClick?.('watch')} />
             ) : (
                 <PhoneModel screenImage={screenImage} groupRef={groupRef} hovered={hovered} setHovered={setHovered} onScreenClick={() => onScreenClick?.('phone')} />
             )}
@@ -961,7 +971,7 @@ export interface ThreeModelViewerProps {
     className?: string;
     screens?: string[];
     watchScreens?: string[];
-    deviceType?: 'phone' | 'laptop' | 'phone-watch' | 'tablet';
+    deviceType?: 'phone' | 'laptop' | 'phone-watch' | 'tablet' | 'watch';
     onScreenClick?: (deviceType?: string) => void;
 }
 
