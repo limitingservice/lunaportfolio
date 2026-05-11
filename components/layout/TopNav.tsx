@@ -42,8 +42,42 @@ export default function TopNav({ onSwitchToPhoto }: TopNavProps = {}) {
                         <span className={`w-6 h-0.5 bg-white transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
                     </button>
 
-                    <div className="text-lg md:text-xl font-bold text-white tracking-wide leading-tight">
-                        <span className="text-iridium-500">Fernando</span><br className="md:hidden" /> Luna
+                    {/* Mobile: favicon logo */}
+                    <svg
+                        viewBox="0 0 64 64"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="md:hidden w-9 h-9"
+                        role="img"
+                        aria-label="Fernando Luna"
+                    >
+                        <defs>
+                            <linearGradient id="navGoldShimmer" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#F59E0B" />
+                                <stop offset="20%" stopColor="#FBBF24" />
+                                <stop offset="50%" stopColor="#FEF08A">
+                                    <animate attributeName="stop-color" values="#FBBF24;#FFFFFF;#FBBF24" dur="2s" repeatCount="indefinite" />
+                                </stop>
+                                <stop offset="80%" stopColor="#F59E0B" />
+                                <stop offset="100%" stopColor="#D97706" />
+                                <animate attributeName="x1" values="-100%;100%" dur="2.5s" repeatCount="indefinite" />
+                                <animate attributeName="x2" values="0%;200%" dur="2.5s" repeatCount="indefinite" />
+                            </linearGradient>
+                            <mask id="navMoonMask">
+                                <rect x="0" y="0" width="64" height="64" fill="white" />
+                                <circle cx="49" cy="25" r="15" fill="black" />
+                            </mask>
+                        </defs>
+                        <rect width="64" height="64" rx="14" fill="#0a0a0a" />
+                        <path d="M 14 16 L 26 16 L 26 20 L 18 20 L 18 26 L 24 26 L 24 30 L 18 30 L 18 44 L 14 44 Z" fill="url(#navGoldShimmer)" />
+                        <circle cx="44" cy="30" r="15" fill="url(#navGoldShimmer)" mask="url(#navMoonMask)" />
+                        <path d="M 52 14 Q 52 18 48 18 Q 52 18 52 22 Q 52 18 56 18 Q 52 18 52 14 Z" fill="url(#navGoldShimmer)">
+                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" />
+                        </path>
+                    </svg>
+
+                    {/* Desktop: name */}
+                    <div className="hidden md:block text-lg md:text-xl font-bold text-white tracking-wide leading-tight">
+                        <span className="text-iridium-500">Fernando</span> Luna
                     </div>
                 </div>
 
