@@ -24,6 +24,7 @@ export interface Project {
         screens?: string[];
         watchScreens?: string[];
         tabletScreens?: string[];
+        tablet3dModels?: { id: string }[];
     };
     // Detailed project information for modal
     details?: {
@@ -438,8 +439,8 @@ export const projects: Project[] = [
                 '/images/watch-pots/LOGGING - WATCH 3.png',
                 '/images/watch-pots/TIPS - WATCH 2.png',
             ],
-            tabletScreens: [
-                '/images/pots/pots-cane.png',
+            tablet3dModels: [
+                { id: 'pots-cane' },
             ],
         },
         details: {

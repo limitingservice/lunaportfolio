@@ -3,6 +3,9 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '@/data/projects';
+import dynamic from 'next/dynamic';
+
+const PotsCane3DViewer = dynamic(() => import('./PotsCane3DViewer'), { ssr: false });
 
 interface ProjectGalleryModalProps {
     isOpen: boolean;
@@ -28,6 +31,10 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
 
             if (Array.isArray(project.viewer?.tabletScreens)) {
                 for(let i=0; i < project.viewer.tabletScreens.length; i++) items.push({ type: 'tablet' });
+            }
+
+            if (Array.isArray(project.viewer?.tablet3dModels)) {
+                for(let i=0; i < project.viewer.tablet3dModels.length; i++) items.push({ type: 'tablet' });
             }
             
             let targetIndex = 0;
@@ -68,7 +75,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
     // Ensure hooks are called unconditionally
 
     // Support mixed devices (phone + watch + tablet)
-    const galleryItems: { src: string | null; type: 'phone' | 'laptop' | 'watch' | 'tablet' }[] = [];
+    const galleryItems: { src: string | null; type: 'phone' | 'laptop' | 'watch' | 'tablet'; modelId?: string }[] = [];
     const mainType = project?.viewer?.deviceType === 'laptop' ? 'laptop' : project?.viewer?.deviceType === 'tablet' ? 'tablet' : project?.viewer?.deviceType === 'watch' ? 'watch' : 'phone';
     
     const screens = Array.isArray(project?.viewer?.screens) ? project.viewer.screens : [];
@@ -80,6 +87,10 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
 
     if (Array.isArray(project?.viewer?.tabletScreens)) {
         project.viewer.tabletScreens.forEach(src => galleryItems.push({ src, type: 'tablet' }));
+    }
+
+    if (Array.isArray(project?.viewer?.tablet3dModels)) {
+        project.viewer.tablet3dModels.forEach(m => galleryItems.push({ src: null, type: 'tablet', modelId: m.id }));
     }
     
     // Show 3 placeholder slots only when there are no real screens to display.
@@ -357,15 +368,22 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
                                             <div className="w-1.5 h-1.5 bg-[#1a2b5e] rounded-full blur-[0.5px] mx-auto mt-[1px]"></div>
                                         </div>
                                         
-                                        {item.src ? (
-                                            <div 
+                                        {item.modelId === 'pots-cane' ? (
+                                            <div
+                                                className="w-[95%] h-[94%] rounded-[16px] md:rounded-[22px] overflow-hidden bg-black border-[2px] md:border-[3px] border-black"
+                                                data-lenis-prevent="true"
+                                            >
+                                                <PotsCane3DViewer />
+                                            </div>
+                                        ) : item.src ? (
+                                            <div
                                                 className="w-[95%] h-[94%] rounded-[16px] md:rounded-[22px] overflow-y-auto overflow-x-hidden bg-black border-[2px] md:border-[3px] border-black overscroll-contain"
                                                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                                                 data-lenis-prevent="true"
                                             >
-                                                <img 
-                                                    src={item.src} 
-                                                    alt={`${project?.name} Poster`} 
+                                                <img
+                                                    src={item.src}
+                                                    alt={`${project?.name} Poster`}
                                                     className="w-full h-auto object-top pointer-events-auto"
                                                 />
                                             </div>
