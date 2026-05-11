@@ -23,6 +23,7 @@ export interface Project {
         deviceType?: 'phone' | 'laptop' | 'phone-watch' | 'tablet' | 'watch';
         screens?: string[];
         watchScreens?: string[];
+        tabletScreens?: string[];
     };
     // Detailed project information for modal
     details?: {
@@ -436,6 +437,9 @@ export const projects: Project[] = [
                 '/images/watch-pots/HOME - WATCH 5.png',
                 '/images/watch-pots/LOGGING - WATCH 3.png',
                 '/images/watch-pots/TIPS - WATCH 2.png',
+            ],
+            tabletScreens: [
+                '/images/pots/pots-cane.png',
             ],
         },
         details: {

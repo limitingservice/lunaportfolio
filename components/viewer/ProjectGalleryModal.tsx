@@ -25,6 +25,10 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
             if (project.viewer?.deviceType === 'phone-watch' && Array.isArray(project.viewer?.watchScreens)) {
                 for(let i=0; i < project.viewer.watchScreens.length; i++) items.push({ type: 'watch' });
             }
+
+            if (Array.isArray(project.viewer?.tabletScreens)) {
+                for(let i=0; i < project.viewer.tabletScreens.length; i++) items.push({ type: 'tablet' });
+            }
             
             let targetIndex = 0;
             if (initialDevice) {
@@ -72,6 +76,10 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
     
     if (project?.viewer?.deviceType === 'phone-watch' && Array.isArray(project.viewer?.watchScreens)) {
         project.viewer.watchScreens.forEach(src => galleryItems.push({ src, type: 'watch' }));
+    }
+
+    if (Array.isArray(project?.viewer?.tabletScreens)) {
+        project.viewer.tabletScreens.forEach(src => galleryItems.push({ src, type: 'tablet' }));
     }
     
     // Show 3 placeholder slots only when there are no real screens to display.
