@@ -62,17 +62,40 @@ export default function TopNav({ onSwitchToPhoto }: TopNavProps = {}) {
                                 <animate attributeName="x1" values="-100%;100%" dur="2.5s" repeatCount="indefinite" />
                                 <animate attributeName="x2" values="0%;200%" dur="2.5s" repeatCount="indefinite" />
                             </linearGradient>
-                            <mask id="navMoonMask">
-                                <rect x="0" y="0" width="64" height="64" fill="white" />
-                                <circle cx="49" cy="25" r="15" fill="black" />
-                            </mask>
+                            <radialGradient id="navCraterGrad" cx="35%" cy="35%" r="65%">
+                                <stop offset="0%" stopColor="#000000" stopOpacity="0.8" />
+                                <stop offset="40%" stopColor="#000000" stopOpacity="0.2" />
+                                <stop offset="80%" stopColor="#FBBF24" stopOpacity="0.1" />
+                                <stop offset="100%" stopColor="#FEF08A" stopOpacity="0.7" />
+                            </radialGradient>
+                            <clipPath id="navMoonClip">
+                                <circle cx="40" cy="32" r="14" />
+                            </clipPath>
                         </defs>
+
                         <rect width="64" height="64" rx="14" fill="#0a0a0a" />
-                        <path d="M 14 16 L 26 16 L 26 20 L 18 20 L 18 26 L 24 26 L 24 30 L 18 30 L 18 44 L 14 44 Z" fill="url(#navGoldShimmer)" />
-                        <circle cx="44" cy="30" r="15" fill="url(#navGoldShimmer)" mask="url(#navMoonMask)" />
-                        <path d="M 52 14 Q 52 18 48 18 Q 52 18 52 22 Q 52 18 56 18 Q 52 18 52 14 Z" fill="url(#navGoldShimmer)">
-                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" />
-                        </path>
+
+                        {/* F */}
+                        <path d="M 10 18 L 22 18 L 22 22 L 14 22 L 14 28 L 20 28 L 20 32 L 14 32 L 14 46 L 10 46 Z" fill="url(#navGoldShimmer)" />
+
+                        {/* Full Moon base */}
+                        <circle cx="40" cy="32" r="14" fill="url(#navGoldShimmer)" />
+
+                        {/* Moon textures & craters */}
+                        <g clipPath="url(#navMoonClip)">
+                            <path d="M 32 18 Q 42 16 50 26 T 38 40 Q 28 32 32 18 Z" fill="#000000" opacity="0.12" />
+                            <path d="M 34 42 Q 44 48 48 38 Q 38 36 34 42 Z" fill="#000000" opacity="0.15" />
+                            <path d="M 28 26 Q 34 22 36 28 Q 30 32 28 26 Z" fill="#000000" opacity="0.12" />
+                            <circle cx="34" cy="24" r="3" fill="url(#navCraterGrad)" />
+                            <circle cx="46" cy="28" r="4" fill="url(#navCraterGrad)" />
+                            <circle cx="39" cy="41" r="3.5" fill="url(#navCraterGrad)" />
+                            <circle cx="39" cy="31" r="1.5" fill="url(#navCraterGrad)" />
+                            <circle cx="51" cy="36" r="2.5" fill="url(#navCraterGrad)" />
+                            <circle cx="31" cy="33" r="1.5" fill="url(#navCraterGrad)" />
+                            <circle cx="44" cy="35" r="2" fill="url(#navCraterGrad)" />
+                            <circle cx="48" cy="25" r="1.2" fill="url(#navCraterGrad)" />
+                            <circle cx="35" cy="45" r="2" fill="url(#navCraterGrad)" />
+                        </g>
                     </svg>
 
                     {/* Desktop: name */}
