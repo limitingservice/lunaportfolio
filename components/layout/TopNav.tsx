@@ -144,8 +144,8 @@ export default function TopNav({ onSwitchToPhoto }: TopNavProps = {}) {
                     )}
 
                     <motion.a
-                        href="/Fernando-Luna-Resume.pdf"
-                        download="Fernando-Luna-Resume.pdf"
+                        href="/FerLuna-Resume.pdf"
+                        download="FerLuna-Resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-3 py-2 md:px-4 md:py-2 bg-iridium-500 text-white text-xs md:text-sm font-medium rounded-lg hover:bg-iridium-600 transition-colors flex items-center gap-2"
