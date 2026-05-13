@@ -78,23 +78,34 @@ export default function TopNav({ onSwitchToPhoto }: TopNavProps = {}) {
                         {/* F */}
                         <path d="M 10 18 L 22 18 L 22 22 L 14 22 L 14 28 L 20 28 L 20 32 L 14 32 L 14 46 L 10 46 Z" fill="url(#navGoldShimmer)" />
 
-                        {/* Full Moon base */}
-                        <circle cx="40" cy="32" r="14" fill="url(#navGoldShimmer)" />
+                        {/* Rotating Full Moon */}
+                        <g>
+                            <animateTransform
+                                attributeName="transform"
+                                type="rotate"
+                                from="0 40 32"
+                                to="360 40 32"
+                                dur="40s"
+                                repeatCount="indefinite"
+                            />
+                            {/* Full Moon base */}
+                            <circle cx="40" cy="32" r="14" fill="url(#navGoldShimmer)" />
 
-                        {/* Moon textures & craters */}
-                        <g clipPath="url(#navMoonClip)">
-                            <path d="M 32 18 Q 42 16 50 26 T 38 40 Q 28 32 32 18 Z" fill="#000000" opacity="0.12" />
-                            <path d="M 34 42 Q 44 48 48 38 Q 38 36 34 42 Z" fill="#000000" opacity="0.15" />
-                            <path d="M 28 26 Q 34 22 36 28 Q 30 32 28 26 Z" fill="#000000" opacity="0.12" />
-                            <circle cx="34" cy="24" r="3" fill="url(#navCraterGrad)" />
-                            <circle cx="46" cy="28" r="4" fill="url(#navCraterGrad)" />
-                            <circle cx="39" cy="41" r="3.5" fill="url(#navCraterGrad)" />
-                            <circle cx="39" cy="31" r="1.5" fill="url(#navCraterGrad)" />
-                            <circle cx="51" cy="36" r="2.5" fill="url(#navCraterGrad)" />
-                            <circle cx="31" cy="33" r="1.5" fill="url(#navCraterGrad)" />
-                            <circle cx="44" cy="35" r="2" fill="url(#navCraterGrad)" />
-                            <circle cx="48" cy="25" r="1.2" fill="url(#navCraterGrad)" />
-                            <circle cx="35" cy="45" r="2" fill="url(#navCraterGrad)" />
+                            {/* Moon textures & craters */}
+                            <g clipPath="url(#navMoonClip)">
+                                <path d="M 32 18 Q 42 16 50 26 T 38 40 Q 28 32 32 18 Z" fill="#000000" opacity="0.12" />
+                                <path d="M 34 42 Q 44 48 48 38 Q 38 36 34 42 Z" fill="#000000" opacity="0.15" />
+                                <path d="M 28 26 Q 34 22 36 28 Q 30 32 28 26 Z" fill="#000000" opacity="0.12" />
+                                <circle cx="34" cy="24" r="3" fill="url(#navCraterGrad)" />
+                                <circle cx="46" cy="28" r="4" fill="url(#navCraterGrad)" />
+                                <circle cx="39" cy="41" r="3.5" fill="url(#navCraterGrad)" />
+                                <circle cx="39" cy="31" r="1.5" fill="url(#navCraterGrad)" />
+                                <circle cx="51" cy="36" r="2.5" fill="url(#navCraterGrad)" />
+                                <circle cx="31" cy="33" r="1.5" fill="url(#navCraterGrad)" />
+                                <circle cx="44" cy="35" r="2" fill="url(#navCraterGrad)" />
+                                <circle cx="48" cy="25" r="1.2" fill="url(#navCraterGrad)" />
+                                <circle cx="35" cy="45" r="2" fill="url(#navCraterGrad)" />
+                            </g>
                         </g>
                     </svg>
 

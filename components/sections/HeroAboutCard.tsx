@@ -43,14 +43,14 @@ export default function HeroAboutCard() {
                         <h2 className="text-lg sm:text-2xl md:text-4xl font-bold text-white mb-0.5 md:mb-1.5 leading-tight break-words">
                             Fernando <span className="text-iridium-500">Luna</span>
                         </h2>
-                        <p className="text-gray-400 text-[10px] sm:text-xs md:text-base font-semibold tracking-wider uppercase">UX Researcher</p>
+                        <p className="text-gray-400 text-[10px] sm:text-xs md:text-base font-semibold tracking-wider uppercase">User Experience</p>
                     </div>
                 </div>
 
                 {/* Bio text */}
                 <div className="space-y-2 md:space-y-4 text-gray-300 text-[10px] sm:text-sm md:text-lg leading-tight md:leading-relaxed mb-4 md:mb-8 flex-grow">
                     <p>
-                        Designing human-centered experiences through research, blending tech, culture, and history—pulling from HCI, AI, and fashion to create accessible, thoughtful, and real-world impact.
+                        Designing human-centered experiences through research, blending tech, culture, and history—pulling from HCI, AI, and diverse perspective to create accessible, thoughtful, and real-world impact.
                     </p>
                 </div>
 
