@@ -39,5 +39,6 @@ Currently pursuing a Master's Degree in Human-Computer Interaction with a focus 
 ## COURSE PROJECTS
 
 **TruePulse Health Capstone — Lead Product Designer** | 2025 – 2026
-- Designed a sensor-agnostic data-collection platform for an early-stage health company collecting physiological data from a sensitive user group (women considering pregnancy, currently pregnant, and postpartum) at an Indiana University research lab using a Polar H10 chest-strap sensor.
-- Owned the full lifecycle: drafted the research protocol, selected methods, shaped the brand identity, and designed the end-to-end participant flow (onboarding, sensor pairing, protocol-guided data collection) alongside the researcher-side data-retrieval interface (local or cloud).
+- Designed a sensor-agnostic data-collection platform for an early-stage health company collecting physiological data from a sensitive user group (women considering pregnancy, currently pregnant, and postpartum) at an Indiana University research lab using a Polar H10 chest-strap sensor, working directly with the TruePulse founders and Dr. Gregory Lewis at the Kinsey Institute (IU Bloomington).
+- Owned the full research lifecycle: drafted the protocol, ran user interviews and cognitive walkthroughs with industry professionals analyzed via thematic coding, conducted user testing with real women including a currently pregnant participant, and validated future features through agentic AI testing.
+- Designed the end-to-end participant flow (onboarding, sensor pairing, protocol-guided data collection), the researcher-side data-retrieval interface (local or cloud), and the brand identity for an effectively greenfield company.

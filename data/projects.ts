@@ -407,6 +407,148 @@ export const projects: Project[] = [
         }
     },
     {
+        id: 'spotify-unwrapped',
+        name: 'Spotify Un(Wrapped)',
+        year: 2024,
+        category: 'Research',
+        description: 'Mixed-methods UX case study evaluating Spotify\'s mobile experience around music discovery and social listening. Combined qualitative research with statistical analysis — affinity mapping, think-aloud usability testing, confidence intervals, and System Usability Scale scoring — to measure the gap between Spotify\'s polished brand and its everyday usability for college-aged listeners.',
+        shortDescription: 'Music discovery & social listening UX research',
+        tools: ['Figma', 'User Interviews', 'Affinity Mapping', 'Usability Testing', 'System Usability Scale', 'Statistical Analysis'],
+        tags: ['UX Research', 'Mixed-Methods', 'Usability Testing', 'Social UX'],
+        featured: false,
+        logo: '/images/spotify-unwrapped-logo-opt.png',
+        poster: '/posters/spotify-poster.png',
+        images: {
+            thumbnail: '/images/spotify-unwrapped-logo-opt.png',
+            hero: '/images/spotify-unwrapped-logo-opt.png',
+        },
+        viewer: {
+            type: '3d',
+            deviceType: 'phone',
+            screens: [],
+        },
+        details: {
+            role: 'UX Researcher & UI Designer',
+            team: 'Five-person research team',
+            duration: '6 weeks',
+            context: 'A six-week graduate UX case study examining how Spotify supports — and sometimes obstructs — music discovery and social engagement. Working on a five-person team as a UX Researcher and UI Designer, I helped run a mixed-methods study with college-aged Premium subscribers, pairing qualitative methods (interviews, affinity mapping, think-aloud testing) with quantitative analysis (confidence intervals, error and satisfaction metrics, SUS scoring) to measure the distance between Spotify\'s polished brand and its everyday usability.',
+            problemStatement: 'Spotify has reshaped how people access music and share listening with others, yet its mobile experience still makes social and organizational tasks harder than they should be. Affinity mapping across our research surfaced six recurring problems — limited in-app sharing, weak friend discovery, and frustrating playlist management chief among them. Users wanted to share songs, follow friends\' activity, and organize their libraries without leaving the app, but Spotify\'s flows pushed them toward third-party tools like Instagram Stories and iMessage and produced high error rates on core tasks. The study set out to quantify how severe these breakdowns were and where redesign effort would matter most.',
+            researchGoals: [
+                'Understand how college-aged listeners actually discover music and share it with friends',
+                'Identify the core usability problems in Spotify\'s social and playlist features',
+                'Measure task performance — error rate, clicks, time, and satisfaction — through think-aloud usability testing',
+                'Validate findings statistically using confidence intervals and System Usability Scale scoring',
+                'Translate research into prioritized, actionable design recommendations'
+            ],
+            researchMethods: [
+                {
+                    name: 'User Research & Affinity Mapping',
+                    description: 'Recruited college-aged Spotify Premium subscribers with three to eleven years on the platform. Synthesized interview and observational data through affinity mapping, clustering raw observations into six core problem areas spanning in-app sharing, friend discovery, and mobile playlist management.'
+                },
+                {
+                    name: 'Persona Development',
+                    description: 'Distilled research into a primary persona — Manny Delgado, a socially driven listener who treats music as a way to set the vibe for the people around him. The persona anchored design decisions in real goals, behaviors, and frustrations, including a heavy reliance on Instagram Stories and Messages to share songs Spotify couldn\'t share natively.'
+                },
+                {
+                    name: 'Think-Aloud Usability Testing',
+                    description: 'Ran moderated think-aloud sessions covering three representative tasks — adding songs to a playlist, finding a friend\'s profile, and grouping songs into a new playlist. Captured error rate, click count, time on task, and post-task satisfaction for every participant.'
+                },
+                {
+                    name: 'Statistical Analysis & SUS Scoring',
+                    description: 'Calculated confidence intervals for task completion rates and administered the System Usability Scale to benchmark the experience against industry standards, giving the qualitative findings a quantitative backbone.'
+                }
+            ],
+            participants: [
+                {
+                    role: 'College-Aged Premium Users',
+                    description: 'Spotify Premium subscribers with 3–11 years of platform experience'
+                },
+                {
+                    role: 'Usability Test Participants',
+                    description: 'Listeners observed completing three core tasks in moderated think-aloud sessions'
+                }
+            ],
+            keyFindings: [
+                {
+                    category: 'Six Core Problem Areas',
+                    insights: [
+                        'Affinity mapping consistently surfaced six recurring problems, led by limited in-app sharing and poor mobile playlist management',
+                        'Users wanted to share and organize music inside Spotify but were pushed to third-party apps to do it',
+                        'Social features felt like an afterthought rather than a core part of the listening experience'
+                    ]
+                },
+                {
+                    category: 'Task Performance Breakdown',
+                    insights: [
+                        'Adding songs to a playlist (Task 1) reached 100% completion — the experience held up for the simplest task',
+                        'Finding a friend\'s profile (Task 2) dropped to 83% completion, exposing weak social discovery',
+                        'Grouping songs into a new playlist (Task 3) fell to just 50% completion — the clearest failure point'
+                    ]
+                },
+                {
+                    category: 'Critical Usability Issues',
+                    insights: [
+                        'Quantitative metrics showed error rates as high as 57% on the most complex task',
+                        'Post-task satisfaction bottomed out at 2 out of 5, confirming the frustration observed in think-aloud sessions',
+                        'High error rates clustered around playlist organization and friend discovery — not playback'
+                    ]
+                },
+                {
+                    category: 'Below-Benchmark Usability (SUS)',
+                    insights: [
+                        'The System Usability Scale produced an average score of 53.13, well below the 70 industry benchmark',
+                        'The result held at a 99% confidence level, making the gap statistically reliable rather than anecdotal',
+                        'A strong brand was masking a measurably below-average usability experience'
+                    ]
+                }
+            ],
+            designIterations: [
+                {
+                    area: 'Playlist Management',
+                    improvements: ['Introduce drag-and-drop reordering and grouping to fix the lowest-performing task', 'Streamline the flow for building a playlist from existing songs', 'Reduce click depth and error rate around library organization']
+                },
+                {
+                    area: 'Social Discovery',
+                    improvements: ['Add a dedicated Friends tab so following and finding people is no longer buried', 'Make friend profiles and listening activity reachable from the main navigation', 'Treat social discovery as a first-class feature rather than a hidden one']
+                },
+                {
+                    area: 'In-App Sharing',
+                    improvements: ['Build native social sharing sections so users stop exporting to Instagram and iMessage', 'Surface shared and friend-recommended songs directly inside the listening experience']
+                },
+                {
+                    area: 'Inclusive Listening',
+                    improvements: ['Add romanization of foreign-language lyrics so listeners can follow along with songs in unfamiliar scripts', 'Broaden the experience for multilingual and international listeners']
+                }
+            ],
+            impact: [
+                'Quantified a measurable usability gap behind a strong consumer brand — a 53.13 SUS score against a 70 benchmark at 99% confidence',
+                'Pinpointed playlist management and social discovery as the highest-priority redesign targets through task-level metrics',
+                'Demonstrated the value of pairing qualitative research with statistical validation to make findings credible and actionable',
+                'Produced prioritized design recommendations grounded in both user frustration and hard performance data',
+                'Strengthened my ability to plan mixed-methods studies, run think-aloud testing, and translate analysis into design direction'
+            ],
+            futureOpportunities: [
+                'Prototype and usability-test the redesigned drag-and-drop playlist flow',
+                'Design and validate a dedicated Friends tab and native sharing experience',
+                'Expand the participant pool beyond college-aged users to test generational differences',
+                'Run a follow-up SUS study after redesign to measure improvement against the 70 benchmark',
+                'Explore lyric romanization and other inclusive features for multilingual listeners'
+            ],
+            skillsApplied: [
+                'Qualitative Research',
+                'Quantitative Research',
+                'User Interviews',
+                'Affinity Mapping',
+                'Persona Development',
+                'Think-Aloud Usability Testing',
+                'Statistical Analysis',
+                'System Usability Scale (SUS)',
+                'Research Synthesis',
+                'UI Design'
+            ]
+        }
+    },
+    {
         id: 'pots-access-technology',
         name: 'POTS Access Technology',
         year: 2024,
