@@ -1,0 +1,24 @@
+Dear Boll & Branch Team,
+
+The line that did it for me is "thread quality, not thread count." I've spent the last several years as a textile wholesaler — sourcing and curating American-made clothing from the late 1800s through the early 2000s for second-hand boutiques across the U.S. — so I've handled enough cloth to know that the difference between something genuinely well-made and something merely well-marketed is real, physical, and almost always invisible on a spec sheet. A company that rebuilt an entire supply chain around that exact conviction isn't a brand I'd be learning to care about. It's one I already do.
+
+The role centers on daily executional excellence across email, social, site, and print, and the clearest proof of that craft in my work is my portfolio at fernandojluna.com, which I designed and built myself — every typographic decision, color relationship, and layout system in it is mine. Figma is my primary day-to-day tool, and the Adobe suite the role names — Photoshop, InDesign, Illustrator — are working tools for me, alongside Lightroom and Premiere Pro. I most recently created the full brand identity for TruePulse Health, an early-stage health company, where I owned the visual system end to end and had to make it feel supportive rather than performative for a sensitive audience. Extending an established art direction across many small surfaces without letting any of them drift is the part of this work I'd be most at home in.
+
+The role's premium, photography-forward register is one I already work in. As a Visual Director and freelance photographer since 2019, I've focused on urban and street fashion portraiture and worked with brands like SLCT Stock, Kitowares, and Native Language Co. on creative direction and visual storytelling for product, lookbook, and editorial work — shot across digital and film formats, with the full post-production workflow in Lightroom. Working with photography and video assets to build polished content isn't a stretch into a new skill for me; it's most of what I already do. On the AI side, I work fluently across generative tools — I built and shipped my portfolio experimenting deliberately across model tiers — so flexing into AI asset generation for daily needs and channel experimentation is somewhere I'd be useful right away.
+
+There's one more thread here, and it's the one I'd most want a luxury home brand to hear. My textile work isn't just a line on a resume — it's years of deciding, piece by piece, what quality actually looks and feels like: curating collections for boutiques and sourcing wardrobe pieces for active NFL players. That has trained an eye for material, craftsmanship, and timelessness that translates directly to a brand whose whole premise is that the substance has to be as considered as the styling.
+
+On the fast pace and collaboration the role asks for: I've spent two-plus years coordinating across researchers, founders, and creative partners — most recently leading a graduate capstone as Lead Product Designer and building research operations from scratch at a remote-first startup. A high volume of small, deadline-bound deliverables, partnering closely with copy and marketing, and taking creative feedback as fuel rather than friction is the working rhythm I'm used to.
+
+One honest note, and one practical one. The honest note: my graduate degree is in Human-Computer Interaction, so my resume's headline reads "UX researcher and designer" more loudly than "visual designer." But visual design, photography, and textiles aren't a pivot for me — they're the continuous thread I've kept running the whole time, and a junior visual design role at a brand like this is exactly where I'd want to make it the main one. The practical one: the Summit office is an easy fit for me — I'm originally from the northern New Jersey area and still have housing there, so the in-person hybrid schedule is a genuine draw rather than a logistics hurdle.
+
+I'd love to talk through any of this in more detail. Thanks for considering me.
+
+Best,
+Fernando Luna
+
+---
+
+## Experience Summary
+
+Visual designer, photographer, and Visual Director with six years creating editorial, lookbook, and brand work for fashion and lifestyle clients — paired with hands-on textile expertise as a wholesaler of American-made clothing, sourcing and curating collections for boutiques across the U.S. Expert in Figma and the Adobe Creative Suite (Photoshop, InDesign, Illustrator, Lightroom, Premiere Pro), with recent end-to-end brand-identity work for an early-stage health company and a fully self-designed, self-built portfolio at fernandojluna.com. Fluent across AI generative tools for creating, enhancing, and iterating on visual assets. Currently completing an M.S. in Human-Computer Interaction with a focus on accessible design, and looking to make premium visual design — typography, color, layout, and material-driven storytelling — the center of the work.

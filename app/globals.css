@@ -6,9 +6,12 @@
  * Semantic theme tokens.
  * Values are space-separated RGB channels so Tailwind opacity modifiers
  * (e.g. bg-obsidian-900/80) keep working through `rgb(var(--x) / <alpha-value>)`.
- * Default :root is the dark theme; [data-theme="light"] overrides it.
+ * Default is the dark theme; [data-theme="light"] overrides it.
+ * Selectors are not :root-scoped, so a nested [data-theme] (e.g. a viewer
+ * or the photography page) can pin a subtree to a fixed theme.
  */
-:root {
+:root,
+[data-theme="dark"] {
   /* Neutral surface scale */
   --obsidian-50: 230 230 230;
   --obsidian-100: 204 204 204;
@@ -29,7 +32,7 @@
   --gray-400: 156 163 175;
 }
 
-:root[data-theme="light"] {
+[data-theme="light"] {
   /* Neutral surface scale flips: higher number = lighter surface */
   --obsidian-50: 26 26 24;
   --obsidian-100: 46 46 44;
@@ -87,7 +90,7 @@
   }
 
   /* Light theme: darken the metallic gradient so it stays legible on light surfaces */
-  :root[data-theme="light"] .metallic-text {
+  [data-theme="light"] .metallic-text {
     background: linear-gradient(135deg, #bb4b02 0%, #E09B00 45%, #953908 70%, #78300b 100%);
     background-size: 200% 200%;
     -webkit-background-clip: text;
