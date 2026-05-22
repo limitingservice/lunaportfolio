@@ -103,7 +103,7 @@ export default function ContactSection() {
                             disabled={isSubmitting}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="w-full px-8 py-4 metallic-bg text-obsidian-950 font-black rounded-xl hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full px-8 py-4 metallic-bg text-[#0a0a0a] font-black rounded-xl hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {isSubmitting ? 'Sending...' : 'Send Message'}
                         </motion.button>

@@ -83,7 +83,7 @@ export default function CaseStudySection({ onViewDetails }: CaseStudySectionProp
                                         <div className="pt-2">
                                             <motion.button
                                                 onClick={() => onViewDetails?.(project)}
-                                                className="px-8 py-4 metallic-bg text-obsidian-950 rounded-full font-black transition-all shadow-lg hover:brightness-110 flex items-center gap-3"
+                                                className="px-8 py-4 metallic-bg text-[#0a0a0a] rounded-full font-black transition-all shadow-lg hover:brightness-110 flex items-center gap-3"
                                                 whileHover={{ scale: 1.02 }}
                                                 whileTap={{ scale: 0.98 }}
                                             >

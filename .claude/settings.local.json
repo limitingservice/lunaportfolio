@@ -28,7 +28,8 @@
       "Read(//c/Program Files/Google/Chrome/Application/**)",
       "Bash(rm -f spotify-poster.png)",
       "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless --disable-gpu --hide-scrollbars --no-sandbox --screenshot=\"spotify-poster.png\" --window-size=2400,1600 --default-background-color=00000000 \"spotify-poster.html\")",
-      "Bash(node -e \"const fs=require\\('fs'\\);const b=fs.readFileSync\\('spotify-poster.png'\\);console.log\\('size:',b.readUInt32BE\\(16\\)+'x'+b.readUInt32BE\\(20\\),'bytes:',b.length\\)\")"
+      "Bash(node -e \"const fs=require\\('fs'\\);const b=fs.readFileSync\\('spotify-poster.png'\\);console.log\\('size:',b.readUInt32BE\\(16\\)+'x'+b.readUInt32BE\\(20\\),'bytes:',b.length\\)\")",
+      "Bash(npx next *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\.next",

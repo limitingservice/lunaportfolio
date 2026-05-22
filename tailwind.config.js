@@ -8,6 +8,13 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                // Theme-aware text tokens (flip with [data-theme])
+                white: 'rgb(var(--color-white) / <alpha-value>)',
+                gray: {
+                    200: 'rgb(var(--gray-200) / <alpha-value>)',
+                    300: 'rgb(var(--gray-300) / <alpha-value>)',
+                    400: 'rgb(var(--gray-400) / <alpha-value>)',
+                },
                 silver: {
                     50: '#f8f9fa',
                     100: '#f1f3f5',
@@ -20,18 +27,19 @@ module.exports = {
                     800: '#343a40',
                     900: '#212529',
                 },
+                // Theme-aware neutral surface scale (flips with [data-theme])
                 obsidian: {
-                    50: '#e6e6e6',
-                    100: '#cccccc',
-                    200: '#b3b3b3',
-                    300: '#999999',
-                    400: '#808080',
-                    500: '#666666',
-                    600: '#4d4d4d',
-                    700: '#2a2a2a',
-                    800: '#1a1a1a',
-                    900: '#0a0a0a',
-                    950: '#050505',
+                    50: 'rgb(var(--obsidian-50) / <alpha-value>)',
+                    100: 'rgb(var(--obsidian-100) / <alpha-value>)',
+                    200: 'rgb(var(--obsidian-200) / <alpha-value>)',
+                    300: 'rgb(var(--obsidian-300) / <alpha-value>)',
+                    400: 'rgb(var(--obsidian-400) / <alpha-value>)',
+                    500: 'rgb(var(--obsidian-500) / <alpha-value>)',
+                    600: 'rgb(var(--obsidian-600) / <alpha-value>)',
+                    700: 'rgb(var(--obsidian-700) / <alpha-value>)',
+                    800: 'rgb(var(--obsidian-800) / <alpha-value>)',
+                    900: 'rgb(var(--obsidian-900) / <alpha-value>)',
+                    950: 'rgb(var(--obsidian-950) / <alpha-value>)',
                 },
                 iridium: {
                     50: '#fffbf0',
@@ -61,7 +69,7 @@ module.exports = {
             },
             boxShadow: {
                 'soft': '0 4px 24px rgba(0, 0, 0, 0.08)',
-                'glow': '0 0 24px rgba(255, 77, 46, 0.3)',
+                'glow': '0 0 24px rgba(250, 188, 5, 0.3)',
                 'inner-soft': 'inset 0 2px 8px rgba(0, 0, 0, 0.1)',
             },
             animation: {

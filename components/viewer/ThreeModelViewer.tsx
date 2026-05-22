@@ -517,7 +517,7 @@ function PhoneModel({ position, rotation, scale, screenImage, groupRef, hovered,
             ) : (
                 <group position={[0, 0, 0.042]}>
                     <mesh position={[0, 0.9, 0]}><planeGeometry args={[1.0, 0.15]} /><meshStandardMaterial color="#2e3c62" /></mesh>
-                    <mesh position={[0, 0.3, 0]}><planeGeometry args={[0.9, 0.8]} /><meshStandardMaterial color="#ff4d2e" /></mesh>
+                    <mesh position={[0, 0.3, 0]}><planeGeometry args={[0.9, 0.8]} /><meshStandardMaterial color="#FABC05" /></mesh>
                 </group>
             )}
 
@@ -983,7 +983,7 @@ export default function ThreeModelViewer({ className = '', screens, watchScreens
                 <ambientLight intensity={0.5} />
                 <spotLight position={[5, 5, 5]} angle={0.3} penumbra={1} intensity={1} castShadow />
                 <spotLight position={[-5, 3, -5]} angle={0.3} penumbra={1} intensity={0.5} />
-                <pointLight position={[-2, 2, -2]} intensity={0.8} color="#ff4d2e" />
+                <pointLight position={[-2, 2, -2]} intensity={0.8} color="#FABC05" />
                 <Environment preset="city" />
 
                 <SingleHeroDevice screenImage={screens?.[0]} watchScreenImage={watchScreens?.[0]} deviceType={deviceType} onScreenClick={onScreenClick} />

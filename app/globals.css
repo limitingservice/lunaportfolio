@@ -2,6 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Semantic theme tokens.
+ * Values are space-separated RGB channels so Tailwind opacity modifiers
+ * (e.g. bg-obsidian-900/80) keep working through `rgb(var(--x) / <alpha-value>)`.
+ * Default :root is the dark theme; [data-theme="light"] overrides it.
+ */
+:root {
+  /* Neutral surface scale */
+  --obsidian-50: 230 230 230;
+  --obsidian-100: 204 204 204;
+  --obsidian-200: 179 179 179;
+  --obsidian-300: 153 153 153;
+  --obsidian-400: 128 128 128;
+  --obsidian-500: 102 102 102;
+  --obsidian-600: 77 77 77;
+  --obsidian-700: 42 42 42;
+  --obsidian-800: 26 26 26;
+  --obsidian-900: 10 10 10;
+  --obsidian-950: 5 5 5;
+
+  /* Text */
+  --color-white: 255 255 255;
+  --gray-200: 229 231 235;
+  --gray-300: 209 213 219;
+  --gray-400: 156 163 175;
+}
+
+:root[data-theme="light"] {
+  /* Neutral surface scale flips: higher number = lighter surface */
+  --obsidian-50: 26 26 24;
+  --obsidian-100: 46 46 44;
+  --obsidian-200: 74 74 72;
+  --obsidian-300: 102 102 100;
+  --obsidian-400: 136 136 134;
+  --obsidian-500: 168 168 166;
+  --obsidian-600: 207 207 205;
+  --obsidian-700: 226 226 224;
+  --obsidian-800: 240 240 239;
+  --obsidian-900: 255 255 255;
+  --obsidian-950: 244 244 243;
+
+  /* Text inverts to dark ink */
+  --color-white: 24 24 27;
+  --gray-200: 38 38 38;
+  --gray-300: 58 58 58;
+  --gray-400: 107 107 107;
+}
+
 @layer base {
   body {
     @apply bg-obsidian-950 text-gray-300;
@@ -38,6 +86,14 @@
     animation: metallicShine 6s ease-in-out infinite;
   }
 
+  /* Light theme: darken the metallic gradient so it stays legible on light surfaces */
+  :root[data-theme="light"] .metallic-text {
+    background: linear-gradient(135deg, #bb4b02 0%, #E09B00 45%, #953908 70%, #78300b 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
   @keyframes metallicShine {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -51,11 +107,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: rgb(var(--obsidian-950));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333333;
+  background: rgb(var(--obsidian-600));
   border-radius: 5px;
 }
 

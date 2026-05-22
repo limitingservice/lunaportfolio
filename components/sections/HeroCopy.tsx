@@ -26,7 +26,7 @@ export default function HeroCopy() {
             {/* CTA Buttons */}
             <motion.div variants={fadeInUp} className="flex flex-col xl:flex-row flex-wrap gap-2 md:gap-4 pt-2 md:pt-4">
                 <motion.button
-                    className="px-3 py-2 md:px-8 md:py-4 text-xs md:text-base metallic-bg text-obsidian-950 font-black rounded-xl hover:brightness-110 transition-all shadow-glow text-center"
+                    className="px-3 py-2 md:px-8 md:py-4 text-xs md:text-base metallic-bg text-[#0a0a0a] font-black rounded-xl hover:brightness-110 transition-all shadow-glow text-center"
                     whileHover={{ scale: 1.05, boxShadow: '0 0 32px rgba(250, 188, 5, 0.4)' }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })}

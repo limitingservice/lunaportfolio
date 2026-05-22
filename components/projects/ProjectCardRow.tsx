@@ -23,6 +23,15 @@ export default function ProjectCardRow({ projects, className = '', onProjectClic
                         transition={{ delay: index * 0.1 }}
                         whileHover={{ y: -8, scale: 1.02 }}
                         onClick={() => onProjectClick?.(project)}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                onProjectClick?.(project);
+                            }
+                        }}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`View details for ${project.name}`}
                         className="group relative bg-obsidian-800 rounded-2xl overflow-hidden cursor-pointer border border-obsidian-700 hover:border-iridium-500/50 transition-all"
                     >
                         {/* Thumbnail */}

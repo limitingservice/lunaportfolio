@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Photo } from '@/data/photos';
@@ -15,6 +15,7 @@ interface PhotoLightboxProps {
 export default function PhotoLightbox({ photos, activeIndex, onClose, onNavigate }: PhotoLightboxProps) {
     const isOpen = activeIndex !== null;
     const photo = isOpen ? photos[activeIndex!] : null;
+    const lightboxRef = useRef<HTMLDivElement>(null);
 
     const handleKey = useCallback(
         (e: KeyboardEvent) => {
@@ -41,15 +42,28 @@ export default function PhotoLightbox({ photos, activeIndex, onClose, onNavigate
         }
     }, [isOpen]);
 
+    // Focus management: move focus into the lightbox and restore it on close
+    useEffect(() => {
+        if (!isOpen) return;
+        const previouslyFocused = document.activeElement as HTMLElement | null;
+        lightboxRef.current?.focus();
+        return () => previouslyFocused?.focus();
+    }, [isOpen]);
+
     return (
         <AnimatePresence>
             {isOpen && photo && (
                 <motion.div
+                    ref={lightboxRef}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label={`Photo viewer — ${photo.alt}`}
+                    tabIndex={-1}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.25 }}
-                    className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-12"
+                    className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-12 focus:outline-none"
                     onClick={onClose}
                 >
                     <button

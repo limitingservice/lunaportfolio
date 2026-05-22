@@ -34,14 +34,18 @@ export const metadata: Metadata = {
     },
 };
 
+// Applied before paint so the stored theme never flashes the wrong way.
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`;
+
 export default function RootLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className={inter.variable}>
+        <html lang="en" data-theme="dark" className={inter.variable}>
             <body className={inter.className}>
+                <script dangerouslySetInnerHTML={{ __html: themeScript }} />
                 {children}
             </body>
         </html>

@@ -465,7 +465,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
                         </div>
                         <div 
                             ref={barTrackRef}
-                            className={`w-full h-4 bg-white/5 rounded-full backdrop-blur-md border border-white/10 cursor-grab active:cursor-grabbing shadow-[0_4px_20px_rgba(0,0,0,0.5)] group relative select-none touch-none ${isDragging ? 'ring-1 ring-[#ff4d2e]/40' : ''}`}
+                            className={`w-full h-4 bg-white/5 rounded-full backdrop-blur-md border border-white/10 cursor-grab active:cursor-grabbing shadow-[0_4px_20px_rgba(0,0,0,0.5)] group relative select-none touch-none ${isDragging ? 'ring-1 ring-[#FABC05]/40' : ''}`}
                             onPointerDown={handlePointerDown}
                             onPointerMove={handlePointerMove}
                             onPointerUp={handlePointerUp}
@@ -473,7 +473,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project, initialD
                         >
                             {/* Thumb — no CSS transition so it tracks the pointer 1:1 */}
                             <div
-                                className={`absolute top-0.5 bottom-0.5 bg-gradient-to-r from-[#ff4d2e] to-[#ff2a00] rounded-full pointer-events-none ${isDragging ? 'brightness-125 shadow-[0_0_12px_rgba(255,77,46,0.6)]' : 'group-hover:brightness-110'}`}
+                                className={`absolute top-0.5 bottom-0.5 bg-gradient-to-r from-[#FABC05] to-[#E09B00] rounded-full pointer-events-none ${isDragging ? 'brightness-125 shadow-[0_0_12px_rgba(250,188,5,0.6)]' : 'group-hover:brightness-110'}`}
                                 style={{
                                     width: `${thumbWidthPct}%`,
                                     left: `${thumbLeftPct}%`,

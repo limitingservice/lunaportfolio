@@ -112,7 +112,7 @@ export default function HeroAboutCard() {
                             href="mailto:lunajfernando@gmail.com"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-3 py-1.5 md:px-5 md:py-2.5 metallic-bg text-obsidian-950 text-[10px] md:text-sm font-black rounded-full hover:brightness-110 transition-all flex items-center gap-1.5 md:gap-2 shadow-[0_0_15px_rgba(250,188,5,0.3)]"
+                            className="px-3 py-1.5 md:px-5 md:py-2.5 metallic-bg text-[#0a0a0a] text-[10px] md:text-sm font-black rounded-full hover:brightness-110 transition-all flex items-center gap-1.5 md:gap-2 shadow-[0_0_15px_rgba(250,188,5,0.3)]"
                         >
                             <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

@@ -32,7 +32,7 @@ export default function PhotoPortfolio({ onSwitchToUX }: PhotoPortfolioProps) {
     const isTextiles = filter === 'textiles';
 
     return (
-        <div className="min-h-screen bg-white text-neutral-900 font-mono">
+        <div data-theme="dark" className="min-h-screen bg-white text-neutral-900 font-mono">
             {/* Top nav */}
             <header className="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-neutral-200/60">
                 <div className="px-4 md:px-12 py-4 md:py-6 flex items-center gap-4 md:gap-6">

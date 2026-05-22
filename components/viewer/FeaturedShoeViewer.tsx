@@ -17,7 +17,7 @@ function ViewerSkeleton() {
     return (
         <div className="w-full h-full flex items-center justify-center bg-zinc-900/50 rounded-[40px] md:border border-white/5">
             <div className="text-center">
-                <div className="w-12 h-12 border-4 border-[#ff4d2e] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+                <div className="w-12 h-12 border-4 border-[#FABC05] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
                 <p className="text-gray-400 font-medium tracking-wide text-sm">Loading Hero Device...</p>
             </div>
         </div>
@@ -48,7 +48,8 @@ export default function FeaturedShoeViewer({ projects, className = '', showHUD =
     };
 
     return (
-        <div className={`relative w-full max-w-full ${className}`}>
+        // Device viewer always renders in dark — it presents product mockups, not site chrome
+        <div data-theme="dark" className={`relative w-full max-w-full ${className}`}>
             {/* Background embellishment */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="w-full h-full max-w-full bg-gradient-radial from-[#ffffff05] to-transparent rounded-full blur-3xl opacity-50"></div>
@@ -88,7 +89,7 @@ export default function FeaturedShoeViewer({ projects, className = '', showHUD =
                                 setInitialGalleryDevice(null);
                                 setIsGalleryOpen(true);
                             }}
-                            className="px-5 py-3 md:px-8 md:py-4 metallic-bg text-obsidian-950 rounded-full font-black transition-all shadow-glow flex items-center gap-2 hover:brightness-110"
+                            className="px-5 py-3 md:px-8 md:py-4 metallic-bg text-[#0a0a0a] rounded-full font-black transition-all shadow-glow flex items-center gap-2 hover:brightness-110"
                             whileHover={{ scale: 1.05, boxShadow: '0 0 32px rgba(250, 188, 5, 0.4)' }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -127,7 +128,7 @@ export default function FeaturedShoeViewer({ projects, className = '', showHUD =
                     {/* Project navigation arrows */}
                     {projects.length > 1 && (
                         <div className="absolute top-6 left-6 z-10 flex flex-col gap-2">
-                             <span className="text-[10px] font-bold uppercase tracking-wider text-[#ff4d2e] bg-[#ff4d2e]/10 px-3 py-1 rounded-full border border-[#ff4d2e]/20 w-fit">
+                             <span className="text-[10px] font-bold uppercase tracking-wider text-[#FABC05] bg-[#FABC05]/10 px-3 py-1 rounded-full border border-[#FABC05]/20 w-fit">
                                 Projects {currentIndex + 1} / {projects.length}
                             </span>
                         </div>
@@ -138,7 +139,7 @@ export default function FeaturedShoeViewer({ projects, className = '', showHUD =
                             <div className="absolute top-1/2 -translate-y-1/2 left-4 z-10">
                                 <motion.button
                                     onClick={handlePrevProject}
-                                    className="w-10 h-10 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-[#ff4d2e] transition-colors border border-white/10 backdrop-blur-sm"
+                                    className="w-10 h-10 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-[#FABC05] transition-colors border border-white/10 backdrop-blur-sm"
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
@@ -151,7 +152,7 @@ export default function FeaturedShoeViewer({ projects, className = '', showHUD =
                             <div className="absolute top-1/2 -translate-y-1/2 right-4 z-10">
                                 <motion.button
                                     onClick={handleNextProject}
-                                    className="w-10 h-10 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-[#ff4d2e] transition-colors border border-white/10 backdrop-blur-sm"
+                                    className="w-10 h-10 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-[#FABC05] transition-colors border border-white/10 backdrop-blur-sm"
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}
                                 >

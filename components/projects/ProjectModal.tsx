@@ -14,11 +14,42 @@ interface ProjectModalProps {
 
 export default function ProjectModal({ project, isOpen, onClose, initialView = 'brief' }: ProjectModalProps) {
     const [showFullDetails, setShowFullDetails] = React.useState(false);
+    const modalRef = React.useRef<HTMLDivElement>(null);
 
     // Reset state when modal opens/closes
     useEffect(() => {
         if (isOpen) setShowFullDetails(initialView === 'full');
     }, [isOpen, project?.id, initialView]);
+
+    // Focus management: move focus into the dialog, trap it, and restore on close
+    useEffect(() => {
+        if (!isOpen) return;
+        const previouslyFocused = document.activeElement as HTMLElement | null;
+        const node = modalRef.current;
+        node?.focus();
+
+        const handleTab = (e: KeyboardEvent) => {
+            if (e.key !== 'Tab' || !node) return;
+            const focusables = node.querySelectorAll<HTMLElement>(
+                'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+            );
+            if (focusables.length === 0) return;
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        };
+        document.addEventListener('keydown', handleTab);
+        return () => {
+            document.removeEventListener('keydown', handleTab);
+            previouslyFocused?.focus();
+        };
+    }, [isOpen]);
 
     // Handle escape key
     useEffect(() => {
@@ -56,11 +87,16 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                     <div className="fixed inset-0 z-50 overflow-y-auto" data-lenis-prevent="true">
                         <div className="min-h-screen px-4 py-8 flex items-center justify-center">
                             <motion.div
+                                ref={modalRef}
+                                role="dialog"
+                                aria-modal="true"
+                                aria-label={`${project.name} — project details`}
+                                tabIndex={-1}
                                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                                 transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                                className="relative w-full max-w-5xl bg-obsidian-900 rounded-2xl shadow-2xl border border-obsidian-700 max-h-[90vh] overflow-hidden"
+                                className="relative w-full max-w-5xl bg-obsidian-900 rounded-2xl shadow-2xl border border-obsidian-700 max-h-[90vh] overflow-hidden focus:outline-none"
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 {/* Close button */}
@@ -123,7 +159,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                 <div className="pt-4">
                                                     <motion.button
                                                         onClick={() => setShowFullDetails(true)}
-                                                        className="px-8 py-4 metallic-bg text-obsidian-950 rounded-full font-black transition-all shadow-lg hover:brightness-110 flex items-center gap-3"
+                                                        className="px-8 py-4 metallic-bg text-[#0a0a0a] rounded-full font-black transition-all shadow-lg hover:brightness-110 flex items-center gap-3"
                                                         whileHover={{ scale: 1.02 }}
                                                         whileTap={{ scale: 0.98 }}
                                                     >
