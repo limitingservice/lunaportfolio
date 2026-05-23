@@ -29,11 +29,15 @@
       "Bash(rm -f spotify-poster.png)",
       "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless --disable-gpu --hide-scrollbars --no-sandbox --screenshot=\"spotify-poster.png\" --window-size=2400,1600 --default-background-color=00000000 \"spotify-poster.html\")",
       "Bash(node -e \"const fs=require\\('fs'\\);const b=fs.readFileSync\\('spotify-poster.png'\\);console.log\\('size:',b.readUInt32BE\\(16\\)+'x'+b.readUInt32BE\\(20\\),'bytes:',b.length\\)\")",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "WebFetch(domain:www.nuuly.com)",
+      "WebSearch",
+      "Bash(cp \"c:/Users/lunaf/Documents/Side Projects/Immersive/new-resume/F Luna Resume 2026.pdf\" \"c:/Users/lunaf/Documents/Side Projects/Immersive/public/FerLuna-Resume.pdf\" && ls -la \"c:/Users/lunaf/Documents/Side Projects/Immersive/public/FerLuna-Resume.pdf\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\.next",
-      "c:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\public\\images"
+      "c:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\public\\images",
+      "c:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\new-resume"
     ]
   }
 }
