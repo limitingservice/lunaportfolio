@@ -75,9 +75,7 @@ export default function TopNav({ onSwitchToPhoto }: TopNavProps = {}) {
                                 <circle cx="40" cy="32" r="14" />
                             </clipPath>
                         </defs>
-
-                        <rect width="64" height="64" rx="14" fill="#0a0a0a" />
-
+                        <rect width="64" height="64" rx="14" fill="transparent" />
                         {/* F */}
                         <path d="M 10 18 L 22 18 L 22 22 L 14 22 L 14 28 L 20 28 L 20 32 L 14 32 L 14 46 L 10 46 Z" fill="url(#navGoldShimmer)" />
 
