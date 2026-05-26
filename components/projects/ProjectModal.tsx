@@ -3,23 +3,15 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '@/data/projects';
-import FeaturedShoeViewer from '@/components/viewer/FeaturedShoeViewer';
 
 interface ProjectModalProps {
     project: Project | null;
     isOpen: boolean;
     onClose: () => void;
-    initialView?: 'brief' | 'full';
 }
 
-export default function ProjectModal({ project, isOpen, onClose, initialView = 'brief' }: ProjectModalProps) {
-    const [showFullDetails, setShowFullDetails] = React.useState(false);
+export default function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
     const modalRef = React.useRef<HTMLDivElement>(null);
-
-    // Reset state when modal opens/closes
-    useEffect(() => {
-        if (isOpen) setShowFullDetails(initialView === 'full');
-    }, [isOpen, project?.id, initialView]);
 
     // Focus management: move focus into the dialog, trap it, and restore on close
     useEffect(() => {
@@ -112,87 +104,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
 
                                 {/* Scrollable content */}
                                 <div className="overflow-y-auto max-h-[90vh] p-8 lg:p-12" data-lenis-prevent="true">
-                                    {!showFullDetails ? (
-                                        <div className="grid lg:grid-cols-2 gap-12 items-center">
-                                            {/* Left: Project Info */}
-                                            <div className="space-y-8 order-2 lg:order-1">
-                                                <div>
-                                                    <div className="flex items-center gap-3 mb-3">
-                                                        <span className="px-3 py-1 bg-iridium-500/20 text-iridium-500 text-sm font-bold rounded-full uppercase tracking-wider">
-                                                            {project.category}
-                                                        </span>
-                                                        <span className="text-gray-400 font-medium">{project.year}</span>
-                                                    </div>
-                                                    <h3 className="text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">{project.name}</h3>
-                                                    <p className="text-xl text-gray-300 leading-relaxed">
-                                                        {project.description}
-                                                    </p>
-                                                </div>
-
-                                                {project.details?.keyFindings && project.details.keyFindings.length > 0 && (
-                                                    <div className="space-y-4">
-                                                        <h4 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Key Highlights</h4>
-                                                        <ul className="space-y-3">
-                                                            {project.details.keyFindings.slice(0, 3).map((finding, idx) => (
-                                                                <li key={idx} className="flex items-start gap-3 text-gray-300">
-                                                                    <svg className="w-5 h-5 text-iridium-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                                    </svg>
-                                                                    <span><strong className="text-white">{finding.category}:</strong> {finding.insights[0]}</span>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </div>
-                                                )}
-
-                                                <div className="flex flex-wrap gap-2 pt-2">
-                                                    {project.tools.map((tool) => (
-                                                        <span
-                                                            key={tool}
-                                                            className="px-3 py-1 bg-iridium-500/10 border border-iridium-500/15 text-iridium-400/80 rounded-lg text-sm"
-                                                        >
-                                                            {tool}
-                                                        </span>
-                                                    ))}
-                                                </div>
-
-                                                <div className="pt-4">
-                                                    <motion.button
-                                                        onClick={() => setShowFullDetails(true)}
-                                                        className="px-8 py-4 metallic-bg text-[#0a0a0a] rounded-full font-black transition-all shadow-lg hover:brightness-110 flex items-center gap-3"
-                                                        whileHover={{ scale: 1.02 }}
-                                                        whileTap={{ scale: 0.98 }}
-                                                    >
-                                                        <span>Explore Full Case Study</span>
-                                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                                        </svg>
-                                                    </motion.button>
-                                                </div>
-                                            </div>
-
-                                            {/* Right: 3D Viewer */}
-                                            <div className="order-1 lg:order-2 w-full">
-                                                <FeaturedShoeViewer 
-                                                    projects={[project]} 
-                                                    showHUD={false}
-                                                    className="!mb-0" 
-                                                />
-                                            </div>
-                                        </div>
-                                    ) : (
-                                        <div className="space-y-10">
-                                            <motion.button
-                                                onClick={() => setShowFullDetails(false)}
-                                                className="flex items-center gap-2 text-gray-400 hover:text-iridium-500 transition-colors mb-6 group"
-                                                whileHover={{ x: -4 }}
-                                            >
-                                                <svg className="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                                                </svg>
-                                                <span className="font-medium">Back to Overview</span>
-                                            </motion.button>
-
+                                    <div className="space-y-10">
                                             {/* Header */}
                                             <div className="mb-8">
                                                 <div className="flex items-center gap-3 mb-4">
@@ -369,8 +281,7 @@ export default function ProjectModal({ project, isOpen, onClose, initialView = '
                                                     </div>
                                                 </section>
                                             )}
-                                        </div>
-                                    )}
+                                    </div>
                                 </div>
                             </motion.div>
                         </div>

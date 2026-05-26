@@ -32,7 +32,9 @@
       "Bash(npx next *)",
       "WebFetch(domain:www.nuuly.com)",
       "WebSearch",
-      "Bash(cp \"c:/Users/lunaf/Documents/Side Projects/Immersive/new-resume/F Luna Resume 2026.pdf\" \"c:/Users/lunaf/Documents/Side Projects/Immersive/public/FerLuna-Resume.pdf\" && ls -la \"c:/Users/lunaf/Documents/Side Projects/Immersive/public/FerLuna-Resume.pdf\")"
+      "Bash(cp \"c:/Users/lunaf/Documents/Side Projects/Immersive/new-resume/F Luna Resume 2026.pdf\" \"c:/Users/lunaf/Documents/Side Projects/Immersive/public/FerLuna-Resume.pdf\" && ls -la \"c:/Users/lunaf/Documents/Side Projects/Immersive/public/FerLuna-Resume.pdf\")",
+      "WebFetch(domain:ea-gray.com)",
+      "WebFetch(domain:www.behance.net)"
     ],
     "additionalDirectories": [
       "C:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\.next",

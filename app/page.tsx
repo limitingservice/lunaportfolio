@@ -25,12 +25,10 @@ export default function Home() {
     const otherFeaturedProjects = featuredProjects.filter(p => p.id !== 'pots-access-technology');
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [initialModalView, setInitialModalView] = useState<'brief' | 'full'>('brief');
     const [mode, setMode] = useState<PortfolioMode>('ux');
 
-    const handleProjectClick = (project: Project, view: 'brief' | 'full' = 'brief') => {
+    const handleProjectClick = (project: Project) => {
         setSelectedProject(project);
-        setInitialModalView(view);
         setIsModalOpen(true);
     };
 
@@ -98,7 +96,7 @@ export default function Home() {
                     {potsProject && (
                         <HighlightedProject 
                             project={potsProject} 
-                            onViewDetails={() => handleProjectClick(potsProject, 'full')} 
+                            onViewDetails={() => handleProjectClick(potsProject)}
                         />
                     )}
 
@@ -109,7 +107,7 @@ export default function Home() {
                 </section>
 
                 {/* Case Studies */}
-                <CaseStudySection onViewDetails={(project) => handleProjectClick(project, 'full')} />
+                <CaseStudySection onViewDetails={(project) => handleProjectClick(project)} />
 
                 {/* Materials */}
                 <section id="process">
@@ -140,7 +138,6 @@ export default function Home() {
                 project={selectedProject}
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
-                initialView={initialModalView}
             />
         </LayoutShell>
     );
