@@ -1195,7 +1195,7 @@ export const projects: Project[] = [
         shortDescription: 'Browser-based AR glasses try-on experience',
         tools: ['React', 'Three.js', 'MediaPipe', 'Vite', 'Figma', 'Interaction Design'],
         tags: ['Augmented Reality', 'E-Commerce UX', 'Face Tracking', 'WebXR', 'Product Design'],
-        featured: true,
+        featured: false,
         logo: '/images/nike-vision-logo.svg',
         images: {
             thumbnail: '/images/glasses/01_Product_Page_Hero.png',
@@ -1352,7 +1352,7 @@ export const projects: Project[] = [
         shortDescription: 'Gesture-based smartwatch accessibility prototype',
         tools: ['Python', 'OpenCV', 'MediaPipe', 'Tkinter', 'Rapid Prototyping', 'Interaction Design'],
         tags: ['Accessibility', 'Gesture Recognition', 'HCI', 'Wearables'],
-        featured: true,
+        featured: false,
         logo: '/images/wave-watch-logo-opt.png',
         images: {
             thumbnail: '/images/wave-watch-logo-opt.png',

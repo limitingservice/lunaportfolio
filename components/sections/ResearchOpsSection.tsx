@@ -6,19 +6,20 @@ import { fadeInUp, staggerContainer } from '@/utils/animations';
 
 const stackPillars = [
     {
-        category: 'Qualitative Methods',
-        accent: 'Listening closely',
+        category: 'Qualitative Depth',
+        accent: 'Where I lead',
         items: [
             'Semi-structured user interviews',
             'Contextual inquiry & field research',
             'Think-aloud usability testing',
             'Heuristic evaluation',
             'Affinity mapping & thematic coding',
+            'Stakeholder & expert interviews',
         ],
     },
     {
-        category: 'Quantitative Methods',
-        accent: 'Measuring what matters',
+        category: 'Quantitative Validation',
+        accent: 'In service of the qualitative',
         items: [
             'Time-on-task & click-count analysis',
             'System Usability Scale (SUS)',
@@ -66,7 +67,7 @@ export default function ResearchOpsSection() {
                         Research <span className="metallic-text">Stack & Operations</span>
                     </h2>
                     <p className="text-base text-gray-400 max-w-3xl">
-                        The methods I lean on, and how I match them to the question — qualitative for depth, quantitative for measurement, AI for the work it does better than I can.
+                        Qualitative-led mixed methods. I lead with depth — interviews, observation, synthesis — and bring quantitative methods in to validate, not to lead.
                     </p>
                 </motion.div>
 

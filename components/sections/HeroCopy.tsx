@@ -14,11 +14,9 @@ export default function HeroCopy() {
         >
             {/* Main headline */}
             <motion.h1 variants={fadeInUp} className="text-5xl sm:text-6xl md:text-hero font-black leading-none sm:leading-none md:leading-none break-words">
-                <span className="text-white">DATA-</span>
+                <span className="text-white">MIXED-METHODS</span>
                 <br />
-                <span className="text-white">DRIVEN</span>
-                <br />
-                <span className="metallic-text pb-1">RESEARCH & DESIGN</span>
+                <span className="metallic-text pb-1">UX RESEARCH</span>
             </motion.h1>
 
 
@@ -52,7 +50,7 @@ export default function HeroCopy() {
                 </div>
                 <div>
                     <div className="text-xl md:text-3xl font-bold metallic-text">50+</div>
-                    <div className="text-[10px] md:text-sm text-gray-400 leading-tight">Participants<br className="md:hidden" /> Recruited</div>
+                    <div className="text-[10px] md:text-sm text-gray-400 leading-tight">Participants<br className="md:hidden" /> Interviewed</div>
                 </div>
                 <div>
                     <div className="text-xl md:text-3xl font-bold metallic-text">HCI</div>

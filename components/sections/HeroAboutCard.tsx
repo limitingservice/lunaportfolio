@@ -5,14 +5,14 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const expertise = [
-    'User Research',
+    'Mixed-Methods',
+    'Qualitative Methods',
+    'User Interviews',
+    'Thematic Analysis',
+    'Contextual Inquiry',
     'Research Planning',
     'Usability Testing',
-    'Accessible Design',
-    'Data Analysis',
-    'Qualitative Methods',
     'Quantitative Methods',
-    'User Interviews',
 ];
 
 export default function HeroAboutCard() {
@@ -49,7 +49,7 @@ export default function HeroAboutCard() {
                 {/* Bio text */}
                 <div className="space-y-2 md:space-y-4 text-gray-300 text-base leading-relaxed mb-4 md:mb-8 flex-grow">
                     <p>
-                        Mixed-methods UX researcher trained in HCI. I listen closely, study carefully, and turn what I hear into evidence teams can trust — close to the people the field often skips past.
+                        I listen closely, study carefully, and turn what I hear into evidence teams can act on — close to the people the field often skips past: pregnant women, manufacturing operators, faculty and academic staff, people managing chronic illness.
                     </p>
                 </div>
 
