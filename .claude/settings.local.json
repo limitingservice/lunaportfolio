@@ -44,7 +44,8 @@
       "Bash(python -c \"import fitz; print\\(fitz.__version__\\)\")",
       "Bash(python -c ' *)",
       "Bash(mkdir -p pages)",
-      "Bash(pip install *)"
+      "Bash(pip install *)",
+      "Bash(pdfinfo \"c:/Users/lunaf/Documents/Side Projects/Immersive/pots/Access Technology Low Fidelity Presentation.pdf\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\.next",

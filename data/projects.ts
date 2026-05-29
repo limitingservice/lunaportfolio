@@ -66,6 +66,28 @@ export interface Project {
                 milestone?: boolean;
             }[];
         };
+        persona?: {
+            name: string;
+            age?: number;
+            occupation?: string;
+            location?: string;
+            tagline?: string;
+            bio?: string;
+            userNeeds?: string[];
+            userMindsets?: string[];
+        };
+        journeyMap?: {
+            phases: {
+                name: string;
+                userActions?: string[];
+                goals?: string[];
+                thoughts?: string[];
+                feelings?: { text: string; emoji: '😡' | '😠' | '😟' | '😐' | '🙂' | '😊' }[];
+                painPoints?: string[];
+                touchpoints?: string[];
+                opportunities?: string[];
+            }[];
+        };
     };
     caseStudy?: {
         problem: string;
@@ -359,7 +381,7 @@ export const projects: Project[] = [
         name: 'Canvas AI-Assisted Quiz Creation',
         year: 2024,
         category: 'Research',
-        description: 'Mixed-methods UX research on Canvas LMS focused on the faculty quiz creation flow. The original concept was a preset-based quiz builder; mid-study, a user-testing participant suggested integrating AI to generate quiz questions, and that suggestion drove a research-driven pivot to a "Build with AI" feature. Combined user interviews, observational task analysis with time-on-task and click-count measurement, heuristic evaluation, longitudinal low → mid → high fidelity prototype testing, and a Likert survey on faculty AI comfort and quiz creation efficiency.',
+        description: 'Mixed-methods UX research on Canvas LMS focused on the faculty quiz creation flow. The original concept was a preset-based quiz builder; mid-study, a user-testing participant suggested integrating AI to generate quiz questions, and that suggestion drove a research-driven pivot to a "Build with AI" feature. Combined user interviews, observational task analysis with time-on-task and click-count measurement, heuristic evaluation, persona synthesis (John Davis — Associate Professor) and user journey mapping, longitudinal low → mid → high fidelity prototype testing, and a Likert survey on faculty AI comfort.',
         shortDescription: 'AI-assisted quiz creation research for Canvas faculty',
         tools: ['User Interviews', 'Observational Studies', 'Heuristic Evaluation', 'Time-on-Task Measurement', 'Click Count Analysis', 'Multi-Fidelity Prototype Testing', 'Likert Surveys'],
         tags: ['Canvas LMS', 'AI', 'Mixed-Methods', 'Faculty Workflows', 'EdTech'],
@@ -414,6 +436,16 @@ export const projects: Project[] = [
                     name: 'Heuristic Evaluation',
                     description: 'Independent heuristic evaluation on the existing Canvas quiz creation flow using Nielsen Ten Heuristics — focus on error prevention, system status visibility, consistency and standards, and recognition over recall.',
                     rationale: 'Layered heuristic evaluation onto user data to surface usability violations long-tenured faculty had habituated to — the workarounds long-time Canvas users no longer notice as problems.'
+                },
+                {
+                    name: 'Persona Synthesis',
+                    description: 'Synthesized interview and observation data into a primary faculty persona — John Davis, Associate Professor, 47, Indianapolis — capturing core user needs (efficiency, flexibility, third-party integration, user-friendly quiz editing) and mindsets (focused on necessity, adaptive to limitations, oriented by student experience, desires assessment automation). The persona anchored every subsequent design decision.',
+                    rationale: 'A persona built from real interview and observation data — not a stock template — kept the team honest. When a design choice could not be justified against John\'s needs and mindsets, it got cut.'
+                },
+                {
+                    name: 'User Journey Mapping',
+                    description: 'Mapped John Davis\'s quiz-creation journey across user steps, actions, goals & experiences, feelings & thoughts, pain points, and opportunities — from onboarding into the quiz authoring flow through publication. Identified where friction and emotional dips clustered and where design intervention could move the needle most.',
+                    rationale: 'A persona on its own is a snapshot; a journey map turns it into a sequence. Mapping the journey made it possible to prioritize which moments of friction mattered most to redesign — and which were tolerable noise.'
                 },
                 {
                     name: 'Low / Mid / High Fidelity Usability Testing',
@@ -560,6 +592,92 @@ export const projects: Project[] = [
                     { name: 'Hi-Fi Testing', track: 'synthesis', startWeek: 12, endWeek: 12 },
                     { name: 'Final', track: 'synthesis', startWeek: 14, endWeek: 14, milestone: true }
                 ]
+            },
+            persona: {
+                name: 'John Davis',
+                age: 47,
+                occupation: 'Associate Professor',
+                location: 'Indianapolis, IN',
+                bio: 'Tenured faculty who creates and edits quizzes in Canvas every semester. Enjoys participating in conferences and research relevant to his own work. Treats Canvas as a necessary tool, not a destination — he wants it to get out of his way so he can focus on teaching.',
+                userNeeds: [
+                    'Efficiency when navigating courses',
+                    'Flexibility and customization',
+                    'Speed and performance',
+                    'Seamless third-party integration',
+                    'User-friendly quiz editing',
+                    'Support and training resources'
+                ],
+                userMindsets: [
+                    'Focused on necessity',
+                    'Adaptive to limitations',
+                    'Oriented by student experience',
+                    'Desires automation regarding assessment'
+                ]
+            },
+            journeyMap: {
+                phases: [
+                    {
+                        name: 'On-board',
+                        userActions: ['Logs in to Canvas with university credentials'],
+                        goals: ['Successfully log in to access courses and tools'],
+                        feelings: [{ text: 'Routine entry — neither friction nor delight', emoji: '😐' }],
+                        painPoints: ['Typical onboarding steps; nothing broken'],
+                        opportunities: ['Onboarding is necessary; loading times could be optimized for slower networks']
+                    },
+                    {
+                        name: 'Course Selection',
+                        userActions: ['Navigates from the dashboard to the desired course'],
+                        goals: ['Get into the course to start work'],
+                        feelings: [{ text: 'Tenured user does this daily — fully familiar with the interface', emoji: '🙂' }],
+                        painPoints: ['No friction at this step; tenured faculty are habituated'],
+                        opportunities: ['Already intuitive; no redesign needed here']
+                    },
+                    {
+                        name: "Select 'Quiz'",
+                        userActions: ['Navigates to the side-nav', 'Selects the "Quizzes" feature', 'Clicks the button to create a new quiz'],
+                        goals: ['Reach the quiz authoring environment quickly'],
+                        feelings: [{ text: 'Quick navigation in a known location', emoji: '🙂' }],
+                        painPoints: ['Intuitive and clearly labeled'],
+                        opportunities: ['No issues at this step — keep the affordances clear']
+                    },
+                    {
+                        name: 'Create Quiz & Content',
+                        userActions: [
+                            'Customizes quiz settings',
+                            'Creates the quiz content',
+                            'Adds questions one at a time, selecting type for each',
+                            'Repeats steps for each new question'
+                        ],
+                        goals: ['Build a complete, well-configured quiz that fits the assessment plan'],
+                        feelings: [
+                            { text: 'Settings feel intricate; many options to track', emoji: '😟' },
+                            { text: 'Adding new content is simple, but settings are complex', emoji: '😠' }
+                        ],
+                        painPoints: [
+                            'Intricate settings per quiz — many options to evaluate',
+                            'Various ways to add new questions; complex to choose well',
+                            'Having to repeat similar steps across many questions',
+                            'Constantly having to update a question to save content corrections'
+                        ],
+                        opportunities: [
+                            'Reduce repeated steps across questions (template, duplicate, bulk-edit)',
+                            'Surface defaults that map to most common assessment patterns',
+                            'Use existing quizzes or templates as starting points',
+                            'AI-assisted question generation to reduce manual repetition'
+                        ]
+                    },
+                    {
+                        name: 'Publish Quiz',
+                        userActions: ['Saves the quiz', 'Previews the quiz', 'Clicks Publish on the quiz page'],
+                        goals: ['Ensure the quiz is complete and visible to students at the right time'],
+                        feelings: [{ text: 'Necessary final task to ensure progress is saved', emoji: '🙂' }],
+                        painPoints: ['Tenured users follow the necessary final steps without resistance'],
+                        opportunities: [
+                            'Preview integrated before publishing catches errors before students see them',
+                            'Confirm successful publication with clear status feedback'
+                        ]
+                    }
+                ]
             }
         }
     },
@@ -623,6 +741,10 @@ export const projects: Project[] = [
                 {
                     role: 'Usability Test Participants',
                     description: 'Listeners observed completing three core tasks in moderated think-aloud sessions'
+                },
+                {
+                    role: 'Primary Persona: Manny Delgado (23, NYC student)',
+                    description: '"Music sets the vibe, and I\'m here to make sure it\'s always fresh and full of energy." Socially driven listener who creates collaborative playlists, discovers music through social media + charts, and shares actively through Instagram Stories and iMessage because Spotify\'s native sharing falls short. The persona anchored design priorities throughout the study.'
                 }
             ],
             keyFindings: [
@@ -645,15 +767,16 @@ export const projects: Project[] = [
                 {
                     category: 'Critical Usability Issues',
                     insights: [
-                        'Quantitative metrics showed error rates as high as 57% on the most complex task',
-                        'Post-task satisfaction bottomed out at 2 out of 5, confirming the frustration observed in think-aloud sessions',
+                        'Quantitative metrics showed error rates as high as 57% on rearranging songs',
+                        'Finding a friend\'s profile averaged 13.25 clicks (range up to 25) with a 36-second standard deviation in time-on-task',
+                        'Post-task satisfaction for playlist rearrangement bottomed at 2 out of 5, confirming the frustration observed in think-aloud sessions',
                         'High error rates clustered around playlist organization and friend discovery — not playback'
                     ]
                 },
                 {
                     category: 'Below-Benchmark Usability (SUS)',
                     insights: [
-                        'The System Usability Scale produced an average score of 53.13, well below the 70 industry benchmark',
+                        'The System Usability Scale produced an average score of 53.13 (standard deviation 17.84), well below the 70 industry benchmark',
                         'The result held at a 99% confidence level, making the gap statistically reliable rather than anecdotal',
                         'A strong brand was masking a measurably below-average usability experience'
                     ]
@@ -709,8 +832,8 @@ export const projects: Project[] = [
         id: 'pots-access-technology',
         name: 'POTS Access Technology',
         year: 2024,
-        category: 'Product Design',
-        description: 'Designed a companion app and smart cane for managing Postural Orthostatic Tachycardia Syndrome (POTS). This research-driven solution provides real-time heart rate episode detection, guided breathing exercises, and symptom logging to support daily independence.',
+        category: 'Research',
+        description: 'Mixed-methods access-technology research for a user living with Postural Orthostatic Tachycardia Syndrome (POTS). Combined in-depth interviews and contextual inquiry with a primary user, affinity mapping into 8 cross-cutting themes, competitive analysis of existing wearable health platforms, and secondary research across medical literature and online POTS / dysautonomia / chronic-illness communities. Synthesized findings drove an integrated companion app + smart cane system tested across low and high fidelity.',
         shortDescription: 'Companion app & smart cane for POTS management',
         tools: ['Figma', 'User Research', 'Prototyping', 'Usability Testing', 'Secondary Research', 'Interaction Design'],
         tags: ['Access Technology', 'Health & Wellness', 'Product Design', 'UX Research'],
@@ -746,7 +869,8 @@ export const projects: Project[] = [
             role: 'UX Researcher & Designer',
             team: '4-person team',
             duration: 'Full semester',
-            context: 'Designed an access technology for a user living with POTS — a chronic condition causing rapid heart rate spikes, dizziness, fatigue, and fainting upon standing. The project combined primary research with the user and secondary medical research to create a holistic solution addressing both physical support (smart cane) and digital management (companion app).',
+            stakeholderNote: 'Co-designed with a primary user living with POTS; grounded in medical literature and triangulated against community insights from POTS, dysautonomia, and chronic-illness forums.',
+            context: 'Access-technology research for a user living with POTS — a chronic condition causing rapid heart rate spikes, dizziness, fatigue, and fainting upon standing. The research went deeper than a single product brief: thematic coding across interview data surfaced that POTS rarely shows up alone — cognitive, sensory, and social-navigation needs mattered as much as the physical episodes themselves. Findings shaped an integrated companion app + smart cane system designed to be both functional and socially discreet.',
             problemStatement: 'The user experiences sudden, debilitating POTS episodes — rapid heart rate spikes, dizziness, brain fog, and risk of fainting — triggered by standing or positional changes. Existing tools did not provide real-time detection, guided intervention, or comprehensive symptom tracking. The user needed a way to detect episodes early, receive immediate guided support, log symptoms for medical appointments, and carry emergency features — all without drawing unwanted attention to their condition.',
             researchGoals: [
                 'Understand the user\'s daily experience living with POTS and identify key pain points',
@@ -758,66 +882,102 @@ export const projects: Project[] = [
             researchMethods: [
                 {
                     name: 'User Interviews & Contextual Inquiry',
-                    description: 'Conducted in-depth interviews with the user to understand their daily routines, episode triggers, coping strategies, and frustrations with current tools. Observed how they navigate daily activities and identified moments where technology could provide the most value.'
+                    description: 'Conducted in-depth interviews with the primary user to understand daily routines, episode triggers, coping strategies, multi-condition navigation, and frustrations with current tools. Observed how they navigate daily activities and identified moments where technology could provide the most value.',
+                    rationale: 'Chose direct co-design with a real user over proxy research because chronic illness is deeply personal and lab-only conditions miss the lived texture of moving through a day with POTS.'
                 },
                 {
-                    name: 'Secondary Medical Research',
-                    description: 'Reviewed medical literature on POTS — its symptoms, prevalence, treatment options, and the role of heart rate monitoring in episode detection. Researched existing wearable health technologies and identified opportunities for integration with smart cane hardware.'
+                    name: 'Affinity Mapping & Thematic Coding',
+                    description: 'Clustered observations and quotes into 8 cross-cutting themes — Cognitive Accessibility, Sensory Preferences, Mobility & POTS, Medication Management, Communication & Memory, Interface Preferences, Social Navigation, and Tools & Hacks. Each theme grounded in specific user examples and traced through to design recommendations.',
+                    rationale: 'Affinity mapping revealed that POTS rarely shows up alone. Coding into 8 themes prevented the design from over-indexing on the dramatic moments (episodes) while ignoring the quieter friction (cognitive load, social masking, sensory regulation) that shaped daily life equally.'
                 },
                 {
-                    name: 'Low-Fidelity Prototyping & Testing',
-                    description: 'Created initial wireframes and low-fidelity prototypes for both the app and cane. Tested early concepts with the user to validate the information architecture, screen flows, and physical cane form factor before moving to high-fidelity design.'
+                    name: 'Persona Synthesis',
+                    description: 'Synthesized interview and observational data into a primary persona capturing the user\'s multi-condition profile, daily patterns, coping strategies, and design needs. The persona anchored design decisions in real lived experience and traveled with the team into every iteration.',
+                    rationale: 'A persona built from real data — not stock templates — kept the design honest. When a feature could not be justified against the persona, it got cut.'
                 },
                 {
-                    name: 'High-Fidelity Prototyping & Usability Testing',
-                    description: 'Designed a complete high-fidelity prototype in Figma covering episode detection alerts, breathing exercises, symptom logging, vibration notification settings, and episode support tips. Conducted usability testing sessions to refine interactions and visual design.'
+                    name: 'Competitive Analysis',
+                    description: 'Reviewed existing wearable health platforms (Pirilik, TachyMon, mainstream fitness trackers) and accessibility-focused apps to map current paradigms, identify gaps for chronic-illness contexts, and surface conventions worth keeping or breaking.',
+                    rationale: 'Fitness-tracker conventions assume increase-activity goals. Chronic-illness pacing inverts that assumption. Competitive analysis surfaced where the genre conventions actively harmed our user.'
+                },
+                {
+                    name: 'Secondary Research & Community Insights',
+                    description: 'Reviewed medical literature on POTS pathophysiology, heart rate monitoring, and assistive technology. Triangulated against user discussions in POTS, dysautonomia, engineer-with-chronic-illness, and broader chronic-illness online communities to broaden understanding beyond a single user.',
+                    rationale: 'Single-user research risks over-fitting. Community discussions surfaced patterns (frustration with healthcare dismissal, pacing strategies, wearable repurposing) that recurred across many users with POTS — validating which findings to generalize and which to keep specific.'
+                },
+                {
+                    name: 'Low- & High-Fidelity Prototyping & Usability Testing',
+                    description: 'Iterated through hand-drawn low-fidelity sketches into a complete high-fidelity Figma prototype covering episode alerts, breathing exercises, symptom logging, vibration settings, and the integrated cane hardware. Tested at each fidelity with the primary user; refined interactions and visual design based on feedback.',
+                    rationale: 'Multi-fidelity testing let the team verify whether each design change actually solved the friction surfaced in affinity mapping. Findings that recurred across fidelities were real; findings that disappeared were noise.'
                 }
             ],
             participants: [
                 {
-                    role: 'Primary User',
-                    description: 'Individual living with POTS who experiences daily episodes'
+                    role: 'Primary User (Co-Design Partner)',
+                    description: 'Individual living with POTS plus overlapping conditions (ADHD, dyslexia); participated across interviews, low-fi and hi-fi testing.'
                 },
                 {
-                    role: 'Medical Research Sources',
-                    description: 'Academic literature on POTS, heart rate monitoring, and assistive technology'
+                    role: 'Online Chronic-Illness Communities',
+                    description: 'POTS, dysautonomia, and broader chronic-illness forums (including engineer- and doctor-with-chronic-illness threads) reviewed for recurring patterns around pacing, wearable use, and healthcare communication.'
+                },
+                {
+                    role: 'Medical Literature Sources',
+                    description: 'Peer-reviewed sources on POTS pathophysiology, heart rate monitoring, and assistive technology paradigms.'
                 }
             ],
             keyFindings: [
                 {
-                    category: 'Episode Detection & Response',
+                    category: 'Mobility, POTS & Episode Management',
                     insights: [
-                        'Heart rate spikes above a personal threshold (e.g., 120 BPM) are the earliest reliable indicator of an episode',
-                        'The user needs immediate, actionable guidance — not just an alert — when an episode begins',
-                        'Multiple response options (breathing exercise, self-dismiss, emergency call) are critical since episode severity varies',
-                        'Real-time monitoring via watch or cane sensor provides the fastest detection'
+                        'Heart rate escalates noticeably when standing for extended periods — a leading indicator of an episode',
+                        'The user already uses a cane and heart rate tracker during flare-ups; design should extend the existing toolkit, not replace it',
+                        'Multiple response options needed since episode severity varies — single-state alerts are not enough',
+                        'Real-time monitoring via watch or cane sensor provides the fastest, most reliable detection'
                     ]
                 },
                 {
-                    category: 'Symptom Logging & Tracking',
+                    category: 'Cognitive Accessibility & Communication',
                     insights: [
-                        'The user struggles to recall episode details during medical appointments',
-                        'Logging needs to capture heart rate data, activity context, mood, and symptoms simultaneously',
-                        'Voice recording capability is important when the user is too symptomatic to type',
-                        'Medical data auto-population from connected devices reduces logging burden'
+                        'POTS rarely shows up alone — ADHD, dyslexia, and POTS overlap meaningfully for many users',
+                        'Cognitive load shapes interaction preferences: minimal steps, simple layouts, longer-form media with captions',
+                        'Memory & communication workarounds are already in use: screenshots as reminders, spellcheck for misspellings, instant-send messaging to avoid forgetting',
+                        'Difficulty switching tasks is common — interfaces should reduce mode-switching, not introduce it'
                     ]
                 },
                 {
-                    category: 'Physical Support & Discretion',
+                    category: 'Sensory Preferences',
                     insights: [
-                        'The user benefits from physical stability support but wants to avoid drawing unnecessary attention',
-                        'A collapsible cane design makes the device portable and socially comfortable',
-                        'Integrating health sensors, medication storage, and an SOS button into the cane handle creates a single support device',
-                        'An ergonomic game-controller-style grip improves comfort during extended use'
+                        'Screen contrast matters more than layout — contrast is the load-bearing accessibility variable',
+                        'Font choice and brightness affect prolonged reading',
+                        'Auditory distractions break focus — quiet environments preferred, tactile notifications preferred over audio',
+                        'Interface design must respect sensory regulation, not assume neurotypical processing'
                     ]
                 },
                 {
-                    category: 'Daily Management',
+                    category: 'Medication Management',
                     insights: [
-                        'Hydration, nutrition, and medication tracking are essential parts of POTS management',
-                        'The user benefits from personalized insights based on logged episode patterns',
-                        'Customizable vibration notification settings allow the user to choose alert intensity and triggers',
-                        'Episode support tips (elevate legs, drink water, rest, loosen clothes) provide immediate relief guidance'
+                        'Pills are often forgotten at home when daily routines change',
+                        'A weekly portable pill box is the user-validated solution to forgotten-medication friction',
+                        'Alarms and reminder routines support consistent dosing — but only when they fit the user\'s existing notification preferences',
+                        'Connecting medication to symptom logging surfaces correlations the user would otherwise miss'
+                    ]
+                },
+                {
+                    category: 'Social Navigation & Invisible Disability',
+                    insights: [
+                        'The cane causes unwanted attention — a visible marker of an otherwise invisible condition',
+                        'Social masking is energy-draining; designing for discretion preserves the user\'s limited daily energy budget',
+                        'Avoids video calls (FaceTime) to conserve energy — an unexpected design constraint',
+                        'Discretion must be designed in, not added as a setting — the device should default to socially comfortable'
+                    ]
+                },
+                {
+                    category: 'User-Driven Tools & Coping Hacks',
+                    insights: [
+                        'Users already extend tools beyond intended use: AI tools to fix indentation in code, captions to support comprehension across media',
+                        'Repurposing of mainstream tech (fitness trackers, photo apps as memory aids) is constant — design should honor and extend these patterns',
+                        'Healthcare-system frustration recurs in community discussions: users feel dismissed when presenting wearable data to providers',
+                        'Pacing strategies (diagnosis-based, real-time, preventative) cluster across the community — a paradigm shift fitness trackers do not support natively'
                     ]
                 }
             ],
@@ -865,7 +1025,122 @@ export const projects: Project[] = [
                 'Health UX',
                 'Hardware-Software Integration',
                 'Figma'
-            ]
+            ],
+            persona: {
+                name: 'Abby Godsen',
+                occupation: 'Junior in college',
+                bio: 'A junior in college living with POTS, ADHD, dyslexia, and Hashimoto\'s. Tech-aware and detail-oriented, but easily overwhelmed by cognitive load. Abby uses a cane during flare-ups and relies on screenshots and reminders to manage daily tasks. A typical day involves attending classes, managing medications, and navigating social and cognitive challenges while monitoring and responding to her body\'s symptoms.',
+                userNeeds: [
+                    'Minimize sensory overload and UI complexity',
+                    'Get real-time, subtle heart rate alerts',
+                    'Maintain routines without heavy interaction',
+                    'Access tools that support memory, comprehension, and fatigue pacing'
+                ],
+                userMindsets: [
+                    'Tech-aware and detail-oriented',
+                    'Easily overwhelmed by cognitive load',
+                    'Adaptive — uses screenshots and reminders to compensate',
+                    'Pacing-focused; values autonomy over alarms'
+                ]
+            },
+            journeyMap: {
+                phases: [
+                    {
+                        name: 'Morning Routine',
+                        userActions: ['Wakes up, navigates brain fog, takes medications, checks hydration and heart rate'],
+                        thoughts: ['"Where\'s my pill box again? Did I take my meds yet?"'],
+                        feelings: [{ text: 'Foggy, sluggish, anxious to avoid a bad start', emoji: '😟' }],
+                        painPoints: [
+                            'Easily forgets if medication was taken due to disrupted routines',
+                            'Standard alarm apps don\'t offer helpful context to follow up',
+                            'Reading pill labels is difficult due to dyslexia; written reminders can be confusing'
+                        ],
+                        touchpoints: ['Haptic medication reminders on wearable with checklist interface and audio confirmation'],
+                        opportunities: [
+                            'Introduce a tactile or haptic-based pill confirmation feature (e.g., long-press to confirm meds taken)',
+                            'Provide voice-based prompts and confirmations instead of text-based reminders to support cognitive accessibility'
+                        ]
+                    },
+                    {
+                        name: 'Commute & Class Transition',
+                        userActions: ['Walks to class; heart rate fluctuates with movement and temperature'],
+                        thoughts: ['"Is this spike from walking or is something off?"'],
+                        feelings: [{ text: 'Alert, occasionally overwhelmed, cautious', emoji: '😟' }],
+                        painPoints: [
+                            'Heart rate changes can go unnoticed or be misinterpreted',
+                            'Standard apps offer numeric data but no context for symptoms',
+                            'Pulling out a phone while walking or using a cane is impractical'
+                        ],
+                        touchpoints: ['Smartwatch vibrates uniquely for moderate vs. high spikes; uses contextual prompts like "pause + hydrate"'],
+                        opportunities: [
+                            'Develop distinct vibration patterns for heart rate thresholds (gentle pulse for caution, double-tap for alert)',
+                            'Use context-aware prompts like "Rest soon?" instead of just numeric feedback'
+                        ]
+                    },
+                    {
+                        name: 'In-Class Focus',
+                        userActions: ['Attends lectures; takes notes using screenshots, notebook, or voice memos'],
+                        thoughts: ['"I hope I don\'t miss anything while zoning out."'],
+                        feelings: [{ text: 'Focused but cognitively fatigued', emoji: '😟' }],
+                        painPoints: [
+                            'Gets easily distracted or overwhelmed by cluttered screens or popups',
+                            'Visual cues (like flashing notifications) often go unnoticed',
+                            'Typing and writing fatigue due to dyslexia and mental load'
+                        ],
+                        touchpoints: ['Wearable provides non-intrusive nudges/reminders for hydration and stretch breaks; allows tagging lecture moments via voice cue or simple tap'],
+                        opportunities: [
+                            'Offer voice-based bookmarking via the smartwatch for moments when focus drops or information feels important',
+                            'Introduce focus mode with reduced distractions and gentle pacing reminders'
+                        ]
+                    },
+                    {
+                        name: 'Midday Reset & Medication',
+                        userActions: ['Eats lunch, takes second round of medication, tries to rest or pace herself'],
+                        thoughts: ['"Was that spike from skipping salt or just walking too much?"'],
+                        feelings: [{ text: 'Drained, anxious about triggering a flare', emoji: '😐' }],
+                        painPoints: [
+                            'Lack of insight into cause-effect of symptoms like dizziness or elevated HR',
+                            'Forgetfulness around medication or hydration when routine changes (e.g., grabbing lunch off campus)',
+                            'Alarms add stress rather than support'
+                        ],
+                        touchpoints: ['Smartwatch uses vibration pattern + context ("Did you hydrate?"); pill reminders embedded into the activity timeline'],
+                        opportunities: [
+                            'Create a secondary check-in vibration 10–15 minutes after a high HR if no action is detected',
+                            'Include "Did you hydrate?" follow-ups that are non-intrusive and optional, respecting autonomy'
+                        ]
+                    },
+                    {
+                        name: 'Afternoon Movement & Study',
+                        userActions: ['Heads to study area, attends club meetings or runs errands'],
+                        thoughts: ['"My heart\'s racing, but I\'ve been sitting — what\'s causing it?"'],
+                        feelings: [{ text: 'Tired and a bit frustrated, trying to stay productive', emoji: '😟' }],
+                        painPoints: [
+                            'Disconnected tools don\'t show a complete picture (HR data, symptom triggers)',
+                            'Physical fatigue builds unpredictably, leading to emotional fatigue'
+                        ],
+                        touchpoints: ['Wearable flags symptoms and suggests action (e.g., "Consider break or salty snack"); user can log symptoms via voice'],
+                        opportunities: [
+                            'Enable manual symptom tagging with voice or single-tap input ("dizzy," "low energy")',
+                            'Provide a pacing-assistant feature: gentle alerts when heart rate trends high over time, not just at a spike'
+                        ]
+                    },
+                    {
+                        name: 'Evening Wind Down',
+                        userActions: ['Reviews the day, logs energy level, preps for bed, checks trends'],
+                        thoughts: ['"Was today better than yesterday? What worked?"'],
+                        feelings: [{ text: 'Reflective, slightly empowered if symptoms were managed well', emoji: '🙂' }],
+                        painPoints: [
+                            'Reviewing app data can be cognitively tiring and hard to synthesize',
+                            'Standard interfaces are text-heavy or graph-driven — not neurodivergent-friendly'
+                        ],
+                        touchpoints: ['App displays voice summary + visual trendline (energy, HR, hydration); recommendations use plain language ("Your afternoon dip may be due to low salt")'],
+                        opportunities: [
+                            'Display voice-based summaries or simple trends like "Your hydration was lower than usual today" instead of full graphs',
+                            'Offer compassionate, non-judgmental language in reflections (e.g., "You managed well today, despite challenges")'
+                        ]
+                    }
+                ]
+            }
         }
     },
     {

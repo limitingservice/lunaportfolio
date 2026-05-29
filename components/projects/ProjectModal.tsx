@@ -4,6 +4,8 @@ import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '@/data/projects';
 import ResearchTimeline from '@/components/projects/ResearchTimeline';
+import PersonaCard from '@/components/projects/PersonaCard';
+import UserJourneyMap from '@/components/projects/UserJourneyMap';
 
 interface ProjectModalProps {
     project: Project | null;
@@ -206,6 +208,19 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                                                         ))}
                                                     </div>
                                                 </section>
+                                            )}
+
+                                            {/* Persona */}
+                                            {project.details?.persona && (
+                                                <PersonaCard persona={project.details.persona} />
+                                            )}
+
+                                            {/* User Journey Map */}
+                                            {project.details?.journeyMap && (
+                                                <UserJourneyMap
+                                                    journey={project.details.journeyMap}
+                                                    personaName={project.details.persona?.name}
+                                                />
                                             )}
 
                                             {/* Key Findings */}
