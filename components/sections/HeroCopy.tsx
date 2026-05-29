@@ -48,11 +48,11 @@ export default function HeroCopy() {
             <motion.div variants={fadeInUp} className="hidden md:flex flex-col md:flex-row gap-3 md:gap-8 pt-4 md:pt-8">
                 <div>
                     <div className="text-xl md:text-3xl font-bold metallic-text">5+</div>
-                    <div className="text-[10px] md:text-sm text-gray-400 leading-tight">Research<br className="md:hidden" /> Projects</div>
+                    <div className="text-[10px] md:text-sm text-gray-400 leading-tight">Mixed-Methods<br className="md:hidden" /> Studies</div>
                 </div>
                 <div>
-                    <div className="text-xl md:text-3xl font-bold metallic-text">4+</div>
-                    <div className="text-[10px] md:text-sm text-gray-400 leading-tight">Years of<br className="md:hidden" /> Experience</div>
+                    <div className="text-xl md:text-3xl font-bold metallic-text">50+</div>
+                    <div className="text-[10px] md:text-sm text-gray-400 leading-tight">Participants<br className="md:hidden" /> Recruited</div>
                 </div>
                 <div>
                     <div className="text-xl md:text-3xl font-bold metallic-text">HCI</div>

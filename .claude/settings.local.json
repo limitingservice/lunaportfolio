@@ -36,7 +36,15 @@
       "WebFetch(domain:ea-gray.com)",
       "WebFetch(domain:www.behance.net)",
       "Bash(git checkout *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(git merge *)",
+      "Bash(git stash *)",
+      "Bash(pdftotext -layout example_research.pdf example_research.txt)",
+      "Bash(pdftotext example_research.pdf example_research.txt)",
+      "Bash(python -c \"import fitz; print\\(fitz.__version__\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(mkdir -p pages)",
+      "Bash(pip install *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\.next",

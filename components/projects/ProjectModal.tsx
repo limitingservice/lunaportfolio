@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '@/data/projects';
+import ResearchTimeline from '@/components/projects/ResearchTimeline';
 
 interface ProjectModalProps {
     project: Project | null;
@@ -143,10 +144,11 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                                                 </section>
                                             )}
 
-                                            {/* Research Goals */}
+                                            {/* Research Plan */}
                                             {project.details?.researchGoals && project.details.researchGoals.length > 0 && (
                                                 <section className="mb-10">
-                                                    <h3 className="text-2xl font-bold text-white mb-4">Research Goals</h3>
+                                                    <h3 className="text-2xl font-bold text-white mb-2">Research Plan</h3>
+                                                    <p className="text-sm text-gray-400 mb-4">Documented with named methods, target groups, and timeline before execution.</p>
                                                     <ul className="space-y-3">
                                                         {project.details.researchGoals.map((goal, idx) => (
                                                             <li key={idx} className="flex items-start gap-3">
@@ -160,6 +162,14 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                                                 </section>
                                             )}
 
+                                            {/* Research Timeline (parallel quant/qual tracks) */}
+                                            {project.details?.timeline && (
+                                                <ResearchTimeline
+                                                    weeks={project.details.timeline.weeks}
+                                                    activities={project.details.timeline.activities}
+                                                />
+                                            )}
+
                                             {/* Research Methods */}
                                             {project.details?.researchMethods && project.details.researchMethods.length > 0 && (
                                                 <section className="mb-10">
@@ -168,7 +178,15 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                                                         {project.details.researchMethods.map((method, idx) => (
                                                             <div key={idx} className="bg-obsidian-800/50 border border-obsidian-700 rounded-xl p-6">
                                                                 <h4 className="text-lg font-bold metallic-text mb-2">{method.name}</h4>
-                                                                <p className="text-gray-300">{method.description}</p>
+                                                                <p className="text-base text-gray-300 mb-3">{method.description}</p>
+                                                                {method.rationale && (
+                                                                    <div className="mt-3 pt-3 border-t border-obsidian-700">
+                                                                        <div className="text-[11px] font-mono text-iridium-400/80 uppercase tracking-wider mb-1">
+                                                                            Why this method
+                                                                        </div>
+                                                                        <p className="text-base text-gray-300 italic leading-relaxed">{method.rationale}</p>
+                                                                    </div>
+                                                                )}
                                                             </div>
                                                         ))}
                                                     </div>

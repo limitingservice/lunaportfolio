@@ -25,7 +25,7 @@ export default function CaseStudySection({ onViewDetails }: CaseStudySectionProp
                     Case <span className="metallic-text">Studies</span>
                 </h2>
                 <p className="text-gray-400 mb-12 max-w-2xl text-base">
-                    Deep dives into my research process. Click the poster to explore, or view the full case study.
+                    A closer look at how studies came together — the questions, the methods, and what we learned.
                 </p>
 
                 <div className="space-y-16">

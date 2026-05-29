@@ -18,46 +18,57 @@ export default function HighlightedProject({ project, onViewDetails }: Highlight
         >
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* Left: Project Info */}
-                <div className="space-y-8 order-2 lg:order-1">
+                <div className="space-y-6 order-2 lg:order-1">
                     <div>
-                        <div className="flex items-center gap-3 mb-3">
-                            <span className="px-3 py-1 bg-iridium-500/20 text-iridium-500 text-sm font-bold rounded-full uppercase tracking-wider">
-                                Featured Highlight
-                            </span>
-                            <span className="text-gray-400 font-medium">{project.category} • {project.year}</span>
-                        </div>
+                        <div className="text-xs text-gray-500 font-medium mb-2 uppercase tracking-wider">{project.year}</div>
                         <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight break-words">{project.name}</h3>
-                        <p className="text-base text-gray-300 leading-relaxed">
-                            {project.description}
-                        </p>
+
+                        {/* Research Specs — recruiter scan signal */}
+                        {project.details && (
+                            <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs font-mono text-iridium-400/80 uppercase tracking-wider">
+                                {project.details.role && (
+                                    <span><span className="text-gray-500">Role:</span> {project.details.role}</span>
+                                )}
+                                {project.details.team && (
+                                    <span><span className="text-gray-500">Team:</span> {project.details.team}</span>
+                                )}
+                                {project.details.participants && project.details.participants.length > 0 && (
+                                    <span><span className="text-gray-500">Groups:</span> n={project.details.participants.length}</span>
+                                )}
+                            </div>
+                        )}
+
+                        {/* Method names — at-a-glance methodological breadth */}
+                        {project.details?.researchMethods && project.details.researchMethods.length > 0 && (
+                            <div className="text-xs font-mono text-iridium-400/80 uppercase tracking-wider mt-2 leading-relaxed">
+                                <span className="text-gray-500">Methods:</span>{' '}
+                                {project.details.researchMethods.map((m) => m.name).join(' · ')}
+                            </div>
+                        )}
+
+                        {/* Stakeholder note — names who the research was for */}
+                        {project.details?.stakeholderNote && (
+                            <p className="text-xs text-gray-400 italic mt-2">{project.details.stakeholderNote}</p>
+                        )}
                     </div>
 
-                    <div className="space-y-4">
-                        <h4 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Key Highlights</h4>
-                        <ul className="space-y-3">
-                            {project.details?.keyFindings?.slice(0, 3).map((finding, idx) => (
-                                <li key={idx} className="flex items-start gap-3 text-gray-300">
-                                    <svg className="w-5 h-5 text-iridium-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span><strong className="text-white">{finding.category}:</strong> {finding.insights[0]}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    {/* THE PROBLEM — primary visual anchor */}
+                    {project.details?.problemStatement && (
+                        <div className="p-5 bg-obsidian-900/60 border-l-4 border-gray-500 rounded-r-lg">
+                            <div className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">The Problem</div>
+                            <p className="text-base text-gray-200 line-clamp-3">{project.details.problemStatement}</p>
+                        </div>
+                    )}
 
-                    <div className="flex flex-wrap gap-2 pt-2">
-                        {project.tools.map((tool) => (
-                            <span
-                                key={tool}
-                                className="px-3 py-1 bg-iridium-500/10 border border-iridium-500/15 text-iridium-400/80 rounded-lg text-sm"
-                            >
-                                {tool}
-                            </span>
-                        ))}
-                    </div>
+                    {/* THE OUTCOME — primary visual anchor */}
+                    {project.details?.impact && project.details.impact.length > 0 && (
+                        <div className="p-5 bg-iridium-500/5 border-l-4 border-iridium-500 rounded-r-lg">
+                            <div className="text-[11px] font-bold text-iridium-500 uppercase tracking-wider mb-2">The Outcome</div>
+                            <p className="text-base text-gray-200">{project.details.impact[0]}</p>
+                        </div>
+                    )}
 
-                    <div className="pt-4">
+                    <div className="pt-2">
                         <motion.button
                             onClick={onViewDetails}
                             className="px-8 py-4 metallic-bg text-[#0a0a0a] rounded-full font-black transition-all shadow-lg hover:brightness-110 flex items-center gap-3"

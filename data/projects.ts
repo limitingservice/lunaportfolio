@@ -31,12 +31,14 @@ export interface Project {
         role?: string;
         team?: string;
         duration?: string;
+        stakeholderNote?: string;
         context?: string;
         problemStatement?: string;
         researchGoals?: string[];
         researchMethods?: {
             name: string;
             description: string;
+            rationale?: string;
         }[];
         participants?: {
             role: string;
@@ -53,6 +55,16 @@ export interface Project {
         impact?: string[];
         futureOpportunities?: string[];
         skillsApplied?: string[];
+        timeline?: {
+            weeks: number;
+            activities: {
+                name: string;
+                track: 'qualitative' | 'quantitative' | 'synthesis';
+                startWeek: number;
+                endWeek: number;
+                milestone?: boolean;
+            }[];
+        };
     };
     caseStudy?: {
         problem: string;
@@ -73,8 +85,8 @@ export const projects: Project[] = [
         id: 'energy-systems-network',
         name: 'Energy Insights Network (ESN)',
         year: 2024,
-        category: 'Course Project',
-        description: 'UX research and validation project focused on refining an energy insights platform for manufacturing teams. Conducted field research, usability testing, and iterative design to improve onboarding, dashboards, error handling, and AI-assisted insights.',
+        category: 'Research',
+        description: 'UX research and validation project focused on refining an energy insights platform for manufacturing teams. Conducted field research at Smart Manufacturing Roadshow plus in-depth interviews with program stakeholders and systems-integration engineers — including a Director of Business Development and a Solutions Architect — to ground dashboard design in the broader Industry 4.0 manufacturing ecosystem.',
         shortDescription: 'Energy monitoring dashboard for manufacturing',
         tools: ['Figma', 'User Interviews', 'Wireframing', 'Prototyping', 'Usability Testing'],
         tags: ['User Research', 'Data Visualization', 'AI Trust', 'Manufacturing'],
@@ -99,8 +111,8 @@ export const projects: Project[] = [
             ],
         },
         details: {
-            role: 'UX Researcher & Designer',
-            team: 'Cross-functional (design + research)',
+            role: 'UX Researcher',
+            team: '4-person team',
             context: 'Prototype testing and validation for energy monitoring platform',
             problemStatement: 'Manufacturing teams need to monitor machine performance and energy usage in real time, quickly understand and respond to system errors, and trust AI-driven insights enough to act on them—all without slowing down operations. Early iterations revealed overly text-heavy onboarding, confusing navigation, unclear error notifications, and skepticism around AI recommendations.',
             researchGoals: [
@@ -118,6 +130,10 @@ export const projects: Project[] = [
                 {
                     name: 'User Interviews (Field Research)',
                     description: 'Conducted semi-structured interviews at Smart Manufacturing Roadshow in Indiana with current and potential ESN users, focusing on onboarding experience, AI chatbot usefulness, workflow fit, and improvement recommendations.'
+                },
+                {
+                    name: 'Stakeholder & Engineer Interviews',
+                    description: 'Conducted in-depth interviews with program stakeholders and systems-integration engineers in the manufacturing space — including a Director of Business Development at a systems integrator firm and a Solutions Architect on the software-engineering side. Captured how the dashboard fits into the broader Industry 4.0 ecosystem, the variance in manufacturer needs, hardware-installation complexity, and the flexibility-vs-customization tradeoff the platform has to resolve.'
                 }
             ],
             participants: [
@@ -132,6 +148,14 @@ export const projects: Project[] = [
                 {
                     role: 'Senior Manufacturing Operations Manager',
                     description: '30+ years of industry experience'
+                },
+                {
+                    role: 'Systems Integrator (Business Development)',
+                    description: 'Director of Business Development at a systems integrator firm partnered with the Energy Insights program — connects manufacturers to ESN, configures the standard 5 energy dashboards, and identifies custom insights per client.'
+                },
+                {
+                    role: 'Solutions Architect (Software Engineering)',
+                    description: 'Solutions Architect at an automation firm building software solutions for manufacturing clients — designs the data architecture connecting Opto 22 hardware, Ignition software, and MQTT data flows that power the ESN dashboards.'
                 }
             ],
             keyFindings: [
@@ -223,13 +247,13 @@ export const projects: Project[] = [
     },
     {
         id: 'canvas-ux-redesign',
-        name: 'Canvas UX Research & Flow Redesign',
+        name: 'Canvas AI-Assisted Quiz Creation',
         year: 2024,
         category: 'Research',
-        description: 'Mixed-methods UX research identifying usability pain points and workflow inefficiencies in Canvas LMS across students, faculty, administrators, and staff. Combined user interviews, observational task analysis, heuristic evaluation, and measurement planning to uncover opportunities for navigation, efficiency, and mobile improvements.',
-        shortDescription: 'LMS usability research',
-        tools: ['User Interviews', 'Observational Studies', 'Heuristic Evaluation', 'Time-on-Task Measurement', 'Click Count Analysis'],
-        tags: ['Usability Testing', 'Mixed-Methods', 'Workflow Analysis', 'EdTech'],
+        description: 'Mixed-methods UX research on Canvas LMS focused on the faculty quiz creation flow. The original concept was a preset-based quiz builder; mid-study, a user-testing participant suggested integrating AI to generate quiz questions, and that suggestion drove a research-driven pivot to a "Build with AI" feature. Combined user interviews, observational task analysis with time-on-task and click-count measurement, heuristic evaluation, longitudinal low → mid → high fidelity prototype testing, and a Likert survey on faculty AI comfort and quiz creation efficiency.',
+        shortDescription: 'AI-assisted quiz creation research for Canvas faculty',
+        tools: ['User Interviews', 'Observational Studies', 'Heuristic Evaluation', 'Time-on-Task Measurement', 'Click Count Analysis', 'Multi-Fidelity Prototype Testing', 'Likert Surveys'],
+        tags: ['Canvas LMS', 'AI', 'Mixed-Methods', 'Faculty Workflows', 'EdTech'],
         featured: true,
         logo: '/images/canvas-logo-opt.png',
         images: {
@@ -255,155 +279,179 @@ export const projects: Project[] = [
         },
         details: {
             role: 'UX Researcher',
-            team: 'Research team',
-            context: 'Mixed-methods research case study on Canvas Learning Management System across multiple user roles (students, faculty, administrators, staff)',
-            problemStatement: 'Canvas users across different roles experienced usability pain points and workflow inefficiencies that were masked by high task completion rates. While users could technically complete tasks, many workflows were inefficient, cognitively demanding, and required excessive clicks and navigation. Mobile experience lacked parity with desktop, and faculty faced time-consuming manual processes for quiz editing and course setup.',
+            team: '4-person team',
+            stakeholderNote: 'Coordinated with a 4-person research team across multi-stage testing with faculty, students, and academic staff who use Canvas LMS daily.',
+            context: 'A Canvas LMS research and redesign project. Discovery interviews and observational sessions surfaced that creating quizzes was the most cumbersome and time-consuming task faculty performed on Canvas. The team initially designed a preset-based quiz builder using past quizzes as templates, but low-fidelity testing revealed Canvas already had a "Duplicate" feature serving a similar purpose. A user-testing participant suggested integrating AI to generate quiz questions — that suggestion drove a research-driven pivot to a "Build with AI" feature, which carried through the mid and high fidelity rounds.',
+            problemStatement: 'Faculty members spend disproportionate time creating quizzes in Canvas LMS. A 9-respondent survey of professors found 44% rate the current quiz creation flow as time-consuming, 33% neutral, only 22% efficient, and zero respondents rated it very efficient. Observational sessions confirmed the friction — quiz creation had the highest time-on-task of any faculty workflow observed. The research question became: can AI-assisted question generation, integrated into the existing Canvas authoring flow, meaningfully reduce the time and click cost for faculty without compromising assessment quality or faculty trust?',
             researchGoals: [
-                'Identify primary pain points across different Canvas user roles',
-                'Understand how frequently used workflows differ between students, faculty, and administrators',
-                'Measure inefficiencies using time-on-task and click count',
-                'Evaluate usability issues using heuristic principles',
-                'Identify opportunities for workflow and system-level improvements'
+                'Identify the most cumbersome faculty workflow in Canvas LMS through observational research',
+                'Measure baseline time-on-task and click counts on the existing quiz creation flow',
+                'Evaluate the existing flow against Nielsen usability heuristics',
+                'Design and iteratively test an AI-assisted quiz creation flow across low, mid, and high fidelity',
+                'Survey faculty on AI comfort and perceived improvement to validate the AI-integration direction'
             ],
             researchMethods: [
                 {
                     name: 'User Interviews',
-                    description: 'Conducted structured interviews covering frequency and purpose of Canvas usage, typical workflows, most and least useful features, frustrations and pain points, mobile usage and accessibility needs, training and support resources, and desired improvements. Participants represented 8 user roles with 5–10+ years of Canvas experience.'
+                    description: 'Each team member conducted user interviews with faculty, students, and academic staff using Canvas LMS. Sessions ran ~30 minutes in facilitator + note-taker pairs using a structured 10–15 question outline for consistency across facilitators.',
+                    rationale: 'Chose paired interviews because consistency across facilitators matters more than volume — the same outline run by 4 facilitators produces comparable data, while solo interviewers introduce facilitator drift across roles.'
                 },
                 {
                     name: 'Observational Interviews',
-                    description: 'Participants completed 5 predefined tasks while researchers tracked time-on-task, click count, errors, and task completion. Revealed that many workflows were technically successful but inefficient and cognitively demanding. Tasks included course setup, module organization, quiz editing, content imports, and attendance tracking.'
+                    description: 'Faculty completed 5 predefined Canvas tasks (quiz creation among them) while researchers tracked time-on-task, click count, errors, and task completion. Sessions ran 30–45 minutes with a dedicated facilitator, note-taker, and metric-tracker. Quiz creation surfaced as the most cumbersome task.',
+                    rationale: 'Chose observation over self-reported surveys because Canvas users systematically underestimate workflow friction they have normalized after years of use. The interview said "it works fine"; the click-count and time-on-task said otherwise.'
                 },
                 {
                     name: 'Heuristic Evaluation',
-                    description: 'Conducted heuristic evaluation on existing Canvas flows focusing on course setup, module organization, quiz creation and editing, content imports, attendance tracking, and visibility/access control. Identified violations of usability principles and opportunities for improvement.'
+                    description: 'Independent heuristic evaluation on the existing Canvas quiz creation flow using Nielsen Ten Heuristics — focus on error prevention, system status visibility, consistency and standards, and recognition over recall.',
+                    rationale: 'Layered heuristic evaluation onto user data to surface usability violations long-tenured faculty had habituated to — the workarounds long-time Canvas users no longer notice as problems.'
                 },
                 {
-                    name: 'Measurement Planning',
-                    description: 'Created measurement plan to establish baseline performance metrics, enable comparison against redesigned flows, and track efficiency improvements over time. Focused on time-on-task, click count, error rates, and task completion across user roles.'
+                    name: 'Low / Mid / High Fidelity Usability Testing',
+                    description: 'Multi-stage prototype testing on the redesigned quiz creation flow. Low fidelity validated the initial preset-based concept (and surfaced the AI suggestion from a participant). Mid fidelity tested the "Build with AI" feature. High fidelity integrated the details / configuration section into the flow for end-to-end measurement.',
+                    rationale: 'Iterative testing at three fidelities lets the team verify whether each design change actually moved baseline metrics. The preset → AI pivot only emerged because low-fidelity testing forced the team to confront an existing Canvas feature (Duplicate) doing what their prototype attempted.'
+                },
+                {
+                    name: 'Faculty AI Survey',
+                    description: 'Likert-scale survey of professors (9 respondents) measuring current quiz creation efficiency, comfort with AI integration in Canvas, and perceived impact of AI on assessment quality. Anchored the team\'s confidence to pursue the AI direction.',
+                    rationale: 'Needed quantitative validation that faculty would actually accept AI-assisted quiz creation. The survey complemented the qualitative pivot signal from user testing with broader sentiment data.'
                 }
             ],
             participants: [
                 {
+                    role: 'Faculty (Primary)',
+                    description: 'Instructors across multiple disciplines who regularly create quizzes in Canvas. The primary research focus and target audience for the AI-assisted quiz creation flow.'
+                },
+                {
                     role: 'Students',
-                    description: 'Undergraduate and MBA students (5–10+ years Canvas experience)'
+                    description: 'Undergraduate and graduate students with 5–10+ years of Canvas experience. Studied for downstream assessment-taking context.'
                 },
                 {
-                    role: 'Faculty',
-                    description: 'Instructors across multiple disciplines'
+                    role: 'Academic Staff',
+                    description: 'Advisors, librarians, and CTLA staff supporting faculty Canvas use. Contributed observations on faculty training gaps and complementary tool patterns.'
                 },
                 {
-                    role: 'Administrators',
-                    description: 'Program directors and academic administrators'
-                },
-                {
-                    role: 'Support Staff',
-                    description: 'Advisors, librarians, CTLA staff'
+                    role: 'Faculty Survey Cohort',
+                    description: '9-respondent Likert-scale survey on AI comfort, current quiz creation efficiency, and perceived AI impact on assessment quality.'
                 }
             ],
             keyFindings: [
                 {
-                    category: 'Navigation & Workflow Inefficiencies',
+                    category: 'Faculty Sentiment & AI Comfort (Survey)',
                     insights: [
-                        'High task completion rates masked underlying inefficiencies',
-                        'Many tasks required excessive clicks and long navigation paths',
-                        'Users frequently had to navigate multiple layers to return to where they last worked',
-                        'Lack of "system memory" caused repetitive navigation',
-                        'MBA program pages grouping all courses into one view increased friction'
+                        '44% of professors rated current Canvas quiz creation as time-consuming; zero rated it very efficient',
+                        'Faculty AI comfort split 33/33/33 between uncomfortable, neutral, and comfortable — no respondent strongly endorsed AI integration',
+                        '56% of faculty believed AI-generated quizzes would likely improve assessment quality; 33% neutral',
+                        'Validated the AI-integration direction quantitatively while flagging trust calibration as a downstream design problem'
                     ]
                 },
                 {
-                    category: 'Mobile Experience Gaps',
+                    category: 'Low Fidelity — The Preset Pivot',
                     insights: [
-                        'Mobile app lacked parity with desktop functionality',
-                        'Mobile workflows consistently slower and more error-prone than desktop',
-                        'Slower load times and reduced functionality discouraged mobile use',
-                        'Many users relied on laptops even when mobile access was important'
+                        'Original concept was a preset-based quiz builder using past quizzes as templates',
+                        'Testing surfaced that Canvas already had a "Duplicate" feature serving the same purpose — the preset concept was redundant',
+                        'A user-testing participant suggested integrating AI to generate quiz questions instead',
+                        'Participant-driven pivot to "Build with AI" feature — research-driven scope change, not team-driven'
                     ]
                 },
                 {
-                    category: 'Faculty & Administrator Pain Points',
+                    category: 'Mid Fidelity — "Build with AI" Validation',
                     insights: [
-                        'Quiz editing was error-prone and time-consuming',
-                        'Quiz editing and course setup had significantly higher time-on-task',
-                        'Manual date entry every semester created unnecessary workload',
-                        'Default visibility and access settings were confusing',
-                        'Limited ability to automate tasks (e.g., no JavaScript support)'
+                        'Vertical layout for the Build-with-AI options aligned better with Canvas\'s native conventions than horizontal',
+                        'Users wanted clear button consistency across each step to know where to navigate next',
+                        'Hierarchy of details: users needed to complete a section before being allowed to proceed',
+                        'Autosave replacing the Save button was not welcomed — "Why is it a button if it has already been saved?"'
                     ]
                 },
                 {
-                    category: 'Integration & External Tool Reliance',
+                    category: 'High Fidelity — Integration & Trust Gaps',
                     insights: [
-                        'Users relied heavily on external tools: Outlook, Google Calendar, Zoom, Teams, Kaltura, PlayPosit',
-                        'Poor integration with Outlook forced users to maintain parallel systems',
-                        'Lack of seamless integration created workflow fragmentation',
-                        'Users developed workarounds using external tools'
+                        'Delays in navigating the calendar / date section of the details page',
+                        'Users delayed finding the "new quiz" button; saw the table of assigned quizzes first',
+                        '"Mastery Path" feature lacked context — users did not know what it was or why it was there',
+                        'Users wanted clearer separation between "Build with AI" and manual creation — suggested adding "OR" between options',
+                        'Faculty wanted explicit confirmation that a quiz had been published'
                     ]
                 }
             ],
             designIterations: [
                 {
-                    area: 'Persistent Navigation Memory',
+                    area: 'Lo-Fi → Mid-Fi: Preset Builder → "Build with AI"',
                     improvements: [
-                        'Return users to their last active page or task',
-                        'Reduce repetitive navigation through system memory',
-                        'Implement breadcrumb trails and quick-return features'
+                        'Initial Lo-Fi concept: preset-based quiz builder using past quizzes as templates',
+                        'Lo-Fi testing surfaced Canvas already had a "Duplicate" feature serving the same purpose',
+                        'A user-testing participant suggested integrating AI for question generation',
+                        'Mid-Fi pivoted to a "Build with AI" feature — research-driven, participant-suggested'
                     ]
                 },
                 {
-                    area: 'Mobile Parity & Performance',
+                    area: 'Mid-Fi Refinements — Layout & Hierarchy',
                     improvements: [
-                        'Match desktop functionality more closely on mobile',
-                        'Improve mobile load times and responsiveness',
-                        'Optimize mobile workflows for common tasks'
+                        'Restructured "Build with AI" options vertically to align with Canvas conventions (was horizontal in Mid-Fi v1)',
+                        'Standardized button styling across all steps for clearer next-action signaling',
+                        'Enforced sequential completion: users must finish a section before proceeding to the next',
+                        'Reverted autosave-only pattern after users explicitly rejected the loss of an explicit Save button'
                     ]
                 },
                 {
-                    area: 'Workflow Simplification',
+                    area: 'Hi-Fi: Details Section Integration',
                     improvements: [
-                        'Reduce click depth for common tasks',
-                        'Improve quiz editing and saving behavior',
-                        'Streamline course setup and module organization',
-                        'Reduce reliance on repetitive manual inputs'
+                        'Integrated the details / configuration page into the quiz creation task flow for end-to-end measurement',
+                        'Without details integrated, Mid-Fi metrics were undercounting the real click cost',
+                        'Hi-Fi enabled accurate before/after time-on-task and click-count comparison against the baseline'
                     ]
                 },
                 {
-                    area: 'Automation & Customization',
+                    area: 'Hi-Fi Refinements — Affordance & Confirmation',
                     improvements: [
-                        'Allow more flexibility for faculty (bulk edits, scripting)',
-                        'Automate repetitive tasks like date entry',
-                        'Provide clearer access and visibility controls',
-                        'Improve feedback and system status indicators'
+                        'Added "OR" separator between Build-with-AI and manual creation to clarify the choice',
+                        'Surfaced the new-quiz button more prominently — users were finding the assigned-quizzes table first',
+                        'Added explicit publication confirmation message addressing faculty\'s request for clearer status feedback',
+                        'Flagged design inconsistencies (rounded vs. angular boxes) breaking Canvas\'s visual consistency standard'
                     ]
                 }
             ],
             impact: [
-                'Demonstrated the value of combining qualitative and quantitative research',
-                'Highlighted that successful task completion does not equal good UX',
-                'Reinforced the importance of role-based workflow analysis',
-                'Identified specific inefficiencies through time-on-task and click count metrics',
-                'Provided actionable recommendations for navigation, mobile, and workflow improvements',
-                'Strengthened skills in research planning, synthesis, and evaluation'
+                'Identified quiz creation as the most cumbersome and time-consuming faculty workflow — confirmed in survey: 44% of professors rated it time-consuming, zero very efficient',
+                'Validated the AI-integration direction quantitatively: 56% of surveyed faculty believed AI-generated quizzes would likely improve assessment quality',
+                'Demonstrated a research-driven, participant-suggested pivot: preset builder → "Build with AI" — the user testing surfaced the AI direction, not the team',
+                'Surfaced AI trust as a downstream design problem: faculty AI comfort split 33/33/33 — the redesign had to earn that trust through interaction patterns, not promise it',
+                'Established a measurement baseline (time-on-task + click count) on the existing Canvas quiz creation flow against which any future AI-assisted redesign can be evaluated',
+                'Strengthened muscle in mixed-methods research, observational methodology, heuristic evaluation, multi-fidelity usability testing, and survey instrumentation'
             ],
             futureOpportunities: [
-                'Prototype and test redesigned navigation flows',
-                'Develop mobile-first workflows for common tasks',
-                'Create automation tools for faculty (bulk editing, templates)',
-                'Improve integration with external tools (Outlook, Google Calendar)',
-                'Conduct longitudinal study to measure efficiency improvements'
+                'Production pilot of the "Build with AI" feature with a faculty cohort across a full semester',
+                'Quantitative A/B test of AI-assisted vs. manual quiz creation measuring time-on-task and assessment quality',
+                'Investigate AI trust calibration patterns for faculty (transparency, source citations, editability of AI output)',
+                'Extend the AI-assisted authoring lens to other high-friction Canvas faculty workflows (course setup, module organization, content imports)',
+                'Study downstream student experience impact of AI-generated assessments — does AI-authored content read differently to students?'
             ],
             skillsApplied: [
-                'Qualitative Research',
-                'Quantitative Research',
+                'Mixed-Methods Research',
+                'Longitudinal Usability Testing',
                 'User Interviews',
-                'Observational Studies',
-                'Usability Testing',
+                'Observational Studies (Time-on-Task + Click Count)',
                 'Heuristic Evaluation',
+                'Likert-Scale Post-Task Surveys',
                 'Measurement Planning',
-                'Task Analysis',
-                'Human-Computer Interaction',
-                'Mixed-Methods Research'
-            ]
+                'Iterative Prototype Testing',
+                'Stakeholder Communication',
+                'Cross-Role Synthesis'
+            ],
+            timeline: {
+                weeks: 14,
+                activities: [
+                    { name: 'User Interviews', track: 'qualitative', startWeek: 2, endWeek: 4 },
+                    { name: 'Persona Synthesis', track: 'qualitative', startWeek: 5, endWeek: 6 },
+                    { name: 'Observational Interviews', track: 'quantitative', startWeek: 2, endWeek: 4 },
+                    { name: 'Heuristic Eval', track: 'quantitative', startWeek: 3, endWeek: 5 },
+                    { name: 'Measurement Plan', track: 'quantitative', startWeek: 5, endWeek: 6 },
+                    { name: 'Lo-Fi Testing', track: 'synthesis', startWeek: 8, endWeek: 8 },
+                    { name: 'Mid-Fi Testing', track: 'synthesis', startWeek: 10, endWeek: 10 },
+                    { name: 'Hi-Fi Testing', track: 'synthesis', startWeek: 12, endWeek: 12 },
+                    { name: 'Final', track: 'synthesis', startWeek: 14, endWeek: 14, milestone: true }
+                ]
+            }
         }
     },
     {
@@ -587,7 +635,7 @@ export const projects: Project[] = [
         },
         details: {
             role: 'UX Researcher & Designer',
-            team: 'Design team (collaborative)',
+            team: '4-person team',
             duration: 'Full semester',
             context: 'Designed an access technology for a user living with POTS — a chronic condition causing rapid heart rate spikes, dizziness, fatigue, and fainting upon standing. The project combined primary research with the user and secondary medical research to create a holistic solution addressing both physical support (smart cane) and digital management (companion app).',
             problemStatement: 'The user experiences sudden, debilitating POTS episodes — rapid heart rate spikes, dizziness, brain fog, and risk of fainting — triggered by standing or positional changes. Existing tools did not provide real-time detection, guided intervention, or comprehensive symptom tracking. The user needed a way to detect episodes early, receive immediate guided support, log symptoms for medical appointments, and carry emergency features — all without drawing unwanted attention to their condition.',

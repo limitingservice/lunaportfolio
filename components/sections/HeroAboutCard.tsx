@@ -6,12 +6,12 @@ import { motion } from 'framer-motion';
 
 const expertise = [
     'User Research',
-    'Interaction Design',
+    'Research Planning',
     'Usability Testing',
     'Accessible Design',
     'Data Analysis',
-    'Prototyping',
-    'Wireframing',
+    'Qualitative Methods',
+    'Quantitative Methods',
     'User Interviews',
 ];
 
@@ -43,14 +43,13 @@ export default function HeroAboutCard() {
                         <h2 className="text-lg sm:text-2xl md:text-4xl font-bold text-white mb-0.5 md:mb-1.5 leading-tight break-words">
                             Fernando <span className="text-iridium-500">Luna</span>
                         </h2>
-                        <p className="text-gray-400 text-[10px] sm:text-xs md:text-base font-semibold tracking-wider uppercase">User Experience</p>
                     </div>
                 </div>
 
                 {/* Bio text */}
                 <div className="space-y-2 md:space-y-4 text-gray-300 text-base leading-relaxed mb-4 md:mb-8 flex-grow">
                     <p>
-                        Creating human-centered experiences through research, blending tech, culture, and history—pulling from HCI, AI, and diverse perspective to create accessible, thoughtful, and real-world impact.
+                        Mixed-methods UX researcher trained in HCI. I listen closely, study carefully, and turn what I hear into evidence teams can trust — close to the people the field often skips past.
                     </p>
                 </div>
 
@@ -61,7 +60,7 @@ export default function HeroAboutCard() {
                         {expertise.slice(0, 4).map((skill) => (
                             <span
                                 key={skill}
-                                className="px-1.5 py-1 md:px-3 md:py-1.5 bg-obsidian-800 text-gray-300 text-[9px] md:text-xs rounded border border-obsidian-700 hover:border-iridium-500 hover:text-white transition-colors"
+                                className="px-1.5 py-1 md:px-3 md:py-1.5 bg-obsidian-800 text-gray-300 text-[9px] md:text-xs rounded border border-obsidian-700"
                             >
                                 {skill}
                             </span>
@@ -70,7 +69,7 @@ export default function HeroAboutCard() {
                         {expertise.slice(4).map((skill) => (
                             <span
                                 key={skill}
-                                className="hidden md:inline-flex px-3 py-1.5 bg-obsidian-800 text-gray-300 text-xs rounded-lg border border-obsidian-700 hover:border-iridium-500 hover:text-white transition-colors"
+                                className="hidden md:inline-flex px-3 py-1.5 bg-obsidian-800 text-gray-300 text-xs rounded-lg border border-obsidian-700"
                             >
                                 {skill}
                             </span>

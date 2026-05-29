@@ -1,0 +1,163 @@
+Speaker 1  0:00  
+As my other my other classmates would be, would ask follow up questions. So I lead the interview. First, I will let me ask some background questions. So like, Could you describe your current role and responsibility in your organization?
+
+Speaker 2  0:18  
+So I'm currently the lead data scientist with applied analytics and Emerging Technology Lab here at Notre Dame. And with hanergy insights, I was like leading student engagements and the installation side of it.
+
+Speaker 1  0:37  
+Okay, how many how long you have been involved with this program? And
+
+Speaker 2  0:43  
+almost more than like, a year and a half? Yeah, I don't remember exactly when I started. But like, whenever Notre Dame started with the project, I was involved from the first, like, first month itself.
+
+Speaker 1  1:01  
+Okay, I mean, are you a primary user of this application? Do you use the dashboards to take any decisions?
+
+Speaker 2  1:08  
+So we were helping, like building the dashboards and build the use cases for the industries like we don't actually use directly, but we were helping to reform the dashboards and build the use cases around it.
+
+Speaker 1  1:26  
+Okay. So I mean, when are they coming up with the car? Dashboard? So did you have did you actually conduct your interviews? I mean, with the actual users of this application? Or how did you come up with that? Use cases that you mentioned.
+
+Speaker 2  1:41  
+So like, the, as the program installs, like, up to 22 devices, for different machines to collect the energy data. So we also had a testbed at the engineering innovation hub at Notre Dame, where we installed the, like three of the 22 devices to collect energy data, and then the head of engineering, eh, we call it AI edge for short. And the head of that department, we used to meet him regularly to see what are his needs about like, what do does his and his team required to be there on the dashboard? And what are the use cases. So for example, one of the use cases where the dashboard, the opposite 23 devices was connected to a panel where all the 3d printers were connected to. So like collecting energy data from 3d printers, and then one of the PhD students were working to collect the energy data and then the actual schedule were 3d printers would be working. So he was trying to build a model to predict the number of 3d printers working at a particular time and predict the energy usage. He was using machine learning models such as our EMA, and others. Like I don't know the specific details of what models they were building, but I was handling the communication between them. And also, like, when we install the energy insights, like corporate went into boxes, I was the one like single point of contact from Notre Dame with the third party contractors of the program. I think they were I remember I don't remember the name of the third party contractor, but they were from someone from Indianapolis, I guess, the main point of contact was Gary from there.
+
+Speaker 1  3:38  
+Okay. And do you remember like, when you were deciding, I mean, the applications, whatever the the major user needs, like, like, what was the what they majorly looking for.
+
+Speaker 2  3:52  
+So like, basically, like when we started, it was just the energy data. But then, when we started working with a company called March 6, they were also they also had like three of these boxes installed, but they were not just happy with the energy collection, then they started collecting other manufacturing related data, like temperatures and different sensor data. And then they wanted to see, like, try to predict failures before that happens. So one of the PhD students was working with their team to build those models. And then one of the challenges they had with the installation was like the monthly costs were going high. So they wanted to switch from an AWS solution to an on prem solution, and they are in that phase right now. So they are working with a different third party called Blue Ridge to move from AWS to on prem solution.
+
+Speaker 1  4:55  
+Okay, did you see any challenges like this manifest Testing industries are adopting these kinds of solutions, where they actually were there. What were the things they were concerned about? Was it cost or the integration costs? Or what was their view about,
+
+Speaker 2  5:11  
+I mean, adopting these kinds of programs, they have no idea about it. So like, the major challenge I talked about is the ongoing monthly costs because they were they, like the companies we have worked with only two are like two, one is more six, and one is the ehdn facility, small facility. So the major challenge is the ongoing monthly costs, which can go up to like, seven to $800. And also more than $1,000, if, like, you install more machines, in parallel, they are like ready to pay an upfront cost, but not like ongoing monthly costs. So that was one of the biggest challenges. And then the other challenge, companies usually face that they don't have, like human hours to dedicate for to towards this project. So they need external help. And then the integrators like the third part interior creators I was talking about, like not their employees, who would get there 100% of the time towards setting this up. So there has to be someone from the company side to be like, more than give, like at least more than 50% of his time towards this project to at least set this up and get the dashboards and the predictive models up and running. So that is where the challenge they were facing.
+
+Speaker 1  6:36  
+Okay, and after, actually, after adopting this program, have they told any, I mean, the success stories or how this program has actually reduced energy bills or something, have you heard of any success stories like that?
+
+Speaker 2  6:52  
+I haven't heard of anything, because we were still in the building phase. And then the fifth March 6, it happened like they are moving from AWS. Like they got AWS set up, they used it for one year, because for one year, the, like IOT services and the mega AI platform were already included within the grant. But then when they start, when they started seeing the charges on AWS, which went up to like 800 to $900 a month, they wanted to shut the data collection, and then now they're trying to move to the on premise solution, which will be at a lower cost. So like, I don't think so the use case that they were trying to build, like, help saving their money until now, but that that can happen in future. So I haven't heard of any of the success stories until now.
+
+Speaker 1  7:45  
+Okay, and do you have any idea about what the feedback these doctors have regarding the dashboard? Like, how was it? How was it helped them?
+
+Speaker 2  7:56  
+I mean, optimize their energy efficiency in their industry? Do you have any idea about it? So one thing they were keen at looking through the dashboards was like, for, let's say, particularly, like, temperature data for motor or a sensor they were trying to see, so they wanted us to build like thresholds like upper and lower limit. And one, the operators if they are, like, the temperature is crossing the threshold so that they can go and actually look what's happening and maybe stop the machine before the failure happens. So that might also help them save energy, but we never got to that point.
+
+Speaker 1  8:38  
+Okay, and do you have any idea like what kind of metrics or data point do they usually look for, in kind, this kind of dashboard that would be crucial for them to take decisions. So majorly, they were looking for, like via first of all temperature data, and then the energy was also helpful, but the other,
+
+Speaker 2  8:59  
+like, pressure, temperature, and like, it depends on machine to machine, which machine the boxes are connected to, and also what other sensors you can gather the data from the one of the use cases one PhD student was working on was like predicting energy based on the temperature readings and trying to elevate the operators based on that. And then the other use case, he was working on his tank to be in a builder alarming system, which I already talked about, like trying to keep the data points within the thresholds.
+
+Speaker 1  9:33  
+Okay, and the whole, how do they usually access these dashboards? Like, on what basis do they access these dashboards? Like, is it on weekly basis daily? Or is there any way we're still in the building phase of it
+
+Speaker 2  9:47  
+and we never like access to the operators generally, but like once, it would be developed and they start using it it was it would be a day like it would be on, like, regularly daily on the shop floor. So they would have access to it like 24/7.
+
+Speaker 1  10:09  
+Okay, and these plant managers who usually use this application, are they tech savvy? Do they have exposure to these kind of digital applications? How does it work? Like, how do they transition from their traditional way to digital, they have no idea what.
+
+Speaker 2  10:26  
+So like, most of the people who like have the like, at the shop floor, if they are collecting the data, so they have an ID person or two in their team who are like, who knows the tech and that that's the reason they are actually already collecting data and trying to be like a connected, they say the term is called ConnectED factory. So okay, they have that person in the team. But like, it happened with more seats that they lost their IT guy, they only had one person in their IT team, they lost their IT guy, and they were trying to fill the new position. So for a month, we didn't even meet, we didn't have anything to do, because there was only one person who was in contact, which was the IT person. And once he left the company, the others who were involved had, like, not specifically knowledge about the data collection and different things we were trying to do.
+
+Speaker 1  11:28  
+So you mean to say there was a requirement for a technical person who can actually analyze the data that is available digitally, and then probably, I mean,
+
+Speaker 2  11:42  
+even before analyzing, we were trying to set things up within their shop floor. So at that time, the requirement is more like the tech person is more required during the setup, but once the dashboards will be billed, there will be a little training required for the operators to, like, infer the information from the dashboards, but it will not be like a tech tech person required any person on the shop floor can like, infer the knowledge but little tray after a little training, I would say
+
+Speaker 1  12:17  
+Okay, okay. So and also, since every industry will have different machines. So do you do need to customize the I mean, you will you will have to tailor the code as per the machines. So how does this? I mean, do they give you the parameters or metrics that that need to be shown, which will help them in turn take decisions? Or how does that communication happen? Like the key metrics, they're looking for? The tailoring of the dashboard? Yeah, so basically, the dashboard we built for them was
+
+Speaker 2  12:50  
+once you have the machines connected to the, like the data has been collected, either it's on Amazon or on prem. Or we will show like, list out all the parameters we are able to collect data for and then set up a meeting with them to see what are the parameters they want us to look at to build the models like we cannot like because there are hundreds and hundreds of parameters we were collecting data for. And we cannot make build models for predicting all of those parameters. So we talk to the operators or the engineers at their facility to see what the parameters they think might be useful for the so let's say for example, we are building a prediction model like a failure prediction model. So what are the different failures that happened at the shop floor? And what are the parameters that they think can lead to that failure? So we start analyzing those factors first, for the history, historical data, and try to build a model to see if those parameters can help us predict the failure? And then so yeah, we'll have to set up meetings with the operators or the engineers at the shop floor, start from there, build them or test that out and then refine the model, like maybe we need one more parameter, which was not added or maybe to remove some parameters. So this was all like, like a feedback loop. So we had like, weekly meeting set up with them when we were trying to build out these models.
+
+Speaker 1  14:29  
+Oh, that's great information. And I also want it as one question. So you're told that sometimes the I mean, the operators are trained on these using these these digital applications, right. So what do you think their perspective are regarding these interfaces? Are they I mean, do they export kind of interface except, I mean, do they expect is it like a very minimalistic interface or how do they perceive these digital applications? So what are their expectations from this like, do they want very simply simple I'm an image take dashboard, which will just give them the necessary details? Or how does the how is the perception of the operators towards these kinds of interfaces. One thing I've seen is easy to read information, it should not be difficult for them to read information out of the dashboards. So yeah, easy and simple dashboards would be things to go and like.
+
+Speaker 2  15:26  
+Yeah, and then the like, one case also is like, they should be ready to adapt using the dashboards, because if they have been working there for say, let's say more than 10 years and doing things one way, and now you try to implement something, and ask them to spend their time first for training, and then start using it. And if they don't find it, like, really, really useful, they will not like adapted very quickly. So like, che, like, bringing a change is very difficult on a shop floor.
+
+Speaker 1  16:03  
+Okay. And these types of users, do they expect a tailored dashboard? Or do they expect something which is customizable? I mean, even though they are not that tech savvy, so what would there be their expectation of dashboards. So I
+
+Speaker 2  16:17  
+think operators at the shop floor would require tailored they will not want it to be involved in like customizing things. But the engineers at a higher level, like in the company, who wants their operators to use the dashboard would want the customized ability involved so that they would want like their inputs in the dashboard, like what they want to see like, and whatnot. But there are two layers involved, like at the operator level, I would say, it should just be tailored, and then they should just be able to infer the information and make decisions. But at the engineer level, there should be like, an ability to customize.
+
+Speaker 1  17:04  
+Okay, and do they usually really rely on real time data? Or do they also consider the history historical data and analyze like, I mean, when it comes to the higher positions, like, as mentioned, engineers, so
+
+Speaker 2  17:17  
+engineers, and the leadership in the company, would also maybe useful to look at the historical energy usage and different factors and make decisions like, what how good or bad they have been doing in past years, that dashboard would help them. But at an operator level, if you're trying to predict machine failure, or say, reduce the downtime, operations of the shop floor, then the real time data collection helps at the shop floor.
+
+Speaker 1  17:52  
+Okay. And so you mean to say there are two kinds of user groups. So one is the operator who likes to have a tailored interface, which will just give them the essential details or essential data. And there is another group of users who are engineers who take I mean, who take the final decisions, and they use all kinds of real time and both historical data, right? So there might be two, correct. But the tailored one should also be customizable, like the hire people in the company will take decisions for like what the tailor dashboard would be looking like what the operators might not be, but then the use you like operators will be the users of the dashboard and not the
+
+Speaker 2  18:36  
+like people who make decisions. But then at a higher level, both the dashboard should be customizable. And both the use cases should be based on the leadership team. decision.
+
+Speaker 1  18:51  
+Okay, yeah, I think I'm good with my questions. Luna or Kanika. Upper What do you have any other questions? Which I'm which I might have missed from the conversation.
+
+Speaker 3  19:04  
+So Rahman. Dave. So from your perspective, what do you think is missing? Or what would you have done differently, you know, back then to make the system a bit better?
+
+Speaker 2  19:16  
+So the one major challenge we had at installation with the university is again, then when the third party installation companies come in, they only come in for specific hours and then don't test the system or over like, the first time we installed. They said it's all good and we didn't have any engineers who were like experienced with this kind of situation where you are using different protocols to collect data from different machines. They installed everything they said everything looks good. They went and we are in South Bend. They are in Indianapolis, and then once we started checking the data collect shouldn't stop, I don't know what for what reason, and then they had to troubleshoot. And it took at least a month for us to get back and start collecting the data. So we lost a month longer worth of data. So that could have been improved. Like, if even if a third party integrators involved, like having the test procedures, and like at least monitoring the data collection for like, two to three days, at least, or even a week, and then taking the decision now that that everything is looking good, that would have helped, at least at the university level. And then the other thing I already talked about, like cost when like it and I know that energy 2.0 is already moved into both the options on prem solution and AWS. So at first, there were only there was only AWS option for data collection, so that like, for the first year, it was still okay, because they were dreading giving the credits for AWS, but after the end of first year, when companies started seeing like, monthly charge on their AWS platform about 800 to $900 a month, that seemed a lot to them. So I think that they already have a solution for that. So. Yeah.
+
+Speaker 3  21:30  
+Also, we talked about people on the soft floor, right? So are those are people you know, related to the NNC? Do they understand the insights the data? Well, or are they just normal, you know, users who just work on the soft floor without the technical knowledge?
+
+Speaker 2  21:48  
+I think most of those will be without the users without technical object, that's why a little training would be required for them to start inferring the data. So that's why I like keeping the dashboard simple and easy to read would be thing to look at and then like training the operators in a way like her leadership or engineers want them to infer the information from the dashboard and like if like, I can go back to the same example if you are predicting failures. So, if a red signal that there can be three different signals green, yellow, red, and if a yellow segments signal comes up on the dashboard, they can talk to like, there should be a protocol that they have to follow like go to the engineers say we see a yellow signal what should be the next step. So there should be defined next steps for them. So, like, they are not that technical, that they can make decisions on their own, but there can be training that can happen or protocols that can be followed for them to for them to follow.
+
+Speaker 1  22:56  
+I had one more if so, how does this users I mean, the operators on floor, how does their usual day to day workflow look like? Like do they have water bottles or their jobs are they occupied on like, are they how does their typical day look like?
+
+Speaker 2  23:14  
+It depends on like, what they are hired for, but like if they are in machine operators. So like everything from setting up the machine for production to like producing parts like mostly like these kinds of machines, where we are collecting data for they are all automatic machines. So like, the major task for them is to set up the machine for production and then monitor like, when the production is happening, like I don't think they have a lot to do while the production like when automatic production is happening, but keeping things in check and monitoring things.
+
+Speaker 1  23:52  
+And what about the higher level engineers that you mentioned? What are what are what are their response to what responsibility they think they have, like
+
+Speaker 2  24:01  
+day to day they're like manage all these operations being happening on the shop floor. troubleshoot any problems that happens on a machine like machine bases are like make decisions on do they need like inventory decisions, sales and operations planning and depends on Engineer To Engineer so some are suitable for sales and operation planning. Some are responsible for keeping their customers intact. Some are responsible for the shopfloor machining operations like anything, troubleshooting things. Yeah,
+
+Speaker 4  24:40  
+I did have a quick question. Is there anything you feel that the any other parties could provide you just to make your overall job or your team's job a little easier or more successful?
+
+Unknown Speaker  24:59  
+Sorry, can you Oh,
+
+Speaker 4  25:02  
+yeah. So, in general, I found breaking up as well just let me know. But is there anything you feel like any of the parties, whether it be the operator, the engineers, or any of the higher ups can provide you with maybe anything before? Just to really make you and your team's job of really finding like this the correct solution for them long term? Is there anything you find that you need from any of those parties that would make it easier to find a solution? Yeah,
+
+Speaker 2  25:39  
+so one thing I would say is like getting, like building trust and relationships with industry partners becomes very difficult. So having that in place, like I would say, whenever you are approaching an industry, try to build a use case or solution that you think would definitely work and try to prove that, like your solution works, and then try to build up from that and don't take a fully developed solution to them and say that this works and like, like a consultant would do that, go take a solution prior to install that and leave them there to use it, and then they stop using it after the month or so. So I would say like, try to gather as much as the information they need and their use case, particularly what they want us to be looking at and things they think the pain points are right now. Like their current state, and then where they want to be maybe one year or two years down the line. Sweet. Thank you.
+
+Unknown Speaker  26:52  
+Also,
+
+Unknown Speaker  26:54  
+I mean, good.
+
+Speaker 5  26:57  
+Okay, so I just had one question related to the operator. So you mentioned that the lines are usually automatic. So how many operators are there on one manufacturing line?
+
+Speaker 2  27:11  
+I think it's a operator per machine. And it depends on how many machines are rolled with their own line. So it has to be a specific machine, at least one operator, but like I've seen other bigger companies, which may have to do operators for machine to depends on like the tasks they need to do for manufacturing it. If it's like fully automated and the newest of newest of machines, it might also be like one or two operators for the whole line. But that's rare in Indiana, at least.
+
+Speaker 5  27:47  
+Okay. And so in terms of, you know, comparing the energy consumption data, so would they prefer looking at the machine WISE data or the line WISE data?
+
+Speaker 2  28:00  
+I think line specific makes more sense, because from start to finish, they want to monitor the operations and, but like there can be, again, there can be use cases there where there is a lot of data points that they are collecting from a specific machine. And it's the major piece of the whole line like, because, for example, let's say they are manufacturing like cartons or something like that. So there are different operations that happened like cutting, from cutting to making, like from shooting, to cutting, to folding, and gluing, like these are the three main steps that involves but like folding, and gluing is the toughest. And that requires more time. And he has like more points of data collection so that specificly could have a dashboard, but the whole line could have like in the same dashboard. There can be other data points from the whole line, which are not that there are technical and like when it fails, then coming back. Like setting it up back is not that difficult. But the machine which is the most difficult and it takes more time to get it back up. And like halts their operation for a long time. I would say like that's that's where the engineers and the higher leadership come into play, like, what customizability would they require for their dashboards? Okay, I think you answered my question. Somebody you can go ahead.
+
+Speaker 3  29:44  
+So I just said one question like when you said the dashboard shows, recording software, the machine is overheating. It's on the boards of overheating, right so is there any automation in place like if it's poured, it says certain temperature auto part of the machine or something like that. So
+
+Transcribed by https://otter.ai

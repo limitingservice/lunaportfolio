@@ -65,21 +65,35 @@ export default function ProjectCardRow({ projects, className = '', onProjectClic
                                 {project.name}
                             </h3>
 
+                            {/* Research Specs Strip — recruiter-scan signal */}
+                            {project.category === 'Research' && project.details && (
+                                <div className="flex flex-wrap gap-x-3 gap-y-1 pt-1 text-[11px] font-mono text-iridium-400/70 uppercase tracking-wider">
+                                    {project.details.researchMethods && project.details.researchMethods.length > 0 && (
+                                        <span>{project.details.researchMethods.length} methods</span>
+                                    )}
+                                    {project.details.participants && project.details.participants.length > 0 && (
+                                        <span>n={project.details.participants.length} groups</span>
+                                    )}
+                                    {project.details.team && (
+                                        <span>{project.details.team}</span>
+                                    )}
+                                    {project.details.role && (
+                                        <span>{project.details.role}</span>
+                                    )}
+                                </div>
+                            )}
+
                             <p className="text-base text-gray-400 line-clamp-2">
                                 {project.shortDescription}
                             </p>
 
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-1 pt-2">
-                                {project.tags.slice(0, 2).map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="px-2 py-1 text-xs bg-iridium-500/10 text-iridium-400/80 rounded border border-iridium-500/15"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
+                            {/* Impact callout — surfaces measurable outcome */}
+                            {project.details?.impact && project.details.impact.length > 0 && (
+                                <div className="pt-1 border-l-2 border-iridium-500/40 pl-2 text-xs text-gray-300 line-clamp-2">
+                                    <span className="text-iridium-400 font-bold">Outcome: </span>
+                                    {project.details.impact[0]}
+                                </div>
+                            )}
                         </div>
 
                         {/* Hover overlay */}

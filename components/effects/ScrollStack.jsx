@@ -33,10 +33,9 @@ const ScrollStack = ({
   const isTouchRef = useRef(false);
   const isMobileRef = useRef(false);
 
-  const checkIsMobile = useCallback(() => {
-    if (typeof window === 'undefined') return false;
-    return window.matchMedia('(max-width: 767px)').matches;
-  }, []);
+  // Scroll-stack pin/scale animation is disabled on all viewports —
+  // cards render as a normal vertical list with flat margins instead.
+  const checkIsMobile = useCallback(() => true, []);
 
   const calculateProgress = useCallback((scrollTop, start, end) => {
     if (scrollTop < start) return 0;

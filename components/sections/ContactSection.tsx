@@ -32,7 +32,7 @@ export default function ContactSection() {
     };
 
     return (
-        <section id="contact" className="pt-40 md:pt-44 pb-20 px-8 lg:px-16 bg-obsidian-900/30">
+        <section id="contact" className="pt-16 md:pt-20 pb-20 px-8 lg:px-16 bg-obsidian-900/30">
             <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -44,7 +44,7 @@ export default function ContactSection() {
                     Let&apos;s <span className="metallic-text pb-1">Connect</span>
                 </h2>
                 <p className="text-gray-400 mb-12 text-center max-w-2xl mx-auto">
-                    Interested in collaborating on UX research or design projects? Let&apos;s discuss how we can create user-centered solutions together.
+                    Open to research roles, collaborations, and conversations about what good UX research looks like in practice. Drop a note — I read everything.
                 </p>
 
                 <div className="grid lg:grid-cols-2 gap-12">

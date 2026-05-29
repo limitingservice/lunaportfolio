@@ -8,30 +8,30 @@ import ScrollStack, { ScrollStackItem } from '@/components/effects/ScrollStack';
 const processSteps = [
     {
         number: '01',
-        icon: '🧠',
-        label: 'Understanding People & Context',
-        headline: 'Understanding People & Context',
+        icon: '🎯',
+        eyebrow: 'Phase · Framing',
+        headline: 'Plan the Question',
         description:
-            'Every meaningful design begins with people. I investigate user behaviors, lived experiences, and the systems surrounding them—grounding insights in both qualitative and quantitative data. At the same time, I map real-world constraints to ensure solutions are not just desirable, but viable and responsible.',
-        highlights: ['User Interviews', 'Behavioral Research', 'Data Synthesis', 'Constraint Mapping', 'Stakeholder Alignment', 'Feasibility Analysis'],
+            "Good research starts with the right question, not the right method. I work with the team to frame what we're trying to learn, agree on scope and what success looks like, and pick methods that fit — qualitative for the why, quantitative for the how much.",
+        highlights: ['Research Planning', 'Stakeholder Alignment', 'Method Selection', 'Success Criteria'],
     },
     {
         number: '02',
-        icon: '💡',
-        label: 'Framing & Exploring Solutions',
-        headline: 'Framing & Exploring Solutions',
+        icon: '🔍',
+        eyebrow: 'Phase · Fieldwork',
+        headline: 'Gather Evidence',
         description:
-            'With a clear understanding of needs and constraints, I translate insights into opportunities. I explore interaction patterns, evaluate design directions, and test ideas against defined criteria—turning ambiguity into intentional, informed concepts.',
-        highlights: ['Design Exploration', 'Heuristic Evaluation', 'Criteria Scoring', 'Interaction Modeling', 'Concept Validation'],
+            "Mixed-methods studies designed to fit the question — interviews, observational task analysis, think-aloud testing, heuristic evaluation, and field research with people who don't use products the way designers do. Recruitment is intentional. Ethics are upstream of the protocol, not after.",
+        highlights: ['Mixed-Methods Studies', 'Observational Task Analysis', 'Think-Aloud Testing', 'Ethical Recruitment'],
     },
     {
         number: '03',
-        icon: '🔄',
-        label: 'Prototyping, Testing & Iteration',
-        headline: 'Prototyping, Testing & Iteration',
+        icon: '🧩',
+        eyebrow: 'Phase · Translation',
+        headline: 'Synthesize & Share',
         description:
-            'I bring ideas to life through rapid prototyping and continuous testing. Each iteration is shaped by real user feedback and measurable outcomes—ensuring the final solution is not only usable, but meaningful and effective in context.',
-        highlights: ['Rapid Prototyping', 'Usability Testing', 'A/B Testing', 'Iterative Refinement', 'Impact Measurement'],
+            "Raw data isn't insight. I cluster observations through affinity mapping, code findings thematically, and translate patterns into recommendations the team can move on. Then I share the findings the way they'll actually land — workshops, readouts, and stories instead of static decks.",
+        highlights: ['Affinity Mapping', 'Thematic Analysis', 'Stakeholder Readouts', 'Actionable Recommendations'],
     },
 ];
 
@@ -48,11 +48,10 @@ export default function MaterialsSection() {
             >
                 <motion.div variants={fadeInUp} className="mb-4">
                     <h2 className="text-4xl md:text-display font-bold text-white mb-4">
-                        Research & Design <span className="text-iridium-500">Process</span>
+                        UX Research <span className="text-iridium-500">Process</span>
                     </h2>
                     <p className="text-gray-400 max-w-3xl text-base">
-                        How research insights, testing data, and performance constraints inform design decisions.
-                        Scroll to explore each phase.
+                        How I move from a fuzzy question to something a team can act on — three phases, designed to fit how research actually shows up in product work.
                     </p>
                 </motion.div>
             </motion.div>
@@ -88,7 +87,7 @@ export default function MaterialsSection() {
                                 <div className="space-y-4">
                                     <div>
                                         <span className="text-iridium-400/80 text-sm font-bold uppercase tracking-wider">
-                                            {step.label}
+                                            {step.eyebrow}
                                         </span>
                                         <h3 className="text-2xl md:text-3xl font-bold text-white mt-1">
                                             {step.headline}
@@ -116,31 +115,28 @@ export default function MaterialsSection() {
                     </ScrollStackItem>
                 ))}
 
-                {/* Final "Why This Matters" card */}
+                {/* Final closer card — Why Research Earns Its Place */}
                 <ScrollStackItem>
                     <div className="bg-obsidian-800 border border-iridium-500/20 rounded-3xl lg:rounded-[40px] h-full w-full p-8 md:p-12 flex flex-col justify-center">
                         <div className="max-w-3xl mx-auto text-center space-y-6">
                             <h3 className="text-3xl md:text-4xl font-bold text-white">
-                                Why This <span className="text-iridium-500">Matters</span>
+                                What it&apos;s <span className="text-iridium-500">all for</span>
                             </h3>
                             <p className="text-base text-gray-300 leading-relaxed">
-                                <strong className="text-white">Great design isn&apos;t just about solving problems</strong>—it&apos;s about
-                                solving the right problems, for the people most affected.
+                                <strong className="text-white">A researcher&apos;s portfolio should reveal how they think</strong>, not just what they shipped.
                             </p>
                             <p className="text-base text-gray-400 leading-relaxed">
-                                This approach ensures every decision is grounded in real human needs, shaped by constraints,
-                                and validated through evidence. By balancing empathy with rigor, I create solutions that are
-                                not only functional, but <strong className="text-iridium-500">responsible, scalable, and impactful</strong> in the real world.
+                                Every phase here is built to <strong className="text-iridium-500">make the next product decision a little better than the last one</strong> — methods chosen to fit the question, findings translated into actions a team can defend, impact measured against a real baseline.
                             </p>
                             <div className="flex flex-wrap justify-center gap-3 pt-4">
                                 <span className="inline-block px-6 py-3 bg-iridium-500/10 border border-iridium-500/20 text-iridium-400 rounded-full text-sm font-bold uppercase tracking-wider">
-                                    Human-Centered
+                                    Question-First
                                 </span>
                                 <span className="inline-block px-6 py-3 bg-iridium-500/10 border border-iridium-500/20 text-iridium-400 rounded-full text-sm font-bold uppercase tracking-wider">
-                                    Evidence-Driven
+                                    Mixed-Methods
                                 </span>
                                 <span className="inline-block px-6 py-3 bg-iridium-500/10 border border-iridium-500/20 text-iridium-400 rounded-full text-sm font-bold uppercase tracking-wider">
-                                    Outcome-Focused
+                                    Decision-Ready
                                 </span>
                             </div>
                         </div>

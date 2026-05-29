@@ -10,6 +10,7 @@ import HeroAboutCard from '@/components/sections/HeroAboutCard';
 import ProjectCardRow from '@/components/projects/ProjectCardRow';
 import ProjectModal from '@/components/projects/ProjectModal';
 import CaseStudySection from '@/components/sections/CaseStudySection';
+import ResearchOpsSection from '@/components/sections/ResearchOpsSection';
 import MaterialsSection from '@/components/sections/MaterialsSection';
 import ContactSection from '@/components/sections/ContactSection';
 import HighlightedProject from '@/components/sections/HighlightedProject';
@@ -105,6 +106,9 @@ export default function Home() {
                         <ProjectCardRow projects={otherFeaturedProjects} onProjectClick={handleProjectClick} />
                     </div>
                 </section>
+
+                {/* Research Stack & Operations */}
+                <ResearchOpsSection />
 
                 {/* Case Studies */}
                 <CaseStudySection onViewDetails={(project) => handleProjectClick(project)} />

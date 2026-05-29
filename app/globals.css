@@ -104,6 +104,16 @@
     background-clip: text;
   }
 
+  /* Light theme: swap iridium-400/500 text usages to darker iridium shades for WCAG AA contrast.
+     iridium-400 (#fbaa3a) ~2.5:1 on white -> use iridium-700 (#bb4b02) ~6:1
+     iridium-500 (#FABC05) ~2.0:1 on white -> use iridium-800 (#953908) ~9:1
+     Backgrounds (bg-iridium-X) are left alone so brand fills and buttons stay intact. */
+  [data-theme="light"] .text-iridium-400 { color: #bb4b02; }
+  [data-theme="light"] .text-iridium-400\/80 { color: rgb(187 75 2 / 0.95); }
+  [data-theme="light"] .text-iridium-400\/70 { color: rgb(187 75 2 / 0.95); }
+  [data-theme="light"] .text-iridium-500 { color: #953908; }
+  [data-theme="light"] .text-iridium-500\/80 { color: rgb(149 57 8 / 0.95); }
+
   @keyframes metallicShine {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
