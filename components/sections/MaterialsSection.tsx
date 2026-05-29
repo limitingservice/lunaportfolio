@@ -71,7 +71,7 @@ export default function MaterialsSection() {
             >
                 {processSteps.map((step, index) => (
                     <ScrollStackItem key={step.number}>
-                        <div className="bg-obsidian-800 border border-obsidian-700 rounded-3xl lg:rounded-[40px] h-full w-full p-8 md:p-12 flex flex-col justify-center">
+                        <div className="bg-obsidian-800 border border-obsidian-700 rounded-3xl lg:rounded-[40px] w-full p-6 md:p-10">
                             <div className="grid md:grid-cols-[auto_1fr] gap-8 items-center">
                                 {/* Left: Number + Icon */}
                                 <div className="flex md:flex-col items-center gap-4">
@@ -117,7 +117,7 @@ export default function MaterialsSection() {
 
                 {/* Final closer card — Why Research Earns Its Place */}
                 <ScrollStackItem>
-                    <div className="bg-obsidian-800 border border-iridium-500/20 rounded-3xl lg:rounded-[40px] h-full w-full p-8 md:p-12 flex flex-col justify-center">
+                    <div className="bg-obsidian-800 border border-iridium-500/20 rounded-3xl lg:rounded-[40px] w-full p-6 md:p-10">
                         <div className="max-w-3xl mx-auto text-center space-y-6">
                             <h3 className="text-3xl md:text-4xl font-bold text-white">
                                 What it&apos;s <span className="text-iridium-500">all for</span>
