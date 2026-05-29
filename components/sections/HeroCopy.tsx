@@ -13,7 +13,7 @@ export default function HeroCopy() {
             className="space-y-6"
         >
             {/* Main headline */}
-            <motion.h1 variants={fadeInUp} className="text-2xl sm:text-4xl md:text-hero font-black leading-none sm:leading-none md:leading-none break-words">
+            <motion.h1 variants={fadeInUp} className="text-5xl sm:text-6xl md:text-hero font-black leading-none sm:leading-none md:leading-none break-words">
                 <span className="text-white">DATA-</span>
                 <br />
                 <span className="text-white">DRIVEN</span>
@@ -45,7 +45,7 @@ export default function HeroCopy() {
             </motion.div>
 
             {/* Stats or highlights */}
-            <motion.div variants={fadeInUp} className="flex flex-col md:flex-row gap-3 md:gap-8 pt-4 md:pt-8">
+            <motion.div variants={fadeInUp} className="hidden md:flex flex-col md:flex-row gap-3 md:gap-8 pt-4 md:pt-8">
                 <div>
                     <div className="text-xl md:text-3xl font-bold metallic-text">5+</div>
                     <div className="text-[10px] md:text-sm text-gray-400 leading-tight">Research<br className="md:hidden" /> Projects</div>

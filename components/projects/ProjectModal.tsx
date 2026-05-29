@@ -115,7 +115,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                                                 </div>
                                                 <h2 className="text-4xl font-bold text-white mb-4">{project.name}</h2>
                                                 {project.details?.role && (
-                                                    <p className="text-xl text-gray-300 mb-2">
+                                                    <p className="text-base text-gray-300 mb-2">
                                                         <span className="text-iridium-500 font-semibold">Role:</span> {project.details.role}
                                                     </p>
                                                 )}
@@ -129,7 +129,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                                             {/* Context */}
                                             {project.details?.context && (
                                                 <div className="mb-8">
-                                                    <p className="text-gray-300 text-lg">{project.details.context}</p>
+                                                    <p className="text-gray-300 text-base">{project.details.context}</p>
                                                 </div>
                                             )}
 
@@ -183,7 +183,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                                                         {project.details.participants.map((participant, idx) => (
                                                             <div key={idx} className="bg-obsidian-800/50 border border-obsidian-700 rounded-xl p-5">
                                                                 <h4 className="font-bold text-white mb-2">{participant.role}</h4>
-                                                                <p className="text-sm text-gray-400">{participant.description}</p>
+                                                                <p className="text-base text-gray-400">{participant.description}</p>
                                                             </div>
                                                         ))}
                                                     </div>
@@ -258,7 +258,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                                                     <div className="grid md:grid-cols-2 gap-3">
                                                         {project.details.futureOpportunities.map((opportunity, idx) => (
                                                             <div key={idx} className="bg-obsidian-800/30 border border-obsidian-700 rounded-lg p-4">
-                                                                <p className="text-gray-300 text-sm">{opportunity}</p>
+                                                                <p className="text-gray-300 text-base">{opportunity}</p>
                                                             </div>
                                                         ))}
                                                     </div>

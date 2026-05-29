@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+
 /*
  * Semantic theme tokens.
  * Values are space-separated RGB channels so Tailwind opacity modifiers

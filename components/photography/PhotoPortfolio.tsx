@@ -137,7 +137,7 @@ export default function PhotoPortfolio({ onSwitchToUX }: PhotoPortfolioProps) {
                             <h2 className="text-xl md:text-5xl tracking-[0.05em] uppercase mb-3 md:mb-6 leading-tight">
                                 Old American<br />Goods
                             </h2>
-                            <p className="text-xs md:text-base text-neutral-600 leading-relaxed max-w-md mb-3 md:mb-6">
+                            <p className="text-base text-neutral-600 leading-relaxed max-w-md mb-3 md:mb-6">
                                 An antique clothing wholesale specializing in American casual and
                                 military apparel from the late 1800s to today. Operating from a
                                 private showroom in Bloomington, IN — sourcing rare reference

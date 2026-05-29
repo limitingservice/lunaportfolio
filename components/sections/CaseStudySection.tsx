@@ -24,7 +24,7 @@ export default function CaseStudySection({ onViewDetails }: CaseStudySectionProp
                 <h2 className="text-4xl md:text-display font-bold text-white mb-4">
                     Case <span className="metallic-text">Studies</span>
                 </h2>
-                <p className="text-gray-400 mb-12 max-w-2xl text-base md:text-lg">
+                <p className="text-gray-400 mb-12 max-w-2xl text-base">
                     Deep dives into my research process. Click the poster to explore, or view the full case study.
                 </p>
 
@@ -62,7 +62,7 @@ export default function CaseStudySection({ onViewDetails }: CaseStudySectionProp
                                             <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight break-words">
                                                 {project.name}
                                             </h3>
-                                            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                                            <p className="text-gray-300 text-base leading-relaxed">
                                                 {project.shortDescription}
                                             </p>
                                         </div>

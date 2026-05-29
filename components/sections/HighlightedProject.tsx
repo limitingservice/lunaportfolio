@@ -27,7 +27,7 @@ export default function HighlightedProject({ project, onViewDetails }: Highlight
                             <span className="text-gray-400 font-medium">{project.category} • {project.year}</span>
                         </div>
                         <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight break-words">{project.name}</h3>
-                        <p className="text-xl text-gray-300 leading-relaxed">
+                        <p className="text-base text-gray-300 leading-relaxed">
                             {project.description}
                         </p>
                     </div>

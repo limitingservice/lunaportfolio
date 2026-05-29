@@ -50,7 +50,7 @@ export default function MaterialsSection() {
                     <h2 className="text-4xl md:text-display font-bold text-white mb-4">
                         Research & Design <span className="text-iridium-500">Process</span>
                     </h2>
-                    <p className="text-gray-400 max-w-3xl text-base md:text-lg">
+                    <p className="text-gray-400 max-w-3xl text-base">
                         How research insights, testing data, and performance constraints inform design decisions.
                         Scroll to explore each phase.
                     </p>
@@ -95,7 +95,7 @@ export default function MaterialsSection() {
                                         </h3>
                                     </div>
 
-                                    <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl">
+                                    <p className="text-gray-300 text-base leading-relaxed max-w-2xl">
                                         {step.description}
                                     </p>
 
@@ -123,7 +123,7 @@ export default function MaterialsSection() {
                             <h3 className="text-3xl md:text-4xl font-bold text-white">
                                 Why This <span className="text-iridium-500">Matters</span>
                             </h3>
-                            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                            <p className="text-base text-gray-300 leading-relaxed">
                                 <strong className="text-white">Great design isn&apos;t just about solving problems</strong>—it&apos;s about
                                 solving the right problems, for the people most affected.
                             </p>

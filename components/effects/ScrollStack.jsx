@@ -31,6 +31,12 @@ const ScrollStack = ({
   const offsetsRef = useRef({ cardOffsets: [], endOffset: 0 });
   const rafPendingRef = useRef(false);
   const isTouchRef = useRef(false);
+  const isMobileRef = useRef(false);
+
+  const checkIsMobile = useCallback(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(max-width: 767px)').matches;
+  }, []);
 
   const calculateProgress = useCallback((scrollTop, start, end) => {
     if (scrollTop < start) return 0;
@@ -88,6 +94,7 @@ const ScrollStack = ({
 
   const updateCardTransforms = useCallback(() => {
     if (!cardsRef.current.length || isUpdatingRef.current) return;
+    if (isMobileRef.current) return;
 
     isUpdatingRef.current = true;
 
@@ -282,8 +289,16 @@ const ScrollStack = ({
 
     cardsRef.current = cards;
     const transformsCache = lastTransformsRef.current;
+    isMobileRef.current = checkIsMobile();
 
     cards.forEach((card, i) => {
+      if (isMobileRef.current) {
+        card.style.marginBottom = '20px';
+        card.style.transform = '';
+        card.style.filter = '';
+        card.style.willChange = '';
+        return;
+      }
       if (i < cards.length - 1) {
         card.style.marginBottom = `${itemDistance}px`;
       }
@@ -297,11 +312,48 @@ const ScrollStack = ({
     });
 
     recomputeOffsets();
-    setupLenis();
-
-    updateCardTransforms();
+    if (!isMobileRef.current) {
+      setupLenis();
+      updateCardTransforms();
+    }
 
     const handleResize = () => {
+      const wasMobile = isMobileRef.current;
+      isMobileRef.current = checkIsMobile();
+
+      if (isMobileRef.current) {
+        cardsRef.current.forEach((card) => {
+          if (!card) return;
+          card.style.marginBottom = '20px';
+          card.style.transform = '';
+          card.style.filter = '';
+          card.style.willChange = '';
+        });
+        if (lenisRef.current) {
+          lenisRef.current.destroy();
+          lenisRef.current = null;
+        }
+        transformsCache.clear();
+        return;
+      }
+
+      if (wasMobile && !isMobileRef.current) {
+        cardsRef.current.forEach((card, i) => {
+          if (!card) return;
+          if (i < cardsRef.current.length - 1) {
+            card.style.marginBottom = `${itemDistance}px`;
+          }
+          card.style.willChange = 'transform, filter';
+          card.style.transformOrigin = 'top center';
+          card.style.backfaceVisibility = 'hidden';
+          card.style.transform = 'translateZ(0)';
+          card.style.webkitTransform = 'translateZ(0)';
+          card.style.perspective = '1000px';
+          card.style.webkitPerspective = '1000px';
+        });
+        setupLenis();
+      }
+
       recomputeOffsets();
       updateCardTransforms();
     };
@@ -337,7 +389,8 @@ const ScrollStack = ({
     onStackComplete,
     setupLenis,
     updateCardTransforms,
-    recomputeOffsets
+    recomputeOffsets,
+    checkIsMobile
   ]);
 
   return (

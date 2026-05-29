@@ -60,7 +60,7 @@ export default function Home() {
 
             <main className="relative">
                 {/* Hero Section */}
-                <section id="about" className="relative min-h-screen px-4 md:px-8 lg:px-16 py-12 md:py-20 flex items-center overflow-x-hidden">
+                <section id="about" className="relative md:min-h-screen px-4 md:px-8 lg:px-16 pt-20 pb-16 md:py-20 flex items-center overflow-x-hidden">
                     <div className="absolute inset-0 z-0 opacity-40">
                         <LiquidEther
                             colors={['#FABC05', '#fbaa3a', '#1a1a1a']}
@@ -74,7 +74,7 @@ export default function Home() {
                             autoRampDuration={0.8}
                         />
                     </div>
-                    <div className="relative z-10 grid grid-cols-2 gap-4 md:gap-8 lg:gap-12 items-center">
+                    <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 lg:gap-12 items-center w-full">
                         {/* Left: Hero copy */}
                         <div className="relative z-10">
                             <HeroCopy />

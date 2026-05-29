@@ -65,7 +65,7 @@ export default function ProjectCardRow({ projects, className = '', onProjectClic
                                 {project.name}
                             </h3>
 
-                            <p className="text-sm text-gray-400 line-clamp-2">
+                            <p className="text-base text-gray-400 line-clamp-2">
                                 {project.shortDescription}
                             </p>
 

@@ -48,14 +48,14 @@ export default function HeroAboutCard() {
                 </div>
 
                 {/* Bio text */}
-                <div className="space-y-2 md:space-y-4 text-gray-300 text-[10px] sm:text-sm md:text-lg leading-tight md:leading-relaxed mb-4 md:mb-8 flex-grow">
+                <div className="space-y-2 md:space-y-4 text-gray-300 text-base leading-relaxed mb-4 md:mb-8 flex-grow">
                     <p>
-                        Designing human-centered experiences through research, blending tech, culture, and history—pulling from HCI, AI, and diverse perspective to create accessible, thoughtful, and real-world impact.
+                        Creating human-centered experiences through research, blending tech, culture, and history—pulling from HCI, AI, and diverse perspective to create accessible, thoughtful, and real-world impact.
                     </p>
                 </div>
 
                 {/* Expertise */}
-                <div className="mb-4 md:mb-8">
+                <div className="hidden md:block mb-4 md:mb-8">
                     <h3 className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 md:mb-3 hidden sm:block">Core Expertise</h3>
                     <div className="flex flex-wrap gap-1 md:gap-2">
                         {expertise.slice(0, 4).map((skill) => (
@@ -79,7 +79,7 @@ export default function HeroAboutCard() {
                 </div>
 
                 {/* Quick Contact Footer */}
-                <div className="pt-3 md:pt-6 border-t border-white/10 flex flex-col xl:flex-row xl:items-center justify-between gap-3 md:gap-4">
+                <div className="hidden md:flex pt-3 md:pt-6 border-t border-white/10 flex-col xl:flex-row xl:items-center justify-between gap-3 md:gap-4">
                     <div className="text-[10px] md:text-sm text-gray-400 font-medium hidden sm:block">Quick Contact</div>
                     <div className="flex items-center gap-2 md:gap-3 justify-center xl:justify-end w-full">
                         <motion.a
