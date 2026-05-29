@@ -9,6 +9,7 @@ export interface Project {
     tags: string[];
     featured: boolean;
     logo?: string; // Optional logo path for company/project branding
+    logoFit?: 'cover' | 'contain'; // How the logo image should fit in the card thumbnail (default: cover)
     caseStudyImage?: string; // Optional specific image for case study section
     poster?: string; // Optional poster image for 3D tablet mockup in case studies
     images: {
@@ -81,6 +82,114 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+    {
+        id: 'darzy-ai',
+        name: 'Darzy.ai — Founding Product Research in Sustainable Fashion',
+        year: 2025,
+        category: 'Research',
+        description: 'Founding product research at Darzy.ai, a remote-first sustainable-fashion startup with no defined product yet. Started by aligning with the founder on company vision, then ran qualitative interviews across three distinct user groups — retail store owners, graphic designers, and textile/clothing designers — plus potential customers. Designed and managed a pilot program that paired a local designer with a secondhand retail store to test the upcycled-fashion concept with real local brands.',
+        shortDescription: 'Lead Product Researcher at a pre-product sustainable-fashion startup',
+        tools: ['Stakeholder Alignment', 'Qualitative User Interviews', 'Community Research', 'Pilot Program Design', 'Partner Coordination'],
+        tags: ['Product Research', 'Sustainable Fashion', 'Startup', 'Pilot Program', 'Team Leadership'],
+        featured: true,
+        logo: '/images/darzy-logo.avif',
+        logoFit: 'contain',
+        images: {
+            thumbnail: '',
+            hero: '',
+        },
+        viewer: {
+            type: 'image',
+            screens: [],
+        },
+        details: {
+            role: 'Lead Product Researcher',
+            team: '4-person team',
+            stakeholderNote: 'Worked directly with the founder and co-founding product designer on company vision; managed retail and designer partnerships through the pilot program.',
+            context: 'A pre-product, remote-first startup in sustainable fashion — a niche but difficult industry to enter without scaling correctly. The founder had a vision but no defined product yet, so the research had to define what the product would be more than how it would work. That made this product research first and UX research second.',
+            problemStatement: 'An early-stage sustainable-fashion startup needed to define a product from a founder vision, in an industry with high barriers to entry. The audience was fragmented across three distinct user groups — retail store owners, graphic designers, and textile/clothing designers — each with different incentives, plus a separate community of potential customers. Without aligning all four around a single value proposition, the product would not scale.',
+            researchGoals: [
+                'Align with the founder on company vision through structured stakeholder meetings',
+                'Identify a viable market-entry strategy for the sustainable-fashion space',
+                'Understand the distinct needs of retail store owners, graphic designers, and textile/clothing designers',
+                'Validate community appetite for a recycling-focused product for local brands',
+                'Design and run a pilot program that tested the concept in real partnerships'
+            ],
+            researchMethods: [
+                {
+                    name: 'Stakeholder Alignment Meetings',
+                    description: 'Recurring meetings with the founder to clarify the company vision, surface assumptions, and translate ambiguity into research questions the team could act on. Co-creating the research plan with the founder before running studies.',
+                    rationale: 'In a pre-product startup, ambiguity is the first research problem. Founder alignment before any user research kept the studies from chasing the wrong question.'
+                },
+                {
+                    name: 'Qualitative User Interviews (3 User Groups)',
+                    description: 'Semi-structured interviews across three distinct user groups: retail store owners, graphic designers, and textile/clothing designers. Each group asked about workflows, frustrations, and how a sustainable upcycling concept might fit.',
+                    rationale: 'A fashion product that needs three audiences to adopt it requires research that listens to each group on its own terms before assuming they share incentives.'
+                },
+                {
+                    name: 'Customer & Community Interviews',
+                    description: 'Qualitative interviews with potential customers and members of local creative communities to gauge appetite for a recycling-focused product supporting local brands.',
+                    rationale: 'A pilot can only succeed if the community it serves actually wants what it offers. Community research validated demand before the pilot ran.'
+                },
+                {
+                    name: 'Pilot Program Design & Management',
+                    description: 'Designed and managed a pilot program that paired a local designer with a secondhand retail store to test the upcycling concept on real local brands. Recruited brand participants, structured the program, negotiated the designer-retailer agreement, and coordinated the rollout end-to-end.',
+                    rationale: 'A pilot turns a research-grounded concept into a defensible product hypothesis. Running it was the only way to test whether the three user groups would actually transact with each other.'
+                },
+                {
+                    name: 'Intern Hiring Interviews',
+                    description: 'Interviewed prospective research interns to assess alignment with team values and collaboration style before bringing them onto the practice.',
+                    rationale: 'Multiplying research throughput at a small startup depends on hiring people the team can actually work with. Interviews were as much about culture-fit research as capability.'
+                }
+            ],
+            participants: [
+                {
+                    role: 'Founder',
+                    description: 'Vision-setter for the company; primary stakeholder in alignment meetings.'
+                },
+                {
+                    role: 'Retail Store Owners',
+                    description: 'Owners of secondhand and small retail spaces — a key user group for the upcycling concept.'
+                },
+                {
+                    role: 'Graphic Designers',
+                    description: 'Independent graphic designers explored as a creative collaborator audience.'
+                },
+                {
+                    role: 'Textile & Clothing Designers',
+                    description: 'Designers working in textiles and apparel — the production-side user group.'
+                },
+                {
+                    role: 'Potential Customers & Community',
+                    description: 'Local creative-community members interviewed about appetite for sustainable upcycling and supporting local brands.'
+                },
+                {
+                    role: 'Pilot Program Partners',
+                    description: 'A local designer and a secondhand retail store paired through the pilot; plus the local brands recruited as program participants.'
+                }
+            ],
+            impact: [
+                'Translated a founder vision into a defined product through stakeholder alignment + cross-group research',
+                'Identified scale as the key constraint for entering the sustainable-fashion industry and aligned methods around it',
+                'Surfaced where the three distinct user groups (retail / graphic / textile-clothing designers) shared incentives, and where they diverged',
+                'Designed and ran a pilot program pairing a local designer with a secondhand retail store and local brand participants',
+                'Established the research practice from zero — stakeholder cadences, multi-group interview protocols, partner coordination, and intern hiring',
+                'Maintained direct co-creation with the founder and co-founding product designer on company vision throughout'
+            ],
+            skillsApplied: [
+                'Product Research',
+                'Stakeholder Alignment',
+                'Qualitative User Interviews',
+                'Multi-Audience Research',
+                'Community Research',
+                'Pilot Program Design',
+                'Partner Coordination',
+                'Founder Collaboration',
+                'Hiring & Team Building',
+                'Research Operations'
+            ]
+        }
+    },
     {
         id: 'energy-systems-network',
         name: 'Energy Insights Network (ESN)',

@@ -40,14 +40,27 @@ export default function ProjectCardRow({ projects, className = '', onProjectClic
 
                             {/* Logo or placeholder */}
                             {project.logo ? (
-                                <div className="absolute inset-0">
-                                    <Image
-                                        src={project.logo}
-                                        alt={`${project.name} logo`}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
+                                project.logoFit === 'contain' ? (
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="relative w-2/5 aspect-square">
+                                            <Image
+                                                src={project.logo}
+                                                alt={`${project.name} logo`}
+                                                fill
+                                                className="object-contain"
+                                            />
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="absolute inset-0">
+                                        <Image
+                                            src={project.logo}
+                                            alt={`${project.name} logo`}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                )
                             ) : (
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <svg className="w-16 h-16 text-obsidian-600" fill="currentColor" viewBox="0 0 24 24">
