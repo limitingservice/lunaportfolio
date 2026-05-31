@@ -45,12 +45,21 @@
       "Bash(python -c ' *)",
       "Bash(mkdir -p pages)",
       "Bash(pip install *)",
-      "Bash(pdfinfo \"c:/Users/lunaf/Documents/Side Projects/Immersive/pots/Access Technology Low Fidelity Presentation.pdf\")"
+      "Bash(pdfinfo \"c:/Users/lunaf/Documents/Side Projects/Immersive/pots/Access Technology Low Fidelity Presentation.pdf\")",
+      "Bash(xxd)",
+      "Read(//c/Users/lunaf/.gemini/antigravity-ide/brain/63547e2e-0aa0-4bc3-8b24-cfa09525523e/**)",
+      "Bash(python -c \"import vtracer; print\\('vtracer:', vtracer.__version__\\)\")",
+      "Bash(python -m pip install vtracer)",
+      "Bash(cp \"C:/Users/lunaf/.gemini/antigravity-ide/brain/63547e2e-0aa0-4bc3-8b24-cfa09525523e/truepulse_logo_exact_1780101822488.png\" \"C:/Users/lunaf/Documents/Side Projects/Immersive/public/images/truepulse-logo.jpg\" && ls -la \"C:/Users/lunaf/Documents/Side Projects/Immersive/public/images/truepulse-logo.jpg\")",
+      "Bash(npm install *)",
+      "Bash(node -e ' *)",
+      "Bash(python -m pip install cairosvg)"
     ],
     "additionalDirectories": [
       "C:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\.next",
       "c:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\public\\images",
-      "c:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\new-resume"
+      "c:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\new-resume",
+      "C:\\Users\\lunaf\\.gemini\\antigravity-ide\\brain\\63547e2e-0aa0-4bc3-8b24-cfa09525523e"
     ]
   }
 }

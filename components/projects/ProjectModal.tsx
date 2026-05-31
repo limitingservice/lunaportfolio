@@ -6,6 +6,7 @@ import { Project } from '@/data/projects';
 import ResearchTimeline from '@/components/projects/ResearchTimeline';
 import PersonaCard from '@/components/projects/PersonaCard';
 import UserJourneyMap from '@/components/projects/UserJourneyMap';
+import ThematicCodingTable from '@/components/projects/ThematicCodingTable';
 
 interface ProjectModalProps {
     project: Project | null;
@@ -221,6 +222,11 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                                                     journey={project.details.journeyMap}
                                                     personaName={project.details.persona?.name}
                                                 />
+                                            )}
+
+                                            {/* Thematic Coding / Affinity Mapping */}
+                                            {project.details?.thematicCoding && (
+                                                <ThematicCodingTable data={project.details.thematicCoding} />
                                             )}
 
                                             {/* Key Findings */}

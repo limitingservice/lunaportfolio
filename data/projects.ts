@@ -88,6 +88,14 @@ export interface Project {
                 opportunities?: string[];
             }[];
         };
+        thematicCoding?: {
+            description?: string;
+            themes: {
+                theme: string;
+                subthemes: string[];
+                examples: string[];
+            }[];
+        };
     };
     caseStudy?: {
         problem: string;
@@ -104,6 +112,252 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+    {
+        id: 'truepulse-health-capstone',
+        name: 'TruePulse Health — ANS Monitoring for Maternal Care',
+        year: 2026,
+        category: 'Research',
+        description: 'Graduate HCI capstone with TruePulse Health, an early-stage company building portable autonomic-nervous-system (ANS) monitoring for the perinatal period. Co-led a 4-person team across 8 months through literature review, competitive analysis, heuristic evaluation, semi-structured interviews with clinicians and pregnant women, user activity modeling, affinity mapping, multi-stage prototype testing (low / mid / high fidelity) with 20 usability sessions and cognitive walkthroughs, and agentic AI feature testing. Translated continuous-monitoring research into a sensor-agnostic platform pairing off-the-shelf ECG / respiration sensors (Polar H10) with real-time visualization and AI-assisted signal interpretation.',
+        shortDescription: 'Maternal-care ANS monitoring platform with Polar H10 sensor',
+        tools: ['User Interviews', 'Heuristic Evaluation', 'Competitive Analysis', 'Affinity Mapping', 'Usability Testing', 'Cognitive Walkthroughs', 'Polar H10', 'Figma'],
+        tags: ['Maternal Health', 'Clinical UX', 'Wearables', 'Agentic AI', 'Mixed-Methods', 'Capstone'],
+        featured: true,
+        logo: '/images/truepulse-logo.svg',
+        logoFit: 'contain',
+        images: {
+            thumbnail: '',
+            hero: '',
+        },
+        viewer: {
+            type: 'image',
+            screens: [],
+        },
+        details: {
+            role: 'Researcher & Leading Contact',
+            team: '4-person team',
+            duration: 'Sept 2025 – May 2026',
+            stakeholderNote: 'Industry partner: TruePulse Health (primary client contact Sujata Punait). Coordinated with Dr. Gregory Lewis at the Kinsey Institute (IU Bloomington) for clinical research context. Bi-weekly partner reviews; weekly internal cadence.',
+            context: 'A graduate HCI capstone at IU Indianapolis for TruePulse Health, a company building a portable software-based ANS (Autonomic Nervous System) monitoring prototype for the perinatal period. The product targets a real clinical gap: complications like preeclampsia and preterm birth often present as autonomic imbalances days or weeks before standard symptom-based assessments detect them — but no hardware-agnostic, real-time ANS monitoring platform exists for maternal care.',
+            problemStatement: 'Maternal autonomic function is the earliest signal of complications like preeclampsia, preterm birth, and postpartum hypertension. Standard-of-care assessments (intermittent blood-pressure checks, lab biomarkers, symptom evaluations) capture only snapshots — missing the continuous dynamics. Existing wearables (WHOOP and similar) rely on proprietary hardware, focus on single-modality metrics, and do not translate autonomic patterns into clinically actionable insights. The research question: how do you design a sensor-agnostic, clinically actionable platform that earns the trust of both clinicians and patients, and turns raw multimodal physiological signals into decisions the care team can act on?',
+            researchGoals: [
+                'Understand the workflow context of clinicians who would interpret continuous ANS data in maternal care',
+                'Understand the lived experience of pregnant women being monitored — comfort, autonomy, trust',
+                'Map the gap between existing wearable platforms and what maternal care actually requires',
+                'Design a sensor-agnostic architecture from participant onboarding through researcher-side data retrieval',
+                'Validate iteratively through low → mid → high fidelity testing with both user populations',
+                'Test agentic AI features for downstream clinical decision support'
+            ],
+            researchMethods: [
+                {
+                    name: 'Literature Review',
+                    description: 'Reviewed maternal autonomic physiology, wearable ANS monitoring (Rowan et al. 2022 on WHOOP validation, Jasinski et al. 2024 on HRV inflection points predicting preterm birth up to seven weeks in advance, Claydon et al. 2024 on multidimensional perinatal adaptation, Reyes et al. 2018 on sympathetic nerve activity in pregnancy), and the gaps in clinical translation of these signals.',
+                    rationale: 'Health-domain design without literature grounding risks reinventing solutions or missing critical medical context. The lit review identified the hardware-agnostic, multimodal, clinically-actionable gap that became the project\'s framing.'
+                },
+                {
+                    name: 'Competitive Analysis',
+                    description: 'Surveyed existing wearable health platforms (WHOOP, mainstream fitness trackers, AnSense) and clinical monitoring systems. Mapped where current paradigms assume proprietary hardware, focus on single-modality metrics, or fail to translate signals into clinically actionable insights.',
+                    rationale: 'Helped identify that the differentiator was not another sensor — it was the software layer that could unify multimodal signals from any compatible hardware.'
+                },
+                {
+                    name: 'Heuristic Evaluation',
+                    description: 'Independent heuristic evaluation on competitive platforms using Nielsen heuristics, with a focus on clinical-context conventions around information density, system status visibility, and error prevention in high-stakes monitoring contexts.',
+                    rationale: 'Clinical workflows have well-established conventions. Heuristic eval surfaced which conventions were earned by clinical context versus inherited from consumer fitness apps.'
+                },
+                {
+                    name: 'Semi-Structured Interviews with Clinicians',
+                    description: 'Conducted semi-structured interviews with clinicians (physicians and care providers) to understand how they would interpret continuous ANS data in maternal care workflows, what context they need around signals, and what triggers their clinical decision-making.',
+                    rationale: 'The clinical interpretation context matters more than the raw signal. Interviews surfaced what clinicians need to see versus what hardware sensors actually capture — and the design problem lived in that gap.'
+                },
+                {
+                    name: 'Semi-Structured Interviews with Pregnant Women',
+                    description: 'Interviews with pregnant women — including a currently pregnant participant — captured the patient experience of continuous monitoring: comfort, autonomy, what they want clinicians to see, and what they fear about being monitored.',
+                    rationale: 'A monitoring system that pregnant women will not actually wear or trust is not a monitoring system. Patient interviews ensured the design served both halves of the clinician–patient pair.'
+                },
+                {
+                    name: 'User Activity Models (UAMs)',
+                    description: 'Built UAMs for both clinicians and pregnant women, capturing activities, tools, and information flows in each context. Provided the bridge from interview data to structured design requirements.',
+                    rationale: 'UAMs translated qualitative findings into structured activity maps the team could design against — preventing design from getting stuck in either persona-only or scenario-only thinking.'
+                },
+                {
+                    name: 'Affinity Mapping',
+                    description: 'Synthesized interview data from both clinician and patient sides through affinity mapping to surface cross-cutting themes the design needed to serve, and to separate group-specific from shared requirements.',
+                    rationale: 'Two distinct user groups required deliberate synthesis to find shared design principles versus group-specific requirements that needed to be addressed in separate flows.'
+                },
+                {
+                    name: 'Low / Mid / High Fidelity Prototyping & Usability Testing',
+                    description: 'Iterative prototyping through three fidelities with cognitive walkthroughs and usability sessions at each stage. High-fidelity prototype integrated with a real Polar H10 sensor for the sit-stand protocol. 20 usability sessions across the testing rounds surfaced systemic failures including state-persistence collapse, shop crash, and the custom-symptom input trap — all addressed before final delivery.',
+                    rationale: 'Multi-fidelity testing let critical failures surface early when they were cheap to fix. State-persistence failure at high fidelity would have been catastrophic in clinical deployment; surfacing it at mid-fidelity meant we could redesign rather than patch.'
+                },
+                {
+                    name: 'Agentic AI Feature Testing',
+                    description: 'Designed and tested agentic AI features for downstream clinical decision support — AI-assisted signal interpretation, anomaly flagging, context-aware patient prompts. Validated against both clinical and patient acceptance criteria with AI-simulated user testing for edge-case coverage.',
+                    rationale: 'AI for health decision support raises clinical-accuracy and trust questions simultaneously. Testing the agentic layer separately surfaced where AI can augment expert judgment versus where it must defer to clinicians.'
+                }
+            ],
+            participants: [
+                {
+                    role: 'Clinicians (Physicians + Care Providers)',
+                    description: 'Healthcare professionals who would interpret continuous ANS data in maternal care workflows.'
+                },
+                {
+                    role: 'Pregnant Women',
+                    description: '20 total usability participants across testing rounds, including at least one currently pregnant participant. Recruited via personal networks and longitudinal outreach from prior study contacts.'
+                },
+                {
+                    role: 'TruePulse Health (Industry Partner)',
+                    description: 'Sujata Punait — primary client contact and product vision holder, drove TruePulse\'s clinical and scientific strategy throughout the engagement.'
+                },
+                {
+                    role: 'Clinical Research Lab',
+                    description: 'Dr. Gregory Lewis at the Kinsey Institute (IU Bloomington) provided clinical research context and protocol guidance.'
+                }
+            ],
+            keyFindings: [
+                {
+                    category: 'Critical Failure: Custom Symptom Input Trap',
+                    insights: [
+                        'Affected ~16 of 20 participants',
+                        'A two-step symptom input (type text → click small "+" button → click Save) was non-intuitive — participants typed and clicked Save directly, silently discarding the entry',
+                        '"+" button had no visible affordance and did not respond to the Enter key',
+                        'Surfaced the design principle that silent data-loss is the most dangerous usability failure in clinical contexts'
+                    ]
+                },
+                {
+                    category: 'Critical Failure: Shop & Resources Crash',
+                    insights: [
+                        'Affected ~14 of 20 participants',
+                        'Floating bottom-nav physically occluded the Shop & Resources card on mobile viewports',
+                        'Direct URL navigation triggered a universal black-screen crash',
+                        'Demonstrated that mobile-viewport overlap testing must be a primary protocol, not a polish-stage check'
+                    ]
+                },
+                {
+                    category: 'Critical Failure: Identity / State Persistence',
+                    insights: [
+                        'Affected ~12 of 20 participants',
+                        'After onboarding, the app reverted user profiles to a default state (name: "Elena", goal: "Postpartum")',
+                        'For pregnant users, seeing their personalized setup vanish silently violated trust in the monitoring system',
+                        'Continuous monitoring systems must treat state persistence as a primary clinical-safety requirement, not a polish-stage concern'
+                    ]
+                },
+                {
+                    category: 'Users in Distress Cannot Compensate for Friction',
+                    insights: [
+                        'Friction that healthy users tolerate becomes blocking for users experiencing symptoms',
+                        'Design must assume worst-case interaction conditions: brain fog, anxiety, physical discomfort',
+                        'Validated affordances must work even when cognitive load is high — small "+" buttons and unclear states fail catastrophically'
+                    ]
+                },
+                {
+                    category: 'Analytics Trust Collapse',
+                    insights: [
+                        'Near-universal across participants: trust in analytics displays collapsed when data was unclear, unlabeled, or count-only',
+                        'Participants needed timeline / calendar views to see when symptoms occurred, not just totals',
+                        'In clinical contexts, the trust gap between "shown data" and "interpreted data" is the load-bearing design problem'
+                    ]
+                },
+                {
+                    category: 'The Notes Field Outcompeted the Custom Symptom Input',
+                    insights: [
+                        'Visual hierarchy unintentionally directed attention to the Notes field over the dedicated Custom Symptom input',
+                        'Participants logged symptoms in Notes — bypassing the structured field entirely',
+                        'Validated that visual prominence drives behavior more reliably than labeling does',
+                        'Resolved by elevating the Custom Symptom field and demoting Notes to "Optional notes"'
+                    ]
+                }
+            ],
+            designIterations: [
+                {
+                    area: 'Global Quick-Add Journal (+ Button)',
+                    improvements: [
+                        'Introduced a floating "+" button accessible from any screen for symptom logging',
+                        'Reduced symptom-entry friction surfaced at mid-fidelity',
+                        'Validated against the "users in distress cannot compensate for friction" finding'
+                    ]
+                },
+                {
+                    area: 'State Persistence & Identity',
+                    improvements: [
+                        'Rebuilt state management to persist user profile and onboarding configuration across sessions',
+                        'Added explicit confirmation that setup was saved',
+                        'Removed default-state fallback that silently overwrote real user data'
+                    ]
+                },
+                {
+                    area: 'Analytics — Timeline / Calendar Views',
+                    improvements: [
+                        'Replaced count-only bar charts with timeline + calendar views showing when symptoms occurred',
+                        'Added context for trend interpretation (frequency over time, not just totals)',
+                        'Addressed analytics trust collapse finding'
+                    ]
+                },
+                {
+                    area: 'Visual Hierarchy: Symptom vs. Notes',
+                    improvements: [
+                        'Elevated custom symptom entry with clearer label ("Add symptoms here")',
+                        'Demoted Notes field to "Optional notes"',
+                        'Resolved the unintended-attention finding from usability testing'
+                    ]
+                },
+                {
+                    area: 'Sensor Setup & Sit-Stand Protocol',
+                    improvements: [
+                        'Clarified step sequence for sensor pairing with Polar H10',
+                        'Added friendlier language and sound cues on timer completion',
+                        'Improved results-screen interpretability for novice participants'
+                    ]
+                }
+            ],
+            impact: [
+                'Delivered a sensor-agnostic ANS monitoring prototype that integrates real Polar H10 hardware with real-time visualization and AI-assisted interpretation',
+                'Surfaced and resolved three critical failures (state persistence, shop crash, custom symptom input trap) before delivery — each would have been a clinical-safety incident at launch',
+                'Established the design principle that silent data-loss is the most dangerous usability failure in clinical contexts',
+                'Validated the AI-assisted decision support layer through agentic and human-in-the-loop testing',
+                'Co-led a 4-person team across 8 months and end-to-end through research, design, and validation lifecycle',
+                'Coordinated directly with TruePulse founders and Dr. Gregory Lewis at the Kinsey Institute on clinical research protocol throughout'
+            ],
+            futureOpportunities: [
+                'Production clinical pilot with hospital and care-provider partners',
+                'Expand sensor support beyond Polar H10 to additional ECG and respiration hardware',
+                'Longitudinal study measuring whether continuous ANS monitoring identifies complications earlier than standard-of-care snapshots',
+                'Deepen the agentic AI decision-support layer with confidence-band signaling for clinician trust calibration',
+                'Build a clinician-facing dashboard for the patient-side data the current prototype captures'
+            ],
+            skillsApplied: [
+                'Mixed-Methods Research',
+                'Health UX',
+                'Clinical Research Coordination',
+                'Semi-Structured Interviews',
+                'Heuristic Evaluation',
+                'Competitive Analysis',
+                'Literature Review',
+                'Affinity Mapping',
+                'Usability Testing',
+                'Cognitive Walkthroughs',
+                'Agentic AI Testing',
+                'Sensor Integration (Polar H10)',
+                'Team Leadership',
+                'Industry Partner Coordination'
+            ],
+            timeline: {
+                weeks: 32,
+                activities: [
+                    { name: 'Literature Review', track: 'qualitative', startWeek: 1, endWeek: 4 },
+                    { name: 'Clinician Interviews', track: 'qualitative', startWeek: 5, endWeek: 8 },
+                    { name: 'Patient Interviews', track: 'qualitative', startWeek: 5, endWeek: 8 },
+                    { name: 'Affinity Mapping', track: 'qualitative', startWeek: 9, endWeek: 10 },
+                    { name: 'Competitive Analysis', track: 'quantitative', startWeek: 3, endWeek: 5 },
+                    { name: 'Heuristic Eval', track: 'quantitative', startWeek: 5, endWeek: 7 },
+                    { name: 'User Activity Models', track: 'quantitative', startWeek: 8, endWeek: 10 },
+                    { name: 'Lo-Fi Prototype', track: 'synthesis', startWeek: 13, endWeek: 16 },
+                    { name: 'Mid-Fi Prototype', track: 'synthesis', startWeek: 17, endWeek: 20 },
+                    { name: 'Hi-Fi Prototype + Polar H10', track: 'synthesis', startWeek: 21, endWeek: 26 },
+                    { name: 'Usability Testing (20 sessions)', track: 'synthesis', startWeek: 25, endWeek: 28 },
+                    { name: 'Final Delivery', track: 'synthesis', startWeek: 31, endWeek: 32, milestone: true }
+                ]
+            }
+        }
+    },
     {
         id: 'darzy-ai',
         name: 'Darzy.ai — Founding Product Research in Sustainable Fashion',
@@ -1026,6 +1280,75 @@ export const projects: Project[] = [
                 'Hardware-Software Integration',
                 'Figma'
             ],
+            thematicCoding: {
+                description: 'Interview data was clustered through affinity mapping into 8 cross-cutting themes. Each theme captures a recurring pattern in how the primary user (and parallel community discussions) experiences daily life with POTS plus overlapping conditions. The themes traced directly through to the 6 key findings that shaped design.',
+                themes: [
+                    {
+                        theme: 'Cognitive Accessibility',
+                        subthemes: ['ADHD', 'Dyslexia', 'POTS'],
+                        examples: [
+                            'Difficulty switching tasks, spelling issues',
+                            'Prefers minimal steps and minimal UI'
+                        ]
+                    },
+                    {
+                        theme: 'Sensory Preferences',
+                        subthemes: ['Contrast', 'Font', 'Brightness', 'Auditory distractions'],
+                        examples: [
+                            'Screen contrast matters more than layout',
+                            'Gets distracted by background noise'
+                        ]
+                    },
+                    {
+                        theme: 'Mobility & POTS',
+                        subthemes: ['Cane', 'Heart rate tracker', 'Fatigue'],
+                        examples: [
+                            'Uses watch and cane during flare-ups',
+                            'Standing long = escalated heart rate'
+                        ]
+                    },
+                    {
+                        theme: 'Medication Management',
+                        subthemes: ['Pills', 'Routines', 'Alarms'],
+                        examples: [
+                            'Pills forgotten at home due to routine changes',
+                            'Weekly portable pill box is essential'
+                        ]
+                    },
+                    {
+                        theme: 'Communication & Memory',
+                        subthemes: ['Screenshots', 'Reminders', 'Misspellings'],
+                        examples: [
+                            'Sends messages to self instantly to remember',
+                            'Relies on spellcheck and alarms'
+                        ]
+                    },
+                    {
+                        theme: 'Interface Preferences',
+                        subthemes: ['Minimalism', 'Simple layout', 'Longer content'],
+                        examples: [
+                            'Avoids popups',
+                            'Enjoys long-form media with captions'
+                        ]
+                    },
+                    {
+                        theme: 'Social Navigation',
+                        subthemes: ['Invisible disabilities', 'Social masking'],
+                        examples: [
+                            'Cane causes unwanted attention',
+                            'Avoids FaceTime to conserve energy'
+                        ]
+                    },
+                    {
+                        theme: 'Tools & Hacks',
+                        subthemes: ['AI debugging', 'Captions', 'Photos', 'Tactile notifications'],
+                        examples: [
+                            'AI helps fix indentation issues in code',
+                            'Captions support comprehension across media'
+                        ]
+                    }
+                ]
+            },
             persona: {
                 name: 'Abby Godsen',
                 occupation: 'Junior in college',
