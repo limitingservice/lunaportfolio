@@ -15,7 +15,7 @@ const PHASES: { id: 'plan' | 'process' | 'synthesis' | 'outcomes'; icon: string;
 
 export default function PhaseAnchors({ onJump }: PhaseAnchorsProps) {
     return (
-        <div className="sticky top-0 z-20 -mx-5 md:-mx-8 lg:-mx-10 px-5 md:px-8 lg:px-10 bg-obsidian-900/95 backdrop-blur-sm border-b border-obsidian-700">
+        <div className="sticky top-0 z-20 -mx-4 sm:-mx-5 md:-mx-8 lg:-mx-10 pl-4 sm:pl-5 md:pl-8 lg:pl-10 pr-16 md:pr-20 bg-obsidian-900/95 backdrop-blur-sm border-b border-obsidian-700">
             <div className="flex items-center gap-2 py-3 overflow-x-auto">
                 <span className="text-[11px] font-mono text-gray-500 uppercase tracking-wider mr-1 flex-shrink-0">
                     Skip to

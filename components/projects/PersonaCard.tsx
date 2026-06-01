@@ -85,16 +85,16 @@ export default function PersonaCard({ persona }: PersonaCardProps) {
                 The user this research and design centered on — synthesized from interview and observational data.
             </p>
 
-            <div className="bg-obsidian-800/60 border border-obsidian-700 rounded-2xl p-6 md:p-8">
-                <div className="grid md:grid-cols-[auto_1fr] gap-6 md:gap-8">
+            <div className="bg-obsidian-800/60 border border-obsidian-700 rounded-2xl p-4 sm:p-6 md:p-8">
+                <div className="grid md:grid-cols-[auto_1fr] gap-5 md:gap-8">
                     {/* Left: identity */}
                     <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-gradient-to-br from-iridium-500/20 to-iridium-700/30 border border-iridium-500/30 flex items-center justify-center mb-3">
-                            <span className="text-3xl md:text-4xl font-black text-iridium-400/70">
+                        <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl bg-gradient-to-br from-iridium-500/20 to-iridium-700/30 border border-iridium-500/30 flex items-center justify-center mb-3">
+                            <span className="text-2xl sm:text-3xl md:text-4xl font-black text-iridium-400/70">
                                 {persona.name.split(' ').map((n) => n[0]).join('').slice(0, 2)}
                             </span>
                         </div>
-                        <div className="text-xl md:text-2xl font-bold text-white leading-tight">{persona.name}</div>
+                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-white leading-tight break-words">{persona.name}</div>
                         <div className="mt-1 space-y-0.5 text-[11px] font-mono text-gray-500 uppercase tracking-wider">
                             {persona.age && <div>Age {persona.age}</div>}
                             {persona.occupation && <div>{persona.occupation}</div>}

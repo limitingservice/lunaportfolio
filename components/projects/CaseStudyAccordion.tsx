@@ -28,14 +28,14 @@ const CaseStudyAccordion = forwardRef<HTMLDivElement, CaseStudyAccordionProps>(f
                 onClick={onToggle}
                 aria-expanded={isOpen}
                 aria-controls={`${id}-content`}
-                className="w-full flex items-center gap-4 px-5 md:px-6 py-5 text-left transition-colors hover:bg-obsidian-800/60"
+                className="w-full flex items-center gap-3 sm:gap-4 px-4 sm:px-5 md:px-6 py-4 sm:py-5 text-left transition-colors hover:bg-obsidian-800/60"
             >
                 <span className="text-2xl md:text-3xl flex-shrink-0 leading-none" aria-hidden="true">
                     {icon}
                 </span>
                 <div className="flex-1 min-w-0">
-                    <div className="text-xl md:text-2xl font-bold text-white leading-tight">{title}</div>
-                    <div className="text-sm text-gray-400 mt-1 leading-snug">{preview}</div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold text-white leading-tight break-words">{title}</div>
+                    <div className="text-xs sm:text-sm text-gray-400 mt-1 leading-snug break-words">{preview}</div>
                 </div>
                 <motion.svg
                     animate={{ rotate: isOpen ? 180 : 0 }}
@@ -60,7 +60,7 @@ const CaseStudyAccordion = forwardRef<HTMLDivElement, CaseStudyAccordionProps>(f
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                         className="overflow-hidden"
                     >
-                        <div className="px-5 md:px-6 pb-6 pt-2 border-t border-obsidian-700/60">
+                        <div className="px-4 sm:px-5 md:px-6 pb-6 pt-2 border-t border-obsidian-700/60">
                             {children}
                         </div>
                     </motion.div>

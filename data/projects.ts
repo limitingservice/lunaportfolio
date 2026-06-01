@@ -117,6 +117,22 @@ export interface Project {
             width?: number;  // natural pixel width of the image
             height?: number; // natural pixel height of the image
         }[];
+        cognitiveWalkthroughs?: {
+            image: string;
+            alt: string;
+            title?: string;
+            caption: string;
+            width?: number;
+            height?: number;
+        }[];
+        personaArtifacts?: {
+            image: string;
+            alt: string;
+            title?: string;
+            caption: string;
+            width?: number;
+            height?: number;
+        }[];
         testingResults?: {
             image: string;
             alt: string;
@@ -211,6 +227,11 @@ export const projects: Project[] = [
                     name: 'Affinity Mapping',
                     description: 'Synthesized interview data from both clinician and patient sides through affinity mapping to surface cross-cutting themes the design needed to serve, and to separate group-specific from shared requirements.',
                     rationale: 'Two distinct user groups required deliberate synthesis to find shared design principles versus group-specific requirements that needed to be addressed in separate flows.'
+                },
+                {
+                    name: 'Cognitive Walkthrough with Lab Researchers',
+                    description: 'Conducted a cognitive walkthrough with researchers in a partnering HCI / physiological-sensing lab — the actual end-users of the TruePulse software. Mapped the lab\'s end-to-end research workflow across seven stages (Recruitment & Screening → Study Setup → Data Collection → Monitoring → Quality Check → Data Processing → Analysis) and surfaced stakeholders, activities, pain points, and current tooling per stage. Paired the walkthrough with semi-structured interviews of a Clinical Research Coordinator and a Laboratory Research Specialist to ground every stage in real practice.',
+                    rationale: 'A clinical-research platform that does not fit the lab\'s real workflow will be abandoned for the existing tools, no matter how good the data layer is. Walking the workflow with the people who would use the product daily surfaced where the design needed to integrate versus where it needed to disrupt — and produced a prioritized recommendation list (Critical / High / Medium) that fed directly into design iterations.'
                 },
                 {
                     name: 'Low / Mid / High Fidelity Prototyping & Usability Testing',
@@ -384,7 +405,61 @@ export const projects: Project[] = [
                     { name: 'Usability Testing (20 sessions)', track: 'synthesis', startWeek: 25, endWeek: 28 },
                     { name: 'Final Delivery', track: 'synthesis', startWeek: 31, endWeek: 32, milestone: true }
                 ]
-            }
+            },
+            personaArtifacts: [
+                {
+                    image: '/images/truepulse/pw-persona.png',
+                    alt: 'Persona card for a pregnant or postpartum woman — the patient user group for the TruePulse Health monitoring platform. Captures background, goals, frustrations, and needs related to perinatal care and self-monitoring.',
+                    title: 'Patient Persona — Pregnant / Postpartum Women',
+                    caption: 'Synthesized from interviews with pregnant and postpartum women. The persona captures who they are, what they need from continuous monitoring during the perinatal period, what frustrates them about current care, and the contexts where self-monitoring actually fits into daily life. Anchored every design decision affecting the patient-facing flow.',
+                    width: 1242,
+                    height: 737
+                },
+                {
+                    image: '/images/truepulse/pw-journey-map.png',
+                    alt: 'Journey map for a pregnant or postpartum woman across the perinatal monitoring experience — phases, actions, thoughts, feelings, pain points, and opportunities at each step of the patient-facing journey.',
+                    title: 'Patient Journey Map — Pregnant / Postpartum Women',
+                    caption: 'Traces the patient\'s experience across the perinatal monitoring journey — onboarding through ongoing use — with actions, thoughts, feelings, pain points, and opportunities mapped at each stage. Surfaced where the design needed to reduce friction (sensor wear, data entry, comfort during flares) versus where it needed to support emotional context (reassurance, autonomy, low-effort logging).',
+                    width: 1224,
+                    height: 893
+                },
+                {
+                    image: '/images/truepulse/clinician-persona.png',
+                    alt: 'Persona card for a clinician — physician, OB-GYN, or maternal-care provider — the clinical user group for the TruePulse Health monitoring platform. Captures professional context, decision criteria, time constraints, and trust requirements.',
+                    title: 'Clinician Persona',
+                    caption: 'Synthesized from semi-structured interviews with physicians and maternal-care providers. The persona captures clinical context, decision-making criteria, workflow time constraints, and the trust requirements continuous monitoring data must meet to be acted on inside a busy care workflow. Anchored every design decision affecting the clinician-facing dashboard and alerting layer.',
+                    width: 1246,
+                    height: 705
+                },
+                {
+                    image: '/images/truepulse/clinician-journey-map.png',
+                    alt: 'Journey map for a clinician working through patient monitoring data — phases, actions, decision points, frustrations, and opportunities at each step of the clinical workflow.',
+                    title: 'Clinician Journey Map',
+                    caption: 'Traces the clinician\'s workflow through patient monitoring — receiving signal, interpreting data, deciding when to act, communicating with the patient — with actions, decision criteria, frustrations, and opportunities mapped at each step. Surfaced the central design tension the patient journey map made visible from the other side: continuous data is a clinical liability concern without proper triaging, even when patients benefit from the visibility.',
+                    width: 1237,
+                    height: 870
+                }
+            ],
+            cognitiveWalkthroughs: [
+                {
+                    image: '/images/truepulse/cw-researchers.png',
+                    alt: 'Cognitive walkthrough board mapping the lab\'s end-to-end research workflow across seven stages — Recruitment & Screening, Study Setup, Data Collection, Monitoring, Quality Check, Data Processing, Analysis — with stakeholder roles at the top and color-coded sticky notes for activities, pain points, and tools per stage. Key insights & recommendations are categorized as Critical, High, and Medium priority at the bottom.',
+                    title: 'Lab Workflow Cognitive Walkthrough',
+                    caption: 'Conducted with researchers in a partnering HCI / physiological-sensing lab — the actual end-users of the TruePulse software. Mapped seven workflow stages (Recruitment & Screening → Study Setup → Data Collection → Monitoring → Quality Check → Data Processing → Analysis) across five stakeholder roles: Clinical Research Coordinator, Laboratory Research Specialist, Principal Investigator, students / grad researchers, and study participants. Each stage captured activities, pain points, and current tooling. The walkthrough surfaced six prioritized recommendations: (Critical) save raw ECG instead of only RR intervals so upside-down sensor placements stay recoverable, and integrate a subject ID field so files don\'t need manual renaming; (High) live signal monitoring is essential during collection, and accurate timing landmarks must be redundant across signals; (Medium) detect sensor placement errors automatically, and design defaults assuming non-expert users (undergrads new to the lab). Pulled directly into the prototype\'s next iteration.',
+                    width: 1115,
+                    height: 722
+                }
+            ],
+            researchArtifacts: [
+                {
+                    image: '/images/truepulse/tph-affinity-map.png',
+                    alt: 'Two stacked affinity maps. Top: "Pregnancy Care Affinity Mapping" with 8 patient-facing theme clusters (Physiological Experience, Emotional & Psychological Experience, Monitoring & Data Experience, Clinical Interaction & Care Process, Trust Safety & Agency, Barriers & Frictions, Outcomes & Impact, System-Level Experience). Bottom: "Affinity Mapping: Clinical Monitoring Insights" with 8 clinician-facing theme clusters (Clinical Priorities & Decision Criteria, Data Interpretation & Sensemaking, Monitoring Tools & Technology Use, Workflow & Time Constraints, Alerts Alarms & Automation, Trust Safety & Liability, Communication & Care Coordination, System-Level Constraints & Opportunities). Each cluster contains color-coded quote stickies from interviews.',
+                    title: 'Dual Affinity Maps — Patient + Clinician Synthesis',
+                    caption: 'Two parallel affinity maps synthesized from interviews with pregnant and postpartum women alongside clinicians. Top board organized patient quotes across 8 themes — physiological experience, emotional / psychological experience, monitoring & data experience, clinical interaction & care process, trust safety & agency, barriers & frictions, outcomes & impact, and system-level experience. Bottom board organized clinician quotes across 8 parallel themes — clinical priorities & decision criteria, data interpretation & sensemaking, monitoring tools & technology use, workflow & time constraints, alerts & automation, trust safety & liability, communication & care coordination, and system-level constraints & opportunities. Running both sides as separate-but-parallel synthesis surfaced where the two user groups shared a theme (e.g. trust in monitoring data) and where their incentives diverged (e.g. continuous data was overwhelming for patients but a liability concern for clinicians) — directly shaping the design decision to split the product into role-aware patient and clinician views.',
+                    width: 2208,
+                    height: 3144
+                }
+            ]
         }
     },
     {
@@ -988,6 +1063,14 @@ export const projects: Project[] = [
             },
             testingResults: [
                 {
+                    image: '/images/canvas/observational-professor-create-quiz-before.png',
+                    alt: 'Baseline observational task analysis table for Task 3 (create a new quiz in Canvas). Two participant rows: P1 — time 388.27s, 33 clicks, 0% error, 100% completion. P2 — time 158.96s, 16 clicks, 0% error, 100% completion. Average — 273.62s time-on-task, 24.5 clicks, 0% error rate, 100% task completion rate.',
+                    title: 'Baseline — Original Canvas Quiz Creation (Observational)',
+                    caption: 'Original observational task analysis on Task 3 (creating a new quiz in Canvas). Two faculty participants completed the task on stock Canvas. Average time-on-task: 273.62 seconds (P1: 388.27s, P2: 158.96s). Average click count: 24.5 clicks (P1: 33, P2: 16). Error rate held at 0% and task completion at 100% — meaning faculty could complete the task, but the variance and time cost flagged it as the highest-friction faculty workflow we measured. This baseline anchored every later iteration.',
+                    width: 263,
+                    height: 113
+                },
+                {
                     image: '/images/canvas/testing-measurements-canvas.png',
                     alt: 'Cross-fidelity measurement matrix showing time-on-task, click count, error rate, and task completion rate across Low, Mid, and High fidelity testing rounds for multiple quiz-creation tasks.',
                     title: 'Cross-Fidelity Testing Matrix',
@@ -999,7 +1082,7 @@ export const projects: Project[] = [
                     image: '/images/canvas/canvas-final-mp.png',
                     alt: 'Final Measurement Plan table comparing baseline Canvas metrics against high-fidelity prototype averages on Task 3.',
                     title: 'Final Measurement Plan — Baseline vs. High Fidelity',
-                    caption: 'Final measurement plan comparing baseline Canvas LMS performance against the high-fidelity AI-assisted prototype on Task 3 (quiz creation). Time-on-task dropped from 273.62s → 104s (a 62% reduction) and click count dropped from 24.5 → 17 (a 30% reduction) — both with task completion held at 100% and error rate at 0%. The design moved faculty through quiz creation measurably faster without trading off accuracy.',
+                    caption: 'Final measurement plan comparing the original Canvas baseline against the high-fidelity AI-assisted prototype on Task 3 (quiz creation). Time-on-task dropped from 273.62s → 104s (a 62% reduction) and click count dropped from 24.5 → 17 (a 30% reduction) — both with task completion held at 100% and error rate at 0%. The design moved faculty through quiz creation measurably faster without trading off accuracy.',
                     width: 417,
                     height: 132
                 }

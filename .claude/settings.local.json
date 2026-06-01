@@ -54,7 +54,10 @@
       "Bash(npm install *)",
       "Bash(node -e ' *)",
       "Bash(python -m pip install cairosvg)",
-      "Bash(awk 'NR>=945 && /skillsApplied/{flag=1} flag{print NR\": \"$0; if\\(/^            \\\\]$/\\) exit}' data/projects.ts)"
+      "Bash(awk 'NR>=945 && /skillsApplied/{flag=1} flag{print NR\": \"$0; if\\(/^            \\\\]$/\\) exit}' data/projects.ts)",
+      "Bash(awk '/id: .truepulse-health-capstone./,/^    },$/' data/projects.ts)",
+      "Bash(grep -n \"timeline\\\\|^        }$\\\\|^    },\")",
+      "Bash(cp \"TPH/TPH AFFINITY MAP.png\" \"public/images/truepulse/tph-affinity-map.png\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\.next",
