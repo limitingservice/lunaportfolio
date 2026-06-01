@@ -53,7 +53,8 @@
       "Bash(cp \"C:/Users/lunaf/.gemini/antigravity-ide/brain/63547e2e-0aa0-4bc3-8b24-cfa09525523e/truepulse_logo_exact_1780101822488.png\" \"C:/Users/lunaf/Documents/Side Projects/Immersive/public/images/truepulse-logo.jpg\" && ls -la \"C:/Users/lunaf/Documents/Side Projects/Immersive/public/images/truepulse-logo.jpg\")",
       "Bash(npm install *)",
       "Bash(node -e ' *)",
-      "Bash(python -m pip install cairosvg)"
+      "Bash(python -m pip install cairosvg)",
+      "Bash(awk 'NR>=945 && /skillsApplied/{flag=1} flag{print NR\": \"$0; if\\(/^            \\\\]$/\\) exit}' data/projects.ts)"
     ],
     "additionalDirectories": [
       "C:\\Users\\lunaf\\Documents\\Side Projects\\Immersive\\.next",

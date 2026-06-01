@@ -48,6 +48,13 @@ export interface Project {
         keyFindings?: {
             category: string;
             insights: string[];
+            images?: {
+                image: string;
+                alt: string;
+                caption?: string;
+                width?: number;
+                height?: number;
+            }[];
         }[];
         designIterations?: {
             area: string;
@@ -75,6 +82,12 @@ export interface Project {
             bio?: string;
             userNeeds?: string[];
             userMindsets?: string[];
+            goals?: string[];
+            motivations?: string[];
+            hobbies?: string[];
+            experiences?: string[];
+            concerns?: string[];
+            frustrations?: string[];
         };
         journeyMap?: {
             phases: {
@@ -96,6 +109,22 @@ export interface Project {
                 examples: string[];
             }[];
         };
+        researchArtifacts?: {
+            image: string;
+            alt: string;
+            title?: string;
+            caption: string;
+            width?: number;  // natural pixel width of the image
+            height?: number; // natural pixel height of the image
+        }[];
+        testingResults?: {
+            image: string;
+            alt: string;
+            title?: string;
+            caption: string;
+            width?: number;
+            height?: number;
+        }[];
     };
     caseStudy?: {
         problem: string;
@@ -732,12 +761,36 @@ export const projects: Project[] = [
             ],
             keyFindings: [
                 {
-                    category: 'Faculty Sentiment & AI Comfort (Survey)',
+                    category: 'Survey — Current Quiz Creation Pain',
+                    images: [
+                        {
+                            image: '/images/canvas/44percent.png',
+                            alt: 'Survey bar chart: "How would you rate the amount of time it currently takes to create a quiz on Canvas?" — Very time-consuming ~9%, Time-consuming ~45%, Neutral ~27%, Efficient ~18%, Very efficient 0%. 11 responses.',
+                            caption: 'Q1 — Time spent creating a quiz on Canvas (11 respondents).',
+                            width: 846,
+                            height: 446
+                        }
+                    ],
                     insights: [
                         '44% of professors rated current Canvas quiz creation as time-consuming; zero rated it very efficient',
+                        'Combined with the 9% rating it very time-consuming, more than half (54%) of surveyed faculty experienced quiz creation as friction — not a niche pain point'
+                    ]
+                },
+                {
+                    category: 'Survey — AI Comfort & Quality Expectations',
+                    images: [
+                        {
+                            image: '/images/canvas/quality50.png',
+                            alt: 'Survey bar chart: "How likely do you think AI-generated quizzes will improve the quality of assessments?" — Very unlikely ~9%, Unlikely 0%, Neutral ~45%, Likely ~45%, Very likely 0%. 11 responses.',
+                            caption: 'Q3 — Likelihood AI-generated quizzes improve assessment quality (11 respondents).',
+                            width: 840,
+                            height: 467
+                        }
+                    ],
+                    insights: [
                         'Faculty AI comfort split 33/33/33 between uncomfortable, neutral, and comfortable — no respondent strongly endorsed AI integration',
-                        '56% of faculty believed AI-generated quizzes would likely improve assessment quality; 33% neutral',
-                        'Validated the AI-integration direction quantitatively while flagging trust calibration as a downstream design problem'
+                        '45% of faculty believed AI-generated quizzes would likely improve assessment quality; another 45% remained neutral, with only 9% leaning very unlikely — split conviction signaling openness, not strong endorsement',
+                        'Likely + Neutral combined reached 90% — faculty were not opposed to the AI direction, but their judgment would hinge on the actual implementation. Trust would need to be earned through interaction patterns rather than promised through UI claims'
                     ]
                 },
                 {
@@ -932,7 +985,25 @@ export const projects: Project[] = [
                         ]
                     }
                 ]
-            }
+            },
+            testingResults: [
+                {
+                    image: '/images/canvas/testing-measurements-canvas.png',
+                    alt: 'Cross-fidelity measurement matrix showing time-on-task, click count, error rate, and task completion rate across Low, Mid, and High fidelity testing rounds for multiple quiz-creation tasks.',
+                    title: 'Cross-Fidelity Testing Matrix',
+                    caption: 'Quantitative measurement matrix captured across all three fidelity rounds. Rows are Low / Mid / High fidelity testing; columns are individual quiz-creation tasks. Each cell tracks time-on-task, click count, error rate, and task completion rate per task per round — giving the team an apples-to-apples comparison of every design iteration against the baseline.',
+                    width: 1200,
+                    height: 912
+                },
+                {
+                    image: '/images/canvas/canvas-final-mp.png',
+                    alt: 'Final Measurement Plan table comparing baseline Canvas metrics against high-fidelity prototype averages on Task 3.',
+                    title: 'Final Measurement Plan — Baseline vs. High Fidelity',
+                    caption: 'Final measurement plan comparing baseline Canvas LMS performance against the high-fidelity AI-assisted prototype on Task 3 (quiz creation). Time-on-task dropped from 273.62s → 104s (a 62% reduction) and click count dropped from 24.5 → 17 (a 30% reduction) — both with task completion held at 100% and error rate at 0%. The design moved faculty through quiz creation measurably faster without trading off accuracy.',
+                    width: 417,
+                    height: 132
+                }
+            ]
         }
     },
     {
@@ -995,10 +1066,6 @@ export const projects: Project[] = [
                 {
                     role: 'Usability Test Participants',
                     description: 'Listeners observed completing three core tasks in moderated think-aloud sessions'
-                },
-                {
-                    role: 'Primary Persona: Manny Delgado (23, NYC student)',
-                    description: '"Music sets the vibe, and I\'m here to make sure it\'s always fresh and full of energy." Socially driven listener who creates collaborative playlists, discovers music through social media + charts, and shares actively through Instagram Stories and iMessage because Spotify\'s native sharing falls short. The persona anchored design priorities throughout the study.'
                 }
             ],
             keyFindings: [
@@ -1079,7 +1146,54 @@ export const projects: Project[] = [
                 'System Usability Scale (SUS)',
                 'Research Synthesis',
                 'UI Design'
-            ]
+            ],
+            researchArtifacts: [
+                {
+                    image: '/images/spotify-affinity-map.jpeg',
+                    alt: 'Physical affinity wall with six color-coded category clusters of sticky notes covering Social, Discovery, UI / Navigation, Critical Constraints, Demographics, and Suggestions.',
+                    title: 'Affinity Wall — In-Person Synthesis',
+                    caption: 'After interview and observational sessions with college-aged Spotify Premium subscribers, the team synthesized raw observations into six clustered theme groups on a physical affinity wall: Social, Discovery, UI / Navigation, Critical Constraints, Demographics, and Suggestions. Sticky-note density and the cross-cluster movement of recurring observations surfaced the six core problem areas that anchored the rest of the study — particularly the concentration around in-app sharing, friend discovery, and mobile playlist management.',
+                    width: 5120,
+                    height: 1793
+                }
+            ],
+            persona: {
+                name: 'Peter Williams',
+                age: 23,
+                occupation: 'Software Engineer · Full-time Graduate Student',
+                location: 'Indianapolis, IN',
+                bio: 'Career-driven graduate student balancing full-time work with academic study. Spotify is woven into his daily life — workouts, walks, study sessions, podcasts — and he expects the platform to keep up with his pace.',
+                goals: [
+                    'Higher education: complete his Master\'s degree',
+                    'Stay up to date on newest technology and features',
+                    'Easily integrate Spotify and its features into daily life'
+                ],
+                motivations: [
+                    'Complete assignments and get professional experience within his career path',
+                    'Optimize the use of Spotify and its features',
+                    'Continue to learn through various podcasts for self-growth'
+                ],
+                hobbies: [
+                    'Working out in the mornings, going on walks in the evening',
+                    'Reading non-fiction books during free-time',
+                    'Attending concerts during the summers'
+                ],
+                experiences: [
+                    'Has found new genres and artists through discovery features',
+                    'Has enjoyed the analytics of Spotify Wrapped to review listening evolution',
+                    'Public playlists are easy to find for specific themed events'
+                ],
+                concerns: [
+                    'Time management — wants to quickly select and find content',
+                    'Wants to protect his data so the algorithm is not negatively impacted',
+                    'Accessibility concerns for hard-of-hearing users who need transcripts and lyrics'
+                ],
+                frustrations: [
+                    'Preferences and customization feel limited — over-reliant on the algorithms',
+                    'Flaws with finding where to download music and how it is promoted',
+                    'Cannot edit music in the desired sequence on his playlists'
+                ]
+            }
         }
     },
     {
@@ -1471,7 +1585,7 @@ export const projects: Project[] = [
         name: 'Research Assistant — IU Indianapolis',
         year: 2024,
         category: 'Research',
-        description: 'Worked across two HCI research labs focusing on interactive data visualization, conceptual metaphor theory, and human-centered AI. Conducted museum field studies, AI-assisted qualitative analysis of 5,000+ Reddit posts, and 20 usability testing sessions with older adults on AI health information systems.',
+        description: 'Worked across two HCI research labs on interactive data visualization, Conceptual Metaphor Theory, and human-centered AI. Co-created and facilitated a 5-station online workshop with 5 industry professionals in museum data visualization, building scripts and video assets in Premiere Pro to introduce CMT before structured FigJam activities. Conducted Kinect-based museum field studies, AI-assisted qualitative analysis of 5,000+ Reddit posts, and 20 usability testing sessions with older adults on AI health information systems.',
         shortDescription: 'HCI research across two labs',
         tools: ['Qualitative Coding', 'Field Studies', 'Python', 'Figma', 'NotebookLM', 'Kinect Sensors', 'Usability Testing'],
         tags: ['HCI Research', 'AI-Assisted Analysis', 'Museum Studies', 'Older Adults', 'Data Visualization'],
@@ -1505,8 +1619,12 @@ export const projects: Project[] = [
             ],
             researchMethods: [
                 {
-                    name: 'Interactive Data Visualization & Museum Field Studies',
-                    description: 'Designed research and workshop artifacts using Figma and Adobe Premiere Pro for virtual workshops on Zoom. Recruited museum professionals through personal/professional networks, LinkedIn, and academic publications. Researched and curated sustainability-related datasets for interactive visualization deployed at Indiana State Museum. Conducted field studies observing children, utilizing Kinect-based sensors to capture participant movement and reflections. Recorded sessions and conducted qualitative coding to identify patterns and insights in user behavior.'
+                    name: 'Workshop Co-Facilitation with Industry Professionals',
+                    description: 'Co-created and facilitated a virtual workshop on Zoom with 5 industry professionals working in museum data visualization. Built workshop scripts and video assets in Adobe Premiere Pro introducing Conceptual Metaphor Theory before structured exercises. Designed a 5-station FigJam journey: (1) Gesture & Body Movement — exploring gestures used in interactive museum spaces; (2) Functionality of Data Visualization — observations on how visualizations communicate (color, shape, motion); (3) Data Literacy Goals — what knowledge participants take away from visualization interactions; (4) Schemas / Learning Activity — surfacing the mental models participants use to interpret data displays; (5) Pairing & Structuring — synthesis station mapping insights back across schema, gesture, functionality, and literacy goal. Recruited participants through personal/professional networks, LinkedIn, and academic publications.'
+                },
+                {
+                    name: 'Museum Field Studies & Kinect Observation',
+                    description: 'Researched and curated sustainability-related datasets for an interactive data visualization deployed at Indiana State Museum. Conducted field studies observing children\'s interactions, using Kinect-based sensors to capture participant movement and reflections. Recorded sessions and conducted qualitative coding to identify patterns and embodied-interaction insights in real-world museum settings.'
                 },
                 {
                     name: 'AI-Assisted Qualitative Analysis (Conceptual Metaphor Theory)',
@@ -1519,19 +1637,82 @@ export const projects: Project[] = [
             ],
             participants: [
                 {
-                    role: 'Museum Professionals',
-                    description: 'Recruited through networks, LinkedIn, and academic publications for workshops'
+                    role: '5 Industry Professionals (Museum Data Visualization)',
+                    description: 'Recruited through personal/professional networks, LinkedIn, and academic publications for the 5-station online workshop on gesture, functionality, data literacy, and schemas.'
                 },
                 {
                     role: 'Children (Museum Visitors)',
-                    description: 'Observed during field studies at Indiana State Museum'
+                    description: 'Observed during field studies at Indiana State Museum with Kinect-based movement capture.'
                 },
                 {
                     role: 'Older Adults',
-                    description: '20 participants for AI health information usability testing'
+                    description: '20 participants for AI health information usability testing.'
                 }
             ],
             keyFindings: [
+                {
+                    category: 'Task 1 — Gesture & Body Movement Patterns',
+                    insights: [
+                        'Most-cited gestures: waving (horizontal/vertical), pinching/spreading (zoom), pointing (with arm or leg), grabbing-and-moving, tapping, ducking/full-body, and "flying" (arms-out body movement)',
+                        'Real-world mimicry drives intuition — participants noted pinch-to-zoom and pointing felt natural because the gestures map to existing behaviors',
+                        'Sensor precision is the load-bearing failure mode — when sensitivity drops at the edges of the interaction zone, visitors become frustrated and abandon the experience',
+                        'Children\'s museum patterns (jumping to pop bubbles, bodies as obstacles for digital butterflies) have a low entry point but trade learning depth for engagement',
+                        'Floor-mounted positional cues (dots showing where to stand) consistently helped visitors understand desired behaviors before they were performed'
+                    ]
+                },
+                {
+                    category: 'Task 2 — Functionality of Data Visualization',
+                    insights: [
+                        'Visual signifiers of control matter — color pulses, rings emanating from objects, or smooth feedback keep visitors confident the system is responding',
+                        'Multi-user systems struggle when orientation depends on "who has control" — one user\'s engagement can degrade everyone else\'s view',
+                        'Simple changes outperform overly cute interactions — visitors leave less satisfied when designers over-design feedback layers',
+                        'Smooth transitions matter functionally, not just aesthetically — jarring shifts can trigger motion sickness for some users',
+                        'Avoid text-based change signaling in multilingual / tourist contexts — color, motion, and shape carry across language',
+                        'Color coding (different colors for different categories or visualization modes) helps visitors track transitions between data states'
+                    ]
+                },
+                {
+                    category: 'Task 3 — Data Literacy Goals & Engagement',
+                    insights: [
+                        'Data literacy is not always the primary goal — participants noted some experiences are valuable purely for engagement, with learning as a bonus',
+                        'Storytelling drives interpretation — climate, population, and astronomy data resonate when wrapped in narrative rather than presented as raw measurement',
+                        'Visitor-controlled exploration (e.g., navigating large NOAA/NASA datasets with body movement) creates deeper engagement than guided tours through fixed views',
+                        'Engagement is upstream of learning — without visitor appeal, persistence drops, and the learning outcomes never land regardless of content quality',
+                        'Re-imagining standard data charts (e.g., the Keeling Curve restaged as a roller-coaster ride) made abstract climate trends viscerally felt for younger audiences',
+                        'Takeaways participants want to leave with: better understanding of how a concept is measured, awareness of trends, understanding of method limitations, and renewed interest in the topic'
+                    ]
+                },
+                {
+                    category: 'Task 4 — Schemas & Embodied Metaphor Mappings',
+                    insights: [
+                        'Participants worked through schemas across the Space, Force, Unity-Multiplicity, Identity/Surface, Process, Attribute, and Containment groups — selecting the ones most relevant to their work',
+                        'Specific schema-to-gesture mappings surfaced organically: Near-Far → walking along a hallway paired with sound-wave elongation; Contact → floor sensors and physical interaction with environment; Removal/Restraint → pull elements out of a dataset to see how data shifts',
+                        'Force schemas mapped to concrete physical metaphors: Resistance → wringing motion, Blockage → side-to-side head shake, Merging → clasping hands together',
+                        'Identity schemas mapped to sorting/classification activities: Matching → comparing galaxy images against type samples (a Zooniverse touch-table use case), Part-Whole → selecting an object to see its internal composition',
+                        'Attribute schemas mapped to gradient or scalar interactions: Dark-Bright → physical motion in front of a light source paired with a real-time light-output graph (for eclipse/transit data)',
+                        'Containment schemas mapped to sorting tasks: Container → sorting items into buckets by criteria (predefined or user-defined)'
+                    ]
+                },
+                {
+                    category: 'Task 5 — Pairing & Structuring Synthesis',
+                    insights: [
+                        'The strongest interactive designs pair a schema, a gesture, a functionality, and a data literacy goal simultaneously — when any one of these is misaligned, the interaction breaks down',
+                        'Astronomy and life-sciences contexts surfaced repeatedly as fertile ground for body-as-interface designs (full-body movement for navigating star life cycles, anatomy explorations)',
+                        'Visitor demographics determine which gesture-schema pairings work — what is "intuitive" for a children\'s museum audience differs from what works for adult science-museum visitors',
+                        'Index-card / category-pairing exercises (Schema · Body Movement · Functionality · Data Literacy Goal · Other Considerations) gave participants a structured way to surface their accumulated experience as design principles'
+                    ]
+                },
+                {
+                    category: 'Cross-Task Connections',
+                    insights: [
+                        'Intuition = real-world mimicry — across every task, participants cited gestures and schemas that map to existing bodily experience as the highest-success interactions',
+                        'Failure mode is ambiguity — imprecise sensors, missing visual feedback, text-only signaling, and unclear control states all caused visitor abandonment',
+                        'Visual signifiers of system response are non-negotiable — color pulses, rings, smooth transitions, and on-screen affordances close the loop on every interaction',
+                        'Multi-user experience is its own design problem — single-user interactions fall apart in group settings without orientation-neutral patterns',
+                        'Body-as-interface unlocks accessibility patterns that hand-only or screen-only interactions cannot reach',
+                        'Industry professionals contributed design-side insight that visitor-observation research cannot — they articulated why specific design moves work, drawing on years of seeing visitor behavior'
+                    ]
+                },
                 {
                     category: 'Embodied Interaction in Museums',
                     insights: [
@@ -1574,8 +1755,13 @@ export const projects: Project[] = [
             ],
             designIterations: [
                 {
-                    area: 'Museum Workshop Design',
-                    improvements: ['Created virtual workshop artifacts in Figma and Adobe Premiere Pro', 'Adapted recruitment strategies across multiple channels', 'Curated sustainability datasets for visualization']
+                    area: 'Online Workshop Co-Facilitation',
+                    improvements: [
+                        'Co-created and facilitated a 5-station virtual workshop on Zoom with 5 industry professionals',
+                        'Built Conceptual Metaphor Theory primer videos in Adobe Premiere Pro to bring non-academic participants up to speed before exercises',
+                        'Designed the 5-station FigJam: Gesture → Functionality → Data Literacy Goal → Schemas → Pairing & Structuring',
+                        'Recruited across personal/professional networks, LinkedIn, and academic publications'
+                    ]
                 },
                 {
                     area: 'AI Prompt Engineering',
@@ -1605,6 +1791,9 @@ export const projects: Project[] = [
                 'Qualitative Research',
                 'Field Studies & Observational Research',
                 'User Interviews & Usability Testing',
+                'Workshop Co-Facilitation',
+                'Video Asset Creation (Adobe Premiere Pro)',
+                'FigJam Workshop Design',
                 'Qualitative Coding & Thematic Analysis',
                 'Conceptual Metaphor Theory (CMT)',
                 'Embodied Cognition & Schemata',
@@ -1614,6 +1803,16 @@ export const projects: Project[] = [
                 'Human-Centered AI Research',
                 'Python & API Integration',
                 'Prompt Engineering'
+            ],
+            researchArtifacts: [
+                {
+                    image: '/images/iu-workshop-figjam.png',
+                    alt: 'FigJam workshop board with 5 color-coded activity stations, populated with sticky notes from participants.',
+                    title: 'Online Workshop FigJam Board',
+                    caption: 'The collaborative FigJam board from the online workshop, run with 5 industry professionals working in museum data visualization. Five color-coded activity stations sequenced participant input: (1) Gesture & Body Movement, (2) Functionality of Data Visualization, (3) Data Literacy Goals, (4) Learning Through Schema, and (5) Pairing & Structuring — the synthesis station that mapped insights back across schema, gesture, functionality, and data literacy goal. Sticky-note density and color coding reflect contribution volume per station and per participant.',
+                    width: 1800,
+                    height: 1353
+                }
             ]
         },
         caseStudy: {

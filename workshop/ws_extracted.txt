@@ -1,0 +1,1649 @@
+Team 1
+1
+2
+3
+Mike Small: P1(Gabor Z: P2(Heather: P#:
+Fernando Luna
+Exploring Gesture and Body Movement
+Identify common gestures and movements used in interactive museum spaces.
+Gesture
+Instructions:
+List the gestures and describe (e.g., swiping, waving, jumping).
+Elaborate on how did you perform/ observe it ? Note if they felt intuitive or challenging.
+Waving. Hands moving 
+horizontally and/or 
+vertically. Generally easy 
+to grasp; functionality 
+occasionally drops toward 
+the edges of the 
+experience
+Mike Smail
+From hands positioned 
+together, pulling them 
+apart, horizontally. This 
+was in a 3d space, and 
+was used to zoom forward 
+and back through a digital 
+environment. More 
+challenging, body/hands 
+needed to be in a very 
+precise location to be 
+detected by the sensors.
+Mike Smail
+Pinching or squeezing - 
+the universal hand gesture 
+for zooming in and out. 
+This has become intuitive 
+because of how 
+ubiquitous it was. I cant 
+remember if it was 
+challenging the first time I 
+did it, but I have seen 
+people struggle with it at 
+first.
+Gabor Z
+Tapping, or quickly 
+touching an object more 
+than once. I am sure Ive 
+seen this before, but Im 
+having trouble 
+remembering a specific 
+use case....
+Gabor Z
+Pointing, can be with an 
+arm or with a leg. When 
+the sensor senses 
+proximity of the body part, 
+it selects the virutal 
+object. This is relatively 
+intuitive as it mimics a real 
+world gesture.
+Gabor Z
+Grabbing an object and 
+moving it across a screen 
+or area to another area 
+within the environment to 
+complete a task or goal.
+Heather
+In general, these types of 
+experiences are 
+challenging when the 
+sensitivity of the 
+interactive to respond to 
+body movements is not 
+very precise. For visitors 
+to try to figure out why it 
+is not working can 
+become frustrating or 
+they can give up.
+Heather
+Ducking/full body up/
+down movement. Used to 
+interact w/ content in a 
+projected background.
+Mike Smail
+expanding a screen by 
+doing a reverse pinching 
+motion from inside to 
+outside (close together to 
+far apart)
+Heather
+There is an interactive 
+that mimics flying like a 
+bird by holding your arms 
+out and moving your body 
+like a bird or airplane to go 
+through a path or maze. 
+Fairly intuitive, dots on the 
+ground tell you where to 
+stand. The screen 
+provides enough context 
+to suggest what behaviors 
+are desired.
+Heather
+Swapping hands right and 
+left to move something 
+out of the way
+Heather
+Jumping up and down to 
+pop bubbles. Or having 
+butterflies or objects 
+bounce off your body as 
+an obstacle. Ive seen 
+these interactives in 
+childrens museums. Fairly 
+low entry point and is 
+more about interacting 
+with the objects on 
+screen, using full body 
+movement of the users 
+choice to see the 
+relationship between your 
+body and the digital 
+artifacts (bubble and 
+butterflies)
+Heather
+Functionality of data visualization
+Understand how movements influence data visualization ( Results of functionality )
+Functionality
+Instructions:
+Discuss your observation on how data updates visually (e.g., color changes, shape shifts, size adjustments).
+Tell us more about if the feedback was clear, engaging, and easy to interpret.
+This was in a use case 
+where you were taking 
+control of a particular 
+object in the digital space. 
+Theres often a visual 
+signifier that you have 
+taken control, sometimes 
+a color pulse, rings 
+coming from the object, 
+etc. I find this helpful, as it 
+keeps the user from 
+wondering if its actually 
+working as intended.
+Mike Smail
+In one case, I remember 
+seeing the experience 
+orientation shift 
+depending on who had 
+control of it. This was 
+great for that one 
+particular user, but made 
+things much more difficult 
+for the rest.
+Mike Smail
+Colorful is generally better 
+as it allows for different 
+colors to mean different 
+things - color coding. It 
+also allows for a clear 
+transition when moving 
+from one type of 
+visualization to another.
+Gabor Z
+I appreciate data 
+visualization that balances 
+letting me explore while 
+also giving me some 
+feedback or guidance 
+about how I explore. This 
+can be through color 
+shifts, the feeling of 
+clicking into place, or 
+some sort of copy-based 
+feedback that responds to 
+how Im manipulating the 
+visualization with new 
+outputs.
+Gabor Z
+The functionality needs to 
+be clear and easy to 
+engage with. We had an 
+interactive in which 
+visitors could pick up an 
+artifact and scan it to 
+learn more about it a 
+kiosk. The mechanism to 
+scan the object 
+malfunctioned a lot and 
+then the pay off of what 
+you learned was to simple. 
+It resulted in visitors 
+giving up on the 
+experience.
+Heather
+People will always 
+respond better to simple 
+changes or shifts. Trying 
+to do too much, or trying 
+to be too cute with 
+interactions, definitely 
+leave folks feeling less 
+satisfied with their 
+experience.
+Mike Smail
+It should be visually 
+interesting and encourage 
+visitors through a payoff 
+to want to complete the 
+task. For example, if by 
+going through the 
+experience new data 
+transitions to a surprise/
+delight moment that 
+would be beneficial.
+Heather
+What is the target 
+demographic for these 
+experiences? Age will 
+determine 
+appropriateness, and best 
+approaches to make the 
+experience clear, 
+engaging, and east to 
+inerpret.
+Heather
+Its always interesting to 
+visualize the same set of 
+data in different ways - 
+bar graphs vs pie chart vs. 
+pictograph.  The data may 
+be more accessible for 
+different people in 
+different ways.
+Gabor Z
+It is more clear if the data 
+visualization changes are 
+easy to follow with the eye 
+and transition smoothly. 
+Some of these can be 
+jarring and for people like 
+me ;) create motion 
+sickness
+Heather
+We try to avoid using text 
+to signify changes, as that 
+is less universally 
+understandable (being in 
+both a tourist destination, 
+but also a city with a 
+healthy non-English 
+speaking population.
+Mike Smail
+Data zooms into view, 
+becomes bigger or 
+focuses more on an area 
+of detail. Im thinking of 
+Science on a Sphere as an 
+example.
+Heather
+Data Literacy Goal
+Define what knowledge you gained from the interaction
+Data Literacy Goal
+Instructions:
+List key takeaways visitors learned from the data.
+Discuss if the current visualization helps in understanding complex data.
+Suggest improvements to enhance learning.
+It depends! With plenty of 
+our things, we dont 
+necessarily want learning 
+goals or data literacy to be 
+the #1 takeaway of our 
+users. Wed rather 
+everybody have an 
+enjoyable experience, and 
+if they learn something 
+extra, thats a nice bonus.
+Mike Smail
+The goal of data 
+visualization is to provide 
+objective measurement of 
+the observation of a 
+phenomenon or a trend. 
+Generally we use them to 
+share or validate a story 
+that can best be done 
+through numbers. 
+Unfortunately some 
+people dont like 
+spreadsheets, so data 
+visualization gives a more 
+accessible entry point.
+Gabor Z
+We currently have a multi-
+user touch experience 
+that has proven fairly 
+consistent at giving 
+guests a reasonable base 
+level understanding of 
+different types (or steps in 
+the life cycle of) stars. The 
+interface/usage simplicity 
+is a big part of that.
+Mike Smail
+Again, thinking of complex 
+data sets like on Science 
+on a Sphere which allow 
+visitors to interact with 
+NOAA and NASA datasets 
+is interesting. Visitors 
+were allowed to dive 
+deeper in where their own 
+interests where, and take 
+full control of navigating 
+the datasets, positioning 
+the orientation of the 
+Earth, etc.
+Heather
+Story telling! Whether its 
+climate data or population 
+data, we are often telling a 
+story using images - for 
+data visualization, those 
+images are generated by 
+data. How we display the 
+data or interpret the 
+resulting images can be a 
+great driver of discussion. 
+Hans Roslings Ted Talk 
+was inspirational on this 
+back in the day.
+Gabor Z
+Visitor engagement will be 
+key. If it is not appealing 
+and interesting to visitors 
+they will not persist and 
+that will impact their 
+potential learning 
+outcomes. When people 
+hear data that doesnt 
+excite the large majority. 
+Developing ways to link 
+the interactivity and body 
+movement will be 
+important.
+Heather
+In one example, we have a 
+human body interactive 
+that allows visitors to use 
+their body movements to 
+explore body systems that 
+follows their own body 
+movements on screen. In 
+that example, visitors can 
+learn more about the 
+skeletal, muscular 
+systems, etc. Maybe make 
+connections between how 
+our bodies move and what 
+is going on inside.
+
+Improvements to this type 
+of experience could 
+provide more content as 
+visitors are exploring.
+Heather
+We spend a good bit of 
+effort ensuring the data 
+visualization is generally 
+understandable before we 
+ever put it in a planetarium 
+show or on the museum 
+floor. Were never just 
+gonna throw a bar graph 
+up on the dome, for 
+example. But, for a middle 
+school climate change 
+show we just produced, 
+we re-imagine the Keeling 
+Curve into more of a roller 
+coaster style ride, allowing 
+the audience to feel the 
+increasing CO2 levels in 
+the atmosphere in a more 
+impactful way.
+Mike Smail
+Our takeaways are more 
+often around general 
+literacy 
+
+ better understanding 
+of how we measure a 
+concept
+trends that emerge 
+from the data
+shortcomings of that 
+method of 
+measurement
+Other things we might 
+want to measure 
+around this specifc 
+question.
+Interest in learning 
+more about the topic or 
+the data
+Gabor Z
+Learning Activity ( Schemas)
+Get familiar with schema representation and understand participants perspective.
+Schemas
+Instructions:
+C
+hoose 5 schemas from the below list.
+Enact how would you perform it.
+Relate schema understanding to interactive data displays.
+Space Group
+Force  Group
+Unity- Multiplicity  Group
+Up/ down
+Nachiketa Patel
+Straight
+Nachiketa Patel
+Path
+Nachiketa Patel
+Near- Far
+You could pair the 
+physical movement of 
+guests along a line/
+hallway/etc, and pair that 
+with a realtime viz of 
+sound waves elongating. 
+Realtime meaning that it 
+adjusts on the fly, based 
+on guest movement.
+Nachiketa Patel
+Front-Back
+Nachiketa Patel
+Contact
+Encouraging physical 
+contact among guests can 
+be tricky, but you could 
+construct an environment 
+that encourages physical 
+interaction. Walk/roll over 
+this floor sensor, run into 
+this wall, etc to make 
+contact with the 
+environment around you
+Nachiketa Patel
+Center- Periphery
+Nachiketa Patel
+Left/right
+Nachiketa Patel
+Verticality
+Nachiketa Patel
+Removal or 
+restraint
+Perhaps users could 
+interact with a data set 
+that includes several 
+components and would 
+have the option to pull out 
+or remove different 
+elements to see how the 
+data shifts
+Nachiketa Patel
+Enablement
+Nachiketa Patel
+Balance
+Nachiketa Patel
+Diversion
+Nachiketa PatelResistance
+
+Could resistance by demonstrated by wringing something out to show resistance?
+R
+Nachiketa Patel
+Blockage
+
+Could blockage be 
+represented by shaking 
+the head back and forth in 
+a side to side motion (like 
+saying no)
+Nachiketa Patel
+Compulsion
+Nachiketa Patel
+Counterforce
+Nachiketa Patel
+Momentum
+Nachiketa Patel
+Attraction
+Nachiketa Patel
+Merging
+
+Could visitors take their 
+hands and clasp them in 
+front of their bodies like in 
+a clap motion to merge to 
+objects or pieces of data 
+together?
+Nachiketa Patel
+Collection
+In a complex field, users 
+could identify a shared 
+characteristic or feature 
+that they use to collect 
+objects and separate 
+them from the field
+Nachiketa Patel
+Identity/ Surface Group
+Superimposition
+Nachiketa Patel
+Identity Face
+Nachiketa Patel
+Matching
+One of our Zooniverse 
+touch table interactives 
+involves comparing 
+images of galaxies from 
+astronomical surveys with 
+sample images of different 
+types of galaxies, and sort 
+them appropriately. This 
+particular type of task still 
+greatly benefits from a 
+human doing the work. 
+Machine learning hasnt 
+caught up here, yet.
+Nachiketa Patel
+Part Whole
+Picturing an experience 
+where guests select a 
+type of object, and theyre 
+presented with a 
+breakdown of its internal 
+components. Say you 
+picked a galaxy, you 
+would then see X% of this 
+type of star, Y% of these. 
+And guests could 
+physically move that 
+content around (or remove 
+it), and see the resulting 
+output of their action.
+Nachiketa Patel
+Splitting
+Nachiketa Patel
+Process Group
+Cycle
+Nachiketa Patel
+Iteration
+Nachiketa Patel
+Attribute Group
+Before-During- 
+After
+Nachiketa Patel
+Strong and Weak
+Nachiketa Patel
+Warm-Cold
+Nachiketa Patel
+Big- small
+Nachiketa Patel
+Dark- Bright
+Using physical motion in a 
+space (could be moving in 
+front of a light source, or 
+controlling ambient room 
+lighting) to show the 
+dropoff in light output in a 
+transit or eclipse. This can 
+be paired with a real-time 
+graph-style visualization 
+of the light output.
+Nachiketa Patel
+More-Less
+Nachiketa Patel
+Containment Group
+Container
+Sorting items into buckets 
+or groups based on 
+criteria that is either pre-
+defined or defined by the 
+end user
+Nachiketa Patel
+Content
+Nachiketa Patel
+In-Out
+Nachiketa Patel
+1
+2
+3
+4
+5
+Exploring Gesture and Body Movement
+Identify common gestures and movements used in interactive museum spaces.
+Gesture
+List the gestures and describe (e.g., swiping, waving, jumping).
+Elaborate on how did you perform/ observe it ? Note if they felt intuitive or challenging.
+Waving. Hands moving 
+horizontally and/or 
+vertically. Generally easy 
+to grasp; functionality 
+occasionally drops toward 
+the edges of the 
+experience
+Mike Smail
+From hands positioned 
+together, pulling them 
+apart, horizontally. This 
+was in a 3d space, and 
+was used to zoom forward 
+and back through a digital 
+environment. More 
+challenging, body/hands 
+needed to be in a very 
+precise location to be 
+detected by the sensors.
+Mike Smail
+Pinching or squeezing - 
+the universal hand gesture 
+for zooming in and out. 
+This has become intuitive 
+because of how 
+ubiquitous it was. I cant 
+remember if it was 
+challenging the first time I 
+did it, but I have seen 
+people struggle with it at 
+first.
+Gabor Z
+Tapping, or quickly 
+touching an object more 
+than once. I am sure Ive 
+seen this before, but Im 
+having trouble 
+remembering a specific 
+use case....
+Gabor Z
+Pointing, can be with an 
+arm or with a leg. When 
+the sensor senses 
+proximity of the body part, 
+it selects the virutal 
+object. This is relatively 
+intuitive as it mimics a real 
+world gesture.
+Gabor Z
+Grabbing an object and 
+moving it across a screen 
+or area to another area 
+within the environment to 
+complete a task or goal.
+Heather
+In general, these types of 
+experiences are 
+challenging when the 
+sensitivity of the 
+interactive to respond to 
+body movements is not 
+very precise. For visitors 
+to try to figure out why it 
+is not working can 
+become frustrating or 
+they can give up.
+Heather
+Ducking/full body up/
+down movement. Used to 
+interact w/ content in a 
+projected background.
+Mike Smail
+expanding a screen by 
+doing a reverse pinching 
+motion from inside to 
+outside (close together to 
+far apart)
+Heather
+There is an interactive 
+that mimics flying like a 
+bird by holding your arms 
+out and moving your body 
+like a bird or airplane to go 
+through a path or maze. 
+Fairly intuitive, dots on the 
+ground tell you where to 
+stand. The screen 
+provides enough context 
+to suggest what behaviors 
+are desired.
+Heather
+Swapping hands right and 
+left to move something 
+out of the way
+Heather
+Jumping up and down to 
+pop bubbles. Or having 
+butterflies or objects 
+bounce off your body as 
+an obstacle. Ive seen 
+these interactives in 
+childrens museums. Fairly 
+low entry point and is 
+more about interacting 
+with the objects on 
+screen, using full body 
+movement of the users 
+choice to see the 
+relationship between your 
+body and the digital 
+artifacts (bubble and 
+butterflies)
+Heather
+Functionality of data visualization
+Understand how movements influence data visualization ( Results of functionality )
+Functionality
+Instructions:
+Discuss your observation on how data updates visually (e.g., color changes, shape shifts, size adjustments).
+Tell us more about if the feedback was clear, engaging, and easy to interpret.
+This was in a use case 
+where you were taking 
+control of a particular 
+object in the digital space. 
+Theres often a visual 
+signifier that you have 
+taken control, sometimes 
+a color pulse, rings 
+coming from the object, 
+etc. I find this helpful, as it 
+keeps the user from 
+wondering if its actually 
+working as intended.
+Mike Smail
+In one case, I remember 
+seeing the experience 
+orientation shift 
+depending on who had 
+control of it. This was 
+great for that one 
+particular user, but made 
+things much more difficult 
+for the rest.
+Mike Smail
+Colorful is generally better 
+as it allows for different 
+colors to mean different 
+things - color coding. It 
+also allows for a clear 
+transition when moving 
+from one type of 
+visualization to another.
+Gabor Z
+I appreciate data 
+visualization that balances 
+letting me explore while 
+also giving me some 
+feedback or guidance 
+about how I explore. This 
+can be through color 
+shifts, the feeling of 
+clicking into place, or 
+some sort of copy-based 
+feedback that responds 
+to how Im manipulating 
+the visualization with new 
+outputs.
+Gabor Z
+The functionality needs to 
+be clear and easy to 
+engage with. We had an 
+interactive in which 
+visitors could pick up an 
+artifact and scan it to 
+learn more about it a 
+kiosk. The mechanism to 
+scan the object 
+malfunctioned a lot and 
+then the pay off of what 
+you learned was to simple. 
+It resulted in visitors 
+giving up on the 
+experience.
+Heather
+People will always 
+respond better to simple 
+changes or shifts. Trying 
+to do too much, or trying 
+to be too cute with 
+interactions, definitely 
+leave folks feeling less 
+satisfied with their 
+experience.
+Mike Smail
+It should be visually 
+interesting and encourage 
+visitors through a payoff 
+to want to complete the 
+task. For example, if by 
+going through the 
+experience new data 
+transitions to a surprise/
+delight moment that 
+would be beneficial.
+Heather
+What is the target 
+demographic for these 
+experiences? Age will 
+determine 
+appropriateness, and 
+best approaches to make 
+the experience clear, 
+engaging, and east to 
+inerpret.
+Heather
+Its always interesting to 
+visualize the same set of 
+data in different ways - 
+bar graphs vs pie chart vs. 
+pictograph.  The data may 
+be more accessible for 
+different people in 
+different ways.
+Gabor Z
+It is more clear if the data 
+visualization changes are 
+easy to follow with the 
+eye and transition 
+smoothly. Some of these 
+can be jarring and for 
+people like me ;) create 
+motion sickness
+Heather
+Data zooms into view, 
+becomes bigger or 
+focuses more on an area 
+of detail. Im thinking of 
+Science on a Sphere as an 
+example.
+Heather
+Data Literacy Goal
+Define what knowledge you gained from the interaction
+Data Literacy Goal
+Instructions:
+List key takeaways visitors learned from the data.
+Discuss if the current visualization helps in understanding complex data.
+Suggest improvements to enhance learning.
+The goal of data 
+visualization is to provide 
+objective measurement 
+of the observation of a 
+phenomenon or a trend. 
+Generally we use them to 
+share or validate a story 
+that can best be done 
+through numbers. 
+Unfortunately some 
+people dont like 
+spreadsheets, so data 
+visualization gives a more 
+accessible entry point.
+Gabor Z
+We currently have a multi-
+user touch experience 
+that has proven fairly 
+consistent at giving 
+guests a reasonable base 
+level understanding of 
+different types (or steps 
+in the life cycle of) stars. 
+The interface/usage 
+simplicity is a big part of 
+that.
+Mike Smail
+Again, thinking of complex 
+data sets like on Science 
+on a Sphere which allow 
+visitors to interact with 
+NOAA and NASA datasets 
+is interesting. Visitors 
+were allowed to dive 
+deeper in where their own 
+interests where, and take 
+full control of navigating 
+the datasets, positioning 
+the orientation of the 
+Earth, etc.
+Heather
+Story telling! Whether its 
+climate data or population 
+data, we are often telling 
+a story using images - for 
+data visualization, those 
+images are generated by 
+data. How we display the 
+data or interpret the 
+resulting images can be a 
+great driver of discussion. 
+Hans Roslings Ted Talk 
+was inspirational on this 
+back in the day.
+Gabor Z
+Visitor engagement will be 
+key. If it is not appealing 
+and interesting to visitors 
+they will not persist and 
+that will impact their 
+potential learning 
+outcomes. When people 
+hear data that doesnt 
+excite the large majority. 
+Developing ways to link 
+the interactivity and body 
+movement will be 
+important.
+Heather
+Nachiketa Patel
+We spend a good bit of 
+effort ensuring the data 
+visualization is generally 
+understandable before we 
+ever put it in a planetarium 
+show or on the museum 
+floor. Were never just 
+gonna throw a bar graph 
+up on the dome, for 
+example. But, for a middle 
+school climate change 
+show we just produced, 
+we re-imagine the Keeling 
+Curve into more of a roller 
+coaster style ride, 
+allowing the audience to 
+feel the increasing CO2 
+levels in the atmosphere 
+in a more impactful way.
+Mike Smail
+In one example, we have a 
+human body interactive 
+that allows visitors to use 
+their body movements to 
+explore body systems 
+that follows their own 
+body movements on 
+screen. In that example, 
+visitors can learn more 
+about the skeletal, 
+muscular systems, etc. 
+Maybe make connections 
+between how our bodies 
+move and what is going on 
+inside.
+
+Improvements to this type 
+of experience could 
+provide more content as 
+visitors are exploring.
+Heather
+Our takeaways are more 
+often around general 
+literacy 
+
+ better understanding 
+of how we measure a 
+concept
+trends that emerge 
+from the data
+shortcomings of that 
+method of 
+measurement
+Other things we might 
+want to measure 
+around this specific 
+question.
+Interest in learning 
+more about the topic 
+or the data
+Gabor Z
+Learning Activity ( Schemas)
+Get familiar with schema representation and understand participants perspective.
+Schemas
+Instructions:
+C
+hoose 5 schemas from the below list.
+Enact how would you perform it.
+Relate schema understanding to interactive data displays.
+Space Group
+Force  Group
+Unity- Multiplicity  Group
+Up/ down
+Nachiketa Patel
+Straight
+Nachiketa Patel
+Path
+Nachiketa Patel
+Front-Back
+Nachiketa Patel
+Contact
+Encouraging physical 
+contact among guests can 
+be tricky, but you could 
+construct an environment 
+that encourages physical 
+interaction. Walk/roll over 
+this floor sensor, run into 
+this wall, etc to make 
+contact with the 
+environment around you
+Nachiketa Patel
+Center- Periphery
+Nachiketa Patel
+Left/right
+Nachiketa Patel
+Verticality
+Nachiketa Patel
+Enablement
+Nachiketa Patel
+Balance
+Nachiketa PatelResistance
+
+Could resistance by demonstrated by wringing something out to show resistance?
+R
+Nachiketa Patel
+Removal or 
+restraint
+Perhaps users could 
+interact with a data set 
+that includes several 
+components and would 
+have the option to pull out 
+or remove different 
+elements to see how the 
+data shifts
+Nachiketa Patel
+Diversion
+Nachiketa Patel
+Blockage
+
+Could blockage be 
+represented by shaking 
+the head back and forth in 
+a side to side motion (like 
+saying no)
+Nachiketa Patel
+Compulsion
+Nachiketa Patel
+Counterforce
+Nachiketa Patel
+Momentum
+Nachiketa Patel
+Attraction
+Nachiketa Patel
+Merging
+
+Could visitors take their 
+hands and clasp them in 
+front of their bodies like in 
+a clap motion to merge to 
+objects or pieces of data 
+together?
+Nachiketa Patel
+Identity/ Surface Group
+Superimposition
+Nachiketa Patel
+Identity Face
+Nachiketa Patel
+Matching
+One of our Zooniverse 
+touch table interactives 
+involves comparing 
+images of galaxies from 
+astronomical surveys with 
+sample images of different 
+types of galaxies, and sort 
+them appropriately. This 
+particular type of task still 
+greatly benefits from a 
+human doing the work. 
+Machine learning hasnt 
+caught up here, yet.
+Nachiketa Patel
+Part Whole
+Picturing an experience 
+where guests select a 
+type of object, and theyre 
+presented with a 
+breakdown of its internal 
+components. Say you 
+picked a galaxy, you 
+would then see X% of this 
+type of star, Y% of these. 
+And guests could 
+physically move that 
+content around (or remove 
+it), and see the resulting 
+output of their action.
+Nachiketa Patel
+Splitting
+Nachiketa Patel
+Process Group
+Cycle
+Nachiketa Patel
+Iteration
+Nachiketa Patel
+Attribute Group
+Before-During- 
+After
+Nachiketa Patel
+Strong and Weak
+Nachiketa Patel
+Warm-Cold
+Nachiketa Patel
+Big- small
+Nachiketa Patel
+Dark- Bright
+Using physical motion in a 
+space (could be moving in 
+front of a light source, or 
+controlling ambient room 
+lighting) to show the 
+dropoff in light output in a 
+transit or eclipse. This can 
+be paired with a real-time 
+graph-style visualization 
+of the light output.
+Nachiketa Patel
+More-Less
+Nachiketa Patel
+Containment Group
+Container
+Sorting items into buckets 
+or groups based on 
+criteria that is either pre-
+defined or defined by the 
+end user
+Nachiketa Patel
+Content
+Nachiketa Patel
+In-Out
+Nachiketa Patel
+Paring and structuring
+Matching Instances, Schemas & Functionalities to create a data structure
+Instructions:
+Match different embodied schema we discussed with gestures and data visualization functionality.
+Identify how each interaction aligns with data literacy goals.
+Discuss how this mapping improves usability and learning.
+Schema
+Near- Far
+You could pair the 
+physical movement of 
+guests along a line/
+hallway/etc, and pair that 
+with a realtime viz of 
+sound waves elongating. 
+Realtime meaning that it 
+adjusts on the fly, based 
+on guest movement.
+Nachiketa Patel
+Horizontal bipedal movement (lol, how did we forget about 
+walking/rolling).
+We try to avoid using text 
+to signify changes, as that 
+is less universally 
+understandable (being in 
+both a tourist destination, 
+but also a city with a 
+healthy non-English 
+speaking population.
+Mike Smail
+Gesture
+Functionality
+In this case, it would be a shape/size adjustment that 
+corresponds with guest position.
+Data Literacy Goal
+It depends! With plenty of 
+our things, we dont 
+necessarily want learning 
+goals or data literacy to be 
+the #1 takeaway of our 
+users. Wed rather 
+everybody have an 
+enjoyable experience, and 
+if they learn something 
+extra, thats a nice bonus.
+Mike Smail
+sub goal here would be an understanding of 
+the interconnection between position and, 
+say frequency/modulation
+Scale
+If scale here refers to size, in thinking about space 
+specifically, could the visitor grab an object and 
+then be able to turn it around, rotate it, and view it 
+closer up.
+Nachiketa Patel
+They could compare and contrast objects of different scales by turning 
+them around, exploring them 3dimensionally, learn more about the space 
+object.
+Visitors would have a better understanding of the scale/magnitude of data sets or objects 
+by being able to explore them more closely and move the object around.
+Collection
+In a complex field, users 
+could identify a shared 
+characteristic or feature 
+that they use to collect 
+objects and separate 
+them from the field
+Nachiketa Patel
+Users grab a virtual object 
+and then moving into into 
+a collection area. Repeat 
+as often as needed to 
+complete the task.
+Gabor Z
+Deconstruct or organize a 
+large field of seemingly 
+chaotic collection of 
+objects (or data) into sets 
+or collections of relevant 
+or interesting elements.
+Gabor Z
+Making choices about 
+what shold be included or 
+excluded from a data set 
+based on characteristics 
+or their alignment with the 
+research question.
+Gabor Z
+Understanding how the 
+interpretation of data can 
+change with the inclusion 
+or exclusion of a data set
+Gabor Z
+Merging
+Visitors take their hands and clasp 
+them together in front of their body 
+like a clap motion
+Allow visitors to grab and add two 
+pieces of data or artifacts together 
+to make something new or reveal a 
+new dataset.
+Could this demonstrate cause and 
+effect, under correlation better, see 
+the relationship between two sets. 
+of data or objects?
+WHAT AEW 
+THE ENTIES  
+TO GET IN 
+TASK
+TASK 5 AND 
+GO TO 
+PREVIOUSE 
+ACTIVITY ON 
+WHY THEY 
+SAID THISS
+UNDERSATND 
+WHY(
+NOT THE 
+CODES
+Grabbing an object and 
+moving it across a screen 
+or area to another area 
+within the environment to 
+complete a task or goal.
+Heather
+expanding a screen by 
+doing a reverse pinching 
+motion from inside to 
+outside (close together to 
+far apart)
+Heather
+Jumping up and down to 
+pop bubbles. Or having 
+butterflies or objects 
+bounce off your body as 
+an obstacle. Ive seen 
+these interactives in 
+childrens museums. Fairly 
+low entry point and is 
+more about interacting 
+with the objects on 
+screen, using full body 
+movement of the users 
+choice to see the 
+relationship between your 
+body and the digital 
+artifacts (bubble and 
+butterflies)
+Heather
+In general, these types of 
+experiences are 
+challenging when the 
+sensitivity of the 
+interactive to respond to 
+body movements is not 
+very precise. For visitors 
+to try to figure out why it 
+is not working can 
+become frustrating or 
+they can give up.
+Heather
+There is an interactive 
+that mimics flying like a 
+bird by holding your arms 
+out and moving your body 
+like a bird or airplane to go 
+through a path or maze. 
+Fairly intuitive, dots on the 
+ground tell you where to 
+stand. The screen 
+provides enough context 
+to suggest what behaviors 
+are desired.
+Heather
+Swapping hands right and 
+left to move something 
+out of the way
+Heather
+The functionality needs to 
+be clear and easy to 
+engage with. We had an 
+interactive in which 
+visitors could pick up an 
+artifact and scan it to 
+learn more about it a 
+kiosk. The mechanism to 
+scan the object 
+malfunctioned a lot and 
+then the pay off of what 
+you learned was to simple. 
+It resulted in visitors 
+giving up on the 
+experience.
+Heather
+It should be visually 
+interesting and encourage 
+visitors through a payoff 
+to want to complete the 
+task. For example, if by 
+going through the 
+experience new data 
+transitions to a surprise/
+delight moment that 
+would be beneficial.
+Heather
+It is more clear if the data 
+visualization changes are 
+easy to follow with the 
+eye and transition 
+smoothly. Some of these 
+can be jarring and for 
+people like me ;) create 
+motion sickness
+Heather
+Data zooms into view, 
+becomes bigger or 
+focuses more on an area 
+of detail. Im thinking of 
+Science on a Sphere as an 
+example.
+Heather
+What is the target 
+demographic for these 
+experiences? Age will 
+determine 
+appropriateness, and 
+best approaches to make 
+the experience clear, 
+engaging, and east to 
+inerpret.
+Heather
+Again, thinking of complex 
+data sets like on Science 
+on a Sphere which allow 
+visitors to interact with 
+NOAA and NASA datasets 
+is interesting. Visitors 
+were allowed to dive 
+deeper in where their own 
+interests where, and take 
+full control of navigating 
+the datasets, positioning 
+the orientation of the 
+Earth, etc.
+Heather
+Visitor engagement will be 
+key. If it is not appealing 
+and interesting to visitors 
+they will not persist and 
+that will impact their 
+potential learning 
+outcomes. When people 
+hear data that doesnt 
+excite the large majority. 
+Developing ways to link 
+the interactivity and body 
+movement will be 
+important.
+Heather
+In one example, we have a 
+human body interactive 
+that allows visitors to use 
+their body movements to 
+explore body systems 
+that follows their own 
+body movements on 
+screen. In that example, 
+visitors can learn more 
+about the skeletal, 
+muscular systems, etc. 
+Maybe make connections 
+between how our bodies 
+move and what is going on 
+inside.
+
+Improvements to this type 
+of experience could 
+provide more content as 
+visitors are exploring.
+Heather
+Task 6
+Task 10
+Task 7
+Task 11
+Task 8
+Task 12
+Task 9
+Task 13
+Task 14
+Team 2
+1
+Exploring Gesture and Body Movement
+Identify common gestures and movements used in interactive museum spaces.
+Gesture
+Instructions:
+List the gestures and describe (e.g., swiping, waving, jumping).
+Elaborate on how did you perform/ observe it ? Note if they felt intuitive or challenging.
+Nachiketa Patel
+Nachiketa Patel
+Nachiketa Patel
+Theater area - swipe 
+(back and forth) ™ to start 
+the program.
+Fernando Luna
+Tilt and move hand to 
+mimic the movement of 
+the animal.
+Fernando Luna
+Jump on different screens 
+to catch fireflies, the more 
+they jump and catch more 
+the forest will light up.
+Fernando Luna
+Screens of butterflies, 
+stand and the butterflies 
+would land on you. All 
+motion is detected. Up 
+down, side to side. 
+Butterflies match the 
+movements.
+Fernando Luna
+Rotation
+Fernando Luna
+Free movement based 
+interactions.
+Fernando Luna
+Move in get bigger, move 
+out get smaller.
+Fernando Luna
+2
+Functionality of data visualization
+Understand how movements influence data visualization ( Results of functionality )
+Functionality
+Instructions:
+Discuss your observation on how data updates visually (e.g., color changes, shape shifts, size adjustments).
+Tell us more about if the feedback was clear, engaging, and easy to interpret.
+Nachiketa Patel
+Nachiketa Patel
+Nachiketa Patel
+When swiping is to turn on 
+the program.
+Fernando Luna
+Swipe to change between 
+animals.
+Fernando Luna
+Use rotation of their hands 
+to explore and move the 
+animal.
+Fernando Luna
+Raising in means more, 
+lowering means less.
+Fernando Luna
+Scoot their hands to give 
+the animal some motion.
+Fernando Luna
+3
+Data Literacy Goal
+Define what knowledge you gained from the interaction
+Data Literacy Goal
+Instructions:
+List key takeaways visitors learned from the data.
+Discuss if the current visualization helps in understanding complex data.
+Suggest improvements to enhance learning.
+Nachiketa Patel
+Nachiketa Patel
+Nachiketa Patel
+You want to split it up into 
+chunks. Lessen the 
+cognitive load for each 
+step, lead to a bigger 
+realization.
+Fernando Luna
+What are the stories? 
+What are the stories we 
+want to tell? Use artifacts 
+to tell stories and identify 
+relationships.
+Fernando Luna
+How did the church affect 
+the community?
+Fernando Luna
+Smaller goals are building 
+to one big learning 
+objective.
+Fernando Luna
+4
+Learning Activity ( Schemas)
+Get familiar with schema representation and understand participants perspective.
+Schemas
+Instructions:
+C
+hoose 5 schemas from the below list.
+Enact how would you perform it.
+Relate schema understanding to interactive data displays.
+Space Group
+Force  Group
+Unity- Multiplicity  Group
+Up/ down
+Nachiketa Patel
+Straight
+Nachiketa Patel
+Path
+Nachiketa Patel
+Front-Back
+Nachiketa Patel
+Left/right
+Nachiketa Patel
+Contact
+Nachiketa Patel
+Center- Periphery
+Nachiketa Patel
+Verticality
+Nachiketa Patel
+Resistance
+
+Nachiketa Patel
+Removal or 
+restraint
+Nachiketa Patel
+Enablement
+Nachiketa Patel
+Balance
+Nachiketa Patel
+Diversion
+Nachiketa Patel
+Blockage
+
+Nachiketa Patel
+Compulsion
+Nachiketa Patel
+Counterforce
+Nachiketa Patel
+Momentum
+Nachiketa Patel
+Attraction
+Nachiketa Patel
+Identity/ Surface Group
+Superimposition
+Nachiketa Patel
+Matching
+Nachiketa Patel
+Identity Face
+Nachiketa Patel
+Merging
+
+Nachiketa Patel
+Part Whole
+Nachiketa Patel
+Splitting
+Nachiketa Patel
+Process Group
+Cycle
+Nachiketa Patel
+Iteration
+Nachiketa Patel
+Attribute Group
+Before-During- 
+After
+Nachiketa Patel
+Strong and Weak
+Nachiketa Patel
+Warm-Cold
+Nachiketa Patel
+Big- small
+Nachiketa Patel
+Dark- Bright
+.
+Nachiketa Patel
+More-Less
+Nachiketa Patel
+Containment Group
+Container
+Nachiketa Patel
+Content
+Nachiketa Patel
+In-Out
+Nachiketa Patel
+5
+Paring and structuring
+Matching Instances, Schemas & Functionalities to create a data structure
+Instructions:
+Match different embodied schema we discussed with gestures and data visualization functionality.
+Identify how each interaction aligns with data literacy goals.
+Discuss how this mapping improves usability and learning.
+Schema
+Gesture
+Functionality
+Data Literacy Goal
+Front and back
+Fernando Luna
+Rotation
+Fernando Luna
+Move to see the animal.
+Fernando Luna
+Observe animals that may 
+be extinct or hard to 
+interacct with.
+Fernando Luna
+Up and down
+Fernando Luna
+Jump
+Fernando Luna
+Catch fireflies in a rhythm 
+.
+Fernando Luna
+Correlation of actions to 
+reaction to light up the 
+forest .
+Fernando Luna
+Task 1
+Task 2
+Task 3
+Task 4
+Task 5

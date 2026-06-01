@@ -11,6 +11,66 @@ export interface PersonaData {
     bio?: string;
     userNeeds?: string[];
     userMindsets?: string[];
+    goals?: string[];
+    motivations?: string[];
+    hobbies?: string[];
+    experiences?: string[];
+    concerns?: string[];
+    frustrations?: string[];
+}
+
+const SECTION_STYLES: Record<string, { label: string; header: string; chip: string }> = {
+    goals: {
+        label: 'Goals',
+        header: 'bg-green-500/15 border-green-400/30 text-green-200',
+        chip: 'bg-green-400/15 border-green-400/30 text-green-100',
+    },
+    motivations: {
+        label: 'Motivation',
+        header: 'bg-pink-500/15 border-pink-400/30 text-pink-200',
+        chip: 'bg-pink-400/15 border-pink-400/30 text-pink-100',
+    },
+    hobbies: {
+        label: 'Hobbies',
+        header: 'bg-amber-500/15 border-amber-400/30 text-amber-200',
+        chip: 'bg-amber-400/15 border-amber-400/30 text-amber-100',
+    },
+    experiences: {
+        label: 'Experiences',
+        header: 'bg-blue-500/15 border-blue-400/30 text-blue-200',
+        chip: 'bg-blue-400/15 border-blue-400/30 text-blue-100',
+    },
+    concerns: {
+        label: 'Concerns',
+        header: 'bg-yellow-500/15 border-yellow-400/30 text-yellow-200',
+        chip: 'bg-yellow-400/15 border-yellow-400/30 text-yellow-100',
+    },
+    frustrations: {
+        label: 'Frustration',
+        header: 'bg-orange-500/15 border-orange-400/30 text-orange-200',
+        chip: 'bg-orange-400/15 border-orange-400/30 text-orange-100',
+    },
+};
+
+function PersonaSection({ items, sectionKey }: { items: string[]; sectionKey: keyof typeof SECTION_STYLES }) {
+    const style = SECTION_STYLES[sectionKey];
+    return (
+        <div>
+            <div className={`inline-flex items-center px-3 py-1 mb-3 rounded-md border text-xs font-bold uppercase tracking-wider ${style.header}`}>
+                {style.label}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                {items.map((item, idx) => (
+                    <div
+                        key={idx}
+                        className={`rounded-md border px-3 py-2.5 text-xs leading-snug ${style.chip}`}
+                    >
+                        {item}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 }
 
 interface PersonaCardProps {
@@ -87,6 +147,30 @@ export default function PersonaCard({ persona }: PersonaCardProps) {
                         )}
                     </div>
                 </div>
+
+                {/* Sticky-note style sections (Goals / Motivation / Hobbies / Experiences / Concerns / Frustration) */}
+                {(persona.goals || persona.motivations || persona.hobbies || persona.experiences || persona.concerns || persona.frustrations) && (
+                    <div className="mt-8 pt-8 border-t border-obsidian-700 space-y-6">
+                        {persona.goals && persona.goals.length > 0 && (
+                            <PersonaSection items={persona.goals} sectionKey="goals" />
+                        )}
+                        {persona.motivations && persona.motivations.length > 0 && (
+                            <PersonaSection items={persona.motivations} sectionKey="motivations" />
+                        )}
+                        {persona.hobbies && persona.hobbies.length > 0 && (
+                            <PersonaSection items={persona.hobbies} sectionKey="hobbies" />
+                        )}
+                        {persona.experiences && persona.experiences.length > 0 && (
+                            <PersonaSection items={persona.experiences} sectionKey="experiences" />
+                        )}
+                        {persona.concerns && persona.concerns.length > 0 && (
+                            <PersonaSection items={persona.concerns} sectionKey="concerns" />
+                        )}
+                        {persona.frustrations && persona.frustrations.length > 0 && (
+                            <PersonaSection items={persona.frustrations} sectionKey="frustrations" />
+                        )}
+                    </div>
+                )}
             </div>
         </section>
     );

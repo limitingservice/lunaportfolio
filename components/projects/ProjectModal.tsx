@@ -1,12 +1,17 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '@/data/projects';
 import ResearchTimeline from '@/components/projects/ResearchTimeline';
 import PersonaCard from '@/components/projects/PersonaCard';
 import UserJourneyMap from '@/components/projects/UserJourneyMap';
 import ThematicCodingTable from '@/components/projects/ThematicCodingTable';
+import ResearchArtifacts from '@/components/projects/ResearchArtifacts';
+import CaseStudyAccordion from '@/components/projects/CaseStudyAccordion';
+import PhaseAnchors from '@/components/projects/PhaseAnchors';
+
+type Phase = 'plan' | 'process' | 'synthesis' | 'outcomes';
 
 interface ProjectModalProps {
     project: Project | null;
@@ -211,6 +216,11 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                                                 </section>
                                             )}
 
+                                            {/* Research Artifacts (synthesis boards, affinity walls, workshop outputs) */}
+                                            {project.details?.researchArtifacts && project.details.researchArtifacts.length > 0 && (
+                                                <ResearchArtifacts artifacts={project.details.researchArtifacts} />
+                                            )}
+
                                             {/* Persona */}
                                             {project.details?.persona && (
                                                 <PersonaCard persona={project.details.persona} />
@@ -229,6 +239,15 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                                                 <ThematicCodingTable data={project.details.thematicCoding} />
                                             )}
 
+                                            {/* Testing & Measurement Results */}
+                                            {project.details?.testingResults && project.details.testingResults.length > 0 && (
+                                                <ResearchArtifacts
+                                                    artifacts={project.details.testingResults}
+                                                    sectionTitle="Testing & Measurement Results"
+                                                    sectionDescription="Quantitative test data captured across testing rounds — time-on-task, click count, error rate, and task completion — translated into the design's measurable improvements."
+                                                />
+                                            )}
+
                                             {/* Key Findings */}
                                             {project.details?.keyFindings && project.details.keyFindings.length > 0 && (
                                                 <section className="mb-10">
@@ -237,6 +256,27 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                                                         {project.details.keyFindings.map((finding, idx) => (
                                                             <div key={idx} className="bg-obsidian-800/50 border border-obsidian-700 rounded-xl p-6">
                                                                 <h4 className="text-lg font-bold metallic-text mb-3">{finding.category}</h4>
+                                                                {finding.images && finding.images.length > 0 && (
+                                                                    <div className="space-y-3 mb-4">
+                                                                        {finding.images.map((img, imgIdx) => (
+                                                                            <figure key={imgIdx} className="rounded-lg overflow-hidden border border-obsidian-700 bg-white">
+                                                                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                                                <img
+                                                                                    src={img.image}
+                                                                                    alt={img.alt}
+                                                                                    width={img.width}
+                                                                                    height={img.height}
+                                                                                    className="block w-full h-auto"
+                                                                                />
+                                                                                {img.caption && (
+                                                                                    <figcaption className="px-4 py-2 text-xs text-gray-400 bg-obsidian-800/60 border-t border-obsidian-700">
+                                                                                        {img.caption}
+                                                                                    </figcaption>
+                                                                                )}
+                                                                            </figure>
+                                                                        ))}
+                                                                    </div>
+                                                                )}
                                                                 <ul className="space-y-2">
                                                                     {finding.insights.map((insight, insightIdx) => (
                                                                         <li key={insightIdx} className="flex items-start gap-2">
