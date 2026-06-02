@@ -515,11 +515,6 @@ export const projects: Project[] = [
                     name: 'Pilot Program Design & Management',
                     description: 'Designed and managed a pilot program that paired a local designer with a secondhand retail store to test the upcycling concept on real local brands. Recruited brand participants, structured the program, negotiated the designer-retailer agreement, and coordinated the rollout end-to-end.',
                     rationale: 'A pilot turns a research-grounded concept into a defensible product hypothesis. Running it was the only way to test whether the three user groups would actually transact with each other.'
-                },
-                {
-                    name: 'Intern Hiring Interviews',
-                    description: 'Interviewed prospective research interns to assess alignment with team values and collaboration style before bringing them onto the practice.',
-                    rationale: 'Multiplying research throughput at a small startup depends on hiring people the team can actually work with. Interviews were as much about culture-fit research as capability.'
                 }
             ],
             participants: [
@@ -1289,9 +1284,9 @@ export const projects: Project[] = [
         tools: ['Figma', 'User Research', 'Prototyping', 'Usability Testing', 'Secondary Research', 'Interaction Design'],
         tags: ['Access Technology', 'Health & Wellness', 'Product Design', 'UX Research'],
         featured: true,
-        logo: '/images/pots-logo-opt.png',
+        logo: '/images/pots-logo.svg',
         images: {
-            thumbnail: '/images/pots-logo-opt.png',
+            thumbnail: '/images/pots-logo.svg',
             hero: '/images/pots/Episode-Warning-1.png',
         },
         viewer: {
